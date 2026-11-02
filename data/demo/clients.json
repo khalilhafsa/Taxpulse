@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "mueller_praezisionstechnik",
+    "name": "Müller Präzisionstechnik GmbH",
+    "mandate": "Tax due diligence – Project Alpine (2024)",
+    "contact_name": "Thomas Müller",
+    "contact_title": "Managing Director",
+    "salutation": "Dear Mr Müller,"
+  },
+  {
+    "slug": "nordlicht_immobilien",
+    "name": "Nordlicht Immobilien GmbH & Co. KG",
+    "mandate": "Tax due diligence – Project Polarstern (2023)",
+    "contact_name": "Dr Sabine Krüger",
+    "contact_title": "Managing Director, Nordlicht Verwaltungs GmbH",
+    "salutation": "Dear Dr Krüger,"
+  },
+  {
+    "slug": "brightloop_software",
+    "name": "Brightloop Software GmbH",
+    "mandate": "Tax due diligence – Series B financing (2024)",
+    "contact_name": "Jonas Becker",
+    "contact_title": "Co-founder and CFO",
+    "salutation": "Dear Mr Becker,"
+  },
+  {
+    "slug": "kaiser_dental",
+    "name": "Kaiser Dental MVZ GmbH",
+    "mandate": "Tax due diligence – Project Smile (2024)",
+    "contact_name": "Dr Anna Kaiser",
+    "contact_title": "Managing Director",
+    "salutation": "Dear Dr Kaiser,"
+  }
+]

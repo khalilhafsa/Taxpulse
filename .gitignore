@@ -1,0 +1,19 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# node
+node_modules/
+dist/
+
+# local data created at runtime
+data/taxpulse.db
+data/uploads/
+
+# local diagnosis output
+data/diagnose.log

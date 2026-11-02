@@ -1,0 +1,8 @@
+# Public demo only: the agents replay recorded results, so CrewAI and the Anthropic SDK are not needed.
+fastapi==0.148.0
+uvicorn[standard]==0.54.0
+sqlmodel==0.0.48
+pydantic-settings==2.16.0
+python-multipart
+pypdf
+httpx==0.28.1

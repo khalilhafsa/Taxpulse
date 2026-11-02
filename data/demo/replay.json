@@ -1,0 +1,3563 @@
+{
+ "profiles": {
+  "mueller_praezisionstechnik": {
+   "name": "Müller Präzisionstechnik GmbH",
+   "data": {
+    "company_name": "Müller Präzisionstechnik GmbH",
+    "summary": "Müller Präzisionstechnik GmbH is a Reutlingen-based CNC precision component manufacturer, wholly owned by Müller Holding GmbH and part of a fiscal unity (Organschaft), with a Polish contract manufacturing subsidiary. The Tax Due Diligence Report for Project Alpine found no deal-breaking tax risks, but flags transfer pricing documentation for the Polish subsidiary and e-invoicing readiness of the Sage 100 invoicing system as medium risks. It also identifies an unused Forschungszulage potential as an opportunity, and wage tax as a low risk.",
+    "key_facts": [
+     {
+      "label": "Legal form and seat",
+      "value": "GmbH with seat in Reutlingen (Baden-Württemberg).",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Müller Präzisionstechnik GmbH, Reutlingen (Baden-Württemberg).",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Mandate",
+      "value": "Tax due diligence for Project Alpine, report date 14 February 2024, closing 28 March 2024.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Tax Due Diligence Report – Project Alpine",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Report date: 14 February 2024. Closing: 28 March 2024.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Business activity",
+      "value": "CNC precision components for automotive suppliers (approx. 60% of sales) and medical device manufacturers (approx. 40%).",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "Business: CNC precision components for automotive suppliers (approx. 60% of sales) and medical device",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Revenue FY2023",
+      "value": "Revenue of EUR 48.2m in FY2023 (FY2022: EUR 44.9m).",
+      "citations": [
+       {
+        "document": "02_Financial_Statements_FY2023.pdf",
+        "page": 1,
+        "quote": "Income statement (EUR m) FY2023 FY2022 Revenue 48.2 44.9",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Employees",
+      "value": "Average number of employees was 310 in FY2023 (FY2022: 296).",
+      "citations": [
+       {
+        "document": "02_Financial_Statements_FY2023.pdf",
+        "page": 2,
+        "quote": "Average number of employees: 310 (FY2022: 296)",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Ownership",
+      "value": "The Company is wholly owned by Müller Holding GmbH.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "is wholly owned by Müller Holding GmbH.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Cross-border activity",
+      "value": "Export share of approx. 55%, mainly EU, Switzerland and the USA.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "Export share approx. 55%, mainly EU, Switzerland and the USA.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Polish subsidiary",
+      "value": "The Company holds 100% of Müller Precyzja Sp. z o.o. (Poland), which manufactures sub-assemblies exclusively for the Company with approx. 90 employees.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "The Company holds 100% of Müller Precyzja Sp. z o.o.",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "sub-assemblies exclusively for the Company with approx. 90 employees.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Related-party purchases",
+      "value": "Purchases from the affiliated Polish company amounted to EUR 7.4m.",
+      "citations": [
+       {
+        "document": "02_Financial_Statements_FY2023.pdf",
+        "page": 2,
+        "quote": "Purchases from affiliated company Müller Precyzja Sp. z o.o.: EUR 7.4m",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Fiscal unity (Organschaft)",
+      "value": "Organschaft for corporate income tax and trade tax exists since 2016, based on a profit and loss transfer agreement.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "(Organschaft) for corporate income tax and trade tax exists since 2016, based on a profit and loss transfer",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Leased production halls",
+      "value": "Production halls in Reutlingen and Metzingen are leased at an annual rent of EUR 0.9m.",
+      "citations": [
+       {
+        "document": "02_Financial_Statements_FY2023.pdf",
+        "page": 2,
+        "quote": "Leased production halls in Reutlingen and Metzingen (annual rent EUR 0.9m)",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "tax_areas": [
+     {
+      "category": "Transfer pricing",
+      "title": "Cost-plus remuneration of Polish contract manufacturer with outdated documentation",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "The Polish subsidiary is remunerated cost plus 5% on the basis of a 2019 benchmarking study, and the Local File has not been updated since FY2021. With a tax audit for FY2021–FY2023 expected in 2026, documentation gaps could lead to adjustments of the markup.",
+      "facts": [
+       {
+        "label": "Cost-plus markup",
+        "value": "Müller Precyzja is remunerated on a cost-plus basis with a markup of 5% under the contract manufacturing agreement of 1 July 2019.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "Müller Precyzja is remunerated on a cost-plus basis with a markup of 5% under the contract manufacturing",
+          "verified": true
+         },
+         {
+          "document": "03_Contract_Manufacturing_Agreement.pdf",
+          "page": 2,
+          "quote": "The Manufacturer receives its total operating costs plus a markup of 5% (cost plus 5%).",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Risk allocation",
+        "value": "The Principal bears market risk and inventory risk for finished goods.",
+        "citations": [
+         {
+          "document": "03_Contract_Manufacturing_Agreement.pdf",
+          "page": 1,
+          "quote": "The Principal bears market risk and inventory risk for finished goods.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Local File and benchmarking outdated",
+        "value": "A Local File exists for FY2019–FY2021 but has not been updated; the benchmarking study dates from 2019.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "A Local File exists for FY2019–FY2021 but has",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "not been updated since. The underlying benchmarking study dates from 2019.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "No documented markup review",
+        "value": "The agreement requires a markup review every three years, but no review has been documented.",
+        "citations": [
+         {
+          "document": "03_Contract_Manufacturing_Agreement.pdf",
+          "page": 2,
+          "quote": "No review has been documented to date.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Expected tax audit",
+        "value": "A tax audit for FY2021–FY2023 is expected in 2026.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "FY2021–FY2023 is expected in 2026.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Indicative exposure",
+        "value": "Medium risk with indicative exposure of EUR 0.4m – 0.9m.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Transfer pricing Medium EUR 0.4m – 0.9m",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "VAT",
+      "title": "E-invoicing readiness of Sage 100 invoicing system",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "The Sage 100 (2019) system produces PDF invoices only and supports neither XRechnung nor ZUGFeRD, so it is not ready for mandatory e-invoicing. The ERP migration is planned only for 2026 or later and no budget has been approved, which creates a process risk.",
+      "facts": [
+       {
+        "label": "Invoicing system",
+        "value": "Invoices are generated in Sage 100 (on-premise, version 2019).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "Invoices are generated in Sage 100 (on-premise, version 2019).",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "No structured e-invoice formats",
+        "value": "The system produces PDF invoices only and supports neither XRechnung nor ZUGFeRD.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "The system produces PDF invoices only and supports neither XRechnung nor ZUGFeRD.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "ERP migration unfunded",
+        "value": "An ERP migration is planned \"in 2026 or later\" and no budget has been approved.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "no budget has been approved.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "VAT reporting and chain transactions",
+        "value": "High volume of domestic B2B and intra-community supplies, including chain transactions via the Polish subsidiary; reporting found materially correct.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "chain transactions via the Polish subsidiary. Reporting was found to be materially correct.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Rating",
+        "value": "VAT / invoicing is rated Medium with process risk.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "VAT / invoicing Medium Process risk",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "R&D incentives",
+      "title": "Unused Forschungszulage potential for process innovations in medical titanium implants",
+      "assessment": "opportunity",
+      "severity": "medium",
+      "summary": "No research allowance claim under the FZulG has ever been filed, although an internal R&D team develops process innovations with technical uncertainty. The report indicates a potential of EUR 1.1m – 1.6m.",
+      "facts": [
+       {
+        "label": "R&D team and projects",
+        "value": "An internal R&D team of 14 FTE develops new machining processes for medical-grade titanium implants.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "team of 14 FTE develops new machining processes for medical-grade titanium implants.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Process innovations with technical uncertainty",
+        "value": "The R&D activities are described as process innovations with technical uncertainty.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "These are process innovations with technical uncertainty.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "R&D costs",
+        "value": "R&D expenses of EUR 1.6m were recognised in FY2023, of which personnel costs EUR 1.3m.",
+        "citations": [
+         {
+          "document": "02_Financial_Statements_FY2023.pdf",
+          "page": 2,
+          "quote": "Research and development expenses recognised in profit or loss: EUR 1.6m, of which personnel costs",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "No claim filed, no BSFZ certificate",
+        "value": "No claim for the research allowance under the FZulG has ever been filed and no BSFZ certificate exists.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "per year in FY2020–FY2023. No claim for the research allowance under the FZulG has ever been filed",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "and no BSFZ certificate exists.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Indicative potential",
+        "value": "Research allowance rated as an opportunity of EUR 1.1m – 1.6m.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Research allowance Opportunity EUR 1.1m – 1.6m",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Corporate income tax",
+      "title": "Fiscal unity (Organschaft) with Müller Holding GmbH",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "A fiscal unity for corporate income tax and trade tax has existed since 2016 based on a profit and loss transfer agreement with the sole shareholder. Net income is shown before profit transfer, so tax effects are determined at the level of the tax group.",
+      "facts": [
+       {
+        "label": "Organschaft since 2016",
+        "value": "Organschaft for corporate income tax and trade tax exists since 2016, based on a profit and loss transfer agreement.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "(Organschaft) for corporate income tax and trade tax exists since 2016, based on a profit and loss transfer",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Sole shareholder",
+        "value": "The Company is wholly owned by Müller Holding GmbH.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "is wholly owned by Müller Holding GmbH.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Net income before profit transfer",
+        "value": "Net income before profit transfer was EUR 3.6m in FY2023 (FY2022: EUR 3.0m).",
+        "citations": [
+         {
+          "document": "02_Financial_Statements_FY2023.pdf",
+          "page": 1,
+          "quote": "Net income before profit transfer 3.6 3.0",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Wage tax",
+      "title": "Company car taxation (1% rule and 0.25% rule for electric vehicles)",
+      "assessment": "risk",
+      "severity": "low",
+      "summary": "22 managers use company cars and the 1% rule is applied correctly, with the 0.25% rule applied to two fully electric vehicles. The residual exposure is low at below EUR 50k.",
+      "facts": [
+       {
+        "label": "Company cars",
+        "value": "22 managers use company cars; the 1% rule is applied correctly.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "22 managers use company cars; the 1% rule is applied correctly.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Electric vehicles",
+        "value": "Two vehicles are fully electric (0.25% rule applied).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "Two vehicles are fully electric (0.25% rule applied).",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Indicative exposure",
+        "value": "Wage tax rated Low with exposure below EUR 50k.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Wage tax Low < EUR 50k",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "open_points": [
+     {
+      "label": "Update Local File and benchmarking study",
+      "value": "Update Local File and benchmarking study before the 2026 audit.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Update Local File and benchmarking study before the 2026 audit",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Evaluate Forschungszulage claim",
+      "value": "Evaluate a Forschungszulage claim for FY2020–FY2023.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Evaluate a Forschungszulage claim for FY2020–FY2023",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Assess e-invoicing readiness",
+      "value": "Assess e-invoicing readiness of the invoicing system.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Assess e-invoicing readiness of the invoicing system",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "keywords": [
+     "contract manufacturing",
+     "transfer pricing",
+     "cost plus",
+     "Local File",
+     "e-invoicing",
+     "XRechnung",
+     "ZUGFeRD",
+     "Forschungszulage",
+     "Organschaft",
+     "company cars",
+     "Poland",
+     "CNC precision components",
+     "medical devices",
+     "automotive suppliers",
+     "tax audit 2026"
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 7699,
+   "tokens_out": 9126,
+   "duration_ms": 50578
+  },
+  "nordlicht_immobilien": {
+   "name": "Nordlicht Immobilien GmbH & Co. KG",
+   "data": {
+    "company_name": "Nordlicht Immobilien GmbH & Co. KG",
+    "summary": "Nordlicht Immobilien GmbH & Co. KG is a Berlin-based, commercially imprinted (gewerblich geprägt) property partnership that lets residential and commercial buildings and operates rooftop PV systems on two of them. In Project Polarstern, Aurora Residential Fund SCSp (Luxembourg) acquires 89.9% of the interests and Hanseatic Family Office GmbH acquires 10.1%, with closing on 29 September 2023. The key tax sensitivities are real estate transfer tax (RETT), the extended trade tax reduction, and the interest barrier on the EUR 60m shareholder loan from the fund. VAT is rated low.",
+    "key_facts": [
+     {
+      "label": "Legal form and seat",
+      "value": "Target is Nordlicht Immobilien GmbH & Co. KG, seated in Berlin; the buyer is Aurora Residential Fund SCSp, Luxembourg.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Nordlicht Immobilien GmbH & Co. KG, Berlin. Buyer: Aurora Residential Fund SCSp, Luxembourg.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Commercial imprint",
+      "value": "The partnership is commercially imprinted through its general partner Nordlicht Verwaltungs GmbH and is therefore subject to trade tax.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "The partnership is commercially imprinted (gewerblich geprägt) through its general partner Nordlicht",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Business activity",
+      "value": "The partnership lets residential and commercial properties and claims the extended trade tax reduction for its rental income.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 3,
+        "quote": "The partnership claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Residential lettings are VAT-exempt.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Rental income 2022",
+      "value": "Total rental income 2022 per the property schedule as at 30 June 2023 is EUR 11,400k, with PV systems on 2 properties.",
+      "citations": [
+       {
+        "document": "02_Property_Schedule.pdf",
+        "page": 1,
+        "quote": "Property Schedule as at 30 June 2023",
+        "verified": true
+       },
+       {
+        "document": "02_Property_Schedule.pdf",
+        "page": 1,
+        "quote": "Rental income 2022 (EUR k)",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Ownership after transaction",
+      "value": "Share deal: the fund acquires 89.9% of the partnership interests and Hanseatic Family Office GmbH acquires 10.1%.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "The transaction is structured as a share deal: the fund acquires 89.9% of the partnership interests, a",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "German family office (Hanseatic Family Office GmbH) acquires 10.1%.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Cross-border activity",
+      "value": "The lender under the shareholder loan is the Luxembourg fund and the borrower is the Berlin partnership.",
+      "citations": [
+       {
+        "document": "03_Shareholder_Loan_Agreement.pdf",
+        "page": 1,
+        "quote": "Lender: Aurora Residential Fund SCSp, Luxembourg. Borrower: Nordlicht Immobilien GmbH & Co. KG,",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Mandate",
+      "value": "Tax due diligence for Project Polarstern, report dated 3 August 2023, closing on 29 September 2023.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Tax Due Diligence Report – Project Polarstern",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Report date: 3 August 2023. Closing: 29 September 2023.",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "tax_areas": [
+     {
+      "category": "Real estate transfer tax",
+      "title": "RETT on share deal – 89.9% / 10.1% split and ten-year monitoring",
+      "assessment": "risk",
+      "severity": "high",
+      "summary": "The 89.9% / 10.1% split keeps the acquisition below the 90% threshold, but any further transfer of interests within ten years, including by the 10.1% co-investor, could trigger RETT. Future changes to § 1 (2a) and (2b) GrEStG or to the holding periods would directly affect this structure.",
+      "facts": [
+       {
+        "label": "90% threshold",
+        "value": "The split keeps the acquisition below the 90% threshold of § 1 (2a) and (2b) GrEStG.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "The 89.9% / 10.1% split keeps the acquisition below the 90% threshold of § 1 (2a) and (2b) GrEStG.",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "90% threshold, 10-year holding periods",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Ten-year monitoring",
+        "value": "Any future transfer of interests within ten years must be monitored, including a sale by the 10.1% co-investor.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "future transfer of interests within ten years must be monitored, including a sale by the 10.1% co-investor.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Trade tax",
+      "title": "Extended trade tax reduction and PV expansion",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "Current feed-in income is below the de minimis threshold, but the planned PV expansion to six further buildings from 2025 would significantly increase this income and could jeopardise the extended reduction. The operating equipment in two commercial units should also be reviewed.",
+      "facts": [
+       {
+        "label": "Extended reduction claimed",
+        "value": "The partnership claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG for its rental income.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "The partnership claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Trade tax liability",
+        "value": "As a commercially imprinted partnership it is subject to trade tax.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "The partnership is commercially imprinted (gewerblich geprägt) through its general partner Nordlicht",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Existing PV systems",
+        "value": "Rooftop PV systems are operated on two buildings and feed-in income 2022 was EUR 41k.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "Rooftop photovoltaic systems are operated on two buildings",
+          "verified": true
+         },
+         {
+          "document": "02_Property_Schedule.pdf",
+          "page": 2,
+          "quote": "Electricity from both systems is fed into the public grid under the EEG. Feed-in income 2022: EUR 41k.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "De minimis position",
+        "value": "Current feed-in income is below the statutory de minimis threshold.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "Current feed-in income is below the statutory de minimis threshold.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Planned PV expansion",
+        "value": "PV systems are planned on six further buildings from 2025, with approx. EUR 1.3m income per year once complete.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "PV systems on six further buildings from 2025, which would significantly increase this income.",
+          "verified": true
+         },
+         {
+          "document": "02_Property_Schedule.pdf",
+          "page": 2,
+          "quote": "and tenant electricity income of approx. EUR 1.3m per year once complete.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Operating equipment",
+        "value": "Two commercial units contain operating equipment (Betriebsvorrichtungen) that should be reviewed.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "commercial units contain operating equipment (Betriebsvorrichtungen) that should be reviewed.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Financing",
+      "title": "Interest barrier on EUR 60m shareholder loan",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "Net interest expense exceeds EUR 3m and the partnership relies on the escape clause of the interest barrier. The position needs to be re-tested annually, so changes in the financing structure or in the rules may affect deductibility.",
+      "facts": [
+       {
+        "label": "Shareholder loan",
+        "value": "The fund granted a shareholder loan of EUR 60m at 6.5% interest.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "The fund granted a shareholder loan of EUR 60m at 6.5% interest (document 03).",
+          "verified": true
+         },
+         {
+          "document": "03_Shareholder_Loan_Agreement.pdf",
+          "page": 1,
+          "quote": "Principal amount: EUR 60,000,000. Interest: 6.5% p.a., payable annually. Term: 7 years.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Escape clause",
+        "value": "Net interest expense exceeds EUR 3m; the partnership relies on the escape clause.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "exceeds EUR 3m; the partnership relies on the escape clause.",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "EUR 60m shareholder loan",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Subordination",
+        "value": "The loan is subordinated to the senior bank financing.",
+        "citations": [
+         {
+          "document": "03_Shareholder_Loan_Agreement.pdf",
+          "page": 1,
+          "quote": "subordinated to the senior bank financing.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Transfer pricing",
+      "title": "Arm's length interest rate on related-party shareholder loan",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "The lender is a related party holding 89.9% of the borrower, so the interest rate must be at arm's length. The 2023 bank offer supports the rate, but it remains a documentation point for future reviews.",
+      "facts": [
+       {
+        "label": "Related-party lender",
+        "value": "The lender is a related party holding 89.9% of the interests in the borrower.",
+        "citations": [
+         {
+          "document": "03_Shareholder_Loan_Agreement.pdf",
+          "page": 1,
+          "quote": "The lender is a related party holding 89.9% of the interests in the borrower.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Arm's length support",
+        "value": "The arm's length nature of the interest rate is supported by a 2023 bank offer.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "The arm's length nature of the interest rate",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "is supported by a 2023 bank offer.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "VAT",
+      "title": "VAT option for commercial lettings and input VAT correction",
+      "assessment": "risk",
+      "severity": "low",
+      "summary": "Residential lettings are VAT-exempt, while commercial lettings, approx. 18% of rental income, are partly subject to VAT by option. Input VAT correction periods are running, so changes in use or in the commercial letting share could trigger corrections.",
+      "facts": [
+       {
+        "label": "Residential lettings",
+        "value": "Residential lettings are VAT-exempt.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "Residential lettings are VAT-exempt.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Commercial lettings by option",
+        "value": "Commercial lettings (approx. 18% of rental income) are partly subject to VAT by option.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "Commercial lettings (approx. 18% of rental income) are partly subject",
+          "verified": true
+         },
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Option for commercial lettings",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Input VAT correction",
+        "value": "Input VAT correction periods are running.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "to VAT by option; input VAT correction periods are running.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "open_points": [
+     {
+      "label": "Monitor shareholder changes (RETT)",
+      "value": "Monitor shareholder changes for 10 years (RETT).",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Monitor shareholder changes for 10 years (RETT)",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Review PV expansion plan",
+      "value": "Review the PV expansion plan against the extended trade tax reduction.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Review PV expansion plan against the extended trade tax reduction",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Re-test interest barrier escape clause",
+      "value": "Re-test the interest barrier escape clause annually.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Re-test interest barrier escape clause annually",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "keywords": [
+     "share deal",
+     "real estate transfer tax",
+     "GrEStG",
+     "90% threshold",
+     "extended trade tax reduction",
+     "photovoltaic",
+     "Betriebsvorrichtungen",
+     "interest barrier",
+     "shareholder loan",
+     "escape clause",
+     "VAT option",
+     "residential real estate",
+     "gewerblich geprägt",
+     "Luxembourg fund",
+     "input VAT correction"
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 7258,
+   "tokens_out": 9771,
+   "duration_ms": 59640
+  },
+  "brightloop_software": {
+   "name": "Brightloop Software GmbH",
+   "data": {
+    "company_name": "Brightloop Software GmbH",
+    "summary": "Brightloop Software GmbH is a Munich-based software company (SaaS route-optimisation for logistics, now with a focus on enterprise customers) that is raising a EUR 35m Series B round led by Northwind Ventures Fund IV LP (USA). The most significant tax exposure is the potential forfeiture of approx. EUR 21m corporate tax loss carryforwards after repeated ownership changes, where reliance on § 8d KStG is supported by incomplete documentation of business continuity. Further points are the research allowance claim for 2023 without a BSFZ application, permanent establishment risk from employees in France and the Netherlands, and invoicing without structured e-invoice output.",
+    "key_facts": [
+     {
+      "label": "Legal form and seat",
+      "value": "Brightloop Software GmbH, Munich (GmbH).",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Brightloop Software GmbH, Munich. Lead investor: Northwind Ventures Fund IV LP (USA). Round",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Mandate",
+      "value": "Tax due diligence for the Series B financing.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Tax Due Diligence Report – Series B Financing",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Transaction details",
+      "value": "Round size EUR 35m, report date 2 October 2024, closing 12 November 2024.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "size: EUR 35m. Report date: 2 October 2024. Closing: 12 November 2024.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Business activity",
+      "value": "SaaS subscriptions invoiced via Stripe Billing; focus shifted from small logistics firms to enterprise customers, with a new route-optimisation product line in 2023.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "SaaS subscriptions are invoiced through Stripe Billing as PDF invoices. Approx. 45% of revenue is with",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "has shifted its focus from small logistics firms to enterprise customers and launched a new",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Revenue FY2023",
+      "value": "Revenue of EUR 9.8m in 2023 (2022: EUR 5.4m).",
+      "citations": [
+       {
+        "document": "03_Annual_Accounts_2023.pdf",
+        "page": 1,
+        "quote": "EUR m 2023 2022 Revenue 9.8 5.4",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Net loss FY2023",
+      "value": "Net loss of EUR 6.2m in 2023 (2022: EUR 5.7m); tax loss carryforward of EUR 21.0m at year end (2022: EUR 14.8m).",
+      "citations": [
+       {
+        "document": "03_Annual_Accounts_2023.pdf",
+        "page": 1,
+        "quote": "Net loss (6.2) (5.7) Tax loss carryforward at year end 21.0 14.8",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Employees",
+      "value": "Average of 120 employees in 2023, of which 48 in engineering.",
+      "citations": [
+       {
+        "document": "03_Annual_Accounts_2023.pdf",
+        "page": 2,
+        "quote": "Average number of employees: 120, of which 48 in engineering",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Customers",
+      "value": "310 customers, of which 42 enterprise customers (2022: 6).",
+      "citations": [
+       {
+        "document": "03_Annual_Accounts_2023.pdf",
+        "page": 2,
+        "quote": "Customers: 310, of which 42 enterprise customers (2022: 6)",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Ownership",
+      "value": "Founders (3) hold 41% after Series B 2024 (100% at founding); cumulative transfer of shares to new shareholders between Seed 2020 and Series B 2024 exceeds 50%.",
+      "citations": [
+       {
+        "document": "02_Cap_Table_History.pdf",
+        "page": 1,
+        "quote": "Founders (3) 100% 78% 58% 41%",
+        "verified": true
+       },
+       {
+        "document": "02_Cap_Table_History.pdf",
+        "page": 1,
+        "quote": "Cumulative transfer of shares to new shareholders between Seed 2020 and Series B 2024 exceeds 50%.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Lead investor",
+      "value": "Northwind Ventures Fund IV LP (USA) is the lead investor in the Series B round.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Brightloop Software GmbH, Munich. Lead investor: Northwind Ventures Fund IV LP (USA). Round",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Cross-border activity",
+      "value": "The remainder of revenue after German business customers is cross-border B2B under reverse charge; revenue by region: Germany 45%, rest of DACH 20%, Benelux 22%, France 13%.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "German business customers; the remainder is cross-border B2B under the reverse-charge mechanism.",
+        "verified": true
+       },
+       {
+        "document": "03_Annual_Accounts_2023.pdf",
+        "page": 2,
+        "quote": "Revenue by region: Germany 45%, rest of DACH 20%, Benelux 22%, France 13%",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Employees abroad",
+      "value": "Six employees work permanently from France (4) and the Netherlands (2).",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Six employees work permanently from France (4) and the Netherlands (2). Some of them negotiate",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "tax_areas": [
+     {
+      "category": "Corporate income tax",
+      "title": "Potential forfeiture of corporate tax loss carryforwards (§ 8c / § 8d KStG)",
+      "assessment": "risk",
+      "severity": "high",
+      "summary": "Repeated ownership changes through the Seed, Series A and Series B rounds put the approx. EUR 21m loss carryforwards at risk, and the fallback on the continuation-loss rule depends on business continuity that is not fully documented. Any future change in the treatment of loss carryforwards or shareholder changes directly affects the future tax benefit of approx. EUR 6.3m.",
+      "facts": [
+       {
+        "label": "Loss carryforwards",
+        "value": "Corporate tax loss carryforwards amount to approx. EUR 21m at 31 December 2023.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Corporate tax loss carryforwards amount to approx. EUR 21m at 31 December 2023. Through the Seed",
+          "verified": true
+         },
+         {
+          "document": "03_Annual_Accounts_2023.pdf",
+          "page": 1,
+          "quote": "Net loss (6.2) (5.7) Tax loss carryforward at year end 21.0 14.8",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Most significant exposure",
+        "value": "Potential forfeiture of the loss carryforwards is the most significant tax exposure of the report.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "The most significant tax exposure is the potential forfeiture of corporate tax loss carryforwards of approx.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Indicative exposure",
+        "value": "Indicative exposure of approx. EUR 6.3m future tax, rated High.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "approx. EUR 6.3m future tax",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Ownership changes",
+        "value": "More than 50% of the shares changed hands within five years across Seed (2020), Series A (2022) and Series B (2024).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "more than 50% of the shares changed hands within",
+          "verified": true
+         },
+         {
+          "document": "02_Cap_Table_History.pdf",
+          "page": 1,
+          "quote": "Cumulative transfer of shares to new shareholders between Seed 2020 and Series B 2024 exceeds 50%.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Reliance on § 8d KStG",
+        "value": "Management intends to rely on the continuation-loss rule (§ 8d KStG).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Management intends to rely on the continuation-loss rule (§ 8d KStG).",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Business continuity documentation",
+        "value": "Documentation of business continuity is incomplete.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Documentation of business continuity is incomplete.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "R&D incentives",
+      "title": "Research allowance claims 2022 and 2023 and missing BSFZ application for 2023",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "Research allowance claims of approx. EUR 0.6m each were filed for 2022 and 2023, but a BSFZ certificate exists only for the 2022 project. The 2023 claim (AI-based scheduling engine) therefore remains exposed until the BSFZ application is submitted.",
+      "facts": [
+       {
+        "label": "Research allowance claims",
+        "value": "Claims were filed for 2022 and 2023 (approx. EUR 0.6m each).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "Research allowance claims were filed for 2022 and 2023 (approx. EUR 0.6m each). A BSFZ certificate",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "BSFZ certificate status",
+        "value": "A BSFZ certificate was obtained for the 2022 project only; the 2023 project is the AI-based scheduling engine.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "A BSFZ certificate was obtained for the 2022 project only; the application for the 2023 project (AI-based scheduling engine)",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Follow-up",
+        "value": "The BSFZ application for the 2023 project is to be submitted after closing.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "Submit the BSFZ application for the 2023 project",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "International tax",
+      "title": "Permanent establishment risk from employees in France and the Netherlands",
+      "assessment": "risk",
+      "severity": "medium",
+      "summary": "Employees working permanently from France and the Netherlands, some negotiating customer contracts, may create permanent establishments abroad. Revenue in Benelux and France makes foreign taxing rights and registration obligations relevant for future developments.",
+      "facts": [
+       {
+        "label": "Remote employees",
+        "value": "Six employees work permanently from France (4) and the Netherlands (2).",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "Six employees work permanently from France (4) and the Netherlands (2). Some of them negotiate",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "PE risk driver",
+        "value": "Some of the employees negotiate customer contracts, which creates a risk of permanent establishments.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "customer contracts, which creates a risk of permanent establishments.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Revenue in Benelux and France",
+        "value": "Benelux accounts for 22% and France for 13% of revenue.",
+        "citations": [
+         {
+          "document": "03_Annual_Accounts_2023.pdf",
+          "page": 2,
+          "quote": "Revenue by region: Germany 45%, rest of DACH 20%, Benelux 22%, France 13%",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "VAT",
+      "title": "Invoicing of SaaS subscriptions and cross-border reverse charge",
+      "assessment": "risk",
+      "severity": "low",
+      "summary": "Invoices are issued as PDF through Stripe Billing and no structured e-invoice output is set up, which is a process risk as e-invoicing requirements develop. Most revenue outside Germany is cross-border B2B under the reverse-charge mechanism.",
+      "facts": [
+       {
+        "label": "Invoicing process",
+        "value": "SaaS subscriptions are invoiced through Stripe Billing as PDF invoices.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "SaaS subscriptions are invoiced through Stripe Billing as PDF invoices. Approx. 45% of revenue is with",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "No e-invoice output",
+        "value": "No structured e-invoice output is set up.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "No structured e-invoice output is set up.",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Reverse charge",
+        "value": "The remainder of revenue after German business customers is cross-border B2B under the reverse-charge mechanism.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 4,
+          "quote": "German business customers; the remainder is cross-border B2B under the reverse-charge mechanism.",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Income tax",
+      "title": "Employee participation: virtual stock options and § 19a EStG shares",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "A virtual stock option plan covers 45 employees and three senior hires received real shares with deferred taxation under § 19a EStG. The report lists no specific exposure here, but the plan matters for future wage and income tax developments on employee participation.",
+      "facts": [
+       {
+        "label": "Employee participation scheme",
+        "value": "A virtual stock option plan covers 45 employees; three senior hires received real shares with deferred taxation under § 19a EStG.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 3,
+          "quote": "A virtual stock option plan covers 45 employees. Three senior hires received real shares with deferred",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "open_points": [
+     {
+      "label": "Defence file for loss carryforwards",
+      "value": "Build a defence file for the loss carryforwards.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Build a defence file for the loss carryforwards",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "BSFZ application 2023",
+      "value": "Submit the BSFZ application for the 2023 project.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Submit the BSFZ application for the 2023 project",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Permanent establishment assessment",
+      "value": "Assess permanent establishment risk for remote employees.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 4,
+        "quote": "Assess permanent establishment risk for remote employees",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "keywords": [
+     "Series B financing",
+     "tax due diligence",
+     "loss carryforwards",
+     "§ 8c KStG",
+     "§ 8d KStG",
+     "research allowance",
+     "BSFZ",
+     "permanent establishment",
+     "remote employees",
+     "e-invoicing",
+     "reverse charge",
+     "SaaS",
+     "§ 19a EStG",
+     "virtual stock options"
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 7046,
+   "tokens_out": 8846,
+   "duration_ms": 55041
+  },
+  "kaiser_dental": {
+   "name": "Kaiser Dental MVZ GmbH",
+   "data": {
+    "company_name": "Kaiser Dental MVZ GmbH",
+    "summary": "Kaiser Dental MVZ GmbH is a Hamburg-based operator of four dental care centres (MVZ) with 64 employees and revenue of EUR 11.2m in 2023. It is a single German entity with no subsidiaries, no foreign related parties and no research activities, and its revenue is almost entirely VAT-exempt dental treatment. The tax due diligence for Project Smile identified no material tax risks, and no material open points remain after closing.",
+    "key_facts": [
+     {
+      "label": "Seat",
+      "value": "The target is based in Hamburg.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Kaiser Dental MVZ GmbH, Hamburg. Buyer: Elbe Health Holding GmbH. Report date: 18 April",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Business activity",
+      "value": "The target operates four dental care centres (MVZ) in Hamburg.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "The target operates four dental care centres (MVZ) in Hamburg with 64 employees and revenue of EUR",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Employees",
+      "value": "The target has 64 employees.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "The target operates four dental care centres (MVZ) in Hamburg with 64 employees and revenue of EUR",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Revenue FY2023",
+      "value": "Revenue was EUR 11.2m in 2023.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "The target operates four dental care centres (MVZ) in Hamburg with 64 employees and revenue of EUR",
+        "verified": true
+       },
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "11.2m (2023). We identified no material tax risks.",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Revenue composition",
+      "value": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health insurers.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Group structure and cross-border activity",
+      "value": "Single German entity with no subsidiaries and no foreign related parties.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "Single German entity, no subsidiaries, no foreign related parties, no research activities. All premises are",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Mandate and transaction",
+      "value": "Tax due diligence (Project Smile); buyer is Elbe Health Holding GmbH, report dated 18 April 2024.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "Target: Kaiser Dental MVZ GmbH, Hamburg. Buyer: Elbe Health Holding GmbH. Report date: 18 April",
+        "verified": true
+       }
+      ]
+     },
+     {
+      "label": "Closing date",
+      "value": "Closing is scheduled for 31 May 2024.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 1,
+        "quote": "2024. Closing: 31 May 2024.",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "tax_areas": [
+     {
+      "category": "VAT",
+      "title": "VAT-exempt dental treatments with minor taxable supplies",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "Revenue is almost entirely VAT-exempt under § 4 No. 14 UStG, so changes to the exemption rules would directly affect the business model. Taxable supplies such as cosmetic whitening are below 2% of revenue, so the impact of other VAT changes is limited.",
+      "facts": [
+       {
+        "label": "VAT exemption",
+        "value": "Dental treatments are VAT-exempt under § 4 No. 14 UStG and VAT risk is rated low.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Dental treatments VAT-exempt (§ 4 No. 14 UStG)",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Taxable supplies",
+        "value": "Taxable supplies (e.g. cosmetic whitening) are below 2% of revenue.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "insurers. Taxable supplies (e.g. cosmetic whitening) are below 2% of revenue. There are no business",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Customer base",
+        "value": "Treatments are billed to patients and statutory health insurers; there are no business customers.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Corporate income tax",
+      "title": "Profitable, no loss carryforwards",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "The target is profitable and has no loss carryforwards, so there are no loss utilisation or loss forfeiture issues from the acquisition. Future corporate income tax developments therefore affect it as a regular taxpayer.",
+      "facts": [
+       {
+        "label": "Corporate / trade tax risk",
+        "value": "Corporate / trade tax risk is rated low; the company is profitable with no loss carryforwards.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Corporate / trade tax Low Profitable, no loss carryforwards",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Trade tax",
+      "title": "Profitable, no loss carryforwards",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "Trade tax is rated low risk, as the company is profitable and has no loss carryforwards. Future changes to trade tax rules therefore affect it as a regular taxpayer.",
+      "facts": [
+       {
+        "label": "Corporate / trade tax risk",
+        "value": "Corporate / trade tax risk is rated low; the company is profitable with no loss carryforwards.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Corporate / trade tax Low Profitable, no loss carryforwards",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "Wage tax",
+      "title": "Wage tax correctly applied for 64 employees",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "Wage tax is rated low risk and is stated to be correctly applied. With 64 employees in a labour-intensive healthcare business, future payroll rule changes remain relevant.",
+      "facts": [
+       {
+        "label": "Wage tax assessment",
+        "value": "Wage tax risk is rated low and is correctly applied.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "Wage tax Low Correctly applied",
+          "verified": true
+         }
+        ]
+       },
+       {
+        "label": "Employees",
+        "value": "The target has 64 employees.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 1,
+          "quote": "The target operates four dental care centres (MVZ) in Hamburg with 64 employees and revenue of EUR",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "International tax",
+      "title": "Purely domestic structure without foreign related parties",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "The target is a single German entity with no subsidiaries and no foreign related parties. Cross-border and transfer pricing rules are therefore of no current relevance.",
+      "facts": [
+       {
+        "label": "Structure",
+        "value": "Single German entity, no subsidiaries, no foreign related parties.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Single German entity, no subsidiaries, no foreign related parties, no research activities. All premises are",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "category": "R&D incentives",
+      "title": "No research activities",
+      "assessment": "neutral",
+      "severity": "low",
+      "summary": "The target has no research activities, so R&D incentives are currently not applicable. The data room does not identify any unused incentive.",
+      "facts": [
+       {
+        "label": "Research activities",
+        "value": "The report states there are no research activities.",
+        "citations": [
+         {
+          "document": "01_Tax_Due_Diligence_Report.pdf",
+          "page": 2,
+          "quote": "Single German entity, no subsidiaries, no foreign related parties, no research activities. All premises are",
+          "verified": true
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "open_points": [
+     {
+      "label": "Open points after closing",
+      "value": "The report lists no material open points after closing.",
+      "citations": [
+       {
+        "document": "01_Tax_Due_Diligence_Report.pdf",
+        "page": 2,
+        "quote": "3. Open points after closing None material",
+        "verified": true
+       }
+      ]
+     }
+    ],
+    "keywords": [
+     "dental care centres",
+     "MVZ",
+     "Hamburg",
+     "VAT exemption",
+     "§ 4 No. 14 UStG",
+     "statutory health insurers",
+     "cosmetic whitening",
+     "no loss carryforwards",
+     "wage tax",
+     "single entity",
+     "no foreign related parties",
+     "leased premises",
+     "Project Smile",
+     "share deal due diligence"
+    ]
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5640,
+   "tokens_out": 4705,
+   "duration_ms": 28231
+  }
+ },
+ "analyses": {
+  "DEMO-BMF-01": {
+   "title": "Mandatory B2B e-invoicing: issuing obligation and transition rules",
+   "summary": {
+    "title_en": "Mandatory B2B e-invoicing: issuing obligation and transition rules",
+    "kind": "other",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "VAT"
+    ],
+    "summary": "From 1 January 2027, businesses with prior-year turnover above EUR 800,000 must issue structured e-invoices (XRechnung or ZUGFeRD from version 2.0.1, excluding the MINIMUM and BASIC-WL profiles) for taxable domestic B2B supplies under § 14 UStG. For these businesses PDF and paper invoices are no longer permitted after the transition period. Recipients may lose input VAT deduction on invoices that do not meet the structured format.",
+    "who_is_affected": "Businesses with prior-year turnover above EUR 800,000 that make taxable domestic B2B supplies, and their B2B customers who may lose input VAT deduction on non-compliant invoices.",
+    "trigger_criteria": [
+     "Prior-year turnover above EUR 800,000",
+     "Taxable domestic supply to another business (B2B)",
+     "Invoice would be issued as PDF or paper after the transition period",
+     "Recipient relies on input VAT deduction on an invoice that does not meet the structured format"
+    ],
+    "exclusions": [
+     "VAT-exempt supplies",
+     "Supplies to private individuals",
+     "Cross-border supplies (not yet covered)",
+     "Structured invoices in the MINIMUM and BASIC-WL profiles do not meet the format requirement"
+    ],
+    "effective_date": "From 1 January 2027 (transition period applies for PDF and paper invoices, duration not stated)",
+    "keywords": [
+     "e-invoicing",
+     "§ 14 UStG",
+     "XRechnung",
+     "ZUGFeRD",
+     "B2B invoicing",
+     "input VAT deduction",
+     "turnover threshold",
+     "VAT"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2912,
+   "tokens_out": 770,
+   "duration_ms": 3605
+  },
+  "DEMO-BFH-02": {
+   "title": "Forfeiture of losses after venture capital rounds: strict reading of the continuation-loss rule",
+   "summary": {
+    "title_en": "Forfeiture of losses after venture capital rounds: strict reading of the continuation-loss rule",
+    "kind": "bfh_ruling",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "Corporate income tax"
+    ],
+    "summary": "The publication reports a BFH ruling that the continuation-loss rule of § 8d KStG does not apply where a company added a new line of business or significantly changed its customer segment during the observation period, so loss carryforwards were forfeited under § 8c KStG in the case at hand (a software company expanding from small-business to enterprise customers after a financing round). The text states the burden of proof for an unchanged business operation lies with the taxpayer and requires detailed documentation. The effective date is not stated; the text itself is marked as a fictional sample update for demonstration.",
+    "who_is_affected": "Corporations with loss carryforwards that have undergone a change of shareholders (such as after a financing round) and that also added a new line of business or significantly changed their customer segment during the observation period.",
+    "trigger_criteria": [
+     "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+     "Company added a new line of business during the observation period",
+     "Company significantly changed its customer segment during the observation period (example in text: from small-business customers to enterprise customers)",
+     "Taxpayer must be able to document an unchanged business operation with detailed documentation"
+    ],
+    "exclusions": [
+     "Companies that kept their line of business and customer segment unchanged during the observation period (not affected by the ruling's outcome, though the burden of proof rests with them)",
+     "The text does not address cases outside § 8c and § 8d KStG"
+    ],
+    "effective_date": "not stated",
+    "keywords": [
+     "loss carryforwards",
+     "§ 8c KStG",
+     "§ 8d KStG",
+     "continuation loss",
+     "venture capital",
+     "financing round",
+     "burden of proof",
+     "BFH"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2835,
+   "tokens_out": 796,
+   "duration_ms": 3726
+  },
+  "DEMO-BFH-03": {
+   "title": "Extended trade tax reduction: photovoltaic systems on let properties",
+   "summary": {
+    "title_en": "Extended trade tax reduction: photovoltaic systems on let properties",
+    "kind": "bfh_ruling",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "Trade tax"
+    ],
+    "summary": "The BFH held that income from rooftop photovoltaic systems and tenant electricity on let properties is harmful to the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG once it exceeds 10% of rental income in a given year, and that planned expansions must be assessed year by year. Exceeding the threshold in one year removes the extended reduction for that entire year. Property companies are advised to review PV expansion plans and consider moving PV systems into a separate entity.",
+    "who_is_affected": "Property companies that let real estate and also earn income from rooftop photovoltaic systems or tenant electricity on those properties, and that rely on the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG.",
+    "trigger_criteria": [
+     "Company owns or leases let properties with rooftop photovoltaic systems or tenant electricity supply",
+     "Income from photovoltaic systems and tenant electricity exceeds 10% of rental income in a given year",
+     "Company plans PV expansions on let properties and needs to assess the 10% threshold for each year"
+    ],
+    "exclusions": [
+     "Companies without let properties or without PV income on let properties",
+     "Companies whose PV income does not exceed 10% of rental income in a given year (per the text, only exceeding the threshold is harmful)"
+    ],
+    "effective_date": "not stated",
+    "keywords": [
+     "trade tax",
+     "GewStG § 9 No. 1",
+     "extended trade tax reduction",
+     "photovoltaic",
+     "tenant electricity",
+     "rental income",
+     "property companies",
+     "BFH"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2834,
+   "tokens_out": 745,
+   "duration_ms": 3165
+  },
+  "DEMO-BMF-04": {
+   "title": "Research allowance (Forschungszulage): updated guidance on claims for past years",
+   "summary": {
+    "title_en": "Research allowance (Forschungszulage): updated guidance on claims for past years",
+    "kind": "bmf_letter",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "R&D incentives"
+    ],
+    "summary": "The BMF has updated its guidance on the research allowance under the FZulG. Claims for eligible expenses incurred from 2020 onwards can still be filed within the four-year assessment period, and a BSFZ certificate is required for each R&D project, with applications for older projects to be submitted promptly because processing times have increased. Internal process innovations, such as new manufacturing methods, qualify as experimental development if they involve technical uncertainty. The publication does not state a separate effective date for the updated guidance, so the applicable period is taken from the text as 2020 onwards for eligible expenses.",
+    "who_is_affected": "Companies that incurred eligible research and development expenses from 2020 onwards and may claim the research allowance under the FZulG, including those carrying out internal process innovations.",
+    "trigger_criteria": [
+     "Company incurred eligible R&D expenses in 2020 or later for which no research allowance claim has yet been filed",
+     "Claim for the research allowance can still be filed within the four-year assessment period",
+     "Company has an R&D project for which a BSFZ certificate is required or has not yet been obtained",
+     "Company carries out internal process innovations (e.g. new manufacturing methods) involving technical uncertainty"
+    ],
+    "exclusions": [
+     "The publication does not cover R&D expenses incurred before 2020",
+     "Internal process innovations without technical uncertainty are not treated as experimental development",
+     "The publication does not state any specific threshold or fee for the BSFZ certificate"
+    ],
+    "effective_date": "Eligible expenses incurred from 2020 onwards; updated guidance published 2026-10-13",
+    "keywords": [
+     "Forschungszulage",
+     "FZulG",
+     "research allowance",
+     "BSFZ certificate",
+     "experimental development",
+     "assessment period",
+     "R&D incentives",
+     "process innovation"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2815,
+   "tokens_out": 826,
+   "duration_ms": 3567
+  },
+  "DEMO-BMF-05": {
+   "title": "Transfer pricing: revised administrative principles on documentation and contract manufacturing",
+   "summary": {
+    "title_en": "Transfer pricing: revised administrative principles on documentation and contract manufacturing",
+    "kind": "bmf_letter",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "Transfer pricing"
+    ],
+    "summary": "The BMF revised its administrative principles on transfer pricing documentation under § 90 (3) AO, under which tax auditors may request the transaction matrix within 30 days of an audit order. For routine contract manufacturers, benchmarking studies must not be older than three years, and cost-plus markups of 5% or less will be reviewed with particular scrutiny. Missing or outdated documentation can lead to estimates and surcharges of up to EUR 1m; the publication states no effective date. The letter does not address related-party financing.",
+    "who_is_affected": "Companies with cross-border related-party transactions that must prepare transfer pricing documentation under § 90 (3) AO, in particular routine contract manufacturers.",
+    "trigger_criteria": [
+     "Company has related-party transactions subject to transfer pricing documentation under § 90 (3) AO",
+     "Company is a routine contract manufacturer with a benchmarking study as part of its documentation",
+     "Company applies a cost-plus markup of 5% or less to related-party transactions",
+     "Company receives a tax audit order (transaction matrix may be requested within 30 days)",
+     "Benchmarking study or documentation is older than three years or outdated"
+    ],
+    "exclusions": [
+     "Related-party financing (explicitly not addressed in this letter)"
+    ],
+    "effective_date": "not stated",
+    "keywords": [
+     "transfer pricing",
+     "§ 90 (3) AO",
+     "documentation",
+     "contract manufacturer",
+     "benchmarking",
+     "cost-plus",
+     "transaction matrix",
+     "estimates and surcharges"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2841,
+   "tokens_out": 744,
+   "duration_ms": 3262
+  },
+  "DEMO-BMF-06": {
+   "title": "Flat-rate VAT scheme for farmers: new rate from 2027",
+   "summary": {
+    "title_en": "Flat-rate VAT scheme for farmers: new rate from 2027",
+    "kind": "bmf_letter",
+    "relevant_for_companies": true,
+    "tax_categories": [
+     "VAT"
+    ],
+    "summary": "The BMF announces an adjusted average rate for the flat-rate VAT scheme for agricultural and forestry businesses under § 24 UStG. The change takes effect on 1 January 2027. It affects farmers and foresters applying the flat-rate scheme and the input VAT deduction of their customers on such invoices.",
+    "who_is_affected": "Farmers and foresters who apply the flat-rate scheme under § 24 UStG, and their customers who deduct input VAT on invoices issued under that scheme.",
+    "trigger_criteria": [
+     "Business is an agricultural or forestry business applying the flat-rate VAT scheme under § 24 UStG",
+     "Customer deducts input VAT on an invoice issued by a farmer or forester applying the flat-rate scheme under § 24 UStG"
+    ],
+    "exclusions": [
+     "Agricultural or forestry businesses that do not apply the flat-rate scheme under § 24 UStG (the publication only concerns farmers and foresters applying the flat-rate scheme)",
+     "Other VAT matters not related to the flat-rate scheme under § 24 UStG (not stated in the publication)"
+    ],
+    "effective_date": "From 1 January 2027",
+    "keywords": [
+     "flat-rate VAT scheme",
+     "§ 24 UStG",
+     "agriculture",
+     "forestry",
+     "average rate",
+     "input VAT deduction",
+     "farmers"
+    ]
+   },
+   "model": "claude-haiku-5-5",
+   "tokens_in": 2773,
+   "tokens_out": 686,
+   "duration_ms": 3130
+  }
+ },
+ "matches": {
+  "DEMO-BMF-01": {
+   "title": "Mandatory B2B e-invoicing: issuing obligation and transition rules",
+   "clients": {
+    "mueller_praezisionstechnik": {
+     "score": 93,
+     "verdict": "affected",
+     "reasoning": "Müller's prior-year revenue of EUR 48.2m is far above the EUR 800,000 threshold, and it makes a high volume of domestic B2B supplies, so the issuing obligation applies from 1 January 2027. Its Sage 100 system produces PDF invoices only and supports neither XRechnung nor ZUGFeRD, and the ERP migration is unfunded, so a concrete preparation need exists. The cross-border exclusion covers only part of its supplies, not the domestic B2B volume.",
+     "evidence": [
+      {
+       "client_fact": "Revenue of EUR 48.2m in FY2023 (FY2022: EUR 44.9m).",
+       "criterion": "Prior-year turnover above EUR 800,000",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "High volume of domestic B2B and intra-community supplies, including chain transactions via the Polish subsidiary; reporting found materially correct.",
+       "criterion": "Taxable domestic supply to another business (B2B)",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "The system produces PDF invoices only and supports neither XRechnung nor ZUGFeRD.",
+       "criterion": "Invoice would be issued as PDF or paper after the transition period",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "An ERP migration is planned \"in 2026 or later\" and no budget has been approved.",
+       "criterion": "Invoice would be issued as PDF or paper after the transition period",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Export share of approx. 55%, mainly EU, Switzerland and the USA.",
+       "criterion": "Exclusion: cross-border supplies (not yet covered)",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "Length of the transition period for PDF and paper invoices (not stated in the update)"
+     ]
+    },
+    "nordlicht_immobilien": {
+     "score": 50,
+     "verdict": "uncertain",
+     "reasoning": "Commercial lettings by option (approx. 18% of rental income of EUR 11,400k) are taxable domestic supplies, which points to a B2B invoicing obligation above the EUR 800,000 threshold. However, residential lettings are VAT-exempt and excluded, and the profile does not say how rental invoices are issued or whether the tenants are businesses with input VAT deduction.",
+     "evidence": [
+      {
+       "client_fact": "Total rental income 2022 per the property schedule as at 30 June 2023 is EUR 11,400k, with PV systems on 2 properties.",
+       "criterion": "Prior-year turnover above EUR 800,000",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Commercial lettings (approx. 18% of rental income) are partly subject to VAT by option.",
+       "criterion": "Taxable domestic supply to another business (B2B)",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Residential lettings are VAT-exempt.",
+       "criterion": "Exclusion: VAT-exempt supplies",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "How rental and service charge invoices are currently issued (PDF, paper or structured format)",
+      "Whether the commercial tenants are businesses that rely on input VAT deduction",
+      "Invoicing software or property management system in use",
+      "Prior-year turnover for VAT purposes excluding exempt lettings"
+     ]
+    },
+    "brightloop_software": {
+     "score": 90,
+     "verdict": "affected",
+     "reasoning": "Brightloop's prior-year revenue of EUR 9.8m exceeds the EUR 800,000 threshold, and 45% of revenue comes from German customers, which gives taxable domestic B2B supplies. Its SaaS invoices are issued as PDF through Stripe Billing with no structured e-invoice output set up, so it must prepare before the transition period ends. The cross-border reverse-charge revenue is excluded, but the domestic share remains in scope.",
+     "evidence": [
+      {
+       "client_fact": "Revenue of EUR 9.8m in 2023 (2022: EUR 5.4m).",
+       "criterion": "Prior-year turnover above EUR 800,000",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Germany 45%",
+       "criterion": "Taxable domestic supply to another business (B2B)",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "SaaS subscriptions are invoiced through Stripe Billing as PDF invoices.",
+       "criterion": "Invoice would be issued as PDF or paper after the transition period",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "No structured e-invoice output is set up.",
+       "criterion": "Invoice would be issued as PDF or paper after the transition period",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "The remainder of revenue after German business customers is cross-border B2B under the reverse-charge mechanism.",
+       "criterion": "Exclusion: cross-border supplies (not yet covered)",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "Whether Stripe Billing can produce XRechnung or ZUGFeRD 2.0.1 output",
+      "Length of the transition period for PDF and paper invoices (not stated in the update)"
+     ]
+    },
+    "kaiser_dental": {
+     "score": 3,
+     "verdict": "not_affected",
+     "reasoning": "Kaiser Dental's revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health insurers, with no business customers, so the exclusions for VAT-exempt supplies and supplies to private individuals apply. Taxable supplies are below 2% of revenue and are also not B2B, so there is nothing to advise on.",
+     "evidence": [
+      {
+       "client_fact": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health insurers.",
+       "criterion": "Exclusion: VAT-exempt supplies",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Treatments are billed to patients and statutory health insurers; there are no business customers.",
+       "criterion": "Exclusion: supplies to private individuals / no taxable domestic B2B supply",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Taxable supplies (e.g. cosmetic whitening) are below 2% of revenue.",
+       "criterion": "Taxable domestic supply to another business (B2B)",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 11552,
+   "tokens_out": 3387,
+   "duration_ms": 21322
+  },
+  "DEMO-BFH-02": {
+   "title": "Forfeiture of losses after venture capital rounds: strict reading of the continuation-loss rule",
+   "clients": {
+    "mueller_praezisionstechnik": {
+     "score": 3,
+     "verdict": "not_affected",
+     "reasoning": "The company is wholly owned by Müller Holding GmbH and its profile shows no loss carryforwards, no shareholder change and no new line of business or customer segment change, so none of the ruling's criteria is documented. Its net income is positive and shown before profit transfer within a fiscal unity, so there is nothing to advise on regarding § 8c/§ 8d KStG.",
+     "evidence": [
+      {
+       "client_fact": "The Company is wholly owned by Müller Holding GmbH.",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Net income before profit transfer was EUR 3.6m in FY2023 (FY2022: EUR 3.0m).",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "CNC precision components for automotive suppliers (approx. 60% of sales) and medical device manufacturers (approx. 40%).",
+       "criterion": "Company added a new line of business / significantly changed its customer segment during the observation period",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    },
+    "nordlicht_immobilien": {
+     "score": 5,
+     "verdict": "not_affected",
+     "reasoning": "The profile documents a share deal with an ownership change, but no loss carryforwards, and the partnership is a commercially imprinted KG whose core activity is letting property. The § 8c/§ 8d KStG loss-forfeiture ruling therefore does not apply to the documented facts, and no new line of business or customer segment change is recorded.",
+     "evidence": [
+      {
+       "client_fact": "Share deal: the fund acquires 89.9% of the partnership interests and Hanseatic Family Office GmbH acquires 10.1%.",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "The partnership lets residential and commercial properties and claims the extended trade tax reduction for its rental income.",
+       "criterion": "Company added a new line of business during the observation period",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "Whether any loss carryforwards exist",
+      "Whether the partnership is subject to corporate income tax (it is a KG, not a corporation)"
+     ]
+    },
+    "brightloop_software": {
+     "score": 96,
+     "verdict": "affected",
+     "reasoning": "Brightloop has approx. EUR 21m of loss carryforwards, cumulative shareholder changes above 50% across its financing rounds, a new product line in 2023 and a shift from small logistics firms to enterprise customers, so several criteria are met at once. It intends to rely on § 8d KStG with incomplete business-continuity documentation, which makes the ruling directly material to roughly EUR 6.3m of future tax benefit and calls for urgent advice.",
+     "evidence": [
+      {
+       "client_fact": "Corporate tax loss carryforwards amount to approx. EUR 21m at 31 December 2023.",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "More than 50% of the shares changed hands within five years across Seed (2020), Series A (2022) and Series B (2024).",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "SaaS subscriptions invoiced via Stripe Billing; focus shifted from small logistics firms to enterprise customers, with a new route-optimisation product line in 2023.",
+       "criterion": "Company added a new line of business / significantly changed its customer segment during the observation period",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Customers: 310 customers, of which 42 enterprise customers (2022: 6).",
+       "criterion": "Company significantly changed its customer segment during the observation period (example in text: from small-business customers to enterprise customers)",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Documentation of business continuity is incomplete.",
+       "criterion": "Taxpayer must be able to document an unchanged business operation with detailed documentation",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Management intends to rely on the continuation-loss rule (§ 8d KStG).",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": true
+      }
+     ],
+     "missing_information": [
+      "The exact start and end of the observation period under § 8d KStG",
+      "Effective date of the ruling (not stated in the update)"
+     ]
+    },
+    "kaiser_dental": {
+     "score": 2,
+     "verdict": "not_affected",
+     "reasoning": "Kaiser Dental has no loss carryforwards and is profitable, so there is no loss forfeiture issue under § 8c or § 8d KStG. Its profile also shows no new line of business or customer segment change, and nothing to advise on regarding this ruling.",
+     "evidence": [
+      {
+       "client_fact": "Corporate / trade tax risk is rated low; the company is profitable with no loss carryforwards.",
+       "criterion": "Company has loss carryforwards (§ 8c KStG context) and a shareholder change occurred, e.g. through a financing round",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "The target operates four dental care centres (MVZ) in Hamburg.",
+       "criterion": "Company added a new line of business during the observation period",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 11507,
+   "tokens_out": 2008,
+   "duration_ms": 11732
+  },
+  "DEMO-BFH-03": {
+   "title": "Extended trade tax reduction: photovoltaic systems on let properties",
+   "clients": {
+    "nordlicht_immobilien": {
+     "score": 85,
+     "verdict": "affected",
+     "reasoning": "Nordlicht lets properties, operates rooftop PV on two of them and claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG. It also plans PV on six further buildings from 2025 with approx. EUR 1.3m income per year, which meets the planned-expansion criterion and must be tested against the 10% threshold year by year, even though 2022 feed-in income of EUR 41k is far below 10% of EUR 11,400k rental income.",
+     "evidence": [
+      {
+       "client_fact": "The partnership claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG for its rental income.",
+       "criterion": "Reliance on the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Rooftop PV systems are operated on two buildings and feed-in income 2022 was EUR 41k.",
+       "criterion": "Company owns or leases let properties with rooftop photovoltaic systems or tenant electricity supply",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "PV systems are planned on six further buildings from 2025, with approx. EUR 1.3m income per year once complete.",
+       "criterion": "Company plans PV expansions on let properties and needs to assess the 10% threshold for each year",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Current feed-in income is below the statutory de minimis threshold.",
+       "criterion": "Exclusion: PV income does not exceed 10% of rental income in a given year",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "Projected rental income for 2025 and later years, to test the 10% threshold for each year",
+      "Phasing and timing of the PV roll-out on the six further buildings",
+      "Whether tenant electricity income exists in addition to feed-in income",
+      "Whether moving the PV systems into a separate entity has been considered"
+     ]
+    },
+    "kaiser_dental": {
+     "score": 2,
+     "verdict": "not_affected",
+     "reasoning": "Kaiser Dental operates dental care centres and its revenue is almost entirely VAT-exempt dental treatment, and the profile documents no let properties or PV income. The exclusion for companies without let properties or without PV income on let properties therefore applies.",
+     "evidence": [
+      {
+       "client_fact": "The target operates four dental care centres (MVZ) in Hamburg.",
+       "criterion": "Exclusion: Companies without let properties or without PV income on let properties",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health insurers.",
+       "criterion": "Exclusion: Companies without let properties or without PV income on let properties",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 6850,
+   "tokens_out": 1622,
+   "duration_ms": 10438
+  },
+  "DEMO-BMF-04": {
+   "title": "Research allowance (Forschungszulage): updated guidance on claims for past years",
+   "clients": {
+    "mueller_praezisionstechnik": {
+     "score": 95,
+     "verdict": "affected",
+     "reasoning": "The client has an internal R&D team developing process innovations with technical uncertainty, has never filed a research allowance claim and has no BSFZ certificate, so several trigger criteria are met. The FY2020–FY2023 claim potential of EUR 1.1m–1.6m is material and the update's warning about increased BSFZ processing times makes prompt action advisable.",
+     "evidence": [
+      {
+       "client_fact": "No claim for the research allowance under the FZulG has ever been filed and no BSFZ certificate exists.",
+       "criterion": "Company incurred eligible R&D expenses in 2020 or later for which no research allowance claim has yet been filed; Company has an R&D project for which a BSFZ certificate is required or has not yet been obtained",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "The R&D activities are described as process innovations with technical uncertainty.",
+       "criterion": "Company carries out internal process innovations (e.g. new manufacturing methods) involving technical uncertainty",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "R&D expenses of EUR 1.6m were recognised in FY2023, of which personnel costs EUR 1.3m.",
+       "criterion": "Company incurred eligible R&D expenses in 2020 or later for which no research allowance claim has yet been filed",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Evaluate a Forschungszulage claim for FY2020–FY2023.",
+       "criterion": "Claim for the research allowance can still be filed within the four-year assessment period",
+       "supports_impact": true
+      }
+     ],
+     "missing_information": [
+      "Whether the assessment period for the earliest years (FY2020, FY2021) has already expired for this client",
+      "R&D expenses and eligible amounts for FY2020–FY2022"
+     ]
+    },
+    "brightloop_software": {
+     "score": 72,
+     "verdict": "affected",
+     "reasoning": "The client has a 2023 R&D project (AI-based scheduling engine) with a research allowance claim of approx. EUR 0.6m filed but no BSFZ certificate yet, which matches the criterion on projects where a BSFZ certificate has not yet been obtained. The update's note about longer BSFZ processing times makes the pending application a concrete risk to an amount the client already relies on, though the profile does not show whether the 2023 project involves internal process innovation or whether other open years exist.",
+     "evidence": [
+      {
+       "client_fact": "A BSFZ certificate was obtained for the 2022 project only; the 2023 project is the AI-based scheduling engine.",
+       "criterion": "Company has an R&D project for which a BSFZ certificate is required or has not yet been obtained",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "The BSFZ application for the 2023 project is to be submitted after closing.",
+       "criterion": "Company has an R&D project for which a BSFZ certificate is required or has not yet been obtained",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Claims were filed for 2022 and 2023 (approx. EUR 0.6m each).",
+       "criterion": "Company incurred eligible R&D expenses in 2020 or later for which no research allowance claim has yet been filed",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": [
+      "Whether R&D expenses from 2020 and 2021 exist for which no claim has been filed",
+      "Expected timing of the BSFZ application submission and current processing times",
+      "Whether the R&D includes internal process innovations with technical uncertainty"
+     ]
+    },
+    "kaiser_dental": {
+     "score": 2,
+     "verdict": "not_affected",
+     "reasoning": "The client has no research activities and therefore incurred no eligible R&D expenses, needs no BSFZ certificate and carries out no internal process innovations. None of the trigger criteria are met, so there is nothing to advise on.",
+     "evidence": [
+      {
+       "client_fact": "The report states there are no research activities.",
+       "criterion": "Company incurred eligible R&D expenses in 2020 or later for which no research allowance claim has yet been filed",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "The data room does not identify any unused incentive.",
+       "criterion": "Company has an R&D project for which a BSFZ certificate is required or has not yet been obtained",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 9551,
+   "tokens_out": 1470,
+   "duration_ms": 8704
+  },
+  "DEMO-BMF-05": {
+   "title": "Transfer pricing: revised administrative principles on documentation and contract manufacturing",
+   "clients": {
+    "mueller_praezisionstechnik": {
+     "score": 95,
+     "verdict": "affected",
+     "reasoning": "The client's Polish contract manufacturing subsidiary is remunerated at a 5% cost-plus markup based on a 2019 benchmarking study and an outdated Local File, which meets several trigger criteria of the BMF letter (markup of 5% or less, outdated benchmarking, related-party transactions). A tax audit for FY2021–FY2023 is expected in 2026, so the 30-day transaction matrix request and the estimate/surcharge risk are concrete and material.",
+     "evidence": [
+      {
+       "client_fact": "Müller Precyzja is remunerated on a cost-plus basis with a markup of 5% under the contract manufacturing agreement of 1 July 2019.",
+       "criterion": "Company applies a cost-plus markup of 5% or less to related-party transactions",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "A Local File exists for FY2019–FY2021 but has not been updated; the benchmarking study dates from 2019.",
+       "criterion": "Benchmarking study or documentation is older than three years or outdated",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "A tax audit for FY2021–FY2023 is expected in 2026.",
+       "criterion": "Company receives a tax audit order (transaction matrix may be requested within 30 days)",
+       "supports_impact": true
+      },
+      {
+       "client_fact": "Purchases from the affiliated Polish company amounted to EUR 7.4m.",
+       "criterion": "Company has related-party transactions subject to transfer pricing documentation under § 90 (3) AO",
+       "supports_impact": true
+      }
+     ],
+     "missing_information": [
+      "Effective date of the revised administrative principles is not stated",
+      "Whether the audit order has already been issued"
+     ]
+    },
+    "nordlicht_immobilien": {
+     "score": 8,
+     "verdict": "not_affected",
+     "reasoning": "The only related-party relationship is the EUR 60m shareholder loan from the Luxembourg fund, which is related-party financing and therefore expressly excluded from this letter. The profile documents no related-party goods or services transactions, no contract manufacturing, no cost-plus markup and no audit order, so there is nothing to advise on.",
+     "evidence": [
+      {
+       "client_fact": "The fund granted a shareholder loan of EUR 60m at 6.5% interest.",
+       "criterion": "Exclusion: Related-party financing (explicitly not addressed in this letter)",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "The lender is a related party holding 89.9% of the interests in the borrower.",
+       "criterion": "Exclusion: Related-party financing (explicitly not addressed in this letter)",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    },
+    "kaiser_dental": {
+     "score": 1,
+     "verdict": "not_affected",
+     "reasoning": "The client is a single German entity with no foreign related parties, so it has no related-party transactions subject to § 90 (3) AO documentation and is not a contract manufacturer. None of the trigger criteria is met and nothing in the update calls for advice.",
+     "evidence": [
+      {
+       "client_fact": "Single German entity with no subsidiaries and no foreign related parties.",
+       "criterion": "Company has related-party transactions subject to transfer pricing documentation under § 90 (3) AO",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 9233,
+   "tokens_out": 1146,
+   "duration_ms": 6854
+  },
+  "DEMO-BMF-06": {
+   "title": "Flat-rate VAT scheme for farmers: new rate from 2027",
+   "clients": {
+    "mueller_praezisionstechnik": {
+     "score": 8,
+     "verdict": "not_affected",
+     "reasoning": "The profile documents no farming or forestry activity and no purchases from farmers applying the § 24 UStG flat-rate scheme; it is an industrial manufacturer of CNC components. Neither trigger criterion is documented, so there is nothing to advise on regarding this update.",
+     "evidence": [
+      {
+       "client_fact": "CNC precision components for automotive suppliers (approx. 60% of sales) and medical device manufacturers (approx. 40%).",
+       "criterion": "Business is an agricultural or forestry business applying the flat-rate VAT scheme under § 24 UStG",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "High volume of domestic B2B and intra-community supplies, including chain transactions via the Polish subsidiary; reporting found materially correct.",
+       "criterion": "Exclusion: Other VAT matters not related to the flat-rate scheme under § 24 UStG",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    },
+    "nordlicht_immobilien": {
+     "score": 5,
+     "verdict": "not_affected",
+     "reasoning": "The client is a property-letting partnership with rooftop PV systems and is not documented as an agricultural or forestry business under § 24 UStG. No facts show that it deducts input VAT on invoices from flat-rate farmers, so only unrelated VAT matters are present.",
+     "evidence": [
+      {
+       "client_fact": "The partnership lets residential and commercial properties and claims the extended trade tax reduction for its rental income.",
+       "criterion": "Business is an agricultural or forestry business applying the flat-rate VAT scheme under § 24 UStG",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Commercial lettings (approx. 18% of rental income) are partly subject to VAT by option.",
+       "criterion": "Exclusion: Other VAT matters not related to the flat-rate scheme under § 24 UStG",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    },
+    "brightloop_software": {
+     "score": 4,
+     "verdict": "not_affected",
+     "reasoning": "Brightloop is a SaaS software company with no agricultural or forestry activity, and its customers are logistics and enterprise customers rather than flat-rate farmers. Its VAT points concern e-invoicing and reverse charge, which are unrelated to the § 24 UStG flat-rate scheme.",
+     "evidence": [
+      {
+       "client_fact": "SaaS subscriptions invoiced via Stripe Billing; focus shifted from small logistics firms to enterprise customers, with a new route-optimisation product line in 2023.",
+       "criterion": "Business is an agricultural or forestry business applying the flat-rate VAT scheme under § 24 UStG",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "The remainder of revenue after German business customers is cross-border B2B under reverse charge; revenue by region: Germany 45%, rest of DACH 20%, Benelux 22%, France 13%.",
+       "criterion": "Exclusion: Other VAT matters not related to the flat-rate scheme under § 24 UStG",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    },
+    "kaiser_dental": {
+     "score": 2,
+     "verdict": "not_affected",
+     "reasoning": "Kaiser Dental is a dental care operator whose revenue is almost entirely VAT-exempt and which has no business customers or agricultural activity. It neither applies the flat-rate scheme nor deducts input VAT on invoices from flat-rate farmers.",
+     "evidence": [
+      {
+       "client_fact": "Revenue consists almost entirely of VAT-exempt dental treatments billed to patients and statutory health insurers.",
+       "criterion": "Business is an agricultural or forestry business applying the flat-rate VAT scheme under § 24 UStG",
+       "supports_impact": false
+      },
+      {
+       "client_fact": "Treatments are billed to patients and statutory health insurers; there are no business customers.",
+       "criterion": "Customer deducts input VAT on an invoice issued by a farmer or forester applying the flat-rate scheme under § 24 UStG",
+       "supports_impact": false
+      }
+     ],
+     "missing_information": []
+    }
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 11342,
+   "tokens_out": 1434,
+   "duration_ms": 8803
+  }
+ },
+ "memos": {
+  "mueller_praezisionstechnik|DEMO-BMF-01": {
+   "memo": {
+    "headline": "From 1 January 2027 Müller must issue structured e-invoices (XRechnung or ZUGFeRD) for domestic B2B supplies, but its Sage 100 (2019) system only produces PDFs and the ERP migration has no approved budget.",
+    "impact": "With prior-year revenue of EUR 48.2m (FY2023), Müller is far above the EUR 800,000 threshold, so the obligation applies from 1 January 2027 to its taxable domestic B2B supplies. After the transition period, PDF and paper invoices are no longer permitted for these supplies, and the update does not state how long that period lasts. Sage 100 (on-premise, version 2019) supports neither XRechnung nor ZUGFeRD, and the ERP migration is planned only 'in 2026 or later' with no budget approved. Customers, including automotive suppliers (approx. 60% of sales) and medical device manufacturers (approx. 40%), may lose input VAT deduction on invoices that do not meet the structured format, which could put those relationships under strain. The export share of approx. 55% does not remove the need to act, because cross-border supplies are only 'not yet covered' and the domestic B2B volume remains in scope.",
+    "risk_or_opportunity": "risk",
+    "urgency": "high",
+    "deadline": "1 January 2027 (transition period for PDF and paper invoices applies, duration not stated)",
+    "recommended_actions": [
+     "Decide now whether to bring forward and fund the ERP migration or to upgrade or supplement Sage 100 so it can issue XRechnung or ZUGFeRD (version 2.0.1 or later, excluding the MINIMUM and BASIC-WL profiles).",
+     "Map which invoices are domestic taxable B2B supplies (in scope) and which are cross-border, VAT-exempt or to private individuals (not covered), so the scope of the system change is clear.",
+     "Check with key customers in the automotive and medical device sectors which structured format they can receive, so that their input VAT deduction is not put at risk.",
+     "Include the e-invoicing readiness assessment, already an open point in the due diligence report, in a dated project plan with a named owner and budget request."
+    ],
+    "proposed_mandate": "E-invoicing readiness review and implementation support: scope analysis of domestic B2B invoice flows, format and system requirements for Sage 100 or its successor, and a timeline and budget case for the managing directors.",
+    "questions_for_client": [
+     "How long is the transition period for PDF and paper invoices? The update does not state it and it must be confirmed from the official source.",
+     "What share of invoices and revenue relates to taxable domestic B2B supplies versus cross-border or exempt supplies?",
+     "Is there a current status or decision date for the ERP migration, and can a budget be approved before 1 January 2027?",
+     "Can Sage 100 be extended with an add-on or external tool to produce XRechnung or ZUGFeRD as an interim solution?",
+     "Which formats do the main customers require or accept, and do any already send structured e-invoices to Müller?",
+     "Does the invoicing of chain transactions via the Polish subsidiary involve any domestic B2B invoices that fall under the new rules?"
+    ],
+    "run_id": 134,
+    "written_at": "2026-11-01T16:39:22.373648+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5659,
+   "tokens_out": 1039,
+   "duration_ms": 10164
+  },
+  "brightloop_software|DEMO-BMF-01": {
+   "memo": {
+    "headline": "From 1 January 2027 Brightloop must issue structured e-invoices (XRechnung or ZUGFeRD 2.0.1+) for its German B2B subscriptions, and its current Stripe Billing PDF invoices will no longer be permitted once the transition period ends.",
+    "impact": "Brightloop's 2023 revenue of EUR 9.8m is well above the EUR 800,000 threshold, and 45% of revenue comes from German customers, so those domestic B2B invoices fall under the new obligation. Today all SaaS subscriptions are invoiced as PDF through Stripe Billing and no structured e-invoice output is set up, so the current process would not comply after the transition period. The update states that recipients may lose input VAT deduction on invoices that do not meet the structured format, which could cause friction with the enterprise customers Brightloop is focused on (42 of 310 customers). The cross-border reverse-charge revenue (rest of DACH 20%, Benelux 22%, France 13%) is not covered for now, so the impact is limited to the German share. The transition period for PDF and paper invoices is not stated in the update, so the real deadline for switching must be clarified.",
+    "risk_or_opportunity": "risk",
+    "urgency": "medium",
+    "deadline": "From 1 January 2027 (transition period applies for PDF and paper invoices, duration not stated)",
+    "recommended_actions": [
+     "Check with Stripe Billing, or a connected e-invoicing provider, whether XRechnung or ZUGFeRD 2.0.1 or later output (not the MINIMUM or BASIC-WL profiles) can be produced for German B2B invoices.",
+     "Identify which invoices are taxable domestic B2B supplies (the 45% German share) and separate them from reverse-charge and other out-of-scope invoices in the billing process.",
+     "Set up an implementation plan with a timeline and an owner, so structured invoicing is working before the transition period ends.",
+     "Inform key German enterprise customers about the planned format change so their invoice receipt and input VAT deduction are not disrupted."
+    ],
+    "proposed_mandate": "VAT e-invoicing readiness review: scoping of in-scope German B2B invoices, assessment of the Stripe Billing set-up and a compliance roadmap to 1 January 2027.",
+    "questions_for_client": [
+     "Can Stripe Billing, in its current set-up or with an add-on, produce XRechnung or ZUGFeRD 2.0.1 or later output?",
+     "Which invoices are taxable domestic B2B supplies, and are any German supplies VAT-exempt or made to private individuals?",
+     "How many German B2B customers receive invoices today, and can they receive structured e-invoices (e.g. format and delivery channel)?",
+     "What is the length of the transition period for PDF and paper invoices, as it is not stated in the update?",
+     "Is prior-year turnover for the relevant year confirmed to remain above EUR 800,000 (2023: EUR 9.8m)?"
+    ],
+    "run_id": 77,
+    "written_at": "2026-10-28T10:44:26.375202+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5460,
+   "tokens_out": 977,
+   "duration_ms": 8987
+  },
+  "brightloop_software|DEMO-BFH-02": {
+   "memo": {
+    "headline": "The BFH ruling undercuts Brightloop's planned fallback on § 8d KStG, putting the approx. EUR 21m loss carryforwards (approx. EUR 6.3m future tax benefit) at real risk of forfeiture ahead of the Series B closing.",
+    "impact": "Brightloop's shareholder base has changed by more than 50% across Seed (2020), Series A (2022) and Series B (2024), so the approx. EUR 21m of loss carryforwards is already exposed under § 8c KStG, and management intends to rely on the continuation-loss rule (§ 8d KStG) as protection. The BFH ruling, as reported, says that rule does not apply where a company added a new line of business or significantly changed its customer segment during the observation period, and the taxpayer must prove an unchanged business operation with detailed documentation. Brightloop shows both warning signs: a new route-optimisation product line in 2023 and a shift from small logistics firms to enterprise customers (42 enterprise customers, up from 6 in 2022), which mirrors the software company in the ruling. Its documentation of business continuity is also incomplete, so the burden of proof would be hard to meet. If the loss carryforwards were forfeited, the indicative future tax benefit of approx. EUR 6.3m would be lost, which matters for the Series B tax due diligence (report date 2 October 2024, closing 12 November 2024).",
+    "risk_or_opportunity": "risk",
+    "urgency": "high",
+    "deadline": "none stated (the update does not give an effective date; internal timeline: due diligence report 2 October 2024, Series B closing 12 November 2024)",
+    "recommended_actions": [
+     "Build the defence file for the loss carryforwards now, documenting what the business operation looked like before and after each financing round, including products, customer base and Stripe Billing records.",
+     "Re-assess whether reliance on § 8d KStG is still tenable given the 2023 product line and the move to enterprise customers, and set out the risk and options openly in the due diligence report.",
+     "Clarify the observation period under § 8d KStG and the effective date of the ruling, and test how both apply to the Seed, Series A and Series B share transfers.",
+     "Discuss with management how the possible loss of the approx. EUR 6.3m tax benefit should be reflected in the financing discussions with Northwind Ventures Fund IV LP and in tax planning."
+    ],
+    "proposed_mandate": "Loss carryforward protection review: assess § 8c/§ 8d KStG exposure in light of the BFH ruling, build the business-continuity defence file, and support the Series B due diligence disclosure.",
+    "questions_for_client": [
+     "What exactly is the observation period for § 8d KStG, and when did it start and end relative to the Seed, Series A and Series B share transfers?",
+     "Is the ruling effective for past periods or only going forward? The update does not state an effective date.",
+     "Can management document that the business operation was unchanged despite the 2023 route-optimisation product line and the move from small logistics firms to enterprise customers (310 customers, 42 of them enterprise)?",
+     "What business-continuity documentation already exists, and what is missing?",
+     "Have any loss carryforward positions already been assessed or confirmed by the tax authority, and is any § 8d KStG application already filed?"
+    ],
+    "run_id": 76,
+    "written_at": "2026-10-28T10:40:57.895318+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5604,
+   "tokens_out": 1075,
+   "duration_ms": 12836
+  },
+  "nordlicht_immobilien|DEMO-BFH-03": {
+   "memo": {
+    "headline": "The BFH ruling puts Nordlicht's extended trade tax reduction at risk once the planned PV roll-out on six more buildings from 2025 pushes PV income above 10% of rental income in any single year.",
+    "impact": "The BFH held that income from rooftop PV and tenant electricity on let properties is harmful to the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG once it exceeds 10% of rental income in a given year, and that planned expansions must be assessed year by year. Today Nordlicht is well within the limit: 2022 feed-in income from the two existing PV systems was EUR 41k against rental income of EUR 11,400k. The planned PV systems on six further buildings from 2025 would bring approx. EUR 1.3m income per year once complete, which is a very different order of magnitude and must be tested against the 10% threshold for each year. Exceeding the threshold in one year removes the extended reduction for that entire year, not just for the excess, so the stakes are the reduction on the whole rental income. The ruling also suggests that moving PV systems into a separate entity is an option, but whether that fits Nordlicht, especially in light of Project Polarstern, has not yet been assessed.",
+    "risk_or_opportunity": "risk",
+    "urgency": "medium",
+    "deadline": "none stated",
+    "recommended_actions": [
+     "Model the 10% test year by year for 2025 onwards, using projected rental income and the phased PV income from the six further buildings (approx. EUR 1.3m per year once complete), including any tenant electricity income.",
+     "Review and, if needed, re-sequence the PV roll-out plan before commitments are made, so that the timing does not push PV income above 10% of rental income in any year.",
+     "Assess moving the existing and planned PV systems into a separate entity, as the ruling suggests, and check the consequences for the current structure and the Polarstern ownership set-up.",
+     "Include the ruling in the ongoing review of the PV expansion plan against the extended trade tax reduction, together with the open review of operating equipment (Betriebsvorrichtungen) in the two commercial units."
+    ],
+    "proposed_mandate": "Advisory engagement to model the 10% threshold for the PV expansion plan year by year and to evaluate options, including a separate PV entity, to protect the extended trade tax reduction.",
+    "questions_for_client": [
+     "What is the projected rental income for 2025 and later years, so that the 10% threshold can be tested for each year?",
+     "How will the PV roll-out on the six further buildings be phased and timed, and when will each system start generating income?",
+     "Does Nordlicht also earn tenant electricity income in addition to feed-in income, and if so, how much?",
+     "Has moving the PV systems into a separate entity already been considered, and are there any constraints from the Project Polarstern structure or the financing?",
+     "Are the approx. EUR 1.3m of annual PV income figures a full-year estimate once all six systems are complete, and do they include any tenant electricity income?"
+    ],
+    "run_id": 131,
+    "written_at": "2026-11-01T16:39:17.714284+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5197,
+   "tokens_out": 974,
+   "duration_ms": 7471
+  },
+  "mueller_praezisionstechnik|DEMO-BMF-04": {
+   "memo": {
+    "headline": "The BMF's updated guidance supports a Forschungszulage claim for Müller Präzisionstechnik's titanium implant process work, with an indicative potential of EUR 1.1m–1.6m, and the earliest years may be time-limited, so the claim should be evaluated now.",
+    "impact": "Müller Präzisionstechnik has never filed a research allowance claim, although its internal R&D team of 14 FTE develops new machining processes for medical-grade titanium implants with technical uncertainty. The BMF confirms that internal process innovations such as new manufacturing methods qualify as experimental development if they involve technical uncertainty, and that claims for eligible expenses from 2020 onwards can still be filed within the four-year assessment period. R&D expenses of EUR 1.6m were recognised in FY2023 (of which EUR 1.3m personnel costs), and the due diligence report indicates a potential of EUR 1.1m–1.6m for FY2020–FY2023. A BSFZ certificate is required for each R&D project and the client has none; because BSFZ processing times have increased, applications for older projects should be submitted promptly. The opportunity is not guaranteed: it depends on the projects qualifying and on whether the assessment period for the earliest years (FY2020, FY2021) has already expired.",
+    "risk_or_opportunity": "both",
+    "urgency": "high",
+    "deadline": "none stated as a fixed date; claims for eligible expenses from 2020 onwards must be filed within the four-year assessment period, and applications for older projects should be submitted promptly (guidance published 2026-10-13)",
+    "recommended_actions": [
+     "Confirm for each year FY2020–FY2023 whether the four-year assessment period is still open, starting with FY2020 and FY2021, to determine which years can still be claimed.",
+     "Identify and document the individual R&D projects (new machining processes for medical-grade titanium implants) and the technical uncertainty in each, so BSFZ certificate applications can be prepared.",
+     "Submit BSFZ certificate applications promptly, prioritising older projects, given the increased processing times.",
+     "Quantify eligible expenses (including personnel costs) for FY2020–FY2023 to refine the indicative EUR 1.1m–1.6m potential before filing claims."
+    ],
+    "proposed_mandate": "Forschungszulage readiness and claim mandate: project scoping, BSFZ certificate applications and preparation of research allowance claims for FY2020–FY2023.",
+    "questions_for_client": [
+     "For which of the years FY2020–FY2023 is the assessment period still open, and has any assessment already become final?",
+     "What were the R&D expenses and the potentially eligible amounts (especially personnel costs) in FY2020, FY2021 and FY2022, in addition to the EUR 1.6m in FY2023?",
+     "Which individual R&D projects exist, when did each start, and how is the technical uncertainty documented for each?",
+     "Was any BSFZ application ever started or any external funding received for these projects?",
+     "Given the fiscal unity with Müller Holding GmbH, who would be the claimant and how should the claim be coordinated at the tax group level?"
+    ],
+    "run_id": 126,
+    "written_at": "2026-11-01T16:09:31.416139+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5621,
+   "tokens_out": 1030,
+   "duration_ms": 10414
+  },
+  "mueller_praezisionstechnik|DEMO-BMF-05": {
+   "memo": {
+    "headline": "The BMF's revised transfer pricing rules put the 5% cost-plus remuneration and outdated 2019 documentation of Müller Precyzja squarely in focus just as a tax audit for FY2021–FY2023 is expected in 2026.",
+    "impact": "The BMF letter says that tax auditors may request the transaction matrix within 30 days of an audit order, that benchmarking studies for routine contract manufacturers must not be older than three years, and that cost-plus markups of 5% or less will be reviewed with particular scrutiny. Müller Precyzja Sp. z o.o. is paid cost plus 5% under the agreement of 1 July 2019, based on a 2019 benchmarking study, and the Local File covering FY2019–FY2021 has not been updated. With EUR 7.4m of purchases from the Polish subsidiary, and an audit for FY2021–FY2023 expected in 2026, the client meets several of the letter's trigger points at once. Missing or outdated documentation can lead to estimates and surcharges of up to EUR 1m, and the due diligence report already put the indicative markup-adjustment exposure at EUR 0.4m–0.9m. In addition, the agreement requires a markup review every three years, but none has been documented, which weakens the client's position. The letter does not address related-party financing, so that topic is not affected by this update.",
+    "risk_or_opportunity": "risk",
+    "urgency": "high",
+    "deadline": "No effective date stated in the update; the 30-day transaction matrix deadline runs from the date of an audit order, and the client's audit for FY2021–FY2023 is expected in 2026.",
+    "recommended_actions": [
+     "Commission a new benchmarking study for the Polish contract manufacturing arrangement to replace the 2019 study, and test whether the 5% markup is still arm's length.",
+     "Update the Local File beyond FY2021 (FY2022 and FY2023 at minimum) and document the missing three-year markup review required by the 1 July 2019 agreement.",
+     "Prepare the transaction matrix now so it can be delivered within 30 days of an audit order, and set up an internal process and responsible persons for this.",
+     "Assess the exposure under different markup scenarios against the EUR 0.4m–0.9m indicative range from the due diligence report and the up to EUR 1m estimate/surcharge risk, and decide whether any adjustment to the agreement is advisable."
+    ],
+    "proposed_mandate": "Transfer pricing documentation package: new benchmarking study, updated Local File for FY2022–FY2023, transaction matrix preparation and audit-readiness support for Müller Precyzja.",
+    "questions_for_client": [
+     "Has an audit order for FY2021–FY2023 already been issued or announced by the tax office?",
+     "From when do the revised administrative principles apply, and do they cover the open years FY2021–FY2023? The update states no effective date.",
+     "Has any markup review under the 1 July 2019 agreement been carried out informally, even if not documented?",
+     "Is a transaction matrix or any other transfer pricing documentation available for FY2022 and FY2023?",
+     "Does Müller Precyzja carry out only routine manufacturing for the Company, with the Company bearing market and inventory risk, as described in the due diligence report?"
+    ],
+    "run_id": 127,
+    "written_at": "2026-11-01T16:39:04.455855+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5528,
+   "tokens_out": 1067,
+   "duration_ms": 8427
+  },
+  "brightloop_software|DEMO-BMF-04": {
+   "memo": {
+    "headline": "The BMF's updated research allowance guidance puts Brightloop's approx. EUR 0.6m 2023 claim (AI-based scheduling engine) at concrete risk until the missing BSFZ application is filed, so it should not wait until after the 12 November 2024 closing.",
+    "impact": "The BMF says a BSFZ certificate is required for each R&D project and that applications for older projects should be submitted promptly because processing times have increased. Brightloop has a certificate for the 2022 project only; the 2023 AI-based scheduling engine has none, although a claim of approx. EUR 0.6m was already filed for it. The BSFZ application is currently planned for after closing, so the longer processing times could delay the certificate and leave an amount the company already relies on unsecured during the Series B process. The update does not state a threshold, fee or separate effective date, and it covers eligible expenses from 2020 onwards within the four-year assessment period. Whether further claims for 2020 or 2021 exist, or whether internal process innovations could add eligible projects, cannot be told from the profile.",
+    "risk_or_opportunity": "both",
+    "urgency": "medium",
+    "deadline": "No separate effective date or deadline is stated; the guidance was published 2026-10-13 and covers eligible expenses from 2020 onwards within the four-year assessment period. The BSFZ application for 2023 is currently planned after the 12 November 2024 closing, and the update says to submit promptly.",
+    "recommended_actions": [
+     "Bring forward the BSFZ application for the 2023 AI-based scheduling engine project instead of waiting until after closing, and confirm who prepares it and when it can be filed.",
+     "Reflect the approx. EUR 0.6m 2023 claim and the pending BSFZ status accurately in the Series B tax due diligence disclosure as an open point with a clear timetable.",
+     "Review whether eligible R&D expenses from 2020 and 2021 exist for which no claim has been filed, and check whether they are still within the four-year assessment period.",
+     "Check whether any internal process innovations with technical uncertainty exist that could qualify as experimental development."
+    ],
+    "proposed_mandate": "Research allowance review and BSFZ application support: secure the 2023 claim of approx. EUR 0.6m, screen open years from 2020 onwards, and align the disclosure in the Series B due diligence.",
+    "questions_for_client": [
+     "When exactly is the BSFZ application for the 2023 project planned to be submitted, and has any preparatory work started?",
+     "Were there eligible R&D expenses in 2020 or 2021 for which no research allowance claim has been filed?",
+     "Does the R&D include internal process innovations involving technical uncertainty that are not yet part of any claim?",
+     "Has the tax office or the certifying body already commented on the 2023 claim, and is any payout of the approx. EUR 0.6m expected before the certificate is issued?"
+    ],
+    "run_id": 129,
+    "written_at": "2026-11-01T16:39:18.211116+00:00"
+   },
+   "model": "claude-sonnet-5-5",
+   "tokens_in": 5411,
+   "tokens_out": 947,
+   "duration_ms": 9295
+  }
+ },
+ "drafts": {
+  "brightloop_software": {
+   "DEMO-BFH-02,DEMO-BMF-01": {
+    "subject": "Brightloop Software GmbH: B2B e-invoicing and loss carryforwards",
+    "body": "We advised Brightloop on the tax due diligence for the Series B financing in 2024. I am writing about two recent developments.\n\n1. Mandatory B2B e-invoicing: From 1 January 2027, Brightloop would need to issue structured e-invoices for its German B2B subscriptions. Your Stripe Billing PDF invoices may no longer be permitted once the transition period ends. As German customers generate 45% of your revenue, recipients may lose input VAT deduction, which may cause friction with your enterprise customers.\n\n2. Loss carryforwards: Your shareholder base changed by more than 50% across three financing rounds, so your loss carryforwards of approx. EUR 21m are exposed under § 8c KStG. A recent BFH ruling reads the continuation-loss rule in § 8d KStG strictly and may deny it after a new line of business or a significant change in customer segment. Brightloop launched a route-optimisation product in 2023 and moved towards enterprise customers, which appears similar to the case decided. The tax benefit of approx. EUR 6.3m may be at risk.\n\nThis assessment is based on the information from our 2024 review, and your position may have changed since.\n\nI suggest a 30-minute call within the next two weeks to review your Stripe Billing set-up, the German invoices and your § 8c/§ 8d KStG exposure and business-continuity documentation.\n\nPlease suggest a time, or reply with any questions.",
+    "model": "claude-sonnet-5-5",
+    "tokens_in": 8890,
+    "tokens_out": 7904,
+    "duration_ms": 53311
+   },
+   "DEMO-BFH-02,DEMO-BMF-01,DEMO-BMF-04": {
+    "subject": "Brightloop Software GmbH: e-invoicing, loss carryforwards, research allowance",
+    "body": "We last worked together on your Series B tax due diligence in 2024. Three developments may affect Brightloop.\n\n1. E-invoicing: From 1 January 2027, Brightloop is likely to need to issue structured e-invoices (XRechnung or ZUGFeRD 2.0.1 or later) for German B2B subscriptions. Your Stripe Billing PDF invoices would not meet this standard once the transition period ends (length not yet confirmed). German customers generate 45% of your revenue.\n\n2. Loss carryforwards: A recent BFH ruling reads § 8d KStG strictly: the continuation-loss rule may not apply after a new line of business or a significant change of customer segment. Brightloop added a route-optimisation product in 2023 and moved towards enterprise customers, so protection for your approx. EUR 21m loss carryforwards may be at risk.\n\n3. Research allowance: Recent BMF guidance requires a BSFZ certificate for each R&D project and urges prompt applications. The 2023 AI-based scheduling engine has no certificate, although a claim of approx. EUR 0.6m has been filed. Applying only after closing may delay it.\n\nThis assessment is based on the information from our 2024 review, and your position may have changed since.\n\nI suggest a 30-minute call within the next two weeks to review your Stripe Billing set-up, your § 8c/§ 8d KStG exposure and documentation, and the 2023 BSFZ application.\n\nPlease suggest a time, or reply with any questions.",
+    "model": "claude-sonnet-5-5",
+    "tokens_in": 4180,
+    "tokens_out": 4708,
+    "duration_ms": 29426
+   }
+  },
+  "nordlicht_immobilien": {
+   "DEMO-BFH-03": {
+    "subject": "Nordlicht Immobilien: PV expansion and extended trade tax reduction",
+    "body": "In 2023 we supported Nordlicht Immobilien GmbH & Co. KG with the tax due diligence for Project Polarstern. I am writing about a recent BFH ruling that may affect your planned photovoltaic roll-out.\n\nThe ruling concerns the extended trade tax reduction (§ 9 No. 1 sentence 2 GewStG). It holds that income from rooftop photovoltaic systems and tenant electricity is harmful once it exceeds 10% of rental income in a given year. Planned expansions are assessed year by year. Nordlicht is well within the limit today: 2022 feed-in income from your two systems was EUR 41k against rental income of EUR 11,400k. The planned systems on six further buildings from 2025 would bring approx. EUR 1.3m per year once complete. Exceeding the threshold in one year is likely to remove the reduction for that entire year, so it may affect your whole rental income. The ruling also mentions a separate PV entity. We have not yet assessed whether that fits Nordlicht in light of Project Polarstern.\n\nThis assessment is based on the information from our 2023 review, and your position may have changed since.\n\nI suggest a 30-minute call within the next two weeks. We would model the 10% test year by year from 2025, review the sequencing of the roll-out and assess a separate PV entity.\n\nPlease let me know a time that suits you, or reply with any questions.",
+    "model": "claude-sonnet-5-5",
+    "tokens_in": 2554,
+    "tokens_out": 1874,
+    "duration_ms": 12081
+   }
+  },
+  "mueller_praezisionstechnik": {
+   "DEMO-BMF-01,DEMO-BMF-04,DEMO-BMF-05": {
+    "subject": "Müller Präzisionstechnik GmbH: e-invoicing, research allowance, transfer pricing",
+    "body": "Following our Tax due diligence – Project Alpine (2024), I am writing about three developments that may affect your company.\n\n1. E-invoicing: From 1 January 2027, your company would need to issue XRechnung or ZUGFeRD invoices for domestic B2B supplies. Sage 100 (2019) produces only PDFs, and no ERP migration budget is approved. Customers may lose input VAT deduction on non-compliant invoices.\n\n2. Research allowance: A recent BMF letter confirms that new manufacturing methods involving technical uncertainty may qualify. Your titanium implant process work appears to fit, with an indicative potential of EUR 1.1m to 1.6m for FY2020 to FY2023. BSFZ certificates are required, and the earliest years may be time-limited.\n\n3. Transfer pricing: A recent BMF letter lets auditors request the transaction matrix within 30 days of an audit order and scrutinise cost-plus markups of 5% or less. Müller Precyzja is paid cost plus 5% on a 2019 study, its Local File ends at FY2021, and an audit for FY2021 to FY2023 is expected in 2026.\n\nThis assessment is based on the information from our 2024 review, and your position may have changed since.\n\nI suggest a 30-minute call within the next two weeks. We would review your invoice flows and system options, your R&D projects and BSFZ position, and the Polish benchmarking study and Local File.\n\nPlease suggest a time, or reply with any questions.",
+    "model": "claude-sonnet-5-5",
+    "tokens_in": 4264,
+    "tokens_out": 2853,
+    "duration_ms": 18662
+   }
+  }
+ },
+ "stability": {
+  "runs_planned": 5,
+  "runs": [
+   {
+    "index": 1,
+    "pairs": {
+     "mueller_praezisionstechnik|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 96,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 62,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 88,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 8,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 97,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 90,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-04": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 80,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-05": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 12,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     }
+    },
+    "cost_usd": 0.22372
+   },
+   {
+    "index": 2,
+    "pairs": {
+     "mueller_praezisionstechnik|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 62,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 90,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 96,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 86,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-04": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 62,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-05": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 12,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 1,
+      "verdict": "not_affected",
+      "flagged": false
+     }
+    },
+    "cost_usd": 0.23544
+   },
+   {
+    "index": 3,
+    "pairs": {
+     "mueller_praezisionstechnik|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 62,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 90,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 12,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 96,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 85,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-04": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 72,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-05": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 8,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     }
+    },
+    "cost_usd": 0.23484
+   },
+   {
+    "index": 4,
+    "pairs": {
+     "mueller_praezisionstechnik|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 62,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 90,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 10,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 97,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 85,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-04": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 72,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-05": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 8,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 1,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     }
+    },
+    "cost_usd": 0.23702
+   },
+   {
+    "index": 5,
+    "pairs": {
+     "mueller_praezisionstechnik|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 88,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 45,
+      "verdict": "uncertain",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-01": {
+      "stage": "scored",
+      "score": 5,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 97,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-02": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BFH-03": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 90,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BFH-03": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-04": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "brightloop_software|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 72,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "kaiser_dental|DEMO-BMF-04": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-05": {
+      "stage": "filtered_out",
+      "score": 0,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 95,
+      "verdict": "affected",
+      "flagged": true
+     },
+     "nordlicht_immobilien|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 10,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-05": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "mueller_praezisionstechnik|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 3,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "nordlicht_immobilien|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 4,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "brightloop_software|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     },
+     "kaiser_dental|DEMO-BMF-06": {
+      "stage": "scored",
+      "score": 2,
+      "verdict": "not_affected",
+      "flagged": false
+     }
+    },
+    "cost_usd": 0.22511
+   }
+  ],
+  "cost_usd": 1.15613
+ }
+}

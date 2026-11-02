@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Design tokens: a calm, document-like palette for tax professionals.
+   Petrol is the brand colour; amber is reserved for relevance and alerts. */
+@theme {
+  --color-paper: #f6f7f5;
+  --color-sheet: #ffffff;
+  --color-ink: #1b2430;
+  --color-slate: #5b6675;
+  --color-rule: #dde2e0;
+  --color-petrol: #0f5c63;
+  --color-petrol-soft: #e3efef;
+  --color-amber: #b9780a;
+  --color-amber-soft: #fbf1dc;
+  --color-danger: #a8322d;
+
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-petrol);
+  outline-offset: 2px;
+}
+
+/* Agent chain: a new line in the activity log glows briefly. */
+@keyframes tp-row-in {
+  from { background: var(--color-petrol-soft); transform: translateY(-4px); opacity: 0; }
+  to { background: transparent; transform: none; opacity: 1; }
+}
+.tp-row-new { animation: tp-row-in 1.2s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .tp-row-new { animation: none; }
+}
+
+/* Agent team: speech bubble pops in, three dots type. */
+@keyframes tp-pop { from { transform: translateY(4px) scale(.92); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes tp-dot { 0%, 60%, 100% { opacity: .2 } 30% { opacity: 1 } }
+.tp-bubble { animation: tp-pop .35s ease-out; }
+.tp-dots i { font-style: normal; animation: tp-dot 1.2s infinite; }
+.tp-dots i:nth-child(2) { animation-delay: .2s; }
+.tp-dots i:nth-child(3) { animation-delay: .4s; }
+@media (prefers-reduced-motion: reduce) {
+  .tp-bubble, .tp-dots i { animation: none; }
+}

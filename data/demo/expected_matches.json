@@ -1,0 +1,34 @@
+{
+  "_about": "Hand-labelled ground truth for evaluating the Impact Matcher. 'affected' = must be flagged, 'not_affected' = must not be flagged, 'either' = borderline, both answers acceptable.",
+  "labels": [
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BMF-01", "label": "affected", "why": "Domestic B2B sales EUR 21.7m, Sage 100 produces PDF only"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BMF-01", "label": "either", "why": "Only a small share of taxable commercial lettings"},
+    {"client": "brightloop_software", "update": "DEMO-BMF-01", "label": "affected", "why": "45% German B2B revenue invoiced as Stripe PDFs"},
+    {"client": "kaiser_dental", "update": "DEMO-BMF-01", "label": "not_affected", "why": "VAT-exempt treatments, no business customers"},
+
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BFH-02", "label": "not_affected", "why": "No loss carryforwards"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BFH-02", "label": "not_affected", "why": "Partnership, no corporate losses"},
+    {"client": "brightloop_software", "update": "DEMO-BFH-02", "label": "affected", "why": "EUR 21m losses, >50% ownership change, shift to enterprise customers"},
+    {"client": "kaiser_dental", "update": "DEMO-BFH-02", "label": "not_affected", "why": "Profitable, no losses"},
+
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BFH-03", "label": "not_affected", "why": "Not a property company"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BFH-03", "label": "affected", "why": "Extended reduction claimed; PV expansion to approx. EUR 1.3m vs EUR 11.4m rent"},
+    {"client": "brightloop_software", "update": "DEMO-BFH-03", "label": "not_affected", "why": "Not a property company"},
+    {"client": "kaiser_dental", "update": "DEMO-BFH-03", "label": "not_affected", "why": "Premises leased, no PV"},
+
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BMF-04", "label": "affected", "why": "14 FTE process innovation R&D, never claimed for 2020-2023"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BMF-04", "label": "not_affected", "why": "No R&D"},
+    {"client": "brightloop_software", "update": "DEMO-BMF-04", "label": "affected", "why": "2023 claim filed without BSFZ certificate"},
+    {"client": "kaiser_dental", "update": "DEMO-BMF-04", "label": "not_affected", "why": "No research activities"},
+
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BMF-05", "label": "affected", "why": "Polish contract manufacturer at cost plus 5%, 2019 benchmark, audit expected 2026"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BMF-05", "label": "either", "why": "Related-party loan, but letter excludes financing"},
+    {"client": "brightloop_software", "update": "DEMO-BMF-05", "label": "not_affected", "why": "No intercompany transactions"},
+    {"client": "kaiser_dental", "update": "DEMO-BMF-05", "label": "not_affected", "why": "No foreign related parties"},
+
+    {"client": "mueller_praezisionstechnik", "update": "DEMO-BMF-06", "label": "not_affected", "why": "Not agriculture"},
+    {"client": "nordlicht_immobilien", "update": "DEMO-BMF-06", "label": "not_affected", "why": "Not agriculture"},
+    {"client": "brightloop_software", "update": "DEMO-BMF-06", "label": "not_affected", "why": "Not agriculture"},
+    {"client": "kaiser_dental", "update": "DEMO-BMF-06", "label": "not_affected", "why": "Not agriculture"}
+  ]
+}

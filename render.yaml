@@ -1,0 +1,9 @@
+# One-click deploy of the public demo on Render (free plan). Render reads this file from the GitHub repo.
+services:
+  - type: web
+    name: taxpulse-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true

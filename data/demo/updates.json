@@ -1,0 +1,56 @@
+[
+  {
+    "external_id": "DEMO-BMF-01",
+    "kind": "bmf_letter",
+    "title": "Mandatory B2B e-invoicing: issuing obligation and transition rules",
+    "published_on": "2026-10-06",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The Federal Ministry of Finance comments on the next phase of mandatory B2B e-invoicing under § 14 UStG. From 1 January 2027, businesses with prior-year turnover above EUR 800,000 must issue structured e-invoices (XRechnung or ZUGFeRD from version 2.0.1, excluding the MINIMUM and BASIC-WL profiles) for taxable domestic B2B supplies. PDF and paper invoices are no longer permitted for these businesses after the transition period. Recipients may lose input VAT deduction on invoices that do not meet the structured format. VAT-exempt supplies and supplies to private individuals are not covered. Cross-border supplies are not yet covered."
+  },
+  {
+    "external_id": "DEMO-BFH-02",
+    "kind": "bfh_ruling",
+    "title": "Forfeiture of losses after venture capital rounds: strict reading of the continuation-loss rule",
+    "published_on": "2026-09-24",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The Federal Fiscal Court (BFH) ruled that the continuation-loss rule of § 8d KStG does not apply where a company added a new line of business or significantly changed its customer segment during the observation period. In the case at hand, a software company that expanded from small-business customers to enterprise customers after a financing round lost its loss carryforwards under § 8c KStG. The burden of proof for an unchanged business operation lies with the taxpayer and requires detailed documentation."
+  },
+  {
+    "external_id": "DEMO-BFH-03",
+    "kind": "bfh_ruling",
+    "title": "Extended trade tax reduction: photovoltaic systems on let properties",
+    "published_on": "2026-09-30",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The BFH held that income from rooftop photovoltaic systems and tenant electricity on let properties is harmful to the extended trade tax reduction (§ 9 No. 1 sentence 2 GewStG) once it exceeds 10% of rental income in a given year, and that planned expansions must be assessed year by year. Exceeding the threshold in one year removes the extended reduction for that entire year. Property companies are advised to review PV expansion plans and consider moving PV systems into a separate entity."
+  },
+  {
+    "external_id": "DEMO-BMF-04",
+    "kind": "bmf_letter",
+    "title": "Research allowance (Forschungszulage): updated guidance on claims for past years",
+    "published_on": "2026-10-13",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The BMF updated its guidance on the research allowance under the FZulG. Claims for eligible expenses incurred from 2020 onwards can still be filed within the four-year assessment period. A BSFZ certificate is required for each R&D project; because processing times have increased, applications for older projects should be submitted promptly. Internal process innovations, such as new manufacturing methods, qualify as experimental development if they involve technical uncertainty."
+  },
+  {
+    "external_id": "DEMO-BMF-05",
+    "kind": "bmf_letter",
+    "title": "Transfer pricing: revised administrative principles on documentation and contract manufacturing",
+    "published_on": "2026-10-02",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The BMF revised its administrative principles on transfer pricing documentation (§ 90 (3) AO). Tax auditors may request the transaction matrix within 30 days of an audit order. For routine contract manufacturers, benchmarking studies must not be older than three years, and cost-plus markups of 5% or less will be reviewed with particular scrutiny. Missing or outdated documentation can lead to estimates and surcharges of up to EUR 1m. Related-party financing is not addressed in this letter."
+  },
+  {
+    "external_id": "DEMO-BMF-06",
+    "kind": "bmf_letter",
+    "title": "Flat-rate VAT scheme for farmers: new rate from 2027",
+    "published_on": "2026-10-09",
+    "source": "demo",
+    "url": null,
+    "text": "FICTIONAL SAMPLE UPDATE FOR DEMONSTRATION. The BMF announces an adjusted average rate for the flat-rate VAT scheme for agricultural and forestry businesses under § 24 UStG from 1 January 2027. The change only concerns farmers and foresters applying the flat-rate scheme and their customers' input VAT deduction on such invoices."
+  }
+]

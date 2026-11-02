@@ -1,0 +1,47 @@
+{
+  "company_name": "Nordlicht Immobilien GmbH & Co. KG",
+  "summary": "Berlin-based real estate partnership holding 14 residential and mixed-use buildings with rental income of EUR 11.4m. It was acquired in a 89.9% / 10.1% share deal by a Luxembourg fund and a German family office in 2023. Its tax position depends on staying below the RETT threshold, keeping the extended trade tax reduction despite rooftop PV systems, and on the interest barrier escape clause.",
+  "key_facts": [
+    {"label": "Legal form", "value": "GmbH & Co. KG, commercially imprinted through its general partner and therefore subject to trade tax",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 2, "quote": "The partnership is commercially imprinted (gewerblich geprägt) through its general partner Nordlicht Verwaltungs GmbH"}]},
+    {"label": "Seat", "value": "Berlin",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 1, "quote": "Target: Nordlicht Immobilien GmbH & Co. KG, Berlin."}]},
+    {"label": "Portfolio", "value": "14 buildings in Berlin and Potsdam; rental income 2022 of EUR 11.4m",
+     "citations": [{"document": "02_Property_Schedule.pdf", "page": 1, "quote": "10 further residential buildings Residential 7,510 No Total 11,400 2 systems"}]},
+    {"label": "Ownership", "value": "89.9% Aurora Residential Fund SCSp (Luxembourg), 10.1% Hanseatic Family Office GmbH",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 1, "quote": "the fund acquires 89.9% of the partnership interests, a German family office (Hanseatic Family Office GmbH) acquires 10.1%"}]},
+    {"label": "Mandate", "value": "Tax due diligence for the share deal, closed on 29 September 2023",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 1, "quote": "Report date: 3 August 2023. Closing: 29 September 2023."}]}
+  ],
+  "tax_areas": [
+    {"category": "Real estate transfer tax", "title": "Share deal structured below the 90% threshold", "assessment": "risk", "severity": "high",
+     "summary": "The 89.9% / 10.1% split avoids RETT only while holding periods are respected. Any rule change or transfer of interests within ten years could trigger RETT on a EUR 230m portfolio.",
+     "facts": [{"label": "RETT threshold", "value": "Split keeps the acquisition below the 90% threshold; transfers within ten years must be monitored",
+                "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 2, "quote": "The 89.9% / 10.1% split keeps the acquisition below the 90% threshold of § 1 (2a) and (2b) GrEStG."}]}]},
+    {"category": "Trade tax", "title": "Extended trade tax reduction at risk from PV expansion", "assessment": "risk", "severity": "medium",
+     "summary": "The extended reduction removes trade tax on rental income but tolerates only limited harmful income. The planned PV expansion would raise feed-in income from EUR 41k to about EUR 1.3m a year.",
+     "facts": [
+       {"label": "Extended reduction claimed", "value": "Claimed under § 9 No. 1 sentence 2 GewStG for rental income",
+        "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 3, "quote": "The partnership claims the extended trade tax reduction under § 9 No. 1 sentence 2 GewStG for its rental income."}]},
+       {"label": "PV expansion", "value": "PV on six further buildings from 2025, approx. EUR 1.3m income per year",
+        "citations": [{"document": "02_Property_Schedule.pdf", "page": 2, "quote": "generate feed-in and tenant electricity income of approx. EUR 1.3m per year once complete"},
+                      {"document": "01_Tax_Due_Diligence_Report.pdf", "page": 3, "quote": "management plans to install PV systems on six further buildings from 2025"}]}]},
+    {"category": "Financing", "title": "Interest barrier on EUR 60m shareholder loan", "assessment": "risk", "severity": "medium",
+     "summary": "Net interest expense exceeds the EUR 3m allowance, so deductibility relies on the escape clause. Changes to the interest barrier or arm's length rules for related-party loans would affect the partnership directly.",
+     "facts": [{"label": "Shareholder loan", "value": "EUR 60m at 6.5% from the 89.9% shareholder",
+                "citations": [{"document": "03_Shareholder_Loan_Agreement.pdf", "page": 1, "quote": "Principal amount: EUR 60,000,000. Interest: 6.5% p.a., payable annually."}]}]},
+    {"category": "VAT", "title": "Partly opted commercial lettings", "assessment": "neutral", "severity": "low",
+     "summary": "Residential lettings are exempt while about 18% of rental income is subject to VAT by option. Input VAT correction periods are running.",
+     "facts": [{"label": "VAT option", "value": "Commercial lettings (approx. 18% of rental income) partly subject to VAT by option",
+                "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 4, "quote": "Commercial lettings (approx. 18% of rental income) are partly subject to VAT by option"}]}]}
+  ],
+  "open_points": [
+    {"label": "RETT monitoring", "value": "Monitor shareholder changes for 10 years",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 4, "quote": "Monitor shareholder changes for 10 years (RETT)"}]},
+    {"label": "PV review", "value": "Review the PV expansion plan against the extended trade tax reduction",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 4, "quote": "Review PV expansion plan against the extended trade tax reduction"}]},
+    {"label": "Interest barrier", "value": "Re-test the escape clause annually",
+     "citations": [{"document": "01_Tax_Due_Diligence_Report.pdf", "page": 9, "quote": "Re-test interest barrier escape clause annually"}]}
+  ],
+  "keywords": ["real estate", "share deal", "RETT", "GrEStG", "extended trade tax reduction", "photovoltaic", "tenant electricity", "interest barrier", "shareholder loan", "related party", "VAT option", "partnership"]
+}
