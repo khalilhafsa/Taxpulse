@@ -17,3 +17,6 @@ data/uploads/
 
 # local diagnosis output
 data/diagnose.log
+
+# Demo video (shared on LinkedIn, not in the repo)
+*.mp4

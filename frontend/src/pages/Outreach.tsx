@@ -11,6 +11,15 @@ const STATUS: Record<EmailDraft['status'], { label: string; className: string }>
   sent: { label: 'Marked as sent', className: 'text-slate' },
 }
 
+const MAX_WORDS = 250 // same limit and same counting as the partner review (writer.email_core)
+
+function countWords(body: string): number {
+  let text = body.split('\n\nKind regards,\n\n')[0].trim()
+  const nl = text.indexOf('\n')
+  if (nl > 0 && text.slice(0, nl).trim().toLowerCase().startsWith('dear')) text = text.slice(nl + 1)
+  return text.trim().split(/\s+/).filter(Boolean).length
+}
+
 function DraftEditor({ d, to, onChange, canRevise = false }: {
   d: EmailDraft; to: string; onChange: () => void; canRevise?: boolean
 }) {
@@ -26,7 +35,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
 
   const dirty = subject !== d.subject || body !== d.body
   const locked = d.status === 'sent'
-  const words = body.trim().split(/\s+/).filter(Boolean).length
+  const words = countWords(body)
   const placeholders = /\[Your name\]|\[Firm name\]/.test(body)
   const notes = d.review_notes ? d.review_notes.split('\n').filter(Boolean) : []
 
@@ -75,8 +84,8 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
         <textarea value={body} onChange={(e) => setBody(e.target.value)} disabled={locked} rows={14}
           className={`${field} mt-1 font-[inherit] leading-relaxed`} />
       </label>
-      <p className={`mt-1 text-xs ${words > 230 ? 'text-danger' : 'text-slate'}`}>
-        {words} words{placeholders && ' · add your firm details in Settings, or replace [Your name] and [Firm name]'}
+      <p className={`mt-1 text-xs ${words > MAX_WORDS ? 'text-danger' : 'text-slate'}`}>
+        {words} words without greeting and signature{words > MAX_WORDS && ` (partner review limit: ${MAX_WORDS})`}{placeholders && ' · add your firm details in Settings, or replace [Your name] and [Firm name]'}
       </p>
 
       {notes.length > 0 ? (

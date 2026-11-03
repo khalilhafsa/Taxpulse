@@ -4,7 +4,7 @@
 
 TaxPulse is a multi-agent AI application for German tax advisors. It keeps a tax profile of every former due diligence client, monitors new BMF letters and BFH rulings, and tells the advisor which former client is affected, with evidence and a ready-to-review outreach email.
 
-**Live demo:** https://taxpulse-demo.onrender.com (fictional companies; the agents replay results recorded with Claude, so the first visit may take a minute to wake the free server)
+**Live demo:** https://taxpulse-demo-bh4f.onrender.com (fictional companies; the agents replay results recorded with Claude, so the first visit may take a minute to wake the free server)
 **Code:** https://github.com/khalilhafsa/taxpulse · **Spec and roadmap:** [docs/SPEC.md](docs/SPEC.md)
 
 ## How it works
