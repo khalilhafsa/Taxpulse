@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { api } from '../api'
 import { useAsync } from '../useAsync'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DemoContext } from '../demo'
 import ErrorBoundary from './ErrorBoundary'
 import Notifications from './Notifications'
@@ -49,12 +49,19 @@ function Status() {
 function DemoBanner() {
   const [busy, setBusy] = useState(false)
   const [note, setNote] = useState<string | null>(null)
+  const [restored, setRestored] = useState(() => new URLSearchParams(window.location.search).has('restored'))
+  useEffect(() => {
+    if (!restored) return
+    window.history.replaceState(null, '', window.location.pathname)
+    const t = setTimeout(() => setRestored(false), 6000)
+    return () => clearTimeout(t)
+  }, [restored])
   const reset = async () => {
     setBusy(true)
     setNote(null)
     try {
       await api.resetDemo()
-      window.location.assign('/')
+      window.location.assign('/?restored=1')
     } catch (e) {
       setNote((e as Error).message)
       setBusy(false)
@@ -67,9 +74,11 @@ function DemoBanner() {
           <strong className="font-semibold">Public demo.</strong> The companies are fictional, and the agents replay results
           they produced with Claude, so nothing here calls the AI.
         </p>
-        <button type="button" onClick={reset} disabled={busy} className="font-semibold underline-offset-2 hover:underline disabled:opacity-50">
-          {busy ? 'Starting over…' : 'Start the demo over'}
-        </button>
+        {restored
+          ? <span className="font-semibold" role="status">Done: the demo is back at its starting point.</span>
+          : <button type="button" onClick={reset} disabled={busy} className="font-semibold underline-offset-2 hover:underline disabled:opacity-50">
+              {busy ? 'Starting over…' : 'Start the demo over'}
+            </button>}
         {note && <p className="w-full text-danger">{note}</p>}
       </div>
     </div>
