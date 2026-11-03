@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { api } from '../api'
-import MatchList from '../components/MatchList'
 import { Button, EmptyState, ErrorNote, KindTag, PageHeader, SectionTitle, SourceTag, formatDate } from '../components/ui'
 import { useAsync } from '../useAsync'
 
@@ -23,30 +22,7 @@ export default function UpdateDetail() {
   const id = Number(useParams().id)
   const { data: u, error, reload } = useAsync(() => api.update(id), [id])
   const { data: health } = useAsync(api.health)
-  const { data: m, reload: reloadMatches } = useAsync(() => api.matches(id), [id])
   const [actionError, setActionError] = useState<string | null>(null)
-  const [matchError, setMatchError] = useState<string | null>(null)
-  const [starting, setStarting] = useState(false)
-
-  const matching = m?.matches.some((x) => x.status === 'running' || x.status === 'prefiltered')
-  useEffect(() => {
-    if (!matching) return
-    const t = setInterval(reloadMatches, 3000)
-    return () => clearInterval(t)
-  }, [matching, reloadMatches])
-
-  const findClients = async () => {
-    setMatchError(null)
-    setStarting(true)
-    try {
-      await api.matchUpdate(id)
-      reloadMatches()
-    } catch (e) {
-      setMatchError((e as Error).message)
-    } finally {
-      setStarting(false)
-    }
-  }
 
   const running = u?.analysis_status === 'running'
   useEffect(() => {
@@ -147,36 +123,6 @@ export default function UpdateDetail() {
         <EmptyState title="Not analysed yet">
           Click Analyse to let the Regulatory Analyst extract the tax areas, the companies affected and the cases it excludes.
         </EmptyState>
-      )}
-
-      {a?.relevant_for_companies && (
-        <section aria-labelledby="impact" className="mt-12">
-          <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-t border-rule pt-8">
-            <div>
-              <SectionTitle id="impact">Impact on your clients</SectionTitle>
-              <p className="-mt-1 text-sm text-slate">
-                The pre-filter keeps clients that share a tax area or keyword; the Impact Matcher scores each of them
-                from 0 to 100. From {m?.threshold ?? 60}, the client gets an alert.
-              </p>
-            </div>
-            <Button onClick={findClients} disabled={starting || !!matching || running || !!noKey}
-              title={noKey ? 'Add your Anthropic API key to the .env file first' : undefined}>
-              {matching ? 'Matcher at work…' : m?.matches.length ? 'Check clients again' : 'Find affected clients'}
-            </Button>
-          </div>
-          {matchError && <div className="mb-4"><ErrorNote message={matchError} /></div>}
-          {m && m.matches.length > 0 && <MatchList matches={m.matches} threshold={m.threshold} />}
-          {m && m.matches.length === 0 && (
-            <EmptyState title="Not matched yet">
-              Click Find affected clients to compare this update with every client profile.
-            </EmptyState>
-          )}
-          {m && m.clients_without_profile.length > 0 && (
-            <p className="mt-4 text-sm text-slate">
-              Not checked, because they have no profile yet: {m.clients_without_profile.join(', ')}.
-            </p>
-          )}
-        </section>
       )}
 
       <details className="mt-10 rounded-lg border border-rule bg-sheet">
