@@ -1,3 +1,4 @@
+import { useDemo } from '../demo'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type Dashboard } from '../api'
@@ -78,6 +79,7 @@ function WhoToCall({ clients }: { clients: Dashboard['top_clients'] }) {
 }
 
 export default function Overview() {
+  const demo = useDemo()
   const { data, error, reload } = useAsync(api.dashboard)
   const [loading, setLoading] = useState(false)
   const [demoError, setDemoError] = useState<string | null>(null)
@@ -125,7 +127,7 @@ export default function Overview() {
               note={`${c.alerts_accepted} accepted so far`} />
             <Kpi label="Emails to approve" value={String(c.drafts_to_review)} to="/outreach"
               note={`${c.drafts_ready} ready to send · ${c.emails_sent} sent`} />
-            <Kpi label="AI cost so far" value={`$${c.cost_usd.toFixed(2)}`} to="/runs"
+            <Kpi label={demo ? "AI cost, as recorded" : "AI cost so far"} value={`$${c.cost_usd.toFixed(2)}`} to="/runs"
               note={`${c.updates} tax updates, ${c.updates_relevant} relevant`} />
           </dl>
 

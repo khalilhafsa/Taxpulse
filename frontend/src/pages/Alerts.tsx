@@ -1,3 +1,4 @@
+import { useDemo } from '../demo'
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, type AlertItem, type Evaluation, type ImpactMemo } from '../api'
@@ -198,6 +199,7 @@ function EvaluationBox({ e }: { e: Evaluation }) {
 }
 
 export default function Alerts() {
+  const demo = useDemo()
   const [tab, setTab] = useState<AlertItem['status']>('new')
   const { data: alerts, error, reload: reloadAlerts } = useAsync(api.alerts)
   const { data: status, reload: reloadStatus } = useAsync(api.scanStatus)
@@ -268,7 +270,7 @@ export default function Alerts() {
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-amber/30 bg-amber-soft px-4 py-3 text-sm">
             <span>
               {status.clients_without_profile} {status.clients_without_profile === 1 ? 'client has' : 'clients have'} no profile yet
-              and will not be checked. About $0.11 each.
+              and will not be checked.{!demo && ' About $0.11 each.'}
             </span>
             <Button variant="quiet" disabled={busy || !!noKey} onClick={() => run(api.buildMissingProfiles)}>
               {status.profiles_running ? 'Building profiles…' : 'Build missing profiles'}
@@ -301,7 +303,9 @@ export default function Alerts() {
 
       {alerts && shown.length === 0 && (
         <EmptyState title={tab === 'new' ? 'Nothing to review' : `No ${tab} alerts`}>
-          {tab === 'new' && 'Scan your portfolio after adding clients or analysing new tax updates.'}
+          {tab === 'new' && (demo
+            ? <>The agents are still at work, or everything has been reviewed. Watch them on the <Link to="/" className="font-medium text-petrol hover:underline">Overview</Link>.</>
+            : 'Scan your portfolio after adding clients or analysing new tax updates.')}
         </EmptyState>
       )}
       <ol className="space-y-4">

@@ -157,9 +157,75 @@ def replay_runner(*, spec, task: str, expected_output: str, schema, model: str, 
 replay_runner.requires_api_key = False
 
 
-def reset_demo(engine) -> None:
-    """Fresh demo: fictional clients with their data rooms and the six demo updates, nothing analysed yet.
-    The recorded stability test is restored so the Quality page has its result."""
+def _instant(**kwargs):
+    return replay_runner(**kwargs, pause=False)
+
+
+_instant.requires_api_key = False
+
+
+def _prefill(engine) -> None:
+    """Run the recorded chain at once, so a visitor lands on results: profiles, analyses, scores and
+    alerts, plus one client (the one with the most alerts) already reviewed, with memos and an email."""
+    import uuid
+    from .agents.analyst import run_analyst
+    from .agents.explainer import run_explainer
+    from .agents.matcher import run_matcher
+    from .agents.profiler import run_profiler
+    from .agents.writer import alerts_for_email, run_writer
+    pid = f"demo-{uuid.uuid4().hex[:8]}"
+
+    def new_run(agent: str, subject: str) -> int:
+        with Session(engine) as s:
+            run = AgentRun(pipeline_id=pid, agent=agent, subject=subject)
+            s.add(run)
+            s.commit()
+            return run.id
+
+    with Session(engine) as s:
+        clients = [c.id for c in s.exec(select(Client).order_by(Client.id)).all()]
+        updates = [u.id for u in s.exec(select(RegulatoryUpdate).order_by(RegulatoryUpdate.id)).all()]
+    for cid in clients:
+        run_profiler(engine, new_run("profiler", f"client:{cid}"), cid, _instant)
+    for uid in updates:
+        run_analyst(engine, new_run("analyst", f"update:{uid}"), uid, _instant)
+    for uid in updates:
+        run_matcher(engine, new_run("matcher", f"update:{uid}"), uid, _instant)
+
+    with Session(engine) as s:
+        by_client: dict[int, list[Alert]] = {}
+        for a in s.exec(select(Alert)).all():
+            by_client.setdefault(s.get(Match, a.match_id).client_id, []).append(a)
+        if not by_client:
+            return
+        chosen = None  # the client with the most alerts whose memos were all recorded
+        for cid, alerts in sorted(by_client.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+            slug = s.get(Client, cid).slug
+            keyed = [(a.id, f"{slug}|{s.get(RegulatoryUpdate, s.get(Match, a.match_id).update_id).external_id}")
+                     for a in alerts]
+            if all(key in recordings()["memos"] for _, key in keyed):
+                chosen = (cid, slug, keyed)
+                break
+        if not chosen:
+            return
+        cid, slug, keyed = chosen
+        for aid, _ in keyed:
+            a = s.get(Alert, aid)
+            a.status = "accepted"
+            s.add(a)
+        s.commit()
+    for aid, _ in keyed:
+        run_explainer(engine, new_run("explainer", f"alert:{aid}"), aid, _instant)
+    with Session(engine) as s:
+        ids = [a.id for a in alerts_for_email(s, cid)]
+    if ids and recordings()["drafts"].get(slug):
+        run_writer(engine, new_run("writer", f"client:{cid}"), cid, ids, _instant)
+
+
+def reset_demo(engine, prefilled: bool = True) -> None:
+    """Restore the demo: fictional clients with their data rooms and the six demo updates. Prefilled (the
+    default) it also holds the recorded results; otherwise nothing is analysed yet, ready to watch the
+    agents work. The recorded stability test is restored so the Quality page has its result."""
     from .seed import backfill_demo_details, seed_demo
     SQLModel.metadata.drop_all(engine)
     SQLModel.metadata.create_all(engine)
@@ -170,6 +236,8 @@ def reset_demo(engine) -> None:
         if st:
             session.add(EvalBatch(runs_planned=st["runs_planned"], runs=st["runs"], cost_usd=st["cost_usd"], status="done"))
             session.commit()
+    if prefilled:
+        _prefill(engine)
 
 
 if __name__ == "__main__":

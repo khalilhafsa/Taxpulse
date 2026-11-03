@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { api, formatDateTime, type Pipeline, type Stage } from '../api'
 import { Bubble, Team, useHandoff } from './AgentTeam'
+import { useDemo } from '../demo'
 import { Button, ErrorNote } from './ui'
 
 const VERB: Record<string, string> = {
@@ -150,6 +151,19 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
     return () => clearInterval(t)
   }, [busy])
 
+  const demo = useDemo()
+  const watch = async () => {
+    setError(null)
+    setStarting(true)
+    try {
+      await api.watchDemo()
+      window.location.reload() // every panel starts from the empty demo while the team works
+    } catch (e) {
+      setError((e as Error).message)
+      setStarting(false)
+    }
+  }
+
   const start = async () => {
     setError(null)
     setStarting(true)
@@ -188,15 +202,15 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
                 {elapsed !== null && <span className="tabular-nums">, {clock(elapsed)} since you started the run</span>}
               </>
             ) : busy ? 'Handing over to the next agent…'
-              : `Five AI agents and one rule-based filter, each handing its work to the next. $${total.toFixed(2)} spent so far.`}
+              : `Five AI agents and one rule-based filter, each handing its work to the next. ${demo ? `Recorded cost with Claude: $${total.toFixed(2)}.` : `$${total.toFixed(2)} spent so far.`}`}
           </p>
         </div>
         <div className="flex flex-col items-start gap-1 sm:items-end">
-          <Button onClick={start} disabled={busy || starting || p.pending.total === 0}>
-            {busy ? 'Agents at work…' : p.pending.total === 0 ? 'Up to date' : 'Run the agents'}
+          <Button onClick={demo && p.pending.total === 0 ? watch : start} disabled={busy || starting || (!demo && p.pending.total === 0)}>
+            {busy ? 'Agents at work…' : demo && p.pending.total === 0 ? 'Watch the agents work' : p.pending.total === 0 ? 'Up to date' : 'Run the agents'}
           </Button>
           <p className="text-xs text-slate">
-            {busy ? 'Watch the team pass the work along.' : p.pending.total === 0 ? 'Nothing new. Add a client or import tax updates.' : pending}
+            {busy ? 'Watch the team pass the work along.' : demo && p.pending.total === 0 ? 'Starts the demo over and replays the whole chain, about a minute.' : p.pending.total === 0 ? 'Nothing new. Add a client or import tax updates.' : pending}
           </p>
         </div>
       </div>

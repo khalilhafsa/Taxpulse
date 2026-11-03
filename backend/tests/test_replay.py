@@ -38,7 +38,7 @@ def demo(client, monkeypatch):
     monkeypatch.setattr(replay, "recordings", lambda: data)
     monkeypatch.setattr(replay, "PAUSE_S", {k: 0 for k in replay.PAUSE_S})
     monkeypatch.setattr(settings, "demo_mode", True)
-    replay.reset_demo(engine)
+    replay.reset_demo(engine, prefilled=False)
     return data
 
 
@@ -97,12 +97,30 @@ def test_risky_actions_are_switched_off(client, demo, method, path):
     assert r.status_code == 403 and "public demo" in r.json()["detail"]
 
 
-def test_reset_brings_back_a_fresh_demo(client, demo):
-    client.post("/api/pipeline/run")
-    assert client.get("/api/alerts").json()
+def test_reset_opens_on_recorded_results(client, demo):
     assert client.post("/api/demo/reset").json() == {"reset": True}
-    assert client.get("/api/alerts").json() == [] and len(client.get("/api/clients").json()) == 4
-    assert client.get("/api/settings/firm").json()["firm_name"] == "Weber & Partner Steuerberatung"
+    alerts = client.get("/api/alerts").json()
+    assert alerts and len(client.get("/api/clients").json()) == 4
+    # One client is already reviewed: its alerts accepted, memos written, email drafted.
+    accepted = [a for a in alerts if a["status"] == "accepted"]
+    assert accepted and all(a["memo_status"] == "done" for a in accepted)
+    outreach = client.get("/api/outreach").json()
+    assert len(outreach) == 1 and outreach[0]["drafts"][0]["body"].startswith("Dear ")
+    assert any(a["status"] == "new" for a in alerts)  # others are left for the visitor to review
+    assert client.get("/api/pipeline").json()["pending"]["total"] == 0
+
+
+def test_watch_starts_over_and_runs_the_chain(client, demo):
+    client.post("/api/demo/reset")
+    r = client.post("/api/demo/watch")
+    assert r.status_code == 202  # TestClient runs the chain before returning
+    stages = {s["key"]: s for s in client.get("/api/pipeline").json()["stages"]}
+    assert stages["profiler"]["done"] == 4 and stages["matcher"]["failed"] == 0
+    assert all(a["status"] == "new" for a in client.get("/api/alerts").json())
+
+
+def test_watch_is_not_available_outside_the_demo(client):
+    assert client.post("/api/demo/watch").status_code == 404
 
 
 def test_reset_is_not_available_outside_the_demo(client):
@@ -112,8 +130,9 @@ def test_reset_is_not_available_outside_the_demo(client):
 def test_idle_demo_starts_fresh(client, demo, monkeypatch):
     from app import main
     client.post("/api/pipeline/run")
+    client.post(f"/api/alerts/{client.get('/api/alerts').json()[0]['id']}/status", json={"status": "dismissed", "reason": "x"})
     monkeypatch.setitem(main._last_seen, "t", main._last_seen["t"] - 3600)
-    assert client.get("/api/alerts").json() == []
+    assert not any(a["status"] == "dismissed" for a in client.get("/api/alerts").json())  # fresh, prefilled demo
 
 
 def test_profile_replay_validates(demo):

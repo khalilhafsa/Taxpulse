@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -99,6 +99,25 @@ def _agents_busy() -> bool:
     from .models import AgentRun
     with Session(engine) as s:
         return s.exec(select(AgentRun).where(AgentRun.status == "running")).first() is not None
+
+
+@app.post("/api/demo/watch", status_code=202)
+def demo_watch(background: BackgroundTasks):
+    """Start over from an empty demo and run the agent chain, so the visitor can watch the team work."""
+    if not settings.demo_mode:
+        raise HTTPException(404, "Not found")
+    if _agents_busy():
+        raise HTTPException(409, "The agents are already working.")
+    from .agents.runner import get_runner
+    from .replay import reset_demo
+    from .routes.dashboard import _run_chain, claim_chain
+    reset_demo(engine, prefilled=False)
+    with Session(engine) as s:
+        pid = claim_chain(s)
+    if pid in ("busy", "nothing"):
+        raise HTTPException(409, "Nothing to run.")
+    background.add_task(_run_chain, pid, get_runner())
+    return {"pipeline_id": pid}
 
 
 @app.post("/api/demo/reset")

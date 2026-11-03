@@ -296,6 +296,7 @@ export const api = {
   firm: () => request<Firm>('/settings/firm'),
   quality: () => request<Quality>('/quality'),
   resetDemo: () => request<{ reset: boolean }>('/demo/reset', { method: 'POST' }),
+  watchDemo: () => request<{ pipeline_id: string }>('/demo/watch', { method: 'POST' }),
   automation: () => request<AutomationSettings>('/automation'),
   saveAutomation: (a: { enabled: boolean; weekday: number; hour: number; fetch_bmf: boolean; fetch_bfh: boolean }) =>
     request<AutomationSettings>('/automation', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(a) }),
