@@ -74,19 +74,19 @@ export default function Notifications() {
     <div ref={box} className="relative">
       <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="dialog"
         aria-label={unread ? `Notifications, ${unread} unread` : 'Notifications'}
-        className="relative flex h-9 w-9 items-center justify-center rounded-md text-slate hover:bg-paper hover:text-ink">
+        className="relative flex h-10 w-10 items-center justify-center rounded-sm text-white/75 hover:bg-white/10 hover:text-white">
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M6 9a6 6 0 1 1 12 0c0 4.5 1.5 6.5 2 7H4c.5-.5 2-2.5 2-7Z" /><path d="M10 20a2 2 0 0 0 4 0" />
         </svg>
         {unread > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber px-1 text-[10px] font-bold text-white">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber px-1 text-[10px] font-bold text-white ring-2 ring-night">
             {unread > 9 ? '9+' : unread}
           </span>
         )}
       </button>
       {open && (
         <div role="dialog" aria-label="Notifications"
-          className="absolute right-0 z-30 mt-2 w-[min(22rem,calc(100vw-2.5rem))] overflow-hidden rounded-lg border border-rule bg-sheet shadow-lg md:left-0 md:right-auto">
+          className="absolute right-0 z-30 mt-2 w-[min(22rem,calc(100vw-2.5rem))] overflow-hidden rounded-lg border border-rule bg-sheet text-ink shadow-lg">
           <div className="flex items-center justify-between border-b border-rule px-4 py-2.5">
             <p className="text-sm font-semibold">Notifications</p>
             {unread > 0 && (

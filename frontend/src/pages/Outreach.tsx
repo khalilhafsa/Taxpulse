@@ -177,10 +177,10 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
   }
 
   return (
-    <section className="border-t border-rule pt-8 first:border-t-0 first:pt-0" aria-labelledby={`c${e.client.id}`}>
+    <section className="border-t-2 border-ink pt-5 first:border-t-0 first:pt-0" aria-labelledby={`c${e.client.id}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 id={`c${e.client.id}`} className="font-serif text-[24px] font-semibold tracking-[-0.01em]">
+          <h2 id={`c${e.client.id}`} className="font-serif text-[32px] font-semibold leading-tight tracking-[-0.02em]">
             <Link to={`/clients/${e.client.id}`} className="hover:text-petrol hover:underline">{e.client.name}</Link>
           </h2>
           <p className="text-sm text-slate">{e.client.mandate}</p>

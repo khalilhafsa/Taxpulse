@@ -191,9 +191,9 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
 
   return (
     <section aria-labelledby="chain">
-      <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-rule pb-4">
+      <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-t-2 border-ink pt-3">
         <div className="max-w-2xl">
-          <h2 id="chain" className="font-serif text-[22px] font-semibold tracking-[-0.01em]">Agent chain</h2>
+          <h2 id="chain" className="font-serif text-[26px] font-semibold tracking-[-0.015em]">Agent chain</h2>
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
               <>

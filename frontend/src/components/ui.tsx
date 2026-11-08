@@ -2,12 +2,14 @@ import type { ReactNode } from 'react'
 
 export function PageHeader({ title, intro, action }: { title: string; intro?: ReactNode; action?: ReactNode }) {
   return (
-    <header className="mb-9 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-b-[3px] border-double border-ink/70 pb-6">
-      <div className="max-w-2xl">
-        <h1 className="font-serif text-[34px] font-semibold leading-[1.1] tracking-[-0.015em] text-ink md:text-[40px]">{title}</h1>
-        {intro && <div className="mt-3 text-[15px] leading-relaxed text-slate">{intro}</div>}
-      </div>
-      {action}
+    <header className="mb-10 grid gap-x-12 gap-y-5 border-b-2 border-ink pb-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-end">
+      <h1 className="font-serif text-[44px] font-semibold leading-[0.98] tracking-[-0.03em] text-ink md:text-[64px]">{title}</h1>
+      {(intro || action) && (
+        <div className="lg:border-l lg:border-ink/15 lg:pl-8">
+          {intro && <div className="text-[15px] leading-relaxed text-slate">{intro}</div>}
+          {action && <div className={intro ? 'mt-5' : ''}>{action}</div>}
+        </div>
+      )}
     </header>
   )
 }
@@ -75,7 +77,7 @@ export function DemoTag() {
 
 export function SectionTitle({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="mb-4 flex items-baseline gap-3 border-b border-rule pb-2 font-serif text-[22px] font-semibold tracking-[-0.01em]">
+    <h2 id={id} className="mb-4 flex items-baseline gap-3 border-t-2 border-ink pt-3 font-serif text-[26px] font-semibold tracking-[-0.015em]">
       {children}
     </h2>
   )

@@ -13,12 +13,12 @@ const TABS: { key: AlertItem['status']; label: string }[] = [
 
 function Score({ value }: { value: number }) {
   return (
-    <div className="w-[84px] shrink-0 self-start border border-amber/35 bg-amber-soft px-2 pb-2 pt-2.5 text-center" aria-label={`Relevance ${value} out of 100`}>
-      <p className="font-serif text-[32px] font-semibold leading-none text-amber">{value}</p>
-      <div className="mt-2 h-[3px] bg-amber/15">
-        <div className="h-full bg-amber" style={{ width: `${value}%` }} />
+    <div className="flex shrink-0 items-center gap-4 bg-night px-5 py-4 text-white sm:w-[120px] sm:flex-col sm:items-start sm:gap-0 sm:py-6" aria-label={`Relevance ${value} out of 100`}>
+      <p className="tp-eyebrow text-[10px] text-white/60">Relevance</p>
+      <p className="font-serif text-[52px] font-semibold leading-none tracking-[-0.04em] text-relevance sm:mt-2">{value}</p>
+      <div className="h-1 flex-1 bg-white/10 sm:mt-4 sm:w-full sm:flex-none">
+        <div className="h-full bg-relevance" style={{ width: `${value}%` }} />
       </div>
-      <p className="tp-eyebrow mt-1.5 text-[9.5px] text-amber">Relevance</p>
     </div>
   )
 }
@@ -71,11 +71,11 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
   const against = a.evidence.filter((e) => !e.supports_impact)
 
   return (
-    <li id={`alert-${a.id}`} className={`scroll-mt-6 border bg-sheet px-5 py-5 transition-shadow md:px-6 ${focused ? 'border-petrol ring-4 ring-petrol/15' : 'border-rule'} ${a.status === 'new' ? 'border-l-[3px] border-l-amber' : ''}`}>
-      <div className="flex gap-5">
+    <li id={`alert-${a.id}`} className={`scroll-mt-28 border bg-sheet transition-shadow ${focused ? 'border-petrol ring-4 ring-petrol/15' : 'border-ink/15'}`}>
+      <div className="flex flex-col sm:flex-row">
         <Score value={a.score} />
-        <div className="min-w-0 flex-1">
-          <p className="font-serif text-[21px] font-semibold leading-snug tracking-[-0.01em]">
+        <div className="min-w-0 flex-1 px-5 py-5 md:px-8 md:py-6">
+          <p className="font-serif text-[26px] font-semibold leading-snug tracking-[-0.01em]">
             <Link to={`/clients/${a.client.id}`} className="hover:text-petrol hover:underline">{a.client.name}</Link>
           </p>
           <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate">
