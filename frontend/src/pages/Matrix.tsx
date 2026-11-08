@@ -5,7 +5,7 @@ import { EmptyState, ErrorNote, PageHeader } from '../components/ui'
 import { useAsync } from '../useAsync'
 
 // Amber is the relevance colour; its strength follows the Matcher's score.
-const fill = (score: number) => `rgba(185, 120, 10, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
+const fill = (score: number) => `rgba(154, 97, 0, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
 
 function cellInfo(cell: MatrixCell, threshold: number) {
   if (!cell) return { text: '·', title: 'Not matched yet', style: {}, cls: 'text-slate/50' }

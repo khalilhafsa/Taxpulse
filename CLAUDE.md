@@ -27,5 +27,5 @@ TaxPulse: multi-agent app for German tax advisors. Read `docs/SPEC.md` first; it
 - Log every agent call in `AgentRun` (model, tokens, cost, duration).
 - Never auto-send emails; drafts need advisor approval (edit resets approval; 'sent' only after 'approved').
 - Demo data is fictional and must stay labelled as such.
-- Design tokens live in `frontend/src/index.css` (`@theme`): petrol = brand, amber = relevance/alerts only. Fonts: Public Sans (UI), Source Serif 4 (headings).
+- Design tokens live in `frontend/src/index.css` (`@theme`): petrol = brand, amber = relevance/alerts only. Fonts: Public Sans (UI), Source Serif 4 (headings), IBM Plex Mono (small labels via `.tp-eyebrow`). Style is "the mandate file": warm paper, ink, hairline rules, near-square corners (radius tokens 2–4px), no soft shadows or gradients on cards; status notes use a 3px left rule instead of rounded tinted boxes.
 - Add or update tests with every backend change; keep `npm run build` passing.

@@ -75,7 +75,7 @@ export default function UpdateDetail() {
       </div>
 
       {running && (
-        <p className="mb-8 rounded-lg border border-petrol/25 bg-petrol-soft px-5 py-4 text-sm text-petrol" aria-live="polite">
+        <p className="mb-8 border-l-[3px] border-petrol bg-petrol-soft px-5 py-4 text-sm text-petrol" aria-live="polite">
           The Regulatory Analyst is reading this publication. This takes about ten seconds.
         </p>
       )}
@@ -115,7 +115,7 @@ export default function UpdateDetail() {
           <section aria-labelledby="kw">
             <SectionTitle id="kw">Matching keywords</SectionTitle>
             <ul className="flex flex-wrap gap-1.5">
-              {a.keywords.map((k) => <li key={k} className="rounded-full border border-rule bg-sheet px-3 py-1 text-sm">{k}</li>)}
+              {a.keywords.map((k) => <li key={k} className="rounded-sm border border-rule bg-sheet px-2.5 py-1 text-sm">{k}</li>)}
             </ul>
           </section>
         </div>

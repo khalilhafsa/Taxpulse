@@ -13,12 +13,12 @@ const TABS: { key: AlertItem['status']; label: string }[] = [
 
 function Score({ value }: { value: number }) {
   return (
-    <div className="w-16 shrink-0 text-center" aria-label={`Relevance ${value} out of 100`}>
-      <p className="font-serif text-3xl font-semibold leading-none text-amber">{value}</p>
-      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-amber-soft">
-        <div className="h-full rounded-full bg-amber" style={{ width: `${value}%` }} />
+    <div className="w-[84px] shrink-0 self-start border border-amber/35 bg-amber-soft px-2 pb-2 pt-2.5 text-center" aria-label={`Relevance ${value} out of 100`}>
+      <p className="font-serif text-[32px] font-semibold leading-none text-amber">{value}</p>
+      <div className="mt-2 h-[3px] bg-amber/15">
+        <div className="h-full bg-amber" style={{ width: `${value}%` }} />
       </div>
-      <p className="mt-1 text-[11px] text-slate">relevance</p>
+      <p className="tp-eyebrow mt-1.5 text-[9.5px] text-amber">Relevance</p>
     </div>
   )
 }
@@ -27,27 +27,27 @@ function MemoView({ m }: { m: ImpactMemo }) {
   const kind = { risk: 'Risk', opportunity: 'Opportunity', both: 'Risk and opportunity' }[m.risk_or_opportunity]
   const kindColor = m.risk_or_opportunity === 'opportunity' ? 'text-petrol' : 'text-danger'
   return (
-    <div className="mt-5 rounded-md border border-rule bg-paper px-4 py-4">
-      <p className="text-xs text-slate">Impact memo</p>
-      <p className="mt-1 font-serif text-[17px] font-semibold leading-snug">{m.headline}</p>
+    <div className="mt-6 border border-rule border-t-[3px] border-t-petrol bg-paper px-5 py-5">
+      <p className="tp-eyebrow">Impact memo</p>
+      <p className="mt-2 font-serif text-[19px] font-semibold leading-snug">{m.headline}</p>
       <p className="mt-1 text-sm">
-        <span className={kindColor}>{kind}</span>
+        <span className={`font-medium ${kindColor}`}>{kind}</span>
         <span className="text-slate"> · urgency {m.urgency} · deadline: {m.deadline}</span>
       </p>
       <p className="mt-3 text-[15px] leading-relaxed">{m.impact}</p>
       <div className="mt-3 grid gap-4 sm:grid-cols-2">
         <div>
-          <p className="text-sm font-medium">Next steps for the client</p>
-          <ul className="mt-1 list-disc space-y-1 pl-5 text-sm">{m.recommended_actions.map((x) => <li key={x}>{x}</li>)}</ul>
+          <p className="tp-eyebrow">Next steps for the client</p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-petrol">{m.recommended_actions.map((x) => <li key={x}>{x}</li>)}</ul>
         </div>
         {m.questions_for_client.length > 0 && (
           <div>
-            <p className="text-sm font-medium">Ask the client first</p>
-            <ul className="mt-1 list-disc space-y-1 pl-5 text-sm">{m.questions_for_client.map((x) => <li key={x}>{x}</li>)}</ul>
+            <p className="tp-eyebrow">Ask the client first</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm marker:text-petrol">{m.questions_for_client.map((x) => <li key={x}>{x}</li>)}</ul>
           </div>
         )}
       </div>
-      <p className="mt-3 text-sm"><span className="font-medium">Engagement to propose: </span>{m.proposed_mandate}</p>
+      <p className="mt-4 border-t border-rule pt-3 text-sm"><span className="font-semibold">Engagement to propose: </span>{m.proposed_mandate}</p>
     </div>
   )
 }
@@ -71,12 +71,12 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
   const against = a.evidence.filter((e) => !e.supports_impact)
 
   return (
-    <li id={`alert-${a.id}`} className={`scroll-mt-6 rounded-lg border bg-sheet px-5 py-5 transition-shadow ${focused ? 'border-petrol ring-4 ring-petrol/15' : 'border-rule'}`}>
+    <li id={`alert-${a.id}`} className={`scroll-mt-6 border bg-sheet px-5 py-5 transition-shadow md:px-6 ${focused ? 'border-petrol ring-4 ring-petrol/15' : 'border-rule'} ${a.status === 'new' ? 'border-l-[3px] border-l-amber' : ''}`}>
       <div className="flex gap-5">
         <Score value={a.score} />
         <div className="min-w-0 flex-1">
-          <p className="font-serif text-lg font-semibold leading-snug">
-            <Link to={`/clients/${a.client.id}`} className="hover:underline">{a.client.name}</Link>
+          <p className="font-serif text-[21px] font-semibold leading-snug tracking-[-0.01em]">
+            <Link to={`/clients/${a.client.id}`} className="hover:text-petrol hover:underline">{a.client.name}</Link>
           </p>
           <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate">
             <KindTag kind={a.update.kind} />
@@ -85,11 +85,14 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
           <p className="mt-3 text-[15px] leading-relaxed">{a.reasoning}</p>
 
           {a.evidence.length > 0 && (
-            <div className="mt-4">
-              <p className="text-sm font-medium">Evidence from the client file</p>
-              <ul className="mt-2 space-y-2">
+            <div className="mt-5">
+              <div className="grid gap-6 border-b border-ink/60 pb-1.5 sm:grid-cols-[1fr_1fr]">
+                <p className="tp-eyebrow">Evidence from the client file</p>
+                <p className="tp-eyebrow hidden sm:block">Criterion of the update</p>
+              </div>
+              <ul className="divide-y divide-rule">
                 {[...supporting, ...against].map((e, i) => (
-                  <li key={i} className="grid gap-1 text-sm sm:grid-cols-[1fr_1fr] sm:gap-4">
+                  <li key={i} className="grid gap-1 py-2.5 text-sm sm:grid-cols-[1fr_1fr] sm:gap-6">
                     <p className="flex gap-2">
                       <span aria-hidden className={e.verified ? 'text-petrol' : 'text-danger'}>{e.verified ? '✓' : '?'}</span>
                       <span>
@@ -98,7 +101,10 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
                       </span>
                     </p>
                     <p className="text-slate">
-                      {e.supports_impact ? 'meets: ' : 'argues against: '}{e.criterion}
+                      <span className={`mr-1.5 font-mono text-[10.5px] uppercase tracking-[0.06em] ${e.supports_impact ? 'text-petrol' : 'text-danger'}`}>
+                        {e.supports_impact ? 'Meets' : 'Against'}
+                      </span>
+                      {e.criterion}
                     </p>
                   </li>
                 ))}
@@ -114,7 +120,7 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
           )}
 
           {a.status === 'accepted' && a.memo_status === 'running' && (
-            <p className="mt-5 rounded-md border border-petrol/25 bg-petrol-soft px-4 py-3 text-sm text-petrol" aria-live="polite">
+            <p className="mt-5 border-l-[3px] border-petrol bg-petrol-soft px-4 py-3 text-sm text-petrol" aria-live="polite">
               The Impact Explainer is writing the memo for this client…
             </p>
           )}
@@ -127,7 +133,7 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
             <p className="mt-3 text-sm text-slate">Dismissed: {a.dismiss_reason}</p>
           )}
 
-          <div className="mt-5 flex flex-wrap items-center gap-2">
+          <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-rule pt-4">
             {a.status !== 'accepted' && <Button onClick={() => decide('accepted')}>Accept</Button>}
             {a.status === 'new' && !dismissing && (
               <Button variant="quiet" onClick={() => setDismissing(true)}>Dismiss</Button>
@@ -146,7 +152,8 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
             <form className="mt-3 flex flex-wrap gap-2" onSubmit={(e) => { e.preventDefault(); decide('dismissed', reason) }}>
               <input autoFocus value={reason} onChange={(e) => setReason(e.target.value)}
                 placeholder="Why is this not relevant? e.g. client already advised"
-                className="min-w-0 flex-1 rounded-md border border-rule px-3 py-2 text-sm focus:border-petrol focus:outline-none" />
+                aria-label="Reason for dismissing"
+                className="min-h-10 min-w-0 flex-1 rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-sm focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15" />
               <Button type="submit" variant="quiet" disabled={!reason.trim()}>Dismiss alert</Button>
               <Button variant="quiet" onClick={() => setDismissing(false)}>Cancel</Button>
             </form>
@@ -162,8 +169,8 @@ function EvaluationBox({ e }: { e: Evaluation }) {
   if (!e.evaluated_pairs) return null
   const perfect = e.affected_found === e.affected_total && e.false_alerts === 0
   return (
-    <section aria-labelledby="eval" className="mb-8 rounded-lg border border-rule bg-sheet px-5 py-4">
-      <h2 id="eval" className="font-medium">Accuracy on the labelled demo cases</h2>
+    <section aria-labelledby="eval" className="mb-8 border border-rule bg-sheet px-5 py-4">
+      <h2 id="eval" className="tp-eyebrow text-ink">Accuracy on the labelled demo cases</h2>
       <p className="mt-1 text-sm text-slate">
         Each demo client and demo update pair has a known right answer. Threshold: relevance {e.threshold}.
         {e.alerts_on_other_updates > 0 && (
@@ -173,13 +180,13 @@ function EvaluationBox({ e }: { e: Evaluation }) {
       </p>
       <dl className="mt-3 flex flex-wrap gap-x-10 gap-y-2">
         <div>
-          <dt className="text-sm text-slate">Affected clients found</dt>
+          <dt className="text-xs text-slate">Affected clients found</dt>
           <dd className={`font-serif text-2xl font-semibold ${e.affected_found === e.affected_total ? 'text-petrol' : 'text-danger'}`}>
             {e.affected_found} of {e.affected_total}
           </dd>
         </div>
         <div>
-          <dt className="text-sm text-slate">False alerts</dt>
+          <dt className="text-xs text-slate">False alerts</dt>
           <dd className={`font-serif text-2xl font-semibold ${e.false_alerts === 0 ? 'text-petrol' : 'text-danger'}`}>
             {e.false_alerts} of {e.not_affected_total}
           </dd>
@@ -267,7 +274,7 @@ export default function Alerts() {
       <div className="mb-6 space-y-3">
         {(error || actionError) && <ErrorNote message={(error || actionError)!} />}
         {status && status.clients_without_profile > 0 && (
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-amber/30 bg-amber-soft px-4 py-3 text-sm">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-l-[3px] border-amber bg-amber-soft px-4 py-3 text-sm">
             <span>
               {status.clients_without_profile} {status.clients_without_profile === 1 ? 'client has' : 'clients have'} no profile yet
               and will not be checked.{!demo && ' About $0.11 each.'}
@@ -284,7 +291,7 @@ export default function Alerts() {
           </p>
         )}
         {status?.scan_running ? (
-          <p className="rounded-lg border border-petrol/25 bg-petrol-soft px-5 py-4 text-sm text-petrol" aria-live="polite">
+          <p className="border-l-[3px] border-petrol bg-petrol-soft px-5 py-4 text-sm text-petrol" aria-live="polite">
             The Impact Matcher is checking {status.scan_running} {status.scan_running === 1 ? 'update' : 'updates'} against every client profile.
           </p>
         ) : null}
@@ -295,8 +302,9 @@ export default function Alerts() {
       <div role="tablist" className="mb-4 flex gap-1 border-b border-rule">
         {TABS.map((t) => (
           <button key={t.key} role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}
-            className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium ${tab === t.key ? 'border-petrol text-petrol' : 'border-transparent text-slate hover:text-ink'}`}>
-            {t.label} <span className="text-slate">{count(t.key)}</span>
+            className={`-mb-px inline-flex min-h-10 items-center gap-2 whitespace-nowrap border-b-2 px-3 text-sm font-medium ${tab === t.key ? 'border-petrol text-ink' : 'border-transparent text-slate hover:text-ink'}`}>
+            {t.label}
+            <span className={`rounded-sm px-1.5 py-px font-mono text-[11px] ${tab === t.key ? 'bg-petrol text-white' : 'bg-paper-deep text-slate'}`}>{count(t.key)}</span>
           </button>
         ))}
       </div>

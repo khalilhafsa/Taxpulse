@@ -99,7 +99,7 @@ export default function ClientDetail() {
       </div>
 
       {noKey && (
-        <div className="mb-6 rounded-md border border-amber/30 bg-amber-soft px-4 py-3 text-sm leading-relaxed">
+        <div className="mb-6 border-l-[3px] border-amber bg-amber-soft px-4 py-3 text-sm leading-relaxed">
           The agents need an Anthropic API key. Paste it after <code className="font-semibold">ANTHROPIC_API_KEY=</code> in
           the <code className="font-semibold">.env</code> file of the project, then restart TaxPulse.
         </div>
@@ -110,7 +110,7 @@ export default function ClientDetail() {
       <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
         <div className="min-w-0">
           {running && (
-            <div className="mb-8 rounded-lg border border-petrol/25 bg-petrol-soft px-5 py-4" aria-live="polite">
+            <div className="mb-8 border-l-[3px] border-petrol bg-petrol-soft px-5 py-4" aria-live="polite">
               <p className="flex items-center gap-2.5 font-medium text-petrol">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-petrol opacity-60 motion-reduce:animate-none" />

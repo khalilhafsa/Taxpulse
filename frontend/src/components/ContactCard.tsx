@@ -24,7 +24,7 @@ export default function ContactCard({ clientId, contact, onChange }: {
     }
   }
 
-  const field = 'mt-1 w-full rounded-md border border-rule bg-sheet px-3 py-1.5 text-sm focus:border-petrol focus:outline-none'
+  const field = 'mt-1 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-1.5 text-sm focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
 
   return (
     <section aria-labelledby="contact" className="mb-8">

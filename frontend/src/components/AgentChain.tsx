@@ -81,7 +81,7 @@ function Activity({ log }: { log: Pipeline['log'] }) {
   if (!log.length) return null
   return (
     <div className="mt-5">
-      <h3 className="text-sm font-semibold">Latest activity</h3>
+      <h3 className="tp-eyebrow">Latest activity</h3>
       <ol className="mt-2 divide-y divide-rule text-[13px]" aria-live="polite">
         {log.map((r) => (
           <li key={r.id} className={`grid grid-cols-[4.5rem_1fr_auto] gap-x-3 py-1.5 sm:grid-cols-[4.5rem_10rem_1fr_auto] ${
@@ -191,9 +191,9 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
 
   return (
     <section aria-labelledby="chain">
-      <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+      <div className="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-rule pb-4">
         <div className="max-w-2xl">
-          <h2 id="chain" className="font-serif text-xl font-semibold">Agent chain</h2>
+          <h2 id="chain" className="font-serif text-[22px] font-semibold tracking-[-0.01em]">Agent chain</h2>
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
               <>
@@ -217,9 +217,9 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
       {error && <div className="mb-4"><ErrorNote message={error} /></div>}
       {p.chain.error && !busy && <div className="mb-4"><ErrorNote message={`The last run stopped: ${p.chain.error}`} /></div>}
 
-      <div className="overflow-hidden rounded-lg border border-rule bg-sheet">
+      <div className="overflow-hidden border border-rule bg-sheet">
         <div className="overflow-x-auto">
-          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#fbfcfb,#f3f5f3)] lg:min-w-0">
+          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#fffefa,#f5f3ec)] lg:min-w-0">
             {working && (
               <Bubble index={p.stages.indexOf(working)}
                 text={`${BUBBLE[working.key]} ${working.current ? shorten(working.current) : ''}`} />

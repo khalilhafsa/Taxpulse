@@ -18,7 +18,7 @@ function Status({ u }: { u: UpdateSummary }) {
       <p className="text-sm leading-relaxed text-ink">{u.summary.who_is_affected}</p>
       <ul className="flex flex-wrap gap-1.5">
         {u.summary.tax_categories.map((c) => (
-          <li key={c} className="rounded-full border border-rule px-2.5 py-0.5 text-xs text-slate">{c}</li>
+          <li key={c} className="rounded-sm border border-rule bg-paper px-2 py-0.5 text-xs text-slate">{c}</li>
         ))}
       </ul>
     </div>
@@ -110,7 +110,7 @@ export default function Updates() {
       <div className="mb-6 space-y-3">
         {(error || actionError) && <ErrorNote message={(error || actionError)!} />}
         {fetchResult && (
-          <div className="rounded-md border border-petrol/25 bg-petrol-soft px-4 py-3 text-sm" role="status">
+          <div className="border-l-[3px] border-petrol bg-petrol-soft px-4 py-3 text-sm" role="status">
             <p className="text-petrol">
               {fetchResult.new === 0
                 ? `No new publications. The feed lists ${fetchResult.found} items, all already in TaxPulse.`
@@ -137,17 +137,17 @@ export default function Updates() {
               className="h-4 w-4 accent-petrol" />
             Hide publications with no impact on businesses
           </label>
-          <ol className="space-y-3">
+          <ol className="divide-y divide-rule border border-rule bg-sheet">
             {shown.map((u) => (
               <li key={u.id}>
                 <Link to={`/updates/${u.id}`}
-                  className={`block rounded-lg border border-rule bg-sheet px-5 py-4 hover:border-slate/40 ${u.summary && !u.summary.relevant_for_companies ? 'opacity-70' : ''}`}>
+                  className={`group block px-5 py-4 hover:bg-paper ${u.summary && !u.summary.relevant_for_companies ? 'opacity-70' : ''}`}>
                   <div className="flex flex-wrap items-center gap-2 text-sm text-slate">
                     <KindTag kind={u.summary?.kind ?? u.kind} />
                     <time dateTime={u.published_on ?? undefined}>{formatDate(u.published_on)}</time>
                     <SourceTag source={u.source} />
                   </div>
-                  <p className="mt-2 font-medium leading-snug">{u.summary?.title_en ?? u.title}</p>
+                  <p className="mt-2 font-serif text-[19px] font-semibold leading-snug tracking-[-0.005em] group-hover:text-petrol">{u.summary?.title_en ?? u.title}</p>
                   {u.summary && u.summary.title_en !== u.title && (
                     <p className="mt-0.5 text-sm text-slate" lang="de">{u.title}</p>
                   )}

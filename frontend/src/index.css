@@ -1,33 +1,78 @@
 @import "tailwindcss";
 
-/* Design tokens: a calm, document-like palette for tax professionals.
+/* Design tokens: "the mandate file". A warm, paper-and-ink palette and a document-like
+   structure (hairline rules, numbered sections, tabular figures) for German tax advisors.
    Petrol is the brand colour; amber is reserved for relevance and alerts. */
 @theme {
-  --color-paper: #f6f7f5;
-  --color-sheet: #ffffff;
-  --color-ink: #1b2430;
-  --color-slate: #5b6675;
-  --color-rule: #dde2e0;
-  --color-petrol: #0f5c63;
-  --color-petrol-soft: #e3efef;
-  --color-amber: #b9780a;
-  --color-amber-soft: #fbf1dc;
-  --color-danger: #a8322d;
+  --color-paper: #f3f1eb;
+  --color-paper-deep: #eae7de;
+  --color-sheet: #fffefa;
+  --color-ink: #15212b;
+  --color-slate: #535d68;
+  --color-rule: #d9d4c7;
+  --color-petrol: #0b5560;
+  --color-petrol-deep: #083f47;
+  --color-petrol-soft: #e1ebe8;
+  --color-amber: #9a6100;
+  --color-amber-soft: #f7ecd4;
+  --color-danger: #9b2c26;
 
   --font-sans: "Public Sans", system-ui, sans-serif;
   --font-serif: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Square, document-like corners instead of soft app cards. */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+
+  /* Paper does not float: shadows only for things that really lie on top (menus, dialogs). */
+  --shadow-sm: 0 1px 0 rgb(21 33 43 / 0.05);
+  --shadow: 0 1px 0 rgb(21 33 43 / 0.06);
+  --shadow-md: 0 2px 0 rgb(21 33 43 / 0.06);
+  --shadow-lg: 0 18px 40px -18px rgb(21 33 43 / 0.35), 0 0 0 1px rgb(21 33 43 / 0.06);
+  --shadow-xl: 0 24px 60px -20px rgb(21 33 43 / 0.4), 0 0 0 1px rgb(21 33 43 / 0.06);
 }
 
 html {
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+body { background: var(--color-paper); }
+
+/* Figures line up in columns everywhere: scores, counts, dates, costs. */
+table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
+
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+::selection { background: var(--color-petrol-soft); color: var(--color-petrol-deep); }
 
 :focus-visible {
   outline: 2px solid var(--color-petrol);
   outline-offset: 2px;
+}
+
+button:not(:disabled), a, summary, select, [role="button"] { cursor: pointer; }
+
+a, button { transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease; }
+
+/* Small labels set like file references: mono, upper case, spaced. */
+.tp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-slate);
 }
 
 /* Agent chain: a new line in the activity log glows briefly. */
@@ -36,9 +81,6 @@ html {
   to { background: transparent; transform: none; opacity: 1; }
 }
 .tp-row-new { animation: tp-row-in 1.2s ease-out; }
-@media (prefers-reduced-motion: reduce) {
-  .tp-row-new { animation: none; }
-}
 
 /* Agent team: speech bubble pops in, three dots type. */
 @keyframes tp-pop { from { transform: translateY(4px) scale(.92); opacity: 0 } to { transform: none; opacity: 1 } }
@@ -47,6 +89,8 @@ html {
 .tp-dots i { font-style: normal; animation: tp-dot 1.2s infinite; }
 .tp-dots i:nth-child(2) { animation-delay: .2s; }
 .tp-dots i:nth-child(3) { animation-delay: .4s; }
+
 @media (prefers-reduced-motion: reduce) {
-  .tp-bubble, .tp-dots i { animation: none; }
+  .tp-row-new, .tp-bubble, .tp-dots i { animation: none; }
+  a, button { transition: none; }
 }

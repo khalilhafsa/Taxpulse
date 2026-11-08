@@ -16,8 +16,8 @@ const GATE = 800
 const DESK = 172 // desk top
 
 const C = {
-  petrol: '#0f5c63', petrolDark: '#0b4549', navy: '#2d3e5c', slate: '#56606e', ink: '#1b2430',
-  amber: '#b9780a', amberSoft: '#fbf1dc', desk: '#e4e0d8', deskTop: '#cfc8bb', shirt: '#ffffff',
+  petrol: '#0b5560', petrolDark: '#083f47', navy: '#2d3e5c', slate: '#535d68', ink: '#15212b',
+  amber: '#9a6100', amberSoft: '#f7ecd4', desk: '#e6e1d6', deskTop: '#cfc7b8', shirt: '#fffefa',
 }
 
 type Look = {
@@ -232,7 +232,7 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
       </defs>
 
       {/* floor */}
-      <line x1="0" x2={W} y1="216" y2="216" stroke="#dde2e0" strokeWidth="2" />
+      <line x1="0" x2={W} y1="216" y2="216" stroke="#d9d4c7" strokeWidth="2" />
 
       {/* your desk: the review gate */}
       <g>

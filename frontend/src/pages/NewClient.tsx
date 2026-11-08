@@ -28,7 +28,7 @@ export default function NewClient() {
     }
   }
 
-  const field = 'mt-1.5 w-full rounded-md border border-rule bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none'
+  const field = 'mt-1.5 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
 
   return (
     <>

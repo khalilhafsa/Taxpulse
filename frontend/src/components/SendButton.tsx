@@ -46,7 +46,7 @@ export default function SendButtonSetup({ feedUrl }: { feedUrl: string }) {
       </p>
       <ol className="mt-4 space-y-4 text-sm">
         <li className="flex gap-3">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-petrol-soft text-xs font-semibold text-petrol">1</span>
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-petrol/30 bg-petrol-soft font-mono text-xs font-medium text-petrol">1</span>
           <div>
             <p>Show your bookmarks bar (<kbd className="rounded border border-rule px-1">Ctrl</kbd>+<kbd className="rounded border border-rule px-1">Shift</kbd>+<kbd className="rounded border border-rule px-1">B</kbd>), then drag this button onto it. Once is enough.</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
@@ -66,14 +66,14 @@ export default function SendButtonSetup({ feedUrl }: { feedUrl: string }) {
           </div>
         </li>
         <li className="flex gap-3">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-petrol-soft text-xs font-semibold text-petrol">2</span>
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-petrol/30 bg-petrol-soft font-mono text-xs font-medium text-petrol">2</span>
           <p>
             When the bell asks for it, <a href={feedUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-petrol hover:underline">open the BMF feed</a> and
             pass the security check. Wait until you see the list of publications.
           </p>
         </li>
         <li className="flex gap-3">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-petrol-soft text-xs font-semibold text-petrol">3</span>
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-petrol/30 bg-petrol-soft font-mono text-xs font-medium text-petrol">3</span>
           <p>
             Click <strong>Send to TaxPulse</strong> in your bookmarks bar. A message confirms what arrived and the agents start.
             The first time, your browser may ask whether the BMF page may reach apps on this computer: choose Allow.

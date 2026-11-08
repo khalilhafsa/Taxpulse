@@ -10,10 +10,13 @@ function Kpi({ label, value, note, to, highlight = false }: {
   label: string; value: string; note: string; to: string; highlight?: boolean
 }) {
   return (
-    <Link to={to} className="group bg-sheet px-5 py-5 hover:bg-paper">
-      <dt className="text-sm text-slate">{label}</dt>
-      <dd className={`mt-1 font-serif text-3xl font-semibold ${highlight ? 'text-amber' : ''}`}>{value}</dd>
-      <dd className="mt-1 text-xs text-slate">{note}</dd>
+    <Link to={to} className={`group relative block bg-sheet px-5 pb-5 pt-4 hover:bg-paper ${highlight ? 'before:absolute before:inset-x-0 before:top-0 before:h-[3px] before:bg-amber' : ''}`}>
+      <dt className="tp-eyebrow flex items-center justify-between gap-2">
+        {label}
+        <span aria-hidden className="text-slate/60 transition-transform group-hover:translate-x-0.5 group-hover:text-petrol">→</span>
+      </dt>
+      <dd className={`mt-3 font-serif text-[40px] font-semibold leading-none tracking-[-0.02em] ${highlight ? 'text-amber' : 'text-ink'}`}>{value}</dd>
+      <dd className="mt-2.5 border-t border-rule pt-2.5 text-xs text-slate">{note}</dd>
     </Link>
   )
 }
@@ -23,19 +26,19 @@ function NextSteps({ todo }: { todo: Dashboard['todo'] }) {
     <section aria-labelledby="next">
       <SectionTitle id="next">Next steps</SectionTitle>
       {todo.length === 0 ? (
-        <p className="rounded-lg border border-rule bg-sheet px-5 py-5 text-sm text-slate">
+        <p className="border border-rule bg-sheet px-5 py-5 text-sm text-slate">
           All caught up. Add a client or import new tax updates to start the chain again.
         </p>
       ) : (
-        <ol className="divide-y divide-rule overflow-hidden rounded-lg border border-rule bg-sheet">
+        <ol className="divide-y divide-rule border border-rule bg-sheet">
           {todo.map((t, i) => (
             <li key={t.key}>
-              <Link to={t.to} className="flex items-center gap-4 px-5 py-3.5 hover:bg-paper">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-petrol-soft text-xs font-semibold text-petrol">
-                  {i + 1}
+              <Link to={t.to} className="group flex min-h-12 items-center gap-4 px-5 py-3 hover:bg-paper">
+                <span className="w-6 shrink-0 font-mono text-xs font-medium text-petrol">
+                  {String(i + 1).padStart(2, '0')}
                 </span>
-                <span className="flex-1 text-[15px]">{t.label}</span>
-                <span aria-hidden className="text-slate">→</span>
+                <span className="flex-1 text-[15px] font-medium">{t.label}</span>
+                <span aria-hidden className="text-slate transition-transform group-hover:translate-x-0.5 group-hover:text-petrol">→</span>
               </Link>
             </li>
           ))}
@@ -50,15 +53,15 @@ function WhoToCall({ clients }: { clients: Dashboard['top_clients'] }) {
     <section aria-labelledby="top">
       <SectionTitle id="top">Who to call first</SectionTitle>
       {clients.length === 0 ? (
-        <p className="rounded-lg border border-rule bg-sheet px-5 py-5 text-sm text-slate">
+        <p className="border border-rule bg-sheet px-5 py-5 text-sm text-slate">
           No open alerts. When a new tax update affects a former client, it appears here, ranked by relevance.
         </p>
       ) : (
-        <ul className="divide-y divide-rule overflow-hidden rounded-lg border border-rule bg-sheet">
+        <ul className="divide-y divide-rule border border-rule bg-sheet">
           {clients.map((c) => (
             <li key={c.client_id}>
               <Link to={`/alerts#alert-${c.alert_id}`} className="flex items-start gap-4 px-5 py-3.5 hover:bg-paper">
-                <span className="w-9 shrink-0 font-serif text-xl font-semibold text-amber" aria-label={`Highest score ${c.score}`}>{c.score}</span>
+                <span className="flex h-10 w-11 shrink-0 items-center justify-center border border-amber/35 bg-amber-soft font-serif text-xl font-semibold text-amber" aria-label={`Highest score ${c.score}`}>{c.score}</span>
                 <span className="min-w-0 flex-1">
                   <span className="flex items-baseline justify-between gap-3">
                     <span className="font-medium">{c.client}</span>
@@ -120,7 +123,7 @@ export default function Overview() {
 
       {data && c && !empty && (
         <div className="space-y-12">
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule lg:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px border border-rule bg-rule lg:grid-cols-4">
             <Kpi label="Clients profiled" value={`${c.clients_profiled} / ${c.clients}`} to="/clients"
               note={c.clients_missing_profile ? `${c.clients_missing_profile} waiting for the Profiler` : 'Every data room read'} />
             <Kpi label="Alerts to review" value={String(c.alerts_to_review)} to="/alerts" highlight={c.alerts_to_review > 0}

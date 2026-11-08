@@ -51,7 +51,7 @@ export default function WeeklyCheck() {
     setPerm(await Notification.requestPermission())
   }
 
-  const select = 'mt-1.5 rounded-md border border-rule bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none disabled:opacity-50'
+  const select = 'mt-1.5 rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15 disabled:opacity-50'
 
   return (
     <>

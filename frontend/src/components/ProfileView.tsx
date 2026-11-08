@@ -117,7 +117,7 @@ export default function ProfileView({ profile, onCite }: { profile: Profile; onC
         <p className="mb-3 text-sm text-slate">Used later to pre-select the clients a new tax update might concern.</p>
         <ul className="flex flex-wrap gap-1.5">
           {d.keywords.map((k) => (
-            <li key={k} className="rounded-full border border-rule bg-sheet px-3 py-1 text-sm">{k}</li>
+            <li key={k} className="rounded-sm border border-rule bg-sheet px-2.5 py-1 text-sm">{k}</li>
           ))}
         </ul>
       </section>

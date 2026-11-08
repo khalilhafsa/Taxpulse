@@ -2,10 +2,10 @@ import type { ReactNode } from 'react'
 
 export function PageHeader({ title, intro, action }: { title: string; intro?: ReactNode; action?: ReactNode }) {
   return (
-    <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-rule pb-6">
+    <header className="mb-9 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-b-[3px] border-double border-ink/70 pb-6">
       <div className="max-w-2xl">
-        <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink">{title}</h1>
-        {intro && <div className="mt-2 text-[15px] leading-relaxed text-slate">{intro}</div>}
+        <h1 className="font-serif text-[34px] font-semibold leading-[1.1] tracking-[-0.015em] text-ink md:text-[40px]">{title}</h1>
+        {intro && <div className="mt-3 text-[15px] leading-relaxed text-slate">{intro}</div>}
       </div>
       {action}
     </header>
@@ -14,8 +14,8 @@ export function PageHeader({ title, intro, action }: { title: string; intro?: Re
 
 export function EmptyState({ title, children }: { title: string; children?: ReactNode }) {
   return (
-    <div className="rounded-lg border border-dashed border-rule bg-sheet px-6 py-12 text-center">
-      <p className="font-serif text-lg font-semibold text-ink">{title}</p>
+    <div className="border border-dashed border-ink/25 bg-sheet px-6 py-14 text-center">
+      <p className="font-serif text-xl font-semibold text-ink">{title}</p>
       {children && <div className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate">{children}</div>}
     </div>
   )
@@ -23,7 +23,7 @@ export function EmptyState({ title, children }: { title: string; children?: Reac
 
 export function ErrorNote({ message }: { message: string }) {
   return (
-    <div role="alert" className="rounded-md border border-danger/30 bg-danger/5 px-4 py-3 text-sm leading-relaxed text-danger">
+    <div role="alert" className="border-l-[3px] border-danger bg-danger/5 px-4 py-3 text-sm leading-relaxed text-danger">
       {message}
     </div>
   )
@@ -38,15 +38,15 @@ export function Button({ children, onClick, disabled, variant = 'primary', type 
   title?: string
 }) {
   const styles = variant === 'primary'
-    ? 'bg-petrol text-white hover:bg-petrol/90'
-    : 'border border-rule bg-sheet text-ink hover:border-slate/40'
+    ? 'border border-petrol bg-petrol text-white hover:border-petrol-deep hover:bg-petrol-deep'
+    : 'border border-ink/20 bg-sheet text-ink hover:border-ink/45 hover:bg-paper'
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
       title={title}
-      className={`rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${styles}`}
+      className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-sm px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${styles}`}
     >
       {children}
     </button>
@@ -59,7 +59,7 @@ const KIND_LABEL: Record<string, string> = {
 
 export function KindTag({ kind }: { kind: string }) {
   return (
-    <span className="inline-block rounded bg-petrol-soft px-2 py-0.5 text-xs font-semibold text-petrol">
+    <span className="inline-block rounded-sm border border-petrol/30 bg-petrol-soft px-1.5 py-px font-mono text-[10.5px] font-medium uppercase tracking-[0.08em] text-petrol">
       {KIND_LABEL[kind] ?? kind}
     </span>
   )
@@ -67,14 +67,18 @@ export function KindTag({ kind }: { kind: string }) {
 
 export function DemoTag() {
   return (
-    <span className="inline-block rounded border border-rule px-2 py-0.5 text-xs text-slate" title="Fictional demo data">
+    <span className="inline-block rounded-sm border border-dashed border-slate/50 px-1.5 py-px font-mono text-[10.5px] uppercase tracking-[0.08em] text-slate" title="Fictional demo data">
       Demo
     </span>
   )
 }
 
 export function SectionTitle({ children, id }: { children: ReactNode; id?: string }) {
-  return <h2 id={id} className="mb-3 font-serif text-xl font-semibold">{children}</h2>
+  return (
+    <h2 id={id} className="mb-4 flex items-baseline gap-3 border-b border-rule pb-2 font-serif text-[22px] font-semibold tracking-[-0.01em]">
+      {children}
+    </h2>
+  )
 }
 
 export const formatDate = (d: string | null) =>

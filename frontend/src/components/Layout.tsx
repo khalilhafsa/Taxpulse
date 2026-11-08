@@ -7,26 +7,59 @@ import ErrorBoundary from './ErrorBoundary'
 import Notifications from './Notifications'
 
 const NAV = [
-  { to: '/', label: 'Overview', end: true },
-  { to: '/clients', label: 'Clients' },
-  { to: '/updates', label: 'Tax updates' },
-  { to: '/matrix', label: 'Matrix' },
-  { to: '/alerts', label: 'Alerts' },
-  { to: '/outreach', label: 'Outreach' },
-  { to: '/runs', label: 'Agent runs' },
-  { to: '/quality', label: 'Quality' },
-  { to: '/settings', label: 'Settings' },
+  { to: '/', label: 'Overview', end: true, group: 'This week' },
+  { to: '/alerts', label: 'Alerts', group: 'This week' },
+  { to: '/outreach', label: 'Outreach', group: 'This week' },
+  { to: '/matrix', label: 'Matrix', group: 'This week' },
+  { to: '/clients', label: 'Clients', group: 'Records' },
+  { to: '/updates', label: 'Tax updates', group: 'Records' },
+  { to: '/runs', label: 'Agent runs', group: 'System' },
+  { to: '/quality', label: 'Quality', group: 'System' },
+  { to: '/settings', label: 'Settings', group: 'System' },
 ]
+const GROUPS = ['This week', 'Records', 'System']
 
 function Logo() {
   return (
-    <div className="flex items-center gap-2.5">
-      <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden>
-        <rect width="32" height="32" rx="7" fill="#0F5C63" />
-        <path d="M5 17h6l3-7 4 13 3-6h6" fill="none" stroke="#fff" strokeWidth="2.6"
-          strokeLinecap="round" strokeLinejoin="round" />
+    <NavLink to="/" className="flex items-center gap-3" aria-label="TaxPulse, overview">
+      <svg viewBox="0 0 32 32" className="h-9 w-9 shrink-0" aria-hidden>
+        <rect width="32" height="32" rx="3" fill="#0B5560" />
+        <path d="M5 17h6l3-7 4 13 3-6h6" fill="none" stroke="#fffefa" strokeWidth="2.4"
+          strokeLinecap="square" strokeLinejoin="miter" />
       </svg>
-      <span className="font-serif text-xl font-semibold tracking-tight">TaxPulse</span>
+      <span className="leading-none">
+        <span className="block font-serif text-[22px] font-semibold tracking-tight">TaxPulse</span>
+        <span className="tp-eyebrow mt-1 block whitespace-nowrap text-[10px]">Mandate monitor</span>
+      </span>
+    </NavLink>
+  )
+}
+
+/** ISO calendar week, the way German offices count weeks. */
+function isoWeek(d: Date) {
+  const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()))
+  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7))
+  const start = new Date(Date.UTC(t.getUTCFullYear(), 0, 1))
+  return Math.ceil(((t.getTime() - start.getTime()) / 86400000 + 1) / 7)
+}
+
+function Masthead({ pathname }: { pathname: string }) {
+  const now = new Date()
+  const first = '/' + (pathname.split('/')[1] ?? '')
+  const section = NAV.find((n) => n.to === first)
+  return (
+    <div className="border-b border-rule px-5 md:px-10">
+      <div className="mx-auto flex h-11 max-w-6xl items-center justify-between gap-4">
+        <p className="tp-eyebrow truncate">
+          {section
+            ? <>{section.group}<span aria-hidden className="mx-2 opacity-50">/</span><span className="text-ink">{section.label}</span></>
+            : 'TaxPulse'}
+        </p>
+        <p className="tp-eyebrow hidden shrink-0 sm:block">
+          Week {isoWeek(now)}<span aria-hidden className="mx-2 opacity-50">·</span>
+          {now.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+        </p>
+      </div>
     </div>
   )
 }
@@ -39,8 +72,8 @@ function Status() {
     : data.llm_configured ? ['bg-petrol', 'Agents ready']
     : ['bg-amber', 'No API key set']
   return (
-    <p className="flex items-center gap-2 text-xs text-slate">
-      <span className={`h-2 w-2 rounded-full ${state[0]}`} />
+    <p className="flex items-center gap-2 text-xs text-slate" role="status">
+      <span className={`h-2 w-2 rounded-full ${state[0]}`} aria-hidden />
       {state[1]}
     </p>
   )
@@ -68,18 +101,24 @@ function DemoBanner() {
     }
   }
   return (
-    <div className="border-b border-petrol/20 bg-petrol-soft px-5 py-2.5 text-sm text-petrol md:px-10">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 gap-y-1">
-        <p>
-          <strong className="font-semibold">Public demo.</strong> The companies are fictional, and the agents replay results
-          they produced with Claude, so nothing here calls the AI.
+    <div className="bg-ink px-5 py-2.5 text-sm text-paper md:px-10">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
+        <p className="flex items-baseline gap-3">
+          <span className="shrink-0 rounded-sm border border-paper/40 px-1.5 py-px font-mono text-[10px] font-medium uppercase tracking-[0.12em]">
+            Demo
+          </span>
+          <span>
+            <strong className="font-semibold">Public demo.</strong> The companies are fictional, and the agents replay results
+            they produced with Claude, so nothing here calls the AI.
+          </span>
         </p>
         {restored
           ? <span className="font-semibold" role="status">Done: the demo is back at its starting point.</span>
-          : <button type="button" onClick={reset} disabled={busy} className="font-semibold underline-offset-2 hover:underline disabled:opacity-50">
+          : <button type="button" onClick={reset} disabled={busy}
+              className="font-semibold underline decoration-paper/40 underline-offset-4 hover:decoration-paper disabled:opacity-50">
               {busy ? 'Starting over…' : 'Start the demo over'}
             </button>}
-        {note && <p className="w-full text-danger">{note}</p>}
+        {note && <p className="w-full text-[#f4b9b3]">{note}</p>}
       </div>
     </div>
   )
@@ -91,29 +130,39 @@ export default function Layout() {
   const demo = !!health?.demo_mode
   return (
     <DemoContext.Provider value={demo}>
-    <div className="min-h-screen md:grid md:grid-cols-[232px_1fr]">
-      <aside className="border-b border-rule bg-sheet px-5 py-5 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:border-b-0 md:border-r">
+    <div className="min-h-screen md:grid md:grid-cols-[248px_1fr]">
+      <aside className="border-b border-rule bg-paper-deep px-5 py-4 md:sticky md:top-0 md:flex md:h-screen md:flex-col md:border-b-0 md:border-r md:px-5 md:py-7">
         <div className="flex items-center justify-between gap-3">
           <Logo />
           <Notifications />
         </div>
-        <nav className="mt-6 flex gap-1 overflow-x-auto md:mt-10 md:flex-col" aria-label="Main">
-          {NAV.map((n) => (
-            <NavLink
-              key={n.to}
-              to={n.to}
-              end={n.end}
-              className={({ isActive }) =>
-                `whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                  isActive ? 'bg-petrol-soft text-petrol' : 'text-slate hover:bg-paper hover:text-ink'
-                }`
-              }
-            >
-              {n.label}
-            </NavLink>
+        <nav className="-mx-1 mt-4 flex gap-1 overflow-x-auto px-1 pb-1 [scrollbar-width:none] md:mx-0 md:mt-10 md:flex-col md:gap-6 md:overflow-visible md:px-0 md:pb-0" aria-label="Main">
+          {GROUPS.map((g) => (
+            <div key={g} className="shrink-0">
+              <p className="tp-eyebrow mb-2 hidden px-3 text-[10px] md:block">{g}</p>
+              <ul className="flex gap-1 md:block md:space-y-px">
+                {NAV.filter((n) => n.group === g).map((n) => (
+                  <li key={n.to}>
+                    <NavLink
+                      to={n.to}
+                      end={n.end}
+                      className={({ isActive }) =>
+                        `relative flex min-h-9 items-center whitespace-nowrap rounded-sm px-3 text-[14px] font-medium ${
+                          isActive
+                            ? 'bg-sheet text-ink shadow-[inset_0_0_0_1px_var(--color-rule)] before:absolute before:inset-y-2 before:left-0 before:w-[3px] before:bg-petrol'
+                            : 'text-slate hover:bg-sheet/70 hover:text-ink'
+                        }`
+                      }
+                    >
+                      {n.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </nav>
-        <div className="mt-auto hidden space-y-3 pt-6 md:block">
+        <div className="mt-auto hidden space-y-3 border-t border-rule pt-5 md:block">
           <Status />
           <p className="text-xs leading-relaxed text-slate">
             Demo companies are fictional. Not tax advice.
@@ -121,12 +170,13 @@ export default function Layout() {
         </div>
       </aside>
       <div className="min-w-0">
-      {demo && <DemoBanner />}
-      <main className="mx-auto w-full max-w-5xl px-5 py-8 md:px-10 md:py-12">
-        <ErrorBoundary key={pathname}>
-          <Outlet />
-        </ErrorBoundary>
-      </main>
+        {demo && <DemoBanner />}
+        <Masthead pathname={pathname} />
+        <main className="mx-auto w-full max-w-6xl px-5 py-8 md:px-10 md:py-10">
+          <ErrorBoundary key={pathname}>
+            <Outlet />
+          </ErrorBoundary>
+        </main>
       </div>
     </div>
     </DemoContext.Provider>
