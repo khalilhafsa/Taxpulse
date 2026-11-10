@@ -110,36 +110,36 @@
 }
 
 /* ---------- TaxPulse adjustments on top of Sage Garden ---------- */
-/* An elegant khaki green (muted olive) as the brand colour instead of the theme's sage; white text
-   on it reads at 5.9:1. In dark mode a light khaki green with near-black text, and cards that lift
+/* Bottle green #0B3D2E as the brand colour instead of the theme's sage; white text on it reads
+   at 12:1. In dark mode a lighter bottle green with near-black text, and cards that lift
    clearly off the black background. Success keeps its own green so it never reads as "brand". */
 :root {
-  --primary: #5b6b3e;
-  --ring: #5b6b3e;
-  --sidebar-primary: #5b6b3e;
-  --chart-1: #5b6b3e;
-  --tp-brand: #4f5e35;
-  --tp-brand-deep: #364121;
-  --tp-brand-soft: #ebeee2;
+  --primary: #0B3D2E;
+  --ring: #0B3D2E;
+  --sidebar-primary: #0B3D2E;
+  --chart-1: #0B3D2E;
+  --tp-brand: #0B3D2E;
+  --tp-brand-deep: #062619;
+  --tp-brand-soft: #e2ece7;
   --tp-ok: #3f6b4c;
   --tp-ok-soft: #e4ede5;
 }
 .dark {
-  --primary: #aebb84;
-  --ring: #aebb84;
-  --sidebar-primary: #aebb84;
-  --chart-1: #aebb84;
-  --primary-foreground: #12160b;
-  --sidebar-primary-foreground: #12160b;
+  --primary: #6fae92;
+  --ring: #6fae92;
+  --sidebar-primary: #6fae92;
+  --chart-1: #6fae92;
+  --primary-foreground: #03140d;
+  --sidebar-primary-foreground: #03140d;
   --card: #171714;
   --popover: #171714;
   --input: #171714;
   --border: #2f2f29;
   --sidebar-border: #2f2f29;
   --muted: #1d1d19;
-  --tp-brand: #c4cf9f;
-  --tp-brand-deep: #e3e9cf;
-  --tp-brand-soft: color-mix(in srgb, #aebb84 16%, #171714);
+  --tp-brand: #8cc3aa;
+  --tp-brand-deep: #d3ebdf;
+  --tp-brand-soft: color-mix(in srgb, #0B3D2E 55%, #171714);
   --tp-ok: #9cc2a6;
   --tp-ok-soft: color-mix(in srgb, #3f6b4c 35%, #171714);
   --tp-shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 1px 2px rgb(0 0 0 / 0.6), 0 14px 30px -16px rgb(0 0 0 / 0.9);
@@ -285,13 +285,16 @@ a.tp-chrome:hover {
 .tp-chrome-dark {
   position: relative;
   background:
-    radial-gradient(80% 110% at 100% 0%, rgb(150 168 100 / 0.30), rgb(150 168 100 / 0) 62%),
+    radial-gradient(80% 110% at 100% 0%, rgb(40 140 100 / 0.30), rgb(40 140 100 / 0) 62%),
     radial-gradient(70% 90% at 0% 100%, rgb(168 100 28 / 0.12), rgb(168 100 28 / 0) 60%),
-    linear-gradient(155deg, #333d26 0%, #29321e 60%, #222a19 100%);
-  border: 1px solid #45523a;
+    linear-gradient(155deg, #10503c 0%, #0B3D2E 55%, #082f23 100%);
+  border: 1px solid #1c5a45;
   box-shadow: var(--shadow-lg);
 }
-.tp-metal-dark { background: linear-gradient(155deg, #333d26 0%, #222a19 100%); }
+.tp-metal-dark { background: linear-gradient(155deg, #10503c 0%, #082f23 100%); }
+/* On the bottle-green lead card the primary button turns light so it stands out. */
+.tp-chrome-dark .tp-btn-primary { background: #f1f6f3; color: #0B3D2E; }
+.tp-chrome-dark .tp-btn-primary:not(:disabled):hover { background: #ffffff; }
 
 /* Sidebar. */
 .tp-rail {
@@ -366,7 +369,7 @@ a.tp-chrome:hover {
 .tp-lm { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--shadow-color) 55%, transparent); transition: transform 500ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 400ms ease; }
 .tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--primary) 80%, transparent); }
 .tp-lm:not(:disabled):active { transform: translateY(1px) scale(0.98); }
-.tp-lm-rim { background: linear-gradient(135deg, #eff2e4, #5b6b3e 35%, #ffffff 55%, #364121 80%, #d3dbb9); }
+.tp-lm-rim { background: linear-gradient(135deg, #e6f0eb, #0B3D2E 35%, #ffffff 55%, #062619 80%, #b9d4c7); }
 .tp-lm-rim canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
 .tp-lm-face {
   background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 80%, #fff) 0%, color-mix(in srgb, var(--primary) 82%, #000) 50%, color-mix(in srgb, var(--primary) 62%, #000) 100%);
