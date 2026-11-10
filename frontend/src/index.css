@@ -1,26 +1,25 @@
 @import "tailwindcss";
 
-/* Design tokens: "Chrome, dark". A chrome-grey workspace (grey, never black): brushed-steel
-   page, graphite cards with a machined bevel, a darker gunmetal rail, and polished chrome type
+/* Design tokens: "Chrome, black". A black-steel workspace: brushed near-black page, graphite cards with a machined bevel, a darker gunmetal rail, and polished chrome type
    on the main titles. Reflections move as you scroll (and follow the pointer on cards).
    Cobalt stays the brand colour for links and focus; orange "heat" is reserved for relevance
    and alerts. Reflections are switched off for people who prefer reduced motion. */
 @theme {
-  --color-paper: #3b3f46;        /* page: chrome grey */
-  --color-paper-deep: #33373d;
-  --color-sheet: #474c54;        /* cards, inputs */
+  --color-paper: #0d0e11;        /* page: black steel */
+  --color-paper-deep: #16181c;
+  --color-sheet: #1c1f24;        /* cards, inputs */
   --color-ink: #f1f3f6;          /* main text */
-  --color-slate: #b9c0ca;        /* secondary text, 7:1 on the page */
-  --color-rule: #5c626b;
+  --color-slate: #aab1bb;        /* secondary text, 8:1 on the page */
+  --color-rule: #30343a;
   --color-brand: #a3b4ff;        /* cobalt, lightened to read on grey */
   --color-brand-deep: #c4cfff;
-  --color-brand-soft: #4a5170;
+  --color-brand-soft: #262c48;
   --color-heat: #ffab70;         /* relevance orange, lightened for grey */
-  --color-heat-soft: #5d4b40;
+  --color-heat-soft: #3a2a20;
   --color-danger: #ff9a90;
   /* Gunmetal surfaces: the rail and the lead card. Signal and relevance are their accents. */
-  --color-night: #1d2025;
-  --color-night-soft: #2a2e34;
+  --color-night: #0d0e11;
+  --color-night-soft: #1c1f24;
   --color-signal: #d3dbff;
   --color-relevance: #ffab70;
 
@@ -58,13 +57,13 @@ html {
    Layout), and a soft light follows the pointer (--gx/--gy). */
 body {
   background:
-    radial-gradient(800px 480px at var(--gx, 75vw) var(--gy, -10vh), rgb(255 255 255 / 0.09), rgb(255 255 255 / 0) 65%),
+    radial-gradient(800px 480px at var(--gx, 75vw) var(--gy, -10vh), rgb(255 255 255 / 0.06), rgb(255 255 255 / 0) 65%),
     repeating-linear-gradient(118deg,
       rgb(255 255 255 / 0) 0px, rgb(255 255 255 / 0) 380px,
-      rgb(255 255 255 / 0.055) 520px, rgb(255 255 255 / 0.11) 580px, rgb(255 255 255 / 0.055) 640px,
+      rgb(255 255 255 / 0.035) 520px, rgb(255 255 255 / 0.075) 580px, rgb(255 255 255 / 0.035) 640px,
       rgb(255 255 255 / 0) 780px, rgb(255 255 255 / 0) 1400px),
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 3px),
-    linear-gradient(180deg, #474c53 0%, #3b3f46 45%, #34383e 100%);
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.012) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #17191d 0%, #0e0f12 45%, #0a0b0d 100%);
   background-attachment: fixed;
   background-position: 0 0, 0 calc(var(--sy, 0px) * -0.45), 0 0, 0 0;
 }
@@ -97,8 +96,8 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   isolation: isolate;
   border-color: transparent !important;
   background:
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.03) 0 1px, transparent 1px 4px),
-    linear-gradient(180deg, #50555d 0%, #464a52 55%, #41454c 100%) !important;
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, #23262c 0%, #1b1e23 55%, #17191d 100%) !important;
   box-shadow: 0 1px 0 rgb(255 255 255 / 0.1) inset, 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 32px -22px rgb(0 0 0 / 0.7);
 }
 .tp-chrome::before {
@@ -143,7 +142,7 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   position: relative;
   isolation: isolate;
   background:
-    linear-gradient(160deg, #353a42 0%, #22252b 38%, #1a1c21 62%, #2b2f36 100%);
+    linear-gradient(160deg, #2b2f36 0%, #191b20 38%, #121417 62%, #22252b 100%);
   box-shadow: 0 1px 0 rgb(255 255 255 / 0.12) inset, 0 30px 60px -30px rgb(0 0 0 / 0.8);
 }
 .tp-chrome-dark::before {
@@ -173,7 +172,7 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
     linear-gradient(105deg, transparent calc(var(--mx, 30%) - 260px), rgb(255 255 255 / 0.06) var(--mx, 30%), transparent calc(var(--mx, 30%) + 260px));
 }
 .tp-metal-dark {
-  background: linear-gradient(170deg, #383d45 0%, #24272d 45%, #1b1d22 70%, #2c3037 100%);
+  background: linear-gradient(170deg, #2e3239 0%, #1b1e22 45%, #131518 70%, #24272d 100%);
   box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.12);
 }
 
@@ -182,7 +181,7 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   background:
     radial-gradient(300px 260px at 50% var(--gy, 20vh), rgb(255 255 255 / 0.07), rgb(255 255 255 / 0) 70%),
     repeating-linear-gradient(90deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 3px),
-    linear-gradient(180deg, #2b2f35 0%, #22252a 50%, #1c1f23 100%);
+    linear-gradient(180deg, #1b1e22 0%, #141619 50%, #101114 100%);
   box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.08);
 }
 .tp-rail-active {
@@ -219,7 +218,7 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 }
 .tp-btn-quiet {
   color: var(--color-ink);
-  background: linear-gradient(180deg, #5d636c 0%, #4c5159 50%, #43474e 100%);
+  background: linear-gradient(180deg, #3a3e45 0%, #2b2e34 50%, #24272c 100%);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.16), 0 0 0 1px rgb(0 0 0 / 0.25), 0 1px 2px rgb(0 0 0 / 0.3);
 }
 .tp-btn-primary::after, .tp-btn-quiet::after {
@@ -238,7 +237,7 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 
 /* Demo banner: hatched like a specimen stamp, so fictional data is never mistaken for real data. */
 .tp-hatch {
-  background-color: #4d423b;
+  background-color: #241c17;
   background-image: repeating-linear-gradient(-45deg, transparent 0 10px, rgb(255 171 112 / 0.08) 10px 20px);
 }
 

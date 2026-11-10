@@ -219,7 +219,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
 
       <div className="overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
         <div className="overflow-x-auto">
-          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#50555d,#43474e)] lg:min-w-0">
+          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#23262c,#1a1d21)] lg:min-w-0">
             {working && (
               <Bubble index={p.stages.indexOf(working)}
                 text={`${BUBBLE[working.key]} ${working.current ? shorten(working.current) : ''}`} />
