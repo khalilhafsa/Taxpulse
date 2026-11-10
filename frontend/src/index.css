@@ -111,7 +111,8 @@
 
 /* ---------- TaxPulse adjustments on top of Sage Garden ---------- */
 /* Bottle green #0B3D2E as the brand colour instead of the theme's sage; white text on it reads
-   at 12:1. In dark mode a lighter bottle green with near-black text, and cards that lift
+   at 12:1. Dark mode keeps #0B3D2E for fills (buttons, active menu, logo) with a fine light edge;
+   only text links use a lighter bottle green with near-black text, and cards that lift
    clearly off the black background. Success keeps its own green so it never reads as "brand". */
 :root {
   --primary: #0B3D2E;
@@ -125,12 +126,12 @@
   --tp-ok-soft: #e4ede5;
 }
 .dark {
-  --primary: #6fae92;
+  --primary: #0B3D2E;
   --ring: #6fae92;
-  --sidebar-primary: #6fae92;
-  --chart-1: #6fae92;
-  --primary-foreground: #03140d;
-  --sidebar-primary-foreground: #03140d;
+  --sidebar-primary: #0B3D2E;
+  --chart-1: #0B3D2E;
+  --primary-foreground: #ffffff;
+  --sidebar-primary-foreground: #ffffff;
   --card: #171714;
   --popover: #171714;
   --input: #171714;
@@ -292,6 +293,8 @@ a.tp-chrome:hover {
   box-shadow: var(--shadow-lg);
 }
 .tp-metal-dark { background: linear-gradient(155deg, #10503c 0%, #082f23 100%); }
+/* Dark mode: bottle-green fills get a fine light edge so they stand out on the black page. */
+.dark .tp-btn-primary, .dark .tp-rail-active { box-shadow: inset 0 0 0 1px rgb(111 174 146 / 0.35), var(--tp-shadow); }
 /* On the bottle-green lead card the primary button turns light so it stands out. */
 .tp-chrome-dark .tp-btn-primary { background: #f1f6f3; color: #0B3D2E; }
 .tp-chrome-dark .tp-btn-primary:not(:disabled):hover { background: #ffffff; }

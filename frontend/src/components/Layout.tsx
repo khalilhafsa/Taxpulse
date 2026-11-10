@@ -50,8 +50,9 @@ function Logo() {
   return (
     <NavLink to="/" className="flex shrink-0 items-center gap-2.5" aria-label="TaxPulse, briefing">
       <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden>
-        <rect width="32" height="32" rx="6" fill="var(--primary)" />
-        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="var(--primary-foreground)" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
+        <rect width="32" height="32" rx="6" fill="#0B3D2E" />
+        <rect x=".5" y=".5" width="31" height="31" rx="5.5" fill="none" stroke="#6fae92" strokeOpacity=".35" />
+        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="#ffffff" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       <span className="font-serif text-[19px] font-bold tracking-[-0.01em] text-sidebar-foreground">TaxPulse</span>
     </NavLink>
