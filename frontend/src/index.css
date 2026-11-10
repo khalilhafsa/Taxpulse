@@ -56,6 +56,9 @@
   --tp-heat-soft: var(--accent);
   --tp-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread)
     color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+  /* Status colours: red means a real problem only. Work in progress is neutral, success is green. */
+  --tp-ok: #2f6b3a;
+  --tp-ok-soft: #e7f1e5;
 }
 
 .dark {
@@ -100,6 +103,8 @@
   --tp-heat: var(--chart-4);
   --tp-heat-soft: color-mix(in srgb, var(--accent) 32%, var(--card));
   --tp-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 28px -14px rgb(0 0 0 / 0.7);
+  --tp-ok: #86d19a;
+  --tp-ok-soft: color-mix(in srgb, #2f6b3a 35%, var(--card));
 }
 
 @theme inline {
@@ -159,6 +164,8 @@
   --color-heat: var(--tp-heat);
   --color-heat-soft: var(--tp-heat-soft);
   --color-danger: var(--destructive);
+  --color-ok: var(--tp-ok);
+  --color-ok-soft: var(--tp-ok-soft);
   /* The dark lead card (radar) stays dark in both modes. */
   --color-night: #1c1917;
   --color-night-soft: #292524;
@@ -354,6 +361,22 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 .tp-page > *:nth-child(4), .tp-stagger > *:nth-child(4) { animation-delay: 180ms; }
 .tp-page > *:nth-child(n+5), .tp-stagger > *:nth-child(n+5) { animation-delay: 240ms; }
 
+/* Work in progress: a small spinning ring before the text (neutral colours, never red). */
+.tp-busy::before {
+  content: "";
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-right: 0.6em;
+  vertical-align: -0.1em;
+  border-radius: 9999px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  opacity: 0.65;
+  animation: tp-spin 0.8s linear infinite;
+}
+@keyframes tp-spin { to { transform: rotate(360deg) } }
+
 /* Radar: the sweep turns slowly, blips pulse when they appear. */
 @keyframes tp-sweep { to { transform: rotate(360deg) } }
 .tp-sweep { transform-origin: center; transform-box: fill-box; animation: tp-sweep 9s linear infinite; }
@@ -382,6 +405,7 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 @media (prefers-reduced-motion: reduce) {
   .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal,
   .tp-page > *, .tp-stagger > *, .tp-ripple, .tp-lm-ripple { animation: none !important; }
+  .tp-busy::before { animation-duration: 2.4s; }
   .tp-btn-primary::before, .tp-btn-quiet::before { transition: none; }
   .tp-lm, .tp-lm:hover, .tp-lm:active { transform: none; }
   a.tp-chrome:hover { transform: none; }

@@ -76,7 +76,7 @@ export default function Settings() {
             {saveError && <ErrorNote message={saveError} />}
             <div className="flex items-center gap-3">
               <Button type="submit" disabled={demo} title={demo ? 'Switched off in the public demo' : undefined}>Save settings</Button>
-              {saved && <span className="text-sm text-brand" role="status">Saved</span>}
+              {saved && <span className="text-sm text-ok" role="status">Saved</span>}
             </div>
           </form>
           <aside>

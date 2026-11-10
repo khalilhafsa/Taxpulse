@@ -61,7 +61,7 @@ function Count({ value }: { value: number }) {
 function StageLabel({ s, at }: { s: Stage; at: boolean }) {
   return (
     <div className="px-1.5 text-center" title={s.role}>
-      <p className={`text-[13px] font-semibold leading-tight ${at ? 'text-brand' : ''}`}>{s.name}</p>
+      <p className={`text-[13px] font-semibold leading-tight ${at ? 'text-ink underline decoration-heat decoration-2 underline-offset-4' : ''}`}>{s.name}</p>
       <p className="mt-1 text-xs text-slate tabular-nums">
         <span className="font-semibold text-ink"><Count value={s.done} /></span> of {s.total} {s.unit}
       </p>
@@ -92,7 +92,7 @@ function Activity({ log }: { log: Pipeline['log'] }) {
             </span>
             <span className="hidden font-medium sm:block">{AGENT[r.agent] ?? r.agent}</span>
             <span className="truncate text-slate"><span className="font-medium text-ink sm:hidden">{AGENT[r.agent] ?? r.agent}: </span>{r.label}</span>
-            <span className={`text-right tabular-nums ${r.status === 'failed' ? 'text-danger' : r.status === 'running' ? 'text-brand' : 'text-slate'}`}>
+            <span className={`text-right tabular-nums ${r.status === 'failed' ? 'text-danger' : r.status === 'running' ? 'tp-busy text-ink' : 'text-slate'}`}>
               {r.status === 'running' ? 'working…' : r.status === 'failed' ? 'failed' : `${secs(r.duration_ms)}, $${r.cost_usd.toFixed(3)}`}
             </span>
           </li>
@@ -198,7 +198,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
               <>
-                <span className="font-semibold text-brand">{working.name}</span> {VERB[working.key]}{' '}
+                <span className="font-semibold text-ink">{working.name}</span> {VERB[working.key]}{' '}
                 <span className="text-ink">{working.current || 'the next item'}</span>
                 {elapsed !== null && <span className="tabular-nums">, {clock(elapsed)} since you started the run</span>}
               </>
@@ -234,8 +234,8 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
         <ol className="divide-y divide-rule border-t border-rule lg:hidden">
           {p.stages.map((s, i) => (
             <li key={s.key} className="flex items-baseline gap-3 px-4 py-2.5 text-sm">
-              <span className={`w-4 shrink-0 font-semibold ${busyKeys.has(s.key) ? 'text-brand' : 'text-slate'}`}>{i + 1}</span>
-              <span className={`flex-1 font-medium ${busyKeys.has(s.key) ? 'text-brand' : ''}`}>{s.name}</span>
+              <span className={`w-4 shrink-0 font-semibold ${busyKeys.has(s.key) ? 'text-ink' : 'text-slate'}`}>{i + 1}</span>
+              <span className={`flex-1 font-medium ${busyKeys.has(s.key) ? 'tp-busy text-ink' : ''}`}>{s.name}</span>
               <span className="text-xs text-slate tabular-nums"><Count value={s.done} /> of {s.total}</span>
             </li>
           ))}

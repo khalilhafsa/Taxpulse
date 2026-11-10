@@ -13,7 +13,7 @@ const AGENT_LABEL: Record<string, string> = {
 }
 
 function Status({ run }: { run: AgentRun }) {
-  if (run.status === 'running') return <span className="text-brand">Running</span>
+  if (run.status === 'running') return <span className="tp-busy text-ink">Running</span>
   if (run.status === 'failed') return <span className="text-danger" title={run.error}>Failed</span>
   return <span className="text-slate">Done</span>
 }

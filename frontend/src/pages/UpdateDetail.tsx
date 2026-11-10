@@ -75,7 +75,7 @@ export default function UpdateDetail() {
       </div>
 
       {running && (
-        <p className="mb-8 rounded-md border border-brand/20 bg-brand-soft px-5 py-4 text-sm text-brand" aria-live="polite">
+        <p className="tp-busy mb-8 rounded-md border border-rule bg-muted px-5 py-4 text-sm text-ink" aria-live="polite">
           The Regulatory Analyst is reading this publication. This takes about ten seconds.
         </p>
       )}

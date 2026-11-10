@@ -67,7 +67,7 @@ export default function WeeklyCheck() {
         <input type="checkbox" checked={a.enabled} onChange={(e) => save({ enabled: e.target.checked })}
           className="h-5 w-5 accent-[var(--color-brand)]" />
         <span className="text-[15px] font-medium">Run the weekly check</span>
-        {saved && <span className="text-sm text-brand" role="status">Saved</span>}
+        {saved && <span className="text-sm text-ok" role="status">Saved</span>}
       </label>
 
       <div className="mt-4 flex flex-wrap gap-4">

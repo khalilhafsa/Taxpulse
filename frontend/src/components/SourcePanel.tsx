@@ -69,7 +69,7 @@ export default function SourcePanel({ citation, documents, onClose }: {
           </button>
         </header>
 
-        <div className={`border-b px-6 py-3 text-sm ${citation.verified ? 'border-brand/20 bg-brand-soft text-brand' : 'border-danger/20 bg-danger/5 text-danger'}`}>
+        <div className={`border-b px-6 py-3 text-sm ${citation.verified ? 'border-ok/20 bg-ok-soft text-ok' : 'border-danger/20 bg-danger/5 text-danger'}`}>
           {citation.verified
             ? 'Quote found on this page. The highlighted passage is the evidence the agent used.'
             : 'TaxPulse could not find this quote on the cited page. Check the source before relying on this fact.'}

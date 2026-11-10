@@ -32,7 +32,7 @@ export default function Clients() {
                 <span className="text-sm text-slate">
                   {c.document_count} {c.document_count === 1 ? 'file' : 'files'}
                 </span>
-                <span className={`text-sm ${c.has_profile ? 'text-brand' : 'text-slate'}`}>
+                <span className={`text-sm ${c.has_profile ? 'text-ok' : 'text-slate'}`}>
                   {c.has_profile ? 'Profile ready' : 'Profile not built yet'}
                 </span>
                 {c.is_demo && <DemoTag />}

@@ -110,11 +110,11 @@ export default function ClientDetail() {
       <div className="grid gap-10 lg:grid-cols-[1fr_260px]">
         <div className="min-w-0">
           {running && (
-            <div className="mb-8 rounded-md border border-brand/20 bg-brand-soft px-5 py-4" aria-live="polite">
-              <p className="flex items-center gap-2.5 font-medium text-brand">
+            <div className="mb-8 rounded-md border border-rule bg-muted px-5 py-4" aria-live="polite">
+              <p className="flex items-center gap-2.5 font-medium text-ink">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60 motion-reduce:animate-none" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate opacity-60 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-slate" />
                 </span>
                 The Profiler is reading {pages} pages
               </p>
@@ -130,7 +130,7 @@ export default function ClientDetail() {
                 Profile version {c.profile.version}, built {formatDateTime(c.profile.created_at)}
                 {c.profile_run && <> in {Math.round(c.profile_run.duration_ms / 1000)} s for ${c.profile_run.cost_usd.toFixed(3)}</>}.{' '}
                 {v && (
-                  <span className={v.verified === v.total ? 'text-brand' : 'text-ink'}>
+                  <span className={v.verified === v.total ? 'text-ok' : 'text-ink'}>
                     {v.verified} of {v.total} citations verified against the source pages.
                   </span>
                 )}

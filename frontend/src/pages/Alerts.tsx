@@ -25,7 +25,7 @@ function Score({ value }: { value: number }) {
 
 function MemoView({ m }: { m: ImpactMemo }) {
   const kind = { risk: 'Risk', opportunity: 'Opportunity', both: 'Risk and opportunity' }[m.risk_or_opportunity]
-  const kindColor = m.risk_or_opportunity === 'opportunity' ? 'text-brand' : 'text-danger'
+  const kindColor = m.risk_or_opportunity === 'opportunity' ? 'text-ok' : 'text-danger'
   return (
     <div className="mt-6 rounded-xl border border-brand/15 bg-brand-soft/40 px-5 py-5">
       <p className="tp-eyebrow">Impact memo</p>
@@ -94,7 +94,7 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
                 {[...supporting, ...against].map((e, i) => (
                   <li key={i} className="grid gap-1 py-2.5 text-sm sm:grid-cols-[1fr_1fr] sm:gap-6">
                     <p className="flex gap-2">
-                      <span aria-hidden className={e.verified ? 'text-brand' : 'text-danger'}>{e.verified ? '✓' : '?'}</span>
+                      <span aria-hidden className={e.verified ? 'text-ok' : 'text-danger'}>{e.verified ? '✓' : '?'}</span>
                       <span>
                         {e.client_fact}
                         {!e.verified && <span className="block text-xs text-danger">Not found word for word in the profile</span>}
@@ -120,7 +120,7 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
           )}
 
           {a.status === 'accepted' && a.memo_status === 'running' && (
-            <p className="mt-5 rounded-md border border-brand/20 bg-brand-soft px-4 py-3 text-sm text-brand" aria-live="polite">
+            <p className="tp-busy mt-5 rounded-md border border-rule bg-muted px-4 py-3 text-sm text-ink" aria-live="polite">
               The Impact Explainer is writing the memo for this client…
             </p>
           )}
@@ -181,13 +181,13 @@ function EvaluationBox({ e }: { e: Evaluation }) {
       <dl className="mt-3 flex flex-wrap gap-x-10 gap-y-2">
         <div>
           <dt className="text-xs text-slate">Affected clients found</dt>
-          <dd className={`font-serif text-2xl font-semibold ${e.affected_found === e.affected_total ? 'text-brand' : 'text-danger'}`}>
+          <dd className={`font-serif text-2xl font-semibold ${e.affected_found === e.affected_total ? 'text-ok' : 'text-danger'}`}>
             {e.affected_found} of {e.affected_total}
           </dd>
         </div>
         <div>
           <dt className="text-xs text-slate">False alerts</dt>
-          <dd className={`font-serif text-2xl font-semibold ${e.false_alerts === 0 ? 'text-brand' : 'text-danger'}`}>
+          <dd className={`font-serif text-2xl font-semibold ${e.false_alerts === 0 ? 'text-ok' : 'text-danger'}`}>
             {e.false_alerts} of {e.not_affected_total}
           </dd>
         </div>
@@ -291,7 +291,7 @@ export default function Alerts() {
           </p>
         )}
         {status?.scan_running ? (
-          <p className="rounded-md border border-brand/20 bg-brand-soft px-5 py-4 text-sm text-brand" aria-live="polite">
+          <p className="tp-busy rounded-md border border-rule bg-muted px-5 py-4 text-sm text-ink" aria-live="polite">
             The Impact Matcher is checking {status.scan_running} {status.scan_running === 1 ? 'update' : 'updates'} against every client profile.
           </p>
         ) : null}

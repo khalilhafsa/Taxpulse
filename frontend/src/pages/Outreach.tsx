@@ -7,7 +7,7 @@ import { useAsync } from '../useAsync'
 
 const STATUS: Record<EmailDraft['status'], { label: string; className: string }> = {
   draft: { label: 'Draft, needs your review', className: 'border-heat/40 bg-heat-soft text-heat' },
-  approved: { label: 'Approved, ready to send', className: 'border-brand/30 bg-brand-soft text-brand' },
+  approved: { label: 'Approved, ready to send', className: 'border-ok/30 bg-ok-soft text-ok' },
   sent: { label: 'Marked as sent', className: 'border-rule bg-paper text-slate' },
 }
 
@@ -99,7 +99,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
           <ul className="mt-1.5 list-disc space-y-1 pl-5 text-ink/80">{notes.map((n) => <li key={n}>{n}</li>)}</ul>
         </div>
       ) : (
-        <p className="mt-1 text-xs text-brand">
+        <p className="mt-1 text-xs text-ok">
           Partner review passed: advisor's voice, cautious wording, caveat included{d.revised && ' (first draft revised once)'}.
         </p>
       )}
@@ -217,7 +217,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
       {error && <div className="mt-3"><ErrorNote message={error} /></div>}
       {e.writer_error && !e.writer_running && <div className="mt-3"><ErrorNote message={e.writer_error} /></div>}
       {e.writer_running && (
-        <p className="mt-4 rounded-md border border-brand/20 bg-brand-soft px-4 py-3 text-sm text-brand" aria-live="polite">
+        <p className="tp-busy mt-4 rounded-md border border-rule bg-muted px-4 py-3 text-sm text-ink" aria-live="polite">
           The Outreach Writer is writing a new version. It is checked by the partner review before it appears here…
         </p>
       )}

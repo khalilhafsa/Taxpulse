@@ -7,7 +7,7 @@ import { useAsync } from '../useAsync'
 
 function Status({ u }: { u: UpdateSummary }) {
   if (u.analysis_status === 'running')
-    return <p className="mt-2 text-sm text-brand">The Analyst is reading this publication…</p>
+    return <p className="tp-busy mt-2 text-sm text-slate">The Analyst is reading this publication…</p>
   if (u.analysis_status === 'failed')
     return <p className="mt-2 text-sm text-danger">Analysis failed: {u.analysis_error}</p>
   if (!u.summary) return <p className="mt-2 text-sm text-slate">Not analysed yet</p>
@@ -110,8 +110,8 @@ export default function Updates() {
       <div className="mb-6 space-y-3">
         {(error || actionError) && <ErrorNote message={(error || actionError)!} />}
         {fetchResult && (
-          <div className="rounded-md border border-brand/20 bg-brand-soft px-4 py-3 text-sm" role="status">
-            <p className="text-brand">
+          <div className="rounded-md border border-rule bg-muted px-4 py-3 text-sm" role="status">
+            <p className="text-ink">
               {fetchResult.new === 0
                 ? `No new publications. The feed lists ${fetchResult.found} items, all already in TaxPulse.`
                 : `${fetchResult.new} new ${fetchResult.new === 1 ? 'publication' : 'publications'} added. Use Analyse to let the Regulatory Analyst read them.`}

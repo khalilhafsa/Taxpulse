@@ -40,7 +40,7 @@ function FactLine({ fact, onCite }: { fact: Fact; onCite: OnCite }) {
 
 const ASSESSMENT = {
   risk: { label: 'Risk', className: 'text-danger' },
-  opportunity: { label: 'Opportunity', className: 'text-brand' },
+  opportunity: { label: 'Opportunity', className: 'text-ok' },
   neutral: { label: 'Neutral', className: 'text-slate' },
 }
 const SEVERITY_ORDER = { high: 0, medium: 1, low: 2 }

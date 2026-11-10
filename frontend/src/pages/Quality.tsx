@@ -27,7 +27,7 @@ function RunStrip({ s }: { s: Stability }) {
           <span className="w-12 text-slate">Run {r.index}</span>
           <span className="flex gap-1.5" aria-label={`${r.affected_found} of ${r.affected_total} affected clients found`}>
             {Array.from({ length: r.affected_total }, (_, i) => (
-              <span key={i} className={`h-3.5 w-3.5 rounded-full border-2 border-brand ${i < r.affected_found ? 'bg-brand' : 'bg-transparent'}`} />
+              <span key={i} className={`h-3.5 w-3.5 rounded-full border-2 border-ok ${i < r.affected_found ? "bg-ok" : "bg-transparent"}`} />
             ))}
           </span>
           <span className="flex gap-1.5" aria-label={`${r.false_alerts} false alerts`}>
@@ -39,11 +39,11 @@ function RunStrip({ s }: { s: Stability }) {
         </li>
       ))}
       {s.status === 'running' && (
-        <li className="flex items-center gap-4 text-sm text-brand" aria-live="polite">
+        <li className="flex items-center gap-4 text-sm text-slate" aria-live="polite">
           <span className="w-12">Run {s.runs_done + 1}</span>
           <span className="flex gap-1.5">
             {Array.from({ length: s.affected_total ?? 7 }, (_, i) => (
-              <span key={i} className="h-3.5 w-3.5 animate-pulse rounded-full border-2 border-brand/40 motion-reduce:animate-none"
+              <span key={i} className="h-3.5 w-3.5 animate-pulse rounded-full border-2 border-slate/40 motion-reduce:animate-none"
                 style={{ animationDelay: `${i * 120}ms` }} />
             ))}
           </span>
@@ -97,8 +97,8 @@ function StabilitySection({ s, estimate, onStart, starting, error }: {
           <div>
             <RunStrip s={s} />
             <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-slate">
-              <span className="flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-brand" />affected client found</span>
-              <span className="flex items-center gap-1.5"><span className="h-3 w-3 rounded-full border-2 border-brand" />missed</span>
+              <span className="flex items-center gap-1.5"><span className="h-3 w-3 rounded-full bg-ok" />affected client found</span>
+              <span className="flex items-center gap-1.5"><span className="h-3 w-3 rounded-full border-2 border-ok" />missed</span>
               <span className="flex items-center gap-1.5"><span className="h-3 w-3 rotate-45 rounded-sm bg-heat" />false alert</span>
             </p>
           </div>
@@ -106,7 +106,7 @@ function StabilitySection({ s, estimate, onStart, starting, error }: {
             <div className="border-t border-rule pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
               {s.clear_consistency !== null ? (
                 <>
-                  <p className="font-serif text-5xl font-semibold tabular-nums text-brand">{Math.round(s.clear_consistency * 100)}%</p>
+                  <p className="font-serif text-5xl font-semibold tabular-nums text-ok">{Math.round(s.clear_consistency * 100)}%</p>
                   <p className="mt-1 text-sm text-slate">
                     of the {s.clear_pairs} clear-cut pairs got the same alert decision in every run.
                   </p>
@@ -118,7 +118,7 @@ function StabilitySection({ s, estimate, onStart, starting, error }: {
                 </>
               ) : (
                 <>
-                  <p className="font-serif text-5xl font-semibold tabular-nums text-brand">{Math.round(s.consistency * 100)}%</p>
+                  <p className="font-serif text-5xl font-semibold tabular-nums text-ok">{Math.round(s.consistency * 100)}%</p>
                   <p className="mt-1 text-sm text-slate">
                     of the {s.scored_pairs} pairs the Matcher scored got the same alert decision in every run.
                   </p>
