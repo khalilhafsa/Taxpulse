@@ -31,7 +31,7 @@ export function LiquidMetalButton({ children, onClick, disabled = false, title, 
     try {
       mount.current = new ShaderMount(rim.current, liquidMetalFragmentShader, {
         u_colorBack: [0, 0, 0, 0],
-        u_colorTint: [0.78, 0.86, 0.8, 1],
+        u_colorTint: [0.55, 0.82, 0.66, 1],
         u_repetition: 4,
         u_softness: 0.5,
         u_shiftRed: 0.3,

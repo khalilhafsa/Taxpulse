@@ -109,6 +109,42 @@
   --tp-ok-soft: color-mix(in srgb, #3f6b4c 35%, var(--card));
 }
 
+/* ---------- TaxPulse adjustments on top of Sage Garden ---------- */
+/* A deeper, richer green as the brand colour (the theme's sage #7c9082 felt dull), white text on
+   it now reads at 6.4:1. In dark mode a brighter green with near-black text, and cards that lift
+   clearly off the black background. */
+:root {
+  --primary: #2f6b4a;
+  --ring: #2f6b4a;
+  --sidebar-primary: #2f6b4a;
+  --chart-1: #2f6b4a;
+  --tp-brand: #2a5f42;
+  --tp-brand-deep: #1e4630;
+  --tp-brand-soft: #e3eee6;
+  --tp-ok: #2f6b4a;
+  --tp-ok-soft: #e3eee6;
+}
+.dark {
+  --primary: #5fae80;
+  --ring: #5fae80;
+  --sidebar-primary: #5fae80;
+  --chart-1: #5fae80;
+  --primary-foreground: #04140b;
+  --sidebar-primary-foreground: #04140b;
+  --card: #161a17;
+  --popover: #161a17;
+  --input: #161a17;
+  --border: #2c332e;
+  --sidebar-border: #2c332e;
+  --muted: #1c211d;
+  --tp-brand: #7cc49a;
+  --tp-brand-deep: #c9e8d4;
+  --tp-brand-soft: color-mix(in srgb, #5fae80 18%, #161a17);
+  --tp-ok: #7cc49a;
+  --tp-ok-soft: color-mix(in srgb, #5fae80 18%, #161a17);
+  --tp-shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 1px 2px rgb(0 0 0 / 0.6), 0 14px 30px -16px rgb(0 0 0 / 0.9);
+}
+
 @theme inline {
   --color-card: var(--card);
   --color-ring: var(--ring);
@@ -196,6 +232,9 @@
 }
 
 html {
+  letter-spacing: 0.012em;
+  word-spacing: 0.04em;
+  line-height: 1.55;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
@@ -246,13 +285,13 @@ a.tp-chrome:hover {
 .tp-chrome-dark {
   position: relative;
   background:
-    radial-gradient(80% 110% at 100% 0%, rgb(124 144 130 / 0.38), rgb(124 144 130 / 0) 62%),
+    radial-gradient(80% 110% at 100% 0%, rgb(63 150 100 / 0.36), rgb(63 150 100 / 0) 62%),
     radial-gradient(70% 90% at 0% 100%, rgb(168 100 28 / 0.12), rgb(168 100 28 / 0) 60%),
-    linear-gradient(155deg, #263329 0%, #1d271f 60%, #18201a 100%);
-  border: 1px solid #34443a;
+    linear-gradient(155deg, #173a28 0%, #12301f 60%, #0f2719 100%);
+  border: 1px solid #24503a;
   box-shadow: var(--shadow-lg);
 }
-.tp-metal-dark { background: linear-gradient(155deg, #263329 0%, #1d271f 100%); }
+.tp-metal-dark { background: linear-gradient(155deg, #173a28 0%, #0f2719 100%); }
 
 /* Sidebar. */
 .tp-rail {
@@ -265,6 +304,9 @@ a.tp-chrome:hover {
   color: var(--sidebar-primary-foreground) !important;
   box-shadow: var(--tp-shadow);
 }
+
+/* Serif titles in a regular weight: lighter and more refined than a heavy bold. */
+.font-serif { font-weight: 400 !important; letter-spacing: -0.005em; }
 
 /* Main titles: the serif face in the foreground colour (on the dark card, light). */
 .tp-chrome-text { color: var(--foreground); }
@@ -281,6 +323,12 @@ a.tp-chrome:hover {
   color: var(--foreground);
   background: var(--card);
   box-shadow: inset 0 0 0 1px var(--border), var(--tp-shadow);
+}
+.tp-btn-primary:disabled, .tp-btn-quiet:disabled {
+  opacity: 1 !important;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 .tp-btn-quiet:not(:disabled):hover { background: var(--secondary); color: var(--secondary-foreground); }
 
@@ -318,7 +366,7 @@ a.tp-chrome:hover {
 .tp-lm { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--shadow-color) 55%, transparent); transition: transform 500ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 400ms ease; }
 .tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--primary) 80%, transparent); }
 .tp-lm:not(:disabled):active { transform: translateY(1px) scale(0.98); }
-.tp-lm-rim { background: linear-gradient(135deg, #eef2ec, #7c9082 35%, #ffffff 55%, #5d6e62 80%, #cfd8cc); }
+.tp-lm-rim { background: linear-gradient(135deg, #e9f3ec, #2f6b4a 35%, #ffffff 55%, #1e4630 80%, #bfdcc9); }
 .tp-lm-rim canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
 .tp-lm-face {
   background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 80%, #fff) 0%, color-mix(in srgb, var(--primary) 82%, #000) 50%, color-mix(in srgb, var(--primary) 62%, #000) 100%);

@@ -16,7 +16,7 @@ const GATE = 800
 const DESK = 172 // desk top
 
 const C = {
-  brand: '#5d6e62', brandDark: '#45524a', navy: '#3d4a5c', slate: '#6b7280', ink: '#1a1f2e',
+  brand: '#2f6b4a', brandDark: '#1e4630', navy: '#3d4a5c', slate: '#6b7280', ink: '#1a1f2e',
   heat: '#a8641c', heatSoft: '#f6ead8', desk: '#e4e6df', deskTop: '#cfd4c8', shirt: '#ffffff',
 }
 

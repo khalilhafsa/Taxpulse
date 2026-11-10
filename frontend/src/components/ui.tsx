@@ -51,7 +51,7 @@ export function Button({ children, onClick, disabled, variant = 'primary', type 
       onClick={onClick}
       disabled={disabled}
       title={title}
-      className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-45 ${styles}`}
+      className={`inline-flex min-h-10 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors disabled:cursor-not-allowed ${styles}`}
     >
       {children}
     </button>
