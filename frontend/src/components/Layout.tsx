@@ -6,6 +6,7 @@ import { DemoContext } from '../demo'
 import CommandPalette from './CommandPalette'
 import ErrorBoundary from './ErrorBoundary'
 import Notifications from './Notifications'
+import { useFluidLight } from '../useFluidLight'
 
 const I = (d: ReactNode) => (
   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] shrink-0" fill="none" stroke="currentColor" strokeWidth="1.7"
@@ -155,48 +156,7 @@ export default function Layout() {
   const first = '/' + (pathname.split('/')[1] ?? '')
   const section = NAV.find((n) => n.to === first)
 
-  // Chrome reflections: a light source follows the pointer across the page (--gx/--gy) and over
-  // whichever chrome surface is under it (--mx/--my, relative to that surface).
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const root = document.documentElement
-    let frame = 0
-    let last: PointerEvent | null = null
-    const apply = () => {
-      frame = 0
-      if (!last) return
-      root.style.setProperty('--gx', `${last.clientX}px`)
-      root.style.setProperty('--gy', `${last.clientY}px`)
-      const el = (last.target as Element | null)?.closest?.('.tp-chrome, .tp-chrome-dark') as HTMLElement | null
-      if (el) {
-        const r = el.getBoundingClientRect()
-        el.style.setProperty('--mx', `${last.clientX - r.left}px`)
-        el.style.setProperty('--my', `${last.clientY - r.top}px`)
-      }
-    }
-    // Scroll drives the big reflections: the page's diagonal light bands (--sy) and the
-    // bright band that slides across chrome titles (--shine); the pointer nudges the band too.
-    let px = 0.5
-    const shine = () => {
-      const t = window.scrollY / 650 + px * 0.7
-      root.style.setProperty('--sy', `${window.scrollY}px`)
-      root.style.setProperty('--shine', `${(1.05 - (t % 1.3)) * 100}%`)
-    }
-    const onMove = (e: PointerEvent) => {
-      last = e
-      px = e.clientX / Math.max(window.innerWidth, 1)
-      if (!frame) frame = requestAnimationFrame(() => { apply(); shine() })
-    }
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; shine() }) }
-    shine()
-    window.addEventListener('pointermove', onMove, { passive: true })
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(frame)
-    }
-  }, [])
+  useFluidLight()
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -209,6 +169,10 @@ export default function Layout() {
   return (
     <DemoContext.Provider value={demo}>
     <div className="min-h-screen lg:grid lg:grid-cols-[256px_minmax(0,1fr)]">
+      {/* Ambient light: soft, slowly drifting glows behind everything (see useFluidLight). */}
+      <div aria-hidden className="tp-ambient">
+        <span className="tp-orb tp-orb-a" /><span className="tp-orb tp-orb-b" /><span className="tp-orb tp-orb-c" />
+      </div>
       <aside className="tp-rail text-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="flex items-center justify-between gap-3 px-5 py-4 lg:px-5 lg:pb-5 lg:pt-6">
           <Logo />
@@ -264,7 +228,7 @@ export default function Layout() {
         </div>
         <main className="mx-auto w-full max-w-[1240px] flex-1 px-5 py-8 md:px-8 md:py-10">
           <ErrorBoundary key={pathname}>
-            <Outlet />
+            <div className="tp-page"><Outlet /></div>
           </ErrorBoundary>
         </main>
       </div>

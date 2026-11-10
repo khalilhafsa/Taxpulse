@@ -53,20 +53,42 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-/* The page is brushed steel. Broad diagonal reflections drift as you scroll (--sy, set by the
-   Layout), and a soft light follows the pointer (--gx/--gy). */
+/* The page is a clean, deep black: no texture, just a soft vignette. Light comes from the
+   ambient layer below, which glides with the pointer and the scroll (see useFluidLight). */
 body {
   background:
-    radial-gradient(800px 480px at var(--gx, 75vw) var(--gy, -10vh), rgb(255 255 255 / 0.06), rgb(255 255 255 / 0) 65%),
-    repeating-linear-gradient(118deg,
-      rgb(255 255 255 / 0) 0px, rgb(255 255 255 / 0) 380px,
-      rgb(255 255 255 / 0.035) 520px, rgb(255 255 255 / 0.075) 580px, rgb(255 255 255 / 0.035) 640px,
-      rgb(255 255 255 / 0) 780px, rgb(255 255 255 / 0) 1400px),
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.012) 0 1px, transparent 1px 3px),
-    linear-gradient(180deg, #17191d 0%, #0e0f12 45%, #0a0b0d 100%);
+    radial-gradient(120% 90% at 60% -10%, #191b20 0%, #0d0e11 48%, #08090b 100%);
   background-attachment: fixed;
-  background-position: 0 0, 0 calc(var(--sy, 0px) * -0.45), 0 0, 0 0;
 }
+
+.tp-ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.tp-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(70px);
+  will-change: transform;
+}
+/* A cool silver glow that follows the pointer, lagging softly behind it. */
+.tp-orb-a {
+  width: 620px; height: 620px; left: -310px; top: -310px;
+  background: radial-gradient(circle, rgb(196 206 224 / 0.16), rgb(196 206 224 / 0) 68%);
+  transform: translate3d(var(--ax, 70vw), var(--ay, 10vh), 0);
+}
+/* Two large, slow glows that drift on their own and slide with the scroll (parallax). */
+.tp-orb-b {
+  width: 900px; height: 700px; right: -260px; top: 8vh;
+  background: radial-gradient(closest-side, rgb(140 158 210 / 0.12), rgb(140 158 210 / 0));
+  transform: translate3d(0, calc(var(--par, 0px) * -0.18), 0);
+  animation: tp-drift-b 26s ease-in-out infinite alternate;
+}
+.tp-orb-c {
+  width: 760px; height: 760px; left: 12vw; top: 70vh;
+  background: radial-gradient(closest-side, rgb(220 226 236 / 0.07), rgb(220 226 236 / 0));
+  transform: translate3d(0, calc(var(--par, 0px) * -0.32), 0);
+  animation: tp-drift-c 32s ease-in-out infinite alternate;
+}
+@keyframes tp-drift-b { from { translate: 0 0; } to { translate: -140px 90px; } }
+@keyframes tp-drift-c { from { translate: 0 0; } to { translate: 160px -110px; } }
 
 /* Figures line up in columns everywhere: scores, counts, dates, costs. */
 table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
@@ -85,20 +107,25 @@ input::placeholder, textarea::placeholder { color: rgb(185 192 202 / 0.6); }
 
 button:not(:disabled), a, summary, select, [role="button"] { cursor: pointer; }
 
-a, button { transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+/* One easing for the whole app: quick to respond, slow to settle (an "ease-out-expo" feel). */
+a, button {
+  transition: color 260ms cubic-bezier(.22, 1, .36, 1), background-color 260ms cubic-bezier(.22, 1, .36, 1),
+    border-color 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 360ms cubic-bezier(.22, 1, .36, 1),
+    transform 360ms cubic-bezier(.22, 1, .36, 1), filter 260ms cubic-bezier(.22, 1, .36, 1);
+}
 
 /* ---------- Chrome surfaces ---------- */
 
-/* Graphite card: brushed body, a machined bevel for a border, and a specular streak that sits
-   where the pointer is (--mx/--my are set by the Layout's pointer tracker). */
+/* Graphite card: smooth satin body, a machined bevel for a border, and a specular glow that
+   glides after the pointer (--mx/--my are eased by useFluidLight). */
 .tp-chrome {
   position: relative;
   isolation: isolate;
   border-color: transparent !important;
-  background:
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 4px),
-    linear-gradient(180deg, #23262c 0%, #1b1e23 55%, #17191d 100%) !important;
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.1) inset, 0 1px 2px rgb(0 0 0 / 0.3), 0 16px 32px -22px rgb(0 0 0 / 0.7);
+  background: linear-gradient(180deg, rgb(36 39 45 / 0.92) 0%, rgb(26 28 33 / 0.92) 60%, rgb(22 24 28 / 0.94) 100%) !important;
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.08) inset, 0 1px 2px rgb(0 0 0 / 0.35), 0 18px 40px -26px rgb(0 0 0 / 0.9);
+  transition: box-shadow 500ms cubic-bezier(.22, 1, .36, 1), transform 500ms cubic-bezier(.22, 1, .36, 1);
 }
 .tp-chrome::before {
   content: "";
@@ -108,8 +135,8 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   border-radius: inherit;
   padding: 1px;
   background:
-    radial-gradient(220px circle at var(--mx, 50%) var(--my, -60px), rgb(255 255 255 / 0.75), rgb(255 255 255 / 0) 70%),
-    linear-gradient(155deg, rgb(255 255 255 / 0.42) 0%, rgb(255 255 255 / 0.08) 30%, rgb(255 255 255 / 0.22) 50%, rgb(0 0 0 / 0.2) 75%, rgb(255 255 255 / 0.14) 100%);
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, -80px), rgb(255 255 255 / 0.6), rgb(255 255 255 / 0) 70%),
+    linear-gradient(155deg, rgb(255 255 255 / 0.3) 0%, rgb(255 255 255 / 0.06) 30%, rgb(255 255 255 / 0.16) 50%, rgb(255 255 255 / 0.03) 75%, rgb(255 255 255 / 0.1) 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -124,18 +151,19 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   pointer-events: none;
   /* A soft hot spot under the pointer plus an anisotropic streak, like light on polished metal. */
   background:
-    radial-gradient(300px circle at var(--mx, 50%) var(--my, 0), rgb(255 255 255 / 0.14), rgb(255 255 255 / 0) 60%),
+    radial-gradient(420px circle at var(--mx, 50%) var(--my, 0), rgb(255 255 255 / 0.09), rgb(255 255 255 / 0) 65%),
     linear-gradient(105deg,
-      transparent calc(var(--mx, 50%) - 190px),
-      rgb(255 255 255 / 0.03) calc(var(--mx, 50%) - 70px),
-      rgb(255 255 255 / 0.13) var(--mx, 50%),
-      rgb(255 255 255 / 0.03) calc(var(--mx, 50%) + 70px),
-      transparent calc(var(--mx, 50%) + 190px));
+      transparent calc(var(--mx, 50%) - 280px),
+      rgb(255 255 255 / 0.025) calc(var(--mx, 50%) - 110px),
+      rgb(255 255 255 / 0.07) var(--mx, 50%),
+      rgb(255 255 255 / 0.025) calc(var(--mx, 50%) + 110px),
+      transparent calc(var(--mx, 50%) + 280px));
   opacity: 0;
-  transition: opacity 400ms ease;
+  transition: opacity 700ms cubic-bezier(.22, 1, .36, 1);
 }
 .tp-chrome:hover::after { opacity: 1; }
-.tp-chrome:hover { box-shadow: 0 1px 0 rgb(255 255 255 / 0.14) inset, 0 1px 2px rgb(0 0 0 / 0.3), 0 22px 40px -22px rgb(0 0 0 / 0.8); }
+.tp-chrome:hover { box-shadow: 0 1px 0 rgb(255 255 255 / 0.12) inset, 0 1px 2px rgb(0 0 0 / 0.35), 0 26px 50px -26px rgb(0 0 0 / 0.95); }
+a.tp-chrome:hover { transform: translateY(-2px); }
 
 /* Dark chrome (gunmetal): the lead card and the score columns. */
 .tp-chrome-dark {
@@ -179,9 +207,9 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 /* Gunmetal navigation rail, a shade darker than the page, with a light following the pointer. */
 .tp-rail {
   background:
-    radial-gradient(300px 260px at 50% var(--gy, 20vh), rgb(255 255 255 / 0.07), rgb(255 255 255 / 0) 70%),
-    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.02) 0 1px, transparent 1px 3px),
-    linear-gradient(180deg, #1b1e22 0%, #141619 50%, #101114 100%);
+    radial-gradient(320px 300px at 50% var(--ay, 20vh), rgb(255 255 255 / 0.06), rgb(255 255 255 / 0) 70%),
+    linear-gradient(180deg, rgb(28 31 36 / 0.92) 0%, rgb(20 22 26 / 0.92) 50%, rgb(15 16 19 / 0.94) 100%);
+  backdrop-filter: blur(16px);
   box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.08);
 }
 .tp-rail-active {
@@ -195,9 +223,9 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 .tp-chrome-text, .tp-chrome-text-light {
   background:
     linear-gradient(100deg,
-      rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 40%,
-      rgb(255 255 255 / 0.95) 47%, rgb(255 255 255 / 1) 50%, rgb(255 255 255 / 0.95) 53%,
-      rgb(255 255 255 / 0) 60%, rgb(255 255 255 / 0) 100%),
+      rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 34%,
+      rgb(255 255 255 / 0.55) 43%, rgb(255 255 255 / 1) 50%, rgb(255 255 255 / 0.55) 57%,
+      rgb(255 255 255 / 0) 66%, rgb(255 255 255 / 0) 100%),
     linear-gradient(180deg, #e2e6ec 0%, #b8bfca 38%, #737b87 50%, #c0c6cf 66%, #eef1f4 100%);
   background-size: 260% 100%, 100% 100%;
   background-position: var(--shine, 120%) 0, 0 0;
@@ -205,7 +233,6 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  transition: background-position 120ms linear;
 }
 
 /* Buttons: polished silver (primary, the brightest thing on the page) and graphite (quiet).
@@ -232,13 +259,13 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
   pointer-events: none;
 }
 .tp-btn-quiet::after { background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.22), transparent); }
-.tp-btn-primary:not(:disabled):hover::after, .tp-btn-quiet:not(:disabled):hover::after { animation: tp-shine 900ms ease-out; }
+.tp-btn-primary:not(:disabled):hover::after, .tp-btn-quiet:not(:disabled):hover::after { animation: tp-shine 1100ms cubic-bezier(.22, 1, .36, 1); }
 @keyframes tp-shine { from { transform: skewX(-20deg) translateX(0) } to { transform: skewX(-20deg) translateX(420%) } }
 
-/* Demo banner: hatched like a specimen stamp, so fictional data is never mistaken for real data. */
+/* Demo banner: a warm band with the DEMO badge, so fictional data is never mistaken for real data. */
 .tp-hatch {
-  background-color: #241c17;
-  background-image: repeating-linear-gradient(-45deg, transparent 0 10px, rgb(255 171 112 / 0.08) 10px 20px);
+  background: linear-gradient(90deg, rgb(255 171 112 / 0.16), rgb(255 171 112 / 0.07) 60%, rgb(255 171 112 / 0.03));
+  backdrop-filter: blur(12px);
 }
 
 @layer components {
@@ -250,6 +277,14 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
     color: var(--color-slate);
   }
 }
+
+/* Pages settle in: each block rises and fades in, one after the other. */
+@keyframes tp-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.tp-page > *, .tp-stagger > * { animation: tp-rise 700ms cubic-bezier(.22, 1, .36, 1) both; }
+.tp-page > *:nth-child(2), .tp-stagger > *:nth-child(2) { animation-delay: 70ms; }
+.tp-page > *:nth-child(3), .tp-stagger > *:nth-child(3) { animation-delay: 140ms; }
+.tp-page > *:nth-child(4), .tp-stagger > *:nth-child(4) { animation-delay: 210ms; }
+.tp-page > *:nth-child(n+5), .tp-stagger > *:nth-child(n+5) { animation-delay: 280ms; }
 
 /* Radar: the sweep turns slowly, blips pulse when they appear. */
 @keyframes tp-sweep { to { transform: rotate(360deg) } }
@@ -278,8 +313,9 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 
 @media (prefers-reduced-motion: reduce) {
   .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal,
-  .tp-btn-primary::after, .tp-btn-quiet::after { animation: none !important; }
+  .tp-btn-primary::after, .tp-btn-quiet::after, .tp-page > *, .tp-stagger > * { animation: none !important; }
   .tp-chrome::after { display: none; }
-  .tp-chrome-text, .tp-chrome-text-light { transition: none; }
+  .tp-orb-b, .tp-orb-c { animation: none; }
+  a.tp-chrome:hover { transform: none; }
   a, button { transition: none; }
 }

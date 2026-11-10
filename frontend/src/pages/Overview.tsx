@@ -255,7 +255,7 @@ export default function Overview() {
       )}
 
       {data && c && !empty && (
-        <div className="space-y-8">
+        <div className="tp-stagger space-y-8">
           <Lead clients={data.top_clients} toReview={c.alerts_to_review} />
 
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
