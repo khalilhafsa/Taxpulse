@@ -110,38 +110,38 @@
 }
 
 /* ---------- TaxPulse adjustments on top of Sage Garden ---------- */
-/* A deeper, richer green as the brand colour (the theme's sage #7c9082 felt dull), white text on
-   it now reads at 6.4:1. In dark mode a brighter green with near-black text, and cards that lift
-   clearly off the black background. */
+/* An elegant khaki green (muted olive) as the brand colour instead of the theme's sage; white text
+   on it reads at 5.9:1. In dark mode a light khaki green with near-black text, and cards that lift
+   clearly off the black background. Success keeps its own green so it never reads as "brand". */
 :root {
-  --primary: #2f6b4a;
-  --ring: #2f6b4a;
-  --sidebar-primary: #2f6b4a;
-  --chart-1: #2f6b4a;
-  --tp-brand: #2a5f42;
-  --tp-brand-deep: #1e4630;
-  --tp-brand-soft: #e3eee6;
-  --tp-ok: #2f6b4a;
-  --tp-ok-soft: #e3eee6;
+  --primary: #5b6b3e;
+  --ring: #5b6b3e;
+  --sidebar-primary: #5b6b3e;
+  --chart-1: #5b6b3e;
+  --tp-brand: #4f5e35;
+  --tp-brand-deep: #364121;
+  --tp-brand-soft: #ebeee2;
+  --tp-ok: #3f6b4c;
+  --tp-ok-soft: #e4ede5;
 }
 .dark {
-  --primary: #5fae80;
-  --ring: #5fae80;
-  --sidebar-primary: #5fae80;
-  --chart-1: #5fae80;
-  --primary-foreground: #04140b;
-  --sidebar-primary-foreground: #04140b;
-  --card: #161a17;
-  --popover: #161a17;
-  --input: #161a17;
-  --border: #2c332e;
-  --sidebar-border: #2c332e;
-  --muted: #1c211d;
-  --tp-brand: #7cc49a;
-  --tp-brand-deep: #c9e8d4;
-  --tp-brand-soft: color-mix(in srgb, #5fae80 18%, #161a17);
-  --tp-ok: #7cc49a;
-  --tp-ok-soft: color-mix(in srgb, #5fae80 18%, #161a17);
+  --primary: #aebb84;
+  --ring: #aebb84;
+  --sidebar-primary: #aebb84;
+  --chart-1: #aebb84;
+  --primary-foreground: #12160b;
+  --sidebar-primary-foreground: #12160b;
+  --card: #171714;
+  --popover: #171714;
+  --input: #171714;
+  --border: #2f2f29;
+  --sidebar-border: #2f2f29;
+  --muted: #1d1d19;
+  --tp-brand: #c4cf9f;
+  --tp-brand-deep: #e3e9cf;
+  --tp-brand-soft: color-mix(in srgb, #aebb84 16%, #171714);
+  --tp-ok: #9cc2a6;
+  --tp-ok-soft: color-mix(in srgb, #3f6b4c 35%, #171714);
   --tp-shadow: 0 0 0 1px rgb(255 255 255 / 0.03), 0 1px 2px rgb(0 0 0 / 0.6), 0 14px 30px -16px rgb(0 0 0 / 0.9);
 }
 
@@ -285,13 +285,13 @@ a.tp-chrome:hover {
 .tp-chrome-dark {
   position: relative;
   background:
-    radial-gradient(80% 110% at 100% 0%, rgb(63 150 100 / 0.36), rgb(63 150 100 / 0) 62%),
+    radial-gradient(80% 110% at 100% 0%, rgb(150 168 100 / 0.30), rgb(150 168 100 / 0) 62%),
     radial-gradient(70% 90% at 0% 100%, rgb(168 100 28 / 0.12), rgb(168 100 28 / 0) 60%),
-    linear-gradient(155deg, #173a28 0%, #12301f 60%, #0f2719 100%);
-  border: 1px solid #24503a;
+    linear-gradient(155deg, #333d26 0%, #29321e 60%, #222a19 100%);
+  border: 1px solid #45523a;
   box-shadow: var(--shadow-lg);
 }
-.tp-metal-dark { background: linear-gradient(155deg, #173a28 0%, #0f2719 100%); }
+.tp-metal-dark { background: linear-gradient(155deg, #333d26 0%, #222a19 100%); }
 
 /* Sidebar. */
 .tp-rail {
@@ -310,7 +310,7 @@ a.tp-chrome:hover {
 
 /* Main titles: the serif face in the foreground colour (on the dark card, light). */
 .tp-chrome-text { color: var(--foreground); }
-.tp-chrome-text-light { color: #f4f7f2; }
+.tp-chrome-text-light { color: #f6f5ef; }
 
 /* Buttons. */
 .tp-btn-primary {
@@ -366,7 +366,7 @@ a.tp-chrome:hover {
 .tp-lm { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--shadow-color) 55%, transparent); transition: transform 500ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 400ms ease; }
 .tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--primary) 80%, transparent); }
 .tp-lm:not(:disabled):active { transform: translateY(1px) scale(0.98); }
-.tp-lm-rim { background: linear-gradient(135deg, #e9f3ec, #2f6b4a 35%, #ffffff 55%, #1e4630 80%, #bfdcc9); }
+.tp-lm-rim { background: linear-gradient(135deg, #eff2e4, #5b6b3e 35%, #ffffff 55%, #364121 80%, #d3dbb9); }
 .tp-lm-rim canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
 .tp-lm-face {
   background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 80%, #fff) 0%, color-mix(in srgb, var(--primary) 82%, #000) 50%, color-mix(in srgb, var(--primary) 62%, #000) 100%);
