@@ -28,11 +28,11 @@ export default function NewClient() {
     }
   }
 
-  const field = 'mt-1.5 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
+  const field = 'mt-1.5 w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15'
 
   return (
     <>
-      <Link to="/clients" className="text-sm font-medium text-petrol hover:underline">Back to clients</Link>
+      <Link to="/clients" className="text-sm font-medium text-brand hover:underline">Back to clients</Link>
       <div className="mt-4">
         <PageHeader title="Add a former client"
           intro="Upload the data room of a past due diligence mandate. Text-based PDFs work best; scanned images are not read yet." />
@@ -58,7 +58,7 @@ export default function NewClient() {
           <span className="text-sm font-medium">Data room files</span>
           <input type="file" accept="application/pdf,.pdf" multiple
             onChange={(e) => setFiles(Array.from(e.target.files ?? []))}
-            className="mt-1.5 block w-full text-sm text-slate file:mr-4 file:rounded-md file:border-0 file:bg-petrol-soft file:px-4 file:py-2 file:text-sm file:font-semibold file:text-petrol" />
+            className="mt-1.5 block w-full text-sm text-slate file:mr-4 file:rounded-md file:border-0 file:bg-brand-soft file:px-4 file:py-2 file:text-sm file:font-semibold file:text-brand" />
           {files.length > 0 && <p className="mt-2 text-sm text-slate">{files.length} PDF {files.length === 1 ? 'file' : 'files'} selected</p>}
         </label>
         {error && <ErrorNote message={error} />}

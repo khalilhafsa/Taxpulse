@@ -42,7 +42,7 @@ export default function Settings() {
     ? [firm.advisor_name, firm.advisor_title, firm.firm_name, firm.address,
        [firm.phone, firm.email].filter(Boolean).join(' | '), firm.website].filter(Boolean).join('\n')
     : ''
-  const field = 'mt-1.5 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
+  const field = 'mt-1.5 w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15'
 
   return (
     <>
@@ -76,12 +76,12 @@ export default function Settings() {
             {saveError && <ErrorNote message={saveError} />}
             <div className="flex items-center gap-3">
               <Button type="submit" disabled={demo} title={demo ? 'Switched off in the public demo' : undefined}>Save settings</Button>
-              {saved && <span className="text-sm text-petrol" role="status">Saved</span>}
+              {saved && <span className="text-sm text-brand" role="status">Saved</span>}
             </div>
           </form>
           <aside>
             <p className="text-sm font-medium">Signature preview</p>
-            <pre className="mt-2 whitespace-pre-wrap rounded-lg border border-rule bg-sheet px-4 py-4 font-sans text-sm leading-relaxed">
+            <pre className="mt-2 whitespace-pre-wrap rounded-xl border border-rule bg-sheet shadow-sm px-4 py-4 font-sans text-sm leading-relaxed">
               {'Kind regards,\n\n' + (signature || '[Your name]\n[Firm name]')}
             </pre>
             <p className="mt-2 text-xs text-slate">New drafts use these details. Existing drafts keep their text.</p>

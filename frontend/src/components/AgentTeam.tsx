@@ -6,7 +6,7 @@ import type { Pipeline, Stage } from '../api'
  * which is plain code, is a little sorting machine. Everyone blinks and breathes. The one whose
  * turn it is works at the desk, says what they are on, and files arrive from the previous desk;
  * when they finish, they cheer and the turn passes on. Accepted alerts wait at your desk (the
- * amber gate) before the last two agents can start.
+ * heat gate) before the last two agents can start.
  */
 
 export const W = 1200
@@ -16,8 +16,8 @@ const GATE = 800
 const DESK = 172 // desk top
 
 const C = {
-  petrol: '#0b5560', petrolDark: '#083f47', navy: '#2d3e5c', slate: '#535d68', ink: '#15212b',
-  amber: '#9a6100', amberSoft: '#f7ecd4', desk: '#e6e1d6', deskTop: '#cfc7b8', shirt: '#fffefa',
+  brand: '#2443d6', brandDark: '#1a33a8', navy: '#2d3e5c', slate: '#586070', ink: '#0e1117',
+  heat: '#c2410c', heatSoft: '#fdeee4', desk: '#e4e7ec', deskTop: '#cdd2da', shirt: '#ffffff',
 }
 
 type Look = {
@@ -27,7 +27,7 @@ type Look = {
 // Original, simple characters. Hair paths are drawn around a head centred at (0, 96), radius 20.
 const LOOKS: Record<string, Look> = {
   profiler: {
-    skin: '#f1c9a5', hair: '#4a3426', jacket: C.petrol,
+    skin: '#f1c9a5', hair: '#4a3426', jacket: C.brand,
     hairPath: 'M-21 98 C-24 72 -8 68 0 68 C14 68 24 76 21 98 L21 108 C18 104 17 92 14 86 C6 92 -10 92 -16 86 C-18 94 -18 104 -21 108 Z',
     extra: (
       <g fill="none" stroke={C.ink} strokeWidth="1.4">
@@ -45,12 +45,12 @@ const LOOKS: Record<string, Look> = {
     extra: <circle cx="0" cy="69" r="8.5" fill="#8a3b1e" />,
   },
   explainer: {
-    skin: '#8d5a3b', hair: '#b9b4ad', jacket: C.petrolDark,
+    skin: '#8d5a3b', hair: '#b9b4ad', jacket: C.brandDark,
     hairPath: 'M-20 90 C-20 76 -8 73 0 73 C10 73 20 76 20 90 C14 84 6 82 0 82 C-6 82 -14 84 -20 90 Z',
     extra: <path d="M-12 104 C-10 116 10 116 12 104 C8 110 -8 110 -12 104 Z" fill="#b9b4ad" />,
   },
   writer: {
-    skin: '#f3d2b8', hair: '#2e2a26', jacket: C.petrol,
+    skin: '#f3d2b8', hair: '#2e2a26', jacket: C.brand,
     hairPath: 'M-21 94 C-26 82 -16 68 -4 70 C2 64 14 66 16 74 C24 76 26 88 21 94 C18 86 12 82 0 83 C-10 83 -18 87 -21 94 Z',
   },
 }
@@ -61,7 +61,7 @@ function DeskItem({ k }: { k: string }) {
       return (
         <g transform="translate(-40 152)">
           <rect y="12" width="26" height="7" rx="1.5" fill="#e3c98f" stroke="#b49a5f" />
-          <rect x="2" y="6" width="26" height="7" rx="1.5" fill="#d9e6e6" stroke="#8fb0b2" />
+          <rect x="2" y="6" width="26" height="7" rx="1.5" fill="#dfe5fb" stroke="#9aa9e8" />
           <rect x="-1" width="26" height="7" rx="1.5" fill="#e3c98f" stroke="#b49a5f" />
         </g>
       )
@@ -84,7 +84,7 @@ function DeskItem({ k }: { k: string }) {
         <g transform="translate(-44 156)">
           <rect width="26" height="15" rx="1.5" fill="#fff" stroke="#9aa3ad" />
           <path d="M4 5h18M4 9h13" stroke="#9aa3ad" />
-          <path d="M18 -6l9 14" stroke={C.amber} strokeWidth="2.4" strokeLinecap="round" />
+          <path d="M18 -6l9 14" stroke={C.heat} strokeWidth="2.4" strokeLinecap="round" />
         </g>
       )
     case 'writer': // envelope
@@ -184,15 +184,15 @@ function Sorter({ mode, reduce }: { mode: 'sleep' | 'work' | 'idle' | 'happy'; r
   const on = mode === 'work'
   return (
     <g>
-      <path d="M-26 92 h52 l-14 20 h-24 Z" fill="#d9e6e6" stroke={C.petrol} strokeWidth="1.5" strokeLinejoin="round" />
-      <rect x="-26" y="112" width="52" height="58" rx="8" fill="#eef4f4" stroke={C.petrol} strokeWidth="1.5" />
-      <rect x="-15" y="124" width="30" height="16" rx="4" fill={C.petrolDark} />
+      <path d="M-26 92 h52 l-14 20 h-24 Z" fill="#dfe5fb" stroke={C.brand} strokeWidth="1.5" strokeLinejoin="round" />
+      <rect x="-26" y="112" width="52" height="58" rx="8" fill="#eef1fd" stroke={C.brand} strokeWidth="1.5" />
+      <rect x="-15" y="124" width="30" height="16" rx="4" fill={C.brandDark} />
       {[-6, 6].map((x) => (
-        <circle key={x} cx={x} cy="132" r="2.6" fill={on ? '#7fe0d4' : mode === 'sleep' ? '#4d6b6e' : '#a8d8d2'}>
+        <circle key={x} cx={x} cy="132" r="2.6" fill={on ? '#9aabff' : mode === 'sleep' ? '#4b5687' : '#c4cdfa'}>
           {on && !reduce && <animate attributeName="opacity" values="1;.3;1" dur="0.6s" repeatCount="indefinite" />}
         </circle>
       ))}
-      <rect x="-12" y="152" width="24" height="5" rx="2.5" fill={C.petrol} opacity=".35" />
+      <rect x="-12" y="152" width="24" height="5" rx="2.5" fill={C.brand} opacity=".35" />
       {on && !reduce && [0, 1].map((n) => (
         <use key={n} href="#tp-sheet" width="11" height="14" x="-5" y="150" opacity="0">
           <animateTransform attributeName="transform" type="translate" values="0 0;26 34" dur="1.4s" begin={`${n * 0.7}s`} repeatCount="indefinite" />
@@ -218,32 +218,32 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
       aria-label={busyKeys.size ? `At work: ${p.stages.filter((s) => busyKeys.has(s.key)).map((s) => s.name).join(', ')}` : 'The agent team, waiting for new work'}>
       <defs>
         <symbol id="tp-sheet" viewBox="0 0 10 13">
-          <path d="M1 .5h5.5L9 3v9.5H1z" fill="#fff" stroke={C.petrol} strokeWidth="1" strokeLinejoin="round" />
-          <path d="M3 6h4M3 8.5h4" stroke={C.petrol} strokeWidth=".8" strokeOpacity=".6" />
+          <path d="M1 .5h5.5L9 3v9.5H1z" fill="#fff" stroke={C.brand} strokeWidth="1" strokeLinejoin="round" />
+          <path d="M3 6h4M3 8.5h4" stroke={C.brand} strokeWidth=".8" strokeOpacity=".6" />
         </symbol>
-        <symbol id="tp-sheet-amber" viewBox="0 0 10 13">
-          <path d="M1 .5h5.5L9 3v9.5H1z" fill={C.amberSoft} stroke={C.amber} strokeWidth="1" strokeLinejoin="round" />
-          <path d="M3 6h4M3 8.5h4" stroke={C.amber} strokeWidth=".8" strokeOpacity=".7" />
+        <symbol id="tp-sheet-heat" viewBox="0 0 10 13">
+          <path d="M1 .5h5.5L9 3v9.5H1z" fill={C.heatSoft} stroke={C.heat} strokeWidth="1" strokeLinejoin="round" />
+          <path d="M3 6h4M3 8.5h4" stroke={C.heat} strokeWidth=".8" strokeOpacity=".7" />
         </symbol>
         <radialGradient id="tp-spot" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor={C.petrol} stopOpacity="0.22" />
-          <stop offset="100%" stopColor={C.petrol} stopOpacity="0" />
+          <stop offset="0%" stopColor={C.brand} stopOpacity="0.22" />
+          <stop offset="100%" stopColor={C.brand} stopOpacity="0" />
         </radialGradient>
       </defs>
 
       {/* floor */}
-      <line x1="0" x2={W} y1="216" y2="216" stroke="#d9d4c7" strokeWidth="2" />
+      <line x1="0" x2={W} y1="216" y2="216" stroke="#e1e4ea" strokeWidth="2" />
 
       {/* your desk: the review gate */}
       <g>
-        <line x1={GATE} x2={GATE} y1="40" y2="216" stroke={C.amber} strokeWidth="1.5" strokeDasharray="5 5" />
-        <rect x={GATE - 34} y="190" width="68" height="24" rx="12" fill={C.amberSoft} stroke={C.amber} />
-        <text x={GATE} y="206" textAnchor="middle" fontSize="12" fontWeight="600" fill={C.amber} fontFamily="Public Sans, sans-serif">You</text>
+        <line x1={GATE} x2={GATE} y1="40" y2="216" stroke={C.heat} strokeWidth="1.5" strokeDasharray="5 5" />
+        <rect x={GATE - 34} y="190" width="68" height="24" rx="12" fill={C.heatSoft} stroke={C.heat} />
+        <text x={GATE} y="206" textAnchor="middle" fontSize="12" fontWeight="600" fill={C.heat} fontFamily="Public Sans, sans-serif">You</text>
         {Array.from({ length: pile }, (_, i) => (
-          <use key={i} href="#tp-sheet-amber" x={GATE - 8 + (i % 2) * 3} y={168 - i * 7} width="15" height="19" />
+          <use key={i} href="#tp-sheet-heat" x={GATE - 8 + (i % 2) * 3} y={168 - i * 7} width="15" height="19" />
         ))}
         {p.waiting_for_review > 0 && (
-          <text x={GATE} y="34" textAnchor="middle" fontSize="12" fontWeight="600" fill={C.amber} fontFamily="Public Sans, sans-serif">
+          <text x={GATE} y="34" textAnchor="middle" fontSize="12" fontWeight="600" fill={C.heat} fontFamily="Public Sans, sans-serif">
             {p.waiting_for_review} waiting for you
           </text>
         )}
@@ -266,14 +266,14 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
                 <DeskItem k={s.key} />
                 {/* laptop */}
                 <path d={`M8 ${DESK} l4 -22 h30 l-4 22 Z`} fill="#c9d1d3" stroke="#9aa6a9" />
-                <circle cx="25" cy={DESK - 11} r="2.2" fill={at ? '#7fe0d4' : '#eef2f2'} />
+                <circle cx="25" cy={DESK - 11} r="2.2" fill={at ? '#9aabff' : '#eef2f2'} />
               </>
             ) : (
               <Sorter mode={at ? 'work' : mode} reduce={reduce} />
             )}
             {done && !at && (
               <g transform={`translate(34 ${DESK + 18})`}>
-                <circle r="8" fill={C.petrol} />
+                <circle r="8" fill={C.brand} />
                 <path d="M-3.5 0l2.5 2.5 4.5-5" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </g>
             )}
@@ -306,10 +306,10 @@ export function Bubble({ index, text }: { index: number; text: string }) {
   const left = (X[index] / W) * 100
   return (
     <div className="pointer-events-none absolute top-1 z-10 -translate-x-1/2" style={{ left: `${Math.min(Math.max(left, 13), 87)}%` }}>
-      <div className="tp-bubble relative max-w-56 rounded-xl border border-petrol/25 bg-sheet px-3 py-1.5 text-center text-xs leading-snug text-ink shadow-sm">
+      <div className="tp-bubble relative max-w-56 rounded-xl border border-brand/25 bg-sheet px-3 py-1.5 text-center text-xs leading-snug text-ink shadow-sm">
         {text}
         <span className="tp-dots" aria-hidden><i>.</i><i>.</i><i>.</i></span>
-        <span className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b border-r border-petrol/25 bg-sheet" />
+        <span className="absolute -bottom-1.5 left-1/2 h-3 w-3 -translate-x-1/2 rotate-45 border-b border-r border-brand/25 bg-sheet" />
       </div>
     </div>
   )

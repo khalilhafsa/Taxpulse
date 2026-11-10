@@ -21,7 +21,7 @@ export default function Clients() {
         <EmptyState title="No clients yet">Load the demo data from the overview page to get started.</EmptyState>
       )}
       {data && data.length > 0 && (
-        <ul className="divide-y divide-rule overflow-hidden rounded-lg border border-rule bg-sheet">
+        <ul className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
           {data.map((c) => (
             <li key={c.id}>
               <Link to={`/clients/${c.id}`} className="flex flex-wrap items-center gap-x-6 gap-y-1 px-5 py-4 hover:bg-paper">
@@ -32,7 +32,7 @@ export default function Clients() {
                 <span className="text-sm text-slate">
                   {c.document_count} {c.document_count === 1 ? 'file' : 'files'}
                 </span>
-                <span className={`text-sm ${c.has_profile ? 'text-petrol' : 'text-slate'}`}>
+                <span className={`text-sm ${c.has_profile ? 'text-brand' : 'text-slate'}`}>
                   {c.has_profile ? 'Profile ready' : 'Profile not built yet'}
                 </span>
                 {c.is_demo && <DemoTag />}

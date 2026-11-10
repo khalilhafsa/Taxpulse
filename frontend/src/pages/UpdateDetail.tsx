@@ -48,7 +48,7 @@ export default function UpdateDetail() {
 
   return (
     <>
-      <Link to="/updates" className="text-sm font-medium text-petrol hover:underline">Back to tax updates</Link>
+      <Link to="/updates" className="text-sm font-medium text-brand hover:underline">Back to tax updates</Link>
       <div className="mt-4">
         <PageHeader
           title={a?.title_en ?? u.title}
@@ -75,7 +75,7 @@ export default function UpdateDetail() {
       </div>
 
       {running && (
-        <p className="mb-8 border-l-[3px] border-petrol bg-petrol-soft px-5 py-4 text-sm text-petrol" aria-live="polite">
+        <p className="mb-8 rounded-md border border-brand/20 bg-brand-soft px-5 py-4 text-sm text-brand" aria-live="polite">
           The Regulatory Analyst is reading this publication. This takes about ten seconds.
         </p>
       )}
@@ -83,13 +83,13 @@ export default function UpdateDetail() {
       {a ? (
         <div className="space-y-10">
           {!a.relevant_for_companies && (
-            <p className="rounded-md border border-rule bg-sheet px-4 py-3 text-sm text-slate">
+            <p className="rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm text-slate">
               The Analyst found no impact on businesses. This publication will not be matched against your clients.
             </p>
           )}
-          <p className="font-serif text-[19px] leading-relaxed">{a.summary}</p>
+          <p className="text-[18px] leading-relaxed">{a.summary}</p>
 
-          <dl className="divide-y divide-rule rounded-lg border border-rule bg-sheet">
+          <dl className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm">
             {[
               ['Tax areas', a.tax_categories.join(', ')],
               ['Who is affected', a.who_is_affected],
@@ -125,11 +125,11 @@ export default function UpdateDetail() {
         </EmptyState>
       )}
 
-      <details className="mt-10 rounded-lg border border-rule bg-sheet">
+      <details className="mt-10 rounded-xl border border-rule bg-sheet shadow-sm">
         <summary className="cursor-pointer px-5 py-3 text-sm font-medium">Original text</summary>
         <div className="border-t border-rule px-5 py-4">
           {u.url && (
-            <a href={u.url} target="_blank" rel="noreferrer" className="mb-3 inline-block text-sm font-medium text-petrol hover:underline">
+            <a href={u.url} target="_blank" rel="noreferrer" className="mb-3 inline-block text-sm font-medium text-brand hover:underline">
               Open the source page
             </a>
           )}

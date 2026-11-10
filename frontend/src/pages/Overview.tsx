@@ -1,155 +1,208 @@
 import { useDemo } from '../demo'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, type ReactNode } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { api, type Dashboard } from '../api'
 import AgentChain from '../components/AgentChain'
 import { isoWeek } from '../components/Layout'
-import { Button, EmptyState, ErrorNote, PageHeader, SectionTitle } from '../components/ui'
+import { Button, Card, EmptyState, ErrorNote, PageHeader, SectionTitle } from '../components/ui'
 import { useAsync } from '../useAsync'
 
-/** The lead of the week: the former client to call first, set like the front page of a briefing. */
-function Lead({ clients, toReview }: { clients: Dashboard['top_clients']; toReview: number }) {
-  const [top, ...rest] = clients
+type Top = Dashboard['top_clients']
+
+const greeting = () => {
+  const h = new Date().getHours()
+  return h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening'
+}
+
+/**
+ * Relevance radar: every former client with an open alert is a blip. The more relevant the
+ * update, the closer to the centre, so the clients to call first sit in the bullseye.
+ */
+function Radar({ clients, active, onActive }: { clients: Top; active: number | null; onActive: (i: number | null) => void }) {
+  const navigate = useNavigate()
+  const S = 320, c = S / 2, R = 146
+  const dist = (score: number) => R * (1 - Math.min(100, Math.max(0, score)) / 100) * 1.6 + 14
+  const blips = clients.map((cl, i) => {
+    const angle = (-90 + (360 / Math.max(clients.length, 1)) * i + 28) * (Math.PI / 180)
+    const d = Math.min(dist(cl.score), R - 6)
+    return { ...cl, x: c + Math.cos(angle) * d, y: c + Math.sin(angle) * d }
+  })
   return (
-    <section aria-labelledby="lead" className="relative overflow-hidden bg-night text-white">
-      <div aria-hidden className="pointer-events-none absolute -right-10 -top-24 select-none font-serif text-[300px] font-semibold leading-none text-white/[0.04]">§</div>
-      <div className="relative grid gap-10 px-6 py-9 md:px-10 md:py-12 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-14">
+    <svg viewBox={`0 0 ${S} ${S}`} className="mx-auto block w-full max-w-[340px]" role="img"
+      aria-label={`Relevance radar with ${clients.length} former ${clients.length === 1 ? 'client' : 'clients'}`}>
+      <defs>
+        <radialGradient id="tp-core" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#ff9d5c" stopOpacity=".32" />
+          <stop offset="100%" stopColor="#ff9d5c" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="tp-beam" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#9aabff" stopOpacity="0" />
+          <stop offset="100%" stopColor="#9aabff" stopOpacity=".28" />
+        </linearGradient>
+      </defs>
+      {[1, 0.72, 0.44].map((k, i) => (
+        <circle key={k} cx={c} cy={c} r={R * k} fill="none" stroke="#fff" strokeOpacity={0.09 + i * 0.03} strokeDasharray={i === 0 ? '0' : '2 4'} />
+      ))}
+      <circle cx={c} cy={c} r={R * 0.3} fill="url(#tp-core)" />
+      <path d={`M${c} ${c - R}V${c + R}M${c - R} ${c}H${c + R}`} stroke="#fff" strokeOpacity=".07" />
+      <g className="tp-sweep">
+        <path d={`M${c} ${c} L${c + R} ${c} A${R} ${R} 0 0 0 ${c + R * Math.cos(-0.9)} ${c + R * Math.sin(-0.9)} Z`} fill="url(#tp-beam)" />
+        <line x1={c} y1={c} x2={c + R} y2={c} stroke="#9aabff" strokeOpacity=".55" />
+      </g>
+      <text x={c + 6} y={c - R * 0.72 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">60</text>
+      <text x={c + 6} y={c - R * 0.44 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">80</text>
+      {blips.map((b, i) => (
+        <g key={b.client_id} onMouseEnter={() => onActive(i)} onMouseLeave={() => onActive(null)}>
+          <circle cx={b.x} cy={b.y} r="0" fill="none" stroke="#ff9d5c" className="tp-blip-ring" style={{ animationDelay: `${i * 0.5}s` }} />
+          <g role="link" tabIndex={0} aria-label={`${b.client}, score ${b.score}`} className="cursor-pointer outline-none"
+            onFocus={() => onActive(i)} onBlur={() => onActive(null)}
+            onClick={() => navigate(`/alerts#alert-${b.alert_id}`)}
+            onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/alerts#alert-${b.alert_id}`) }}>
+            <circle cx={b.x} cy={b.y} r={active === i ? 9 : 7} fill="#ff9d5c" stroke="#0e1117" strokeWidth="2.5" />
+            <text x={b.x} y={b.y - 14} textAnchor="middle" fill="#fff" fillOpacity={active === null || active === i ? 0.95 : 0.4}
+              fontSize="11.5" fontWeight="600" fontFamily="Instrument Sans, sans-serif">
+              {b.client.replace(/ (GmbH|AG|SE|KG|MVZ).*$/, '')}
+            </text>
+          </g>
+        </g>
+      ))}
+      <circle cx={c} cy={c} r="3" fill="#fff" />
+    </svg>
+  )
+}
+
+function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
+  const [active, setActive] = useState<number | null>(null)
+  const top = clients[0]
+  const focus = active !== null ? clients[active] : top
+  return (
+    <section aria-labelledby="lead" className="tp-grid relative overflow-hidden rounded-2xl bg-night text-white shadow-lg">
+      <div className="grid gap-8 p-6 md:p-9 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
         <div>
-          <p className="tp-eyebrow text-signal">Briefing · week {isoWeek(new Date())}</p>
-          {top ? (
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/[0.07] px-3 py-1 text-xs font-medium text-white/75 ring-1 ring-white/10">
+            <span className="h-1.5 w-1.5 rounded-full bg-relevance" aria-hidden />
+            Week {isoWeek(new Date())} radar
+          </p>
+          {focus ? (
             <>
-              <h1 id="lead" className="mt-4 max-w-3xl font-serif text-[40px] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[60px]">
-                Call {top.client} first.
-              </h1>
-              <ul className="mt-6 max-w-2xl space-y-2 text-[15px] leading-relaxed text-white/80">
-                {top.topics.slice(0, 3).map((t) => (
+              <p className="mt-6 text-sm text-white/55">{active !== null ? 'On the radar' : 'Call first'}</p>
+              <h2 id="lead" className="mt-1 font-serif text-[34px] font-bold leading-[1.02] tracking-[-0.04em] md:text-[48px]">
+                {focus.client}
+              </h2>
+              <div className="mt-5 flex items-end gap-4">
+                <p className="font-serif text-[64px] font-bold leading-[0.8] tracking-[-0.05em] text-relevance">{focus.score}</p>
+                <p className="pb-1 text-sm leading-snug text-white/60">relevance<br />out of 100</p>
+              </div>
+              <ul className="mt-6 space-y-2 text-[14.5px] leading-snug text-white/80">
+                {focus.topics.slice(0, 3).map((t) => (
                   <li key={t.title} className="flex gap-3">
-                    <span className="w-7 shrink-0 font-mono text-[13px] text-relevance">{t.score}</span>
+                    <span className="mt-0.5 w-8 shrink-0 rounded-sm bg-white/[0.08] text-center font-mono text-[12px] leading-5 text-relevance">{t.score}</span>
                     <span>{t.title}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link to={`/alerts#alert-${top.alert_id}`}
-                  className="inline-flex min-h-11 items-center gap-2 bg-signal px-5 text-sm font-semibold text-night hover:bg-white">
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <Link to={`/alerts#alert-${focus.alert_id}`}
+                  className="inline-flex min-h-11 items-center gap-2 rounded-md bg-white px-5 text-sm font-semibold text-night shadow-sm hover:bg-signal">
                   Open the alert <span aria-hidden>→</span>
                 </Link>
-                <Link to="/alerts" className="inline-flex min-h-11 items-center px-3 text-sm font-semibold text-white/80 underline decoration-white/30 underline-offset-4 hover:text-white hover:decoration-white">
-                  {toReview} {toReview === 1 ? 'alert' : 'alerts'} to review
+                <Link to="/alerts" className="inline-flex min-h-11 items-center rounded-md px-4 text-sm font-semibold text-white/80 ring-1 ring-white/15 hover:bg-white/[0.07] hover:text-white">
+                  All {toReview} to review
                 </Link>
               </div>
             </>
           ) : (
             <>
-              <h1 id="lead" className="mt-4 max-w-3xl font-serif text-[40px] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[60px]">
-                No former client needs a call this week.
-              </h1>
-              <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-white/75">
-                When a new BMF letter or BFH ruling affects one of your past mandates, it leads this briefing, ranked by relevance.
+              <h2 id="lead" className="mt-6 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.04em] md:text-[44px]">
+                The radar is quiet this week.
+              </h2>
+              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
+                When a new BMF letter or BFH ruling affects one of your former clients, it shows up here. The closer to the centre, the more urgent the call.
               </p>
             </>
           )}
         </div>
-
-        {top && (
-          <div className="border-t border-white/15 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-            <p className="tp-eyebrow text-white/60">Relevance score</p>
-            <p className="mt-2 font-serif text-[112px] font-semibold leading-[0.85] tracking-[-0.04em] text-relevance" aria-label={`Highest score ${top.score} out of 100`}>
-              {top.score}
-            </p>
-            <div className="mt-4 h-1 bg-white/10" aria-hidden>
-              <div className="h-full bg-relevance" style={{ width: `${top.score}%` }} />
-            </div>
-            {rest.length > 0 && (
-              <>
-                <p className="tp-eyebrow mt-8 text-white/60">Then call</p>
-                <ol className="mt-2 divide-y divide-white/10 border-y border-white/10">
-                  {rest.slice(0, 3).map((c) => (
-                    <li key={c.client_id}>
-                      <Link to={`/alerts#alert-${c.alert_id}`} className="flex items-baseline gap-3 py-2.5 text-sm text-white/85 hover:text-white">
-                        <span className="w-7 shrink-0 font-mono text-[13px] text-relevance">{c.score}</span>
-                        <span className="min-w-0 flex-1 truncate">{c.client}</span>
-                        <span aria-hidden className="text-white/40">→</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </>
-            )}
-          </div>
-        )}
+        <div>
+          <Radar clients={clients} active={active} onActive={setActive} />
+          <p className="mt-3 text-center text-xs text-white/45">Closer to the centre = more relevant. Hover a client to preview it.</p>
+        </div>
       </div>
     </section>
   )
 }
 
-function Kpi({ label, value, note, to, highlight = false }: {
-  label: string; value: string; note: string; to: string; highlight?: boolean
+const KPI_ICON: Record<string, ReactNode> = {
+  clients: <path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6M3 20h18" />,
+  alerts: <><path d="M6 9a6 6 0 1 1 12 0c0 4.5 1.5 6.5 2 7H4c.5-.5 2-2.5 2-7Z" /><path d="M10 20a2 2 0 0 0 4 0" /></>,
+  emails: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3.5 6.5 8.5 6 8.5-6" /></>,
+  cost: <><circle cx="12" cy="12" r="8.5" /><path d="M14.5 9.2c-.5-.8-1.5-1.2-2.5-1.2-1.4 0-2.5.8-2.5 2s1.1 1.6 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-2-.4-2.5-1.2M12 6.5V8M12 16v1.5" /></>,
+}
+
+function Kpi({ label, value, note, to, icon, highlight = false }: {
+  label: string; value: string; note: string; to: string; icon: string; highlight?: boolean
 }) {
   return (
-    <Link to={to} className="group block px-0 py-6 sm:px-6 sm:first:pl-0 lg:py-7">
-      <dt className="tp-eyebrow flex items-center gap-2">
-        {highlight && <span className="h-2 w-2 bg-amber" aria-hidden />}
+    <Link to={to} className="group rounded-xl border border-rule bg-sheet p-5 shadow-sm hover:border-slate/35 hover:shadow-md">
+      <dt className="flex items-center justify-between gap-2 text-[13px] font-medium text-slate">
         {label}
+        <span className={`flex h-8 w-8 items-center justify-center rounded-md ${highlight ? 'bg-heat-soft text-heat' : 'bg-paper text-slate'}`} aria-hidden>
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{KPI_ICON[icon]}</svg>
+        </span>
       </dt>
-      <dd className={`mt-3 font-serif text-[52px] font-semibold leading-none tracking-[-0.035em] ${highlight ? 'text-amber' : 'text-ink'} group-hover:underline group-hover:decoration-2 group-hover:underline-offset-8`}>
-        {value}
+      <dd className={`mt-3 font-serif text-[38px] font-bold leading-none tracking-[-0.04em] ${highlight ? 'text-heat' : 'text-ink'}`}>{value}</dd>
+      <dd className="mt-2.5 flex items-center justify-between text-[13px] text-slate">
+        {note}
+        <span aria-hidden className="opacity-0 transition-opacity group-hover:opacity-100">→</span>
       </dd>
-      <dd className="mt-3 text-[13px] text-slate">{note}</dd>
     </Link>
   )
 }
 
 function NextSteps({ todo }: { todo: Dashboard['todo'] }) {
   return (
-    <section aria-labelledby="next">
+    <Card className="p-5 md:p-6">
       <SectionTitle id="next">Your next steps</SectionTitle>
       {todo.length === 0 ? (
-        <p className="py-3 text-sm text-slate">
-          All caught up. Add a client or import new tax updates to start the chain again.
-        </p>
+        <p className="text-sm text-slate">All caught up. Add a client or import new tax updates to start the chain again.</p>
       ) : (
-        <ol className="divide-y divide-rule border-b border-rule">
+        <ol className="space-y-2" aria-labelledby="next">
           {todo.map((t, i) => (
             <li key={t.key}>
-              <Link to={t.to} className="group flex min-h-14 items-center gap-4 py-3 hover:bg-sheet">
-                <span className="font-serif text-[28px] font-semibold leading-none text-petrol">{i + 1}</span>
-                <span className="flex-1 text-[15px] font-medium">{t.label}</span>
-                <span aria-hidden className="pr-2 text-slate transition-transform group-hover:translate-x-1 group-hover:text-petrol">→</span>
+              <Link to={t.to} className="group flex min-h-12 items-center gap-3.5 rounded-lg border border-rule px-3.5 py-2.5 hover:border-brand/40 hover:bg-brand-soft/50">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">{i + 1}</span>
+                <span className="flex-1 text-[14.5px] font-medium">{t.label}</span>
+                <span aria-hidden className="text-slate transition-transform group-hover:translate-x-0.5 group-hover:text-brand">→</span>
               </Link>
             </li>
           ))}
         </ol>
       )}
-    </section>
+    </Card>
   )
 }
 
-function Ranking({ clients }: { clients: Dashboard['top_clients'] }) {
+function Ranking({ clients }: { clients: Top }) {
   return (
-    <section aria-labelledby="top">
+    <Card className="p-5 md:p-6">
       <SectionTitle id="top">Who to call, ranked</SectionTitle>
       {clients.length === 0 ? (
-        <p className="py-3 text-sm text-slate">
-          No open alerts. When a new tax update affects a former client, it appears here, ranked by relevance.
-        </p>
+        <p className="text-sm text-slate">No open alerts. When a new tax update affects a former client, it appears here, ranked by relevance.</p>
       ) : (
-        <ol className="divide-y divide-rule border-b border-rule">
+        <ol className="-mx-2" aria-labelledby="top">
           {clients.map((c, i) => (
             <li key={c.client_id}>
-              <Link to={`/alerts#alert-${c.alert_id}`} className="group grid grid-cols-[2rem_minmax(0,1fr)_4.5rem] items-start gap-4 py-4 hover:bg-sheet sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]">
-                <span className="pt-1 font-mono text-xs text-slate">{String(i + 1).padStart(2, '0')}</span>
+              <Link to={`/alerts#alert-${c.alert_id}`} className="group grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-3 rounded-lg px-2 py-3 hover:bg-paper">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-paper font-serif text-sm font-bold text-slate group-hover:bg-sheet">{i + 1}</span>
                 <span className="min-w-0">
-                  <span className="block font-serif text-[20px] font-semibold leading-snug group-hover:text-petrol">{c.client}</span>
-                  {c.topics.slice(0, 2).map((t) => (
-                    <span key={t.title} className="mt-0.5 block truncate text-sm text-slate">{t.title}</span>
-                  ))}
-                  {c.topics.length > 2 && <span className="mt-0.5 block text-xs text-slate">and {c.topics.length - 2} more</span>}
+                  <span className="block truncate font-semibold group-hover:text-brand">{c.client}</span>
+                  <span className="mt-0.5 block truncate text-[13px] text-slate">
+                    {c.topics[0]?.title}{c.topics.length > 1 && ` · +${c.topics.length - 1} more`}
+                  </span>
                 </span>
-                <span className="text-right" aria-label={`Highest score ${c.score}`}>
-                  <span className="block font-serif text-[30px] font-semibold leading-none text-amber">{c.score}</span>
-                  <span className="mt-2 block h-[3px] bg-amber-soft" aria-hidden>
-                    <span className="block h-full bg-amber" style={{ width: `${c.score}%` }} />
+                <span aria-label={`Highest score ${c.score}`}>
+                  <span className="flex items-baseline justify-end gap-1 font-serif text-[22px] font-bold tracking-[-0.03em] text-heat">{c.score}</span>
+                  <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-heat-soft" aria-hidden>
+                    <span className="block h-full rounded-full bg-heat" style={{ width: `${c.score}%` }} />
                   </span>
                 </span>
               </Link>
@@ -157,7 +210,7 @@ function Ranking({ clients }: { clients: Dashboard['top_clients'] }) {
           ))}
         </ol>
       )}
-    </section>
+    </Card>
   )
 }
 
@@ -185,14 +238,11 @@ export default function Overview() {
 
   return (
     <>
+      <PageHeader
+        title={`${greeting()}.`}
+        intro="Which former clients should you call this week, and why. TaxPulse matches new BMF letters and BFH rulings against the due diligence files of your past mandates."
+      />
       {error && <ErrorNote message={error} />}
-
-      {(empty || (!data && !error)) && (
-        <PageHeader
-          title="Briefing"
-          intro="Which former clients should you call this week, and why. TaxPulse matches new BMF letters and BFH rulings against the due diligence files of your past mandates."
-        />
-      )}
 
       {empty && (
         <EmptyState title="Your portfolio is empty">
@@ -205,27 +255,26 @@ export default function Overview() {
       )}
 
       {data && c && !empty && (
-        <div className="space-y-14">
-          <div>
-            <Lead clients={data.top_clients} toReview={c.alerts_to_review} />
-            <dl className="grid grid-cols-2 border-b-2 border-ink sm:divide-x sm:divide-ink/15 lg:grid-cols-4">
-              <Kpi label="Clients profiled" value={`${c.clients_profiled}/${c.clients}`} to="/clients"
-                note={c.clients_missing_profile ? `${c.clients_missing_profile} waiting for the Profiler` : 'Every data room read'} />
-              <Kpi label="Alerts to review" value={String(c.alerts_to_review)} to="/alerts" highlight={c.alerts_to_review > 0}
-                note={`${c.alerts_accepted} accepted so far`} />
-              <Kpi label="Emails to approve" value={String(c.drafts_to_review)} to="/outreach"
-                note={`${c.drafts_ready} ready to send · ${c.emails_sent} sent`} />
-              <Kpi label={demo ? 'AI cost, as recorded' : 'AI cost so far'} value={`$${c.cost_usd.toFixed(2)}`} to="/runs"
-                note={`${c.updates} tax updates, ${c.updates_relevant} relevant`} />
-            </dl>
-          </div>
+        <div className="space-y-8">
+          <Lead clients={data.top_clients} toReview={c.alerts_to_review} />
 
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <Kpi icon="clients" label="Clients profiled" value={`${c.clients_profiled}/${c.clients}`} to="/clients"
+              note={c.clients_missing_profile ? `${c.clients_missing_profile} waiting for the Profiler` : 'Every data room read'} />
+            <Kpi icon="alerts" label="Alerts to review" value={String(c.alerts_to_review)} to="/alerts" highlight={c.alerts_to_review > 0}
+              note={`${c.alerts_accepted} accepted so far`} />
+            <Kpi icon="emails" label="Emails to approve" value={String(c.drafts_to_review)} to="/outreach"
+              note={`${c.drafts_ready} ready · ${c.emails_sent} sent`} />
+            <Kpi icon="cost" label={demo ? 'AI cost, as recorded' : 'AI cost so far'} value={`$${c.cost_usd.toFixed(2)}`} to="/runs"
+              note={`${c.updates} updates, ${c.updates_relevant} relevant`} />
+          </dl>
+
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
             <NextSteps todo={data.todo} />
             <Ranking clients={data.top_clients} />
           </div>
 
-          <AgentChain onFinished={reload} />
+          <Card className="p-5 md:p-7"><AgentChain onFinished={reload} /></Card>
         </div>
       )}
     </>

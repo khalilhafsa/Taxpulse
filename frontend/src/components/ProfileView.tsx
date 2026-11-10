@@ -6,7 +6,7 @@ type OnCite = (c: Citation) => void
 function CitationChip({ citation, onCite }: { citation: Citation; onCite: OnCite }) {
   const base = 'inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[11.5px] font-medium transition-colors'
   const style = citation.verified
-    ? 'border-rule bg-paper text-slate hover:border-petrol/30 hover:bg-petrol-soft hover:text-petrol'
+    ? 'border-rule bg-paper text-slate hover:border-brand/30 hover:bg-brand-soft hover:text-brand'
     : 'border-dashed border-danger/50 bg-danger/5 text-danger hover:bg-danger/10'
   return (
     <button
@@ -40,7 +40,7 @@ function FactLine({ fact, onCite }: { fact: Fact; onCite: OnCite }) {
 
 const ASSESSMENT = {
   risk: { label: 'Risk', className: 'text-danger' },
-  opportunity: { label: 'Opportunity', className: 'text-petrol' },
+  opportunity: { label: 'Opportunity', className: 'text-brand' },
   neutral: { label: 'Neutral', className: 'text-slate' },
 }
 const SEVERITY_ORDER = { high: 0, medium: 1, low: 2 }
@@ -79,11 +79,11 @@ export default function ProfileView({ profile, onCite }: { profile: Profile; onC
 
   return (
     <div className="space-y-10">
-      <p className="font-serif text-[19px] leading-relaxed text-ink">{d.summary}</p>
+      <p className="text-[18px] leading-relaxed text-ink">{d.summary}</p>
 
       <section aria-labelledby="facts">
         <SectionTitle id="facts">Key facts</SectionTitle>
-        <dl className="divide-y divide-rule rounded-lg border border-rule bg-sheet">
+        <dl className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm">
           {d.key_facts.map((f, i) => (
             <div key={i} className="grid gap-1 px-5 py-3 sm:grid-cols-[150px_1fr] sm:gap-6">
               <dt className="text-sm text-slate">{f.label}</dt>
@@ -95,7 +95,7 @@ export default function ProfileView({ profile, onCite }: { profile: Profile; onC
 
       <section aria-labelledby="areas">
         <SectionTitle id="areas">Tax exposure</SectionTitle>
-        <ul className="divide-y divide-rule rounded-lg border border-rule bg-sheet px-5">
+        <ul className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm px-5">
           {areas.map((a, i) => <TaxAreaItem key={i} area={a} onCite={onCite} />)}
         </ul>
       </section>

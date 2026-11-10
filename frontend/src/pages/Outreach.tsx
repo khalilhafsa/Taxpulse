@@ -6,8 +6,8 @@ import { Button, EmptyState, ErrorNote, PageHeader } from '../components/ui'
 import { useAsync } from '../useAsync'
 
 const STATUS: Record<EmailDraft['status'], { label: string; className: string }> = {
-  draft: { label: 'Draft, needs your review', className: 'border-amber/40 bg-amber-soft text-amber' },
-  approved: { label: 'Approved, ready to send', className: 'border-petrol/30 bg-petrol-soft text-petrol' },
+  draft: { label: 'Draft, needs your review', className: 'border-heat/40 bg-heat-soft text-heat' },
+  approved: { label: 'Approved, ready to send', className: 'border-brand/30 bg-brand-soft text-brand' },
   sent: { label: 'Marked as sent', className: 'border-rule bg-paper text-slate' },
 }
 
@@ -59,12 +59,12 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
     }
   }
 
-  const field = 'w-full rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15 disabled:bg-paper'
+  const field = 'w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15 disabled:bg-paper'
 
   return (
-    <div className="border border-rule bg-sheet">
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule bg-paper-deep/60 px-5 py-2.5 text-sm">
-        <span className={`rounded-sm border px-2 py-0.5 font-mono text-[11px] font-medium uppercase tracking-[0.06em] ${STATUS[d.status].className}`}>
+    <div className="rounded-xl border border-rule bg-sheet shadow-sm">
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule bg-paper px-5 py-2.5 text-sm">
+        <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${STATUS[d.status].className}`}>
           {STATUS[d.status].label}
         </span>
         <span className="text-xs text-slate">
@@ -76,7 +76,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
         <span className="tp-eyebrow">To</span><span>{to}</span>
       </p>
       {d.remarks && (
-        <p className="mt-3 border-l-[3px] border-petrol/50 bg-paper px-3 py-2 text-sm text-slate">
+        <p className="mt-3 rounded-md border border-brand/20 bg-paper px-3 py-2 text-sm text-slate">
           Rewritten from your remarks: <span className="text-ink">“{d.remarks}”</span>
         </p>
       )}
@@ -87,19 +87,19 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
       <label className="mt-4 block">
         <span className="tp-eyebrow">Email</span>
         <textarea value={body} onChange={(e) => setBody(e.target.value)} disabled={locked} rows={14}
-          className={`${field} mt-1.5 px-4 py-3 font-serif text-[16px] leading-[1.65]`} />
+          className={`${field} mt-1.5 px-4 py-3 text-[15.5px] leading-[1.7]`} />
       </label>
       <p className={`mt-1 text-xs ${words > MAX_WORDS ? 'text-danger' : 'text-slate'}`}>
         {words} words without greeting and signature{words > MAX_WORDS && ` (partner review limit: ${MAX_WORDS})`}{placeholders && ' · add your firm details in Settings, or replace [Your name] and [Firm name]'}
       </p>
 
       {notes.length > 0 ? (
-        <div className="mt-3 border-l-[3px] border-amber bg-amber-soft px-4 py-3 text-sm">
+        <div className="mt-3 rounded-md border border-heat/20 bg-heat-soft px-4 py-3 text-sm">
           <p className="font-medium">Partner review: {notes.length} {notes.length === 1 ? 'point' : 'points'} to check before approving</p>
           <ul className="mt-1.5 list-disc space-y-1 pl-5 text-ink/80">{notes.map((n) => <li key={n}>{n}</li>)}</ul>
         </div>
       ) : (
-        <p className="mt-1 text-xs text-petrol">
+        <p className="mt-1 text-xs text-brand">
           Partner review passed: advisor's voice, cautious wording, caveat included{d.revised && ' (first draft revised once)'}.
         </p>
       )}
@@ -117,7 +117,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
         {d.status === 'approved' && (
           <>
             <a href={`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
-              className="inline-flex min-h-10 items-center rounded-sm border border-petrol bg-petrol px-4 py-2 text-sm font-semibold text-white hover:bg-petrol-deep">
+              className="inline-flex min-h-10 items-center rounded-sm border border-brand bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-deep">
               Open in my email app
             </a>
             <Button variant="quiet" onClick={() => act(() => api.setDraftStatus(d.id, 'sent'))}>Mark as sent</Button>
@@ -132,7 +132,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
       </div>
 
       {canRevise && !locked && (
-        <div className="mt-6 border border-rule border-l-[3px] border-l-petrol bg-paper px-4 py-4">
+        <div className="mt-6 rounded-lg border border-brand/20 bg-brand-soft/50 px-4 py-4">
           <label className="block">
             <span className="text-sm font-semibold">Your remarks for the Outreach Writer</span>
             <span className="mt-0.5 block text-xs text-slate">
@@ -177,11 +177,11 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
   }
 
   return (
-    <section className="border-t-2 border-ink pt-5 first:border-t-0 first:pt-0" aria-labelledby={`c${e.client.id}`}>
+    <section className="rounded-2xl border border-rule bg-sheet p-5 shadow-sm md:p-7" aria-labelledby={`c${e.client.id}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 id={`c${e.client.id}`} className="font-serif text-[32px] font-semibold leading-tight tracking-[-0.02em]">
-            <Link to={`/clients/${e.client.id}`} className="hover:text-petrol hover:underline">{e.client.name}</Link>
+            <Link to={`/clients/${e.client.id}`} className="hover:text-brand hover:underline">{e.client.name}</Link>
           </h2>
           <p className="text-sm text-slate">{e.client.mandate}</p>
         </div>
@@ -194,7 +194,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
       <ul className="mt-4 divide-y divide-rule border-y border-rule text-sm">
         {e.alerts.map((a) => (
           <li key={a.id} className="flex items-baseline gap-3 py-2">
-            <span className="w-9 shrink-0 font-mono text-[13px] font-medium text-amber">{a.score}</span>
+            <span className="w-9 shrink-0 font-mono text-[13px] font-medium text-heat">{a.score}</span>
             <span>
               <span className="font-medium">{a.title}</span>
               {a.headline ? <span className="text-slate"> · {a.headline}</span>
@@ -209,7 +209,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
         </p>
       )}
       {latest && e.alerts_not_in_draft > 0 && (
-        <p className="mt-2 text-sm text-amber">
+        <p className="mt-2 text-sm text-heat">
           {e.alerts_not_in_draft} accepted {e.alerts_not_in_draft === 1 ? 'topic is' : 'topics are'} not in the latest draft. Write a new version to include {e.alerts_not_in_draft === 1 ? 'it' : 'them'}.
         </p>
       )}
@@ -217,7 +217,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
       {error && <div className="mt-3"><ErrorNote message={error} /></div>}
       {e.writer_error && !e.writer_running && <div className="mt-3"><ErrorNote message={e.writer_error} /></div>}
       {e.writer_running && (
-        <p className="mt-4 border-l-[3px] border-petrol bg-petrol-soft px-4 py-3 text-sm text-petrol" aria-live="polite">
+        <p className="mt-4 rounded-md border border-brand/20 bg-brand-soft px-4 py-3 text-sm text-brand" aria-live="polite">
           The Outreach Writer is writing a new version. It is checked by the partner review before it appears here…
         </p>
       )}
@@ -251,7 +251,7 @@ export default function Outreach() {
       {error && <ErrorNote message={error} />}
       {data && data.length === 0 && (
         <EmptyState title="No accepted alerts yet">
-          Accept an alert on the <Link to="/alerts" className="font-medium text-petrol hover:underline">Alerts</Link> page. Its impact memo is written automatically, then you can draft the email here.
+          Accept an alert on the <Link to="/alerts" className="font-medium text-brand hover:underline">Alerts</Link> page. Its impact memo is written automatically, then you can draft the email here.
         </EmptyState>
       )}
       <div className="space-y-10">

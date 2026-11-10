@@ -7,7 +7,7 @@ import { useAsync } from '../useAsync'
 
 function Status({ u }: { u: UpdateSummary }) {
   if (u.analysis_status === 'running')
-    return <p className="mt-2 text-sm text-petrol">The Analyst is reading this publication…</p>
+    return <p className="mt-2 text-sm text-brand">The Analyst is reading this publication…</p>
   if (u.analysis_status === 'failed')
     return <p className="mt-2 text-sm text-danger">Analysis failed: {u.analysis_error}</p>
   if (!u.summary) return <p className="mt-2 text-sm text-slate">Not analysed yet</p>
@@ -81,7 +81,7 @@ export default function Updates() {
     <>
       <PageHeader
         title="Tax updates"
-        intro={<>New BMF letters, laws and BFH rulings. The Regulatory Analyst reads each one and works out which companies it affects. BMF blocked? Use the <Link to="/settings#send-button" className="font-medium text-petrol hover:underline">Send to TaxPulse button</Link>.</>}
+        intro={<>New BMF letters, laws and BFH rulings. The Regulatory Analyst reads each one and works out which companies it affects. BMF blocked? Use the <Link to="/settings#send-button" className="font-medium text-brand hover:underline">Send to TaxPulse button</Link>.</>}
         action={
           <div className="flex flex-wrap gap-2">
             {!demo && <>
@@ -110,8 +110,8 @@ export default function Updates() {
       <div className="mb-6 space-y-3">
         {(error || actionError) && <ErrorNote message={(error || actionError)!} />}
         {fetchResult && (
-          <div className="border-l-[3px] border-petrol bg-petrol-soft px-4 py-3 text-sm" role="status">
-            <p className="text-petrol">
+          <div className="rounded-md border border-brand/20 bg-brand-soft px-4 py-3 text-sm" role="status">
+            <p className="text-brand">
               {fetchResult.new === 0
                 ? `No new publications. The feed lists ${fetchResult.found} items, all already in TaxPulse.`
                 : `${fetchResult.new} new ${fetchResult.new === 1 ? 'publication' : 'publications'} added. Use Analyse to let the Regulatory Analyst read them.`}
@@ -134,10 +134,10 @@ export default function Updates() {
         <>
           <label className="mb-4 flex items-center gap-2 text-sm text-slate">
             <input type="checkbox" checked={hideIrrelevant} onChange={(e) => setHideIrrelevant(e.target.checked)}
-              className="h-4 w-4 accent-petrol" />
+              className="h-4 w-4 accent-brand" />
             Hide publications with no impact on businesses
           </label>
-          <ol className="divide-y divide-rule border border-rule bg-sheet">
+          <ol className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
             {shown.map((u) => (
               <li key={u.id}>
                 <Link to={`/updates/${u.id}`}
@@ -147,7 +147,7 @@ export default function Updates() {
                     <time dateTime={u.published_on ?? undefined}>{formatDate(u.published_on)}</time>
                     <SourceTag source={u.source} />
                   </div>
-                  <p className="mt-2 font-serif text-[19px] font-semibold leading-snug tracking-[-0.005em] group-hover:text-petrol">{u.summary?.title_en ?? u.title}</p>
+                  <p className="mt-2 font-serif text-[19px] font-semibold leading-snug tracking-[-0.005em] group-hover:text-brand">{u.summary?.title_en ?? u.title}</p>
                   {u.summary && u.summary.title_en !== u.title && (
                     <p className="mt-0.5 text-sm text-slate" lang="de">{u.title}</p>
                   )}

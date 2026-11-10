@@ -36,7 +36,7 @@ export default function DataRoom({ clientId, documents, onChange }: {
         {documents.length} {documents.length === 1 ? 'file' : 'files'}, {pages} pages
       </p>
       {documents.length > 0 && (
-        <ul className="divide-y divide-rule overflow-hidden rounded-lg border border-rule bg-sheet">
+        <ul className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
           {documents.map((d) => (
             <li key={d.id}>
               <a href={api.fileUrl(d.id)} target="_blank" rel="noreferrer"
@@ -51,12 +51,12 @@ export default function DataRoom({ clientId, documents, onChange }: {
       <input ref={input} type="file" accept="application/pdf,.pdf" multiple hidden
         onChange={(e) => upload(e.target.files)} />
       <button type="button" disabled={busy} onClick={() => input.current?.click()}
-        className="mt-3 w-full rounded-md border border-dashed border-slate/40 px-4 py-2.5 text-sm font-medium text-slate hover:border-petrol hover:text-petrol disabled:opacity-50">
+        className="mt-3 w-full rounded-md border border-dashed border-slate/40 px-4 py-2.5 text-sm font-medium text-slate hover:border-brand hover:text-brand disabled:opacity-50">
         {busy ? 'Uploading and reading pages…' : 'Add PDF files'}
       </button>
       <div className="mt-3 space-y-2">
         {error && <ErrorNote message={error} />}
-        {warnings.map((w) => <p key={w} className="text-sm text-amber">{w}</p>)}
+        {warnings.map((w) => <p key={w} className="text-sm text-heat">{w}</p>)}
       </div>
     </section>
   )

@@ -13,7 +13,7 @@ const AGENT_LABEL: Record<string, string> = {
 }
 
 function Status({ run }: { run: AgentRun }) {
-  if (run.status === 'running') return <span className="text-petrol">Running</span>
+  if (run.status === 'running') return <span className="text-brand">Running</span>
   if (run.status === 'failed') return <span className="text-danger" title={run.error}>Failed</span>
   return <span className="text-slate">Done</span>
 }
@@ -44,7 +44,7 @@ export default function Runs() {
           <p className="mb-4 text-sm text-slate">
             {data.totals.runs} {data.totals.runs === 1 ? 'run' : 'runs'}, {data.totals.tokens.toLocaleString('en-GB')} tokens, ${data.totals.cost_usd.toFixed(3)} in total
           </p>
-          <div className="overflow-x-auto rounded-lg border border-rule bg-sheet">
+          <div className="overflow-x-auto rounded-xl border border-rule bg-sheet shadow-sm">
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead className="border-b border-rule text-slate">
                 <tr>

@@ -34,11 +34,11 @@ export default function NewUpdate() {
     }
   }
 
-  const field = 'mt-1.5 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
+  const field = 'mt-1.5 w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15'
 
   return (
     <>
-      <Link to="/updates" className="text-sm font-medium text-petrol hover:underline">Back to tax updates</Link>
+      <Link to="/updates" className="text-sm font-medium text-brand hover:underline">Back to tax updates</Link>
       <div className="mt-4">
         <PageHeader title="Add a tax update"
           intro="Paste a ruling, BMF letter or newsletter item that is not in the BMF feed. German or English text both work." />

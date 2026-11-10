@@ -60,7 +60,7 @@ function Count({ value }: { value: number }) {
 function StageLabel({ s, at }: { s: Stage; at: boolean }) {
   return (
     <div className="px-1.5 text-center" title={s.role}>
-      <p className={`text-[13px] font-semibold leading-tight ${at ? 'text-petrol' : ''}`}>{s.name}</p>
+      <p className={`text-[13px] font-semibold leading-tight ${at ? 'text-brand' : ''}`}>{s.name}</p>
       <p className="mt-1 text-xs text-slate tabular-nums">
         <span className="font-semibold text-ink"><Count value={s.done} /></span> of {s.total} {s.unit}
       </p>
@@ -81,7 +81,7 @@ function Activity({ log }: { log: Pipeline['log'] }) {
   if (!log.length) return null
   return (
     <div className="mt-5">
-      <h3 className="tp-eyebrow">Latest activity</h3>
+      <h3 className="text-sm font-semibold">Latest activity</h3>
       <ol className="mt-2 divide-y divide-rule text-[13px]" aria-live="polite">
         {log.map((r) => (
           <li key={r.id} className={`grid grid-cols-[4.5rem_1fr_auto] gap-x-3 py-1.5 sm:grid-cols-[4.5rem_10rem_1fr_auto] ${
@@ -91,7 +91,7 @@ function Activity({ log }: { log: Pipeline['log'] }) {
             </span>
             <span className="hidden font-medium sm:block">{AGENT[r.agent] ?? r.agent}</span>
             <span className="truncate text-slate"><span className="font-medium text-ink sm:hidden">{AGENT[r.agent] ?? r.agent}: </span>{r.label}</span>
-            <span className={`text-right tabular-nums ${r.status === 'failed' ? 'text-danger' : r.status === 'running' ? 'text-petrol' : 'text-slate'}`}>
+            <span className={`text-right tabular-nums ${r.status === 'failed' ? 'text-danger' : r.status === 'running' ? 'text-brand' : 'text-slate'}`}>
               {r.status === 'running' ? 'working…' : r.status === 'failed' ? 'failed' : `${secs(r.duration_ms)}, $${r.cost_usd.toFixed(3)}`}
             </span>
           </li>
@@ -191,13 +191,13 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
 
   return (
     <section aria-labelledby="chain">
-      <div className="mb-5 flex flex-wrap items-end justify-between gap-3 border-t-2 border-ink pt-3">
+      <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div className="max-w-2xl">
-          <h2 id="chain" className="font-serif text-[26px] font-semibold tracking-[-0.015em]">Agent chain</h2>
+          <h2 id="chain" className="font-serif text-[21px] font-bold tracking-[-0.025em]">Agent chain</h2>
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
               <>
-                <span className="font-semibold text-petrol">{working.name}</span> {VERB[working.key]}{' '}
+                <span className="font-semibold text-brand">{working.name}</span> {VERB[working.key]}{' '}
                 <span className="text-ink">{working.current || 'the next item'}</span>
                 {elapsed !== null && <span className="tabular-nums">, {clock(elapsed)} since you started the run</span>}
               </>
@@ -217,9 +217,9 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
       {error && <div className="mb-4"><ErrorNote message={error} /></div>}
       {p.chain.error && !busy && <div className="mb-4"><ErrorNote message={`The last run stopped: ${p.chain.error}`} /></div>}
 
-      <div className="overflow-hidden border border-rule bg-sheet">
+      <div className="overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
         <div className="overflow-x-auto">
-          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#fffefa,#f5f3ec)] lg:min-w-0">
+          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#ffffff,#f3f4f6)] lg:min-w-0">
             {working && (
               <Bubble index={p.stages.indexOf(working)}
                 text={`${BUBBLE[working.key]} ${working.current ? shorten(working.current) : ''}`} />
@@ -233,8 +233,8 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
         <ol className="divide-y divide-rule border-t border-rule lg:hidden">
           {p.stages.map((s, i) => (
             <li key={s.key} className="flex items-baseline gap-3 px-4 py-2.5 text-sm">
-              <span className={`w-4 shrink-0 font-semibold ${busyKeys.has(s.key) ? 'text-petrol' : 'text-slate'}`}>{i + 1}</span>
-              <span className={`flex-1 font-medium ${busyKeys.has(s.key) ? 'text-petrol' : ''}`}>{s.name}</span>
+              <span className={`w-4 shrink-0 font-semibold ${busyKeys.has(s.key) ? 'text-brand' : 'text-slate'}`}>{i + 1}</span>
+              <span className={`flex-1 font-medium ${busyKeys.has(s.key) ? 'text-brand' : ''}`}>{s.name}</span>
               <span className="text-xs text-slate tabular-nums"><Count value={s.done} /> of {s.total}</span>
             </li>
           ))}
@@ -243,7 +243,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
       <p className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-slate">
         <span>Stages 1 to 4 run on their own. Stages 5 and 6 start only after you accept an alert.</span>
         {p.waiting_for_review > 0 && (
-          <Link to="/alerts" className="font-semibold text-amber hover:underline">
+          <Link to="/alerts" className="font-semibold text-heat hover:underline">
             {p.waiting_for_review} {p.waiting_for_review === 1 ? 'alert is' : 'alerts are'} waiting at the gate for your review
           </Link>
         )}

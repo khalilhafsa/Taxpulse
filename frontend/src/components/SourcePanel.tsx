@@ -12,7 +12,7 @@ function highlight(text: string, quote: string) {
   if (!match) return [text]
   return [
     text.slice(0, match.index),
-    <mark key="q" className="rounded-sm bg-amber-soft px-0.5 text-ink ring-1 ring-amber/40">{match[0]}</mark>,
+    <mark key="q" className="rounded-sm bg-heat-soft px-0.5 text-ink ring-1 ring-heat/40">{match[0]}</mark>,
     text.slice(match.index + match[0].length),
   ]
 }
@@ -69,7 +69,7 @@ export default function SourcePanel({ citation, documents, onClose }: {
           </button>
         </header>
 
-        <div className={`border-b px-6 py-3 text-sm ${citation.verified ? 'border-petrol/20 bg-petrol-soft text-petrol' : 'border-danger/20 bg-danger/5 text-danger'}`}>
+        <div className={`border-b px-6 py-3 text-sm ${citation.verified ? 'border-brand/20 bg-brand-soft text-brand' : 'border-danger/20 bg-danger/5 text-danger'}`}>
           {citation.verified
             ? 'Quote found on this page. The highlighted passage is the evidence the agent used.'
             : 'TaxPulse could not find this quote on the cited page. Check the source before relying on this fact.'}
@@ -100,7 +100,7 @@ export default function SourcePanel({ citation, documents, onClose }: {
               <button disabled={pageNumber >= doc.page_count} onClick={() => setPageNumber((n) => n + 1)}
                 className="rounded-md border border-rule px-3 py-1.5 font-medium disabled:opacity-40">Next page</button>
             </div>
-            <a href={api.fileUrl(doc.id, pageNumber)} target="_blank" rel="noreferrer" className="font-medium text-petrol hover:underline">
+            <a href={api.fileUrl(doc.id, pageNumber)} target="_blank" rel="noreferrer" className="font-medium text-brand hover:underline">
               Open PDF
             </a>
           </footer>

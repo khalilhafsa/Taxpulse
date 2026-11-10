@@ -51,7 +51,7 @@ export default function WeeklyCheck() {
     setPerm(await Notification.requestPermission())
   }
 
-  const select = 'mt-1.5 rounded-sm border border-ink/20 bg-sheet px-3 py-2 text-[15px] focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15 disabled:opacity-50'
+  const select = 'mt-1.5 rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15 disabled:opacity-50'
 
   return (
     <>
@@ -65,9 +65,9 @@ export default function WeeklyCheck() {
 
       <label className="mt-5 flex items-center gap-3">
         <input type="checkbox" checked={a.enabled} onChange={(e) => save({ enabled: e.target.checked })}
-          className="h-5 w-5 accent-[var(--color-petrol)]" />
+          className="h-5 w-5 accent-[var(--color-brand)]" />
         <span className="text-[15px] font-medium">Run the weekly check</span>
-        {saved && <span className="text-sm text-petrol" role="status">Saved</span>}
+        {saved && <span className="text-sm text-brand" role="status">Saved</span>}
       </label>
 
       <div className="mt-4 flex flex-wrap gap-4">
@@ -88,7 +88,7 @@ export default function WeeklyCheck() {
         <legend className="text-sm font-medium">Sources</legend>
         <label className="flex items-start gap-3">
           <input type="checkbox" checked={a.fetch_bfh} disabled={!a.enabled} onChange={(e) => save({ fetch_bfh: e.target.checked })}
-            className="mt-0.5 h-4 w-4 accent-[var(--color-petrol)]" />
+            className="mt-0.5 h-4 w-4 accent-[var(--color-brand)]" />
           <span className="text-sm">
             Federal Fiscal Court (BFH): new decisions and press releases
             <span className="block text-xs text-slate">Fully automatic.</span>
@@ -96,7 +96,7 @@ export default function WeeklyCheck() {
         </label>
         <label className="flex items-start gap-3">
           <input type="checkbox" checked={a.fetch_bmf} disabled={!a.enabled} onChange={(e) => save({ fetch_bmf: e.target.checked })}
-            className="mt-0.5 h-4 w-4 accent-[var(--color-petrol)]" />
+            className="mt-0.5 h-4 w-4 accent-[var(--color-brand)]" />
           <span className="text-sm">
             Federal Ministry of Finance (BMF): letters, laws and tax news
             <span className="block text-xs text-slate">The BMF website usually asks for a security check. You then get a notification and send the feed with one click (see below).</span>

@@ -24,13 +24,13 @@ export default function ContactCard({ clientId, contact, onChange }: {
     }
   }
 
-  const field = 'mt-1 w-full rounded-sm border border-ink/20 bg-sheet px-3 py-1.5 text-sm focus:border-petrol focus:outline-none focus:ring-2 focus:ring-petrol/15'
+  const field = 'mt-1 w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-1.5 text-sm focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15'
 
   return (
     <section aria-labelledby="contact" className="mb-8">
       <SectionTitle id="contact">Contact</SectionTitle>
       {!editing ? (
-        <div className="rounded-lg border border-rule bg-sheet px-4 py-3 text-sm">
+        <div className="rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm">
           {contact.contact_name ? (
             <>
               <p className="font-medium">{contact.contact_name}</p>
@@ -41,12 +41,12 @@ export default function ContactCard({ clientId, contact, onChange }: {
             <p className="text-slate">No contact yet. Emails will start with “Dear Sir or Madam,”.</p>
           )}
           <button type="button" onClick={() => { setForm(contact); setEditing(true) }}
-            className="mt-2 font-medium text-petrol hover:underline">
+            className="mt-2 font-medium text-brand hover:underline">
             {contact.contact_name ? 'Edit contact' : 'Add contact'}
           </button>
         </div>
       ) : (
-        <form onSubmit={save} className="space-y-3 rounded-lg border border-rule bg-sheet px-4 py-3">
+        <form onSubmit={save} className="space-y-3 rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3">
           <label className="block text-sm">
             <span className="text-slate">Name</span>
             <input value={form.contact_name} onChange={(e) => setForm({ ...form, contact_name: e.target.value })}
@@ -64,7 +64,7 @@ export default function ContactCard({ clientId, contact, onChange }: {
           </label>
           {error && <ErrorNote message={error} />}
           <div className="flex gap-3 text-sm">
-            <button type="submit" className="rounded-md bg-petrol px-3 py-1.5 font-semibold text-white">Save</button>
+            <button type="submit" className="rounded-md bg-brand px-3 py-1.5 font-semibold text-white">Save</button>
             <button type="button" onClick={() => setEditing(false)} className="font-medium text-slate">Cancel</button>
           </div>
         </form>

@@ -4,8 +4,8 @@ import { api, type MatrixCell } from '../api'
 import { EmptyState, ErrorNote, PageHeader } from '../components/ui'
 import { useAsync } from '../useAsync'
 
-// Amber is the relevance colour; its strength follows the Matcher's score.
-const fill = (score: number) => `rgba(154, 97, 0, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
+// Heat is the relevance colour; its strength follows the Matcher's score.
+const fill = (score: number) => `rgba(194, 65, 12, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
 
 function cellInfo(cell: MatrixCell, threshold: number) {
   if (!cell) return { text: '·', title: 'Not matched yet', style: {}, cls: 'text-slate/50' }
@@ -56,7 +56,7 @@ export default function Matrix() {
       {data && (data.rows.length === 0 || data.updates.length === 0) && (
         <EmptyState title="Nothing to compare yet">
           The matrix fills once at least one client has a profile and one tax update has been analysed as relevant.
-          Use <Link to="/" className="font-medium text-petrol hover:underline">Run the agents</Link> on the overview.
+          Use <Link to="/" className="font-medium text-brand hover:underline">Run the agents</Link> on the overview.
         </EmptyState>
       )}
 
@@ -66,9 +66,9 @@ export default function Matrix() {
             {data.rows.length} clients × {data.updates.length} updates = {cells.length} pairs.{' '}
             <span className="text-ink">{filtered}</span> dropped by the pre-filter for free,{' '}
             <span className="text-ink">{scored}</span> scored by the Impact Matcher,{' '}
-            <span className="font-semibold text-amber">{alerts} {alerts === 1 ? 'alert' : 'alerts'}</span>.
+            <span className="font-semibold text-heat">{alerts} {alerts === 1 ? 'alert' : 'alerts'}</span>.
           </p>
-          <div className="overflow-x-auto rounded-lg border border-rule bg-sheet">
+          <div className="overflow-x-auto rounded-xl border border-rule bg-sheet shadow-sm">
             <table className="w-full border-collapse text-sm">
               <caption className="sr-only">Matcher scores by client and tax update</caption>
               <thead>
@@ -82,7 +82,7 @@ export default function Matrix() {
                         <span className="block text-[11px] font-semibold uppercase tracking-wide text-slate">
                           {u.categories[0] ?? u.kind}
                         </span>
-                        <span className="mt-0.5 line-clamp-3 text-[13px] leading-snug text-ink group-hover:text-petrol group-hover:underline">
+                        <span className="mt-0.5 line-clamp-3 text-[13px] leading-snug text-ink group-hover:text-brand group-hover:underline">
                           {u.title}
                         </span>
                       </Link>
@@ -94,7 +94,7 @@ export default function Matrix() {
                 {data.rows.map((r) => (
                   <tr key={r.client.id} className="border-b border-rule last:border-b-0">
                     <th scope="row" className="sticky left-0 z-10 bg-sheet px-4 py-2 text-left text-[13px] font-medium sm:text-sm">
-                      <Link to={`/clients/${r.client.id}`} className="hover:text-petrol hover:underline">{r.client.name}</Link>
+                      <Link to={`/clients/${r.client.id}`} className="hover:text-brand hover:underline">{r.client.name}</Link>
                     </th>
                     {r.cells.map((cell, i) => {
                       const info = cellInfo(cell, data.threshold)
@@ -110,7 +110,7 @@ export default function Matrix() {
                       return (
                         <td key={data.updates[i].id} className="px-2 py-2">
                           {cell?.alert_id ? (
-                            <Link to={`/alerts#alert-${cell.alert_id}`} className="block rounded-md hover:ring-2 hover:ring-petrol/40"
+                            <Link to={`/alerts#alert-${cell.alert_id}`} className="block rounded-md hover:ring-2 hover:ring-brand/40"
                               aria-label={`${r.client.name}, ${data.updates[i].title}: ${info.title}`}>
                               {inner}
                             </Link>

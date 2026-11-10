@@ -74,23 +74,23 @@ export default function Notifications() {
     <div ref={box} className="relative">
       <button type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-haspopup="dialog"
         aria-label={unread ? `Notifications, ${unread} unread` : 'Notifications'}
-        className="relative flex h-10 w-10 items-center justify-center rounded-sm text-white/75 hover:bg-white/10 hover:text-white">
+        className="relative flex h-10 w-10 items-center justify-center rounded-md text-slate hover:bg-sheet hover:text-ink">
         <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
           <path d="M6 9a6 6 0 1 1 12 0c0 4.5 1.5 6.5 2 7H4c.5-.5 2-2.5 2-7Z" /><path d="M10 20a2 2 0 0 0 4 0" />
         </svg>
         {unread > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-amber px-1 text-[10px] font-bold text-white ring-2 ring-night">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-heat px-1 text-[10px] font-bold text-white ring-2 ring-paper">
             {unread > 9 ? '9+' : unread}
           </span>
         )}
       </button>
       {open && (
         <div role="dialog" aria-label="Notifications"
-          className="absolute right-0 z-30 mt-2 w-[min(22rem,calc(100vw-2.5rem))] overflow-hidden rounded-lg border border-rule bg-sheet text-ink shadow-lg">
+          className="absolute right-0 z-30 mt-2 w-[min(22rem,calc(100vw-2.5rem))] overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm text-ink shadow-lg">
           <div className="flex items-center justify-between border-b border-rule px-4 py-2.5">
             <p className="text-sm font-semibold">Notifications</p>
             {unread > 0 && (
-              <button type="button" className="text-xs font-medium text-petrol hover:underline"
+              <button type="button" className="text-xs font-medium text-brand hover:underline"
                 onClick={async () => { await api.readAllNotifications().catch(() => undefined); load() }}>
                 Mark all as read
               </button>
@@ -102,9 +102,9 @@ export default function Notifications() {
             <ul className="max-h-96 divide-y divide-rule overflow-y-auto">
               {items.map((n) => (
                 <li key={n.id}>
-                  <button type="button" onClick={() => openItem(n)} className={`block w-full px-4 py-3 text-left hover:bg-paper ${n.read ? '' : 'bg-petrol-soft/40'}`}>
+                  <button type="button" onClick={() => openItem(n)} className={`block w-full px-4 py-3 text-left hover:bg-paper ${n.read ? '' : 'bg-brand-soft/40'}`}>
                     <span className="flex items-start gap-2">
-                      <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${n.read ? 'bg-transparent' : n.kind === 'problem' ? 'bg-danger' : n.kind === 'action' ? 'bg-petrol' : 'bg-amber'}`} />
+                      <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${n.read ? 'bg-transparent' : n.kind === 'problem' ? 'bg-danger' : n.kind === 'action' ? 'bg-brand' : 'bg-heat'}`} />
                       <span className="min-w-0">
                         <span className="block text-sm font-medium">{n.title}</span>
                         {n.body && (
