@@ -173,6 +173,24 @@ export default function Layout() {
   const first = '/' + (pathname.split('/')[1] ?? '')
   const section = NAV.find((n) => n.to === first)
 
+  // Click ripple on every themed button: a small circle spreads from the click point.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const onDown = (e: PointerEvent) => {
+      const btn = (e.target as Element | null)?.closest?.('.tp-btn-primary, .tp-btn-quiet') as HTMLElement | null
+      if (!btn || (btn as HTMLButtonElement).disabled) return
+      const r = btn.getBoundingClientRect()
+      const dot = document.createElement('span')
+      dot.className = 'tp-ripple'
+      dot.style.left = `${e.clientX - r.left}px`
+      dot.style.top = `${e.clientY - r.top}px`
+      btn.appendChild(dot)
+      dot.addEventListener('animationend', () => dot.remove())
+    }
+    window.addEventListener('pointerdown', onDown)
+    return () => window.removeEventListener('pointerdown', onDown)
+  }, [])
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); setPalette((p) => !p) }

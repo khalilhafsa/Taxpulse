@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { api, formatDateTime, type Pipeline, type Stage } from '../api'
 import { Bubble, Team, useHandoff } from './AgentTeam'
 import { useDemo } from '../demo'
-import { Button, ErrorNote } from './ui'
+import { LiquidMetalButton } from './LiquidMetalButton'
+import { ErrorNote } from './ui'
 
 const VERB: Record<string, string> = {
   profiler: 'is reading the data room of',
@@ -192,7 +193,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
   return (
     <section aria-labelledby="chain">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <h2 id="chain" className="tp-chrome-text inline-block pb-0.5 font-serif text-[21px] font-bold tracking-[-0.01em]">Agent chain</h2>
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
@@ -206,9 +207,9 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
           </p>
         </div>
         <div className="flex flex-col items-start gap-1 sm:items-end">
-          <Button onClick={demo && p.pending.total === 0 ? watch : start} disabled={busy || starting || (!demo && p.pending.total === 0)}>
+          <LiquidMetalButton onClick={demo && p.pending.total === 0 ? watch : start} disabled={busy || starting || (!demo && p.pending.total === 0)}>
             {busy ? 'Agents at work…' : demo && p.pending.total === 0 ? 'Watch the agents work' : p.pending.total === 0 ? 'Up to date' : 'Run the agents'}
-          </Button>
+          </LiquidMetalButton>
           <p className="text-xs text-slate">
             {busy ? 'Watch the team pass the work along.' : demo && p.pending.total === 0 ? 'Starts the demo over and replays the whole chain, about a minute.' : p.pending.total === 0 ? 'Nothing new. Add a client or import tax updates.' : pending}
           </p>

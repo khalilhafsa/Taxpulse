@@ -281,6 +281,56 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 }
 .tp-btn-quiet:not(:disabled):hover { background: var(--secondary); color: var(--secondary-foreground); }
 
+/* Liquid shine for every button: a soft band of light glides across on hover, and a ripple
+   spreads from where you click (the ripple element is added by Layout's click handler). */
+.tp-btn-primary, .tp-btn-quiet { position: relative; overflow: hidden; isolation: isolate; }
+.tp-btn-primary::before, .tp-btn-quiet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 20%, rgb(255 255 255 / 0.32) 45%, rgb(255 255 255 / 0.05) 55%, transparent 75%);
+  background-size: 250% 100%;
+  background-position: 130% 0;
+  transition: background-position 900ms cubic-bezier(.22, 1, .36, 1);
+}
+.tp-btn-quiet::before {
+  background-image: linear-gradient(110deg, transparent 20%, color-mix(in srgb, var(--primary) 14%, transparent) 45%, transparent 70%);
+}
+.tp-btn-primary:not(:disabled):hover::before, .tp-btn-quiet:not(:disabled):hover::before { background-position: -30% 0; }
+.tp-ripple {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: currentColor;
+  opacity: 0.35;
+  transform: translate(-50%, -50%) scale(0);
+  animation: tp-ripple 650ms cubic-bezier(.22, 1, .36, 1) forwards;
+}
+@keyframes tp-ripple { to { transform: translate(-50%, -50%) scale(60); opacity: 0; } }
+
+/* Showcase button (LiquidMetalButton): liquid gold rim around a deep red face. */
+.tp-lm { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--shadow-color) 55%, transparent); transition: transform 500ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 400ms ease; }
+.tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, #b45309 70%, transparent); }
+.tp-lm:not(:disabled):active { transform: translateY(1px) scale(0.98); }
+.tp-lm-rim { background: linear-gradient(135deg, #fde68a, #b45309 35%, #fef3c7 55%, #92400e 80%, #fbbf24); }
+.tp-lm-rim canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
+.tp-lm-face {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 88%, #fff) 0%, var(--primary) 45%, color-mix(in srgb, var(--primary) 78%, #000) 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), inset 0 -1px 0 rgb(0 0 0 / 0.25);
+}
+.tp-lm-ripple {
+  position: absolute;
+  width: 5px; height: 5px;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.55);
+  pointer-events: none;
+  animation: tp-lm-ripple 650ms ease-out forwards;
+}
+@keyframes tp-lm-ripple { from { transform: scale(0); opacity: .7 } to { transform: scale(50); opacity: 0 } }
+
 /* Demo banner: the amber accent, so fictional data is never mistaken for real data. */
 .tp-hatch {
   background: var(--accent);
@@ -331,7 +381,9 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 
 @media (prefers-reduced-motion: reduce) {
   .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal,
-  .tp-page > *, .tp-stagger > * { animation: none !important; }
+  .tp-page > *, .tp-stagger > *, .tp-ripple, .tp-lm-ripple { animation: none !important; }
+  .tp-btn-primary::before, .tp-btn-quiet::before { transition: none; }
+  .tp-lm, .tp-lm:hover, .tp-lm:active { transform: none; }
   a.tp-chrome:hover { transform: none; }
   a, button { transition: none; }
 }
