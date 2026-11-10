@@ -6,7 +6,6 @@ import { DemoContext } from '../demo'
 import CommandPalette from './CommandPalette'
 import ErrorBoundary from './ErrorBoundary'
 import Notifications from './Notifications'
-import { useFluidLight } from '../useFluidLight'
 
 const I = (d: ReactNode) => (
   <svg viewBox="0 0 24 24" className="h-[18px] w-[18px] shrink-0" fill="none" stroke="currentColor" strokeWidth="1.7"
@@ -51,17 +50,10 @@ function Logo() {
   return (
     <NavLink to="/" className="flex shrink-0 items-center gap-2.5" aria-label="TaxPulse, briefing">
       <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden>
-        <defs>
-          <linearGradient id="tp-logo" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="#ffffff" /><stop offset=".48" stopColor="#c9ced6" />
-            <stop offset=".52" stopColor="#8b929d" /><stop offset="1" stopColor="#eef0f3" />
-          </linearGradient>
-        </defs>
-        <rect width="32" height="32" rx="9" fill="url(#tp-logo)" />
-        <rect x=".5" y=".5" width="31" height="31" rx="8.5" fill="none" stroke="#fff" strokeOpacity=".7" />
-        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="#14171b" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
+        <rect width="32" height="32" rx="6" fill="var(--primary)" />
+        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="var(--primary-foreground)" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <span className="tp-chrome-text-light font-wide text-[15px] tracking-[0.08em]">TAXPULSE</span>
+      <span className="font-serif text-[19px] font-bold tracking-[-0.01em] text-sidebar-foreground">TaxPulse</span>
     </NavLink>
   )
 }
@@ -69,12 +61,12 @@ function Logo() {
 function Status() {
   const { data, error } = useAsync(api.health)
   const state = error ? ['bg-[#ff8a80]', 'Backend offline']
-    : !data ? ['bg-white/40', 'Connecting']
+    : !data ? ['bg-slate/40', 'Connecting']
     : data.key_problem ? ['bg-[#ff8a80]', 'API key needs fixing']
     : data.llm_configured ? ['bg-[#5ee0a8]', 'Agents ready']
     : ['bg-relevance', 'No API key set']
   return (
-    <p className="flex items-center gap-2 text-xs text-white/70" role="status">
+    <p className="flex items-center gap-2 text-xs text-slate" role="status">
       <span className="relative flex h-2 w-2" aria-hidden>
         <span className={`absolute inset-0 rounded-full ${state[0]} opacity-60 motion-safe:animate-ping`} />
         <span className={`relative h-2 w-2 rounded-full ${state[0]}`} />
@@ -109,7 +101,7 @@ function DemoBanner() {
     <div className="tp-hatch border-b border-heat/20 px-5 py-2 text-[13px] text-ink md:px-8">
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
         <p className="flex items-baseline gap-3">
-          <span className="shrink-0 rounded-sm bg-heat px-1.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-night">
+          <span className="shrink-0 rounded-sm bg-heat px-1.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-white dark:text-night">
             Demo
           </span>
           <span>
@@ -120,7 +112,7 @@ function DemoBanner() {
         {restored
           ? <span className="font-semibold" role="status">Done: the demo is back at its starting point.</span>
           : <button type="button" onClick={reset} disabled={busy}
-              className="font-semibold text-heat underline decoration-heat/30 underline-offset-4 hover:decoration-heat disabled:opacity-50">
+              className="font-semibold text-accent-foreground underline decoration-current/40 underline-offset-4 hover:decoration-current disabled:opacity-50">
               {busy ? 'Starting over…' : 'Start the demo over'}
             </button>}
         {note && <p className="w-full text-danger">{note}</p>}
@@ -129,18 +121,43 @@ function DemoBanner() {
   )
 }
 
+/** Light / dark switch. The choice is remembered in this browser (see the script in index.html). */
+function ThemeToggle() {
+  const [dark, setDark] = useState(() => document.documentElement.classList.contains('dark'))
+  const flip = () => {
+    const next = !dark
+    document.documentElement.classList.toggle('dark', next)
+    try { localStorage.setItem('taxpulse.theme', next ? 'dark' : 'light') } catch { /* private window */ }
+    setDark(next)
+  }
+  return (
+    <button type="button" onClick={flip} aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} aria-pressed={dark}
+      className="flex h-10 w-10 items-center justify-center rounded-md text-slate hover:bg-card hover:text-ink">
+      {dark ? (
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
+          <circle cx="12" cy="12" r="4" /><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+        </svg>
+      )}
+    </button>
+  )
+}
+
 function SearchButton({ onOpen, dark = false }: { onOpen: () => void; dark?: boolean }) {
   const mac = typeof navigator !== 'undefined' && /Mac/i.test(navigator.platform)
   return (
     <button type="button" onClick={onOpen}
       className={`flex h-10 w-full items-center gap-2.5 rounded-md px-3 text-sm ${
-        dark ? 'bg-white/[0.06] text-white/60 ring-1 ring-white/10 hover:bg-white/10 hover:text-white'
+        dark ? 'bg-card text-slate ring-1 ring-sidebar-border hover:text-ink'
           : 'border border-rule bg-sheet text-slate shadow-sm hover:border-slate/40 hover:text-ink'}`}>
       <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden>
         <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" strokeLinecap="round" />
       </svg>
       <span className="flex-1 text-left">Jump to…</span>
-      <kbd className={`rounded-sm px-1.5 py-px font-mono text-[10.5px] ${dark ? 'bg-white/10 text-white/70' : 'border border-rule text-slate'}`}>
+      <kbd className={`rounded-sm px-1.5 py-px font-mono text-[10.5px] ${dark ? 'border border-sidebar-border text-slate' : 'border border-rule text-slate'}`}>
         {mac ? '⌘' : 'Ctrl'} K
       </kbd>
     </button>
@@ -156,8 +173,6 @@ export default function Layout() {
   const first = '/' + (pathname.split('/')[1] ?? '')
   const section = NAV.find((n) => n.to === first)
 
-  useFluidLight()
-
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); setPalette((p) => !p) }
@@ -169,16 +184,12 @@ export default function Layout() {
   return (
     <DemoContext.Provider value={demo}>
     <div className="min-h-screen lg:grid lg:grid-cols-[256px_minmax(0,1fr)]">
-      {/* Ambient light: soft, slowly drifting glows behind everything (see useFluidLight). */}
-      <div aria-hidden className="tp-ambient">
-        <span className="tp-orb tp-orb-a" /><span className="tp-orb tp-orb-b" /><span className="tp-orb tp-orb-c" />
-      </div>
-      <aside className="tp-rail text-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
+      <aside className="tp-rail lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="flex items-center justify-between gap-3 px-5 py-4 lg:px-5 lg:pb-5 lg:pt-6">
           <Logo />
           <div className="flex items-center gap-1 lg:hidden">
             <button type="button" onClick={() => setPalette(true)} aria-label="Jump to"
-              className="flex h-10 w-10 items-center justify-center rounded-md text-white/75 hover:bg-white/10 hover:text-white">
+              className="flex h-10 w-10 items-center justify-center rounded-md text-slate hover:bg-card hover:text-ink">
               <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden>
                 <circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" strokeLinecap="round" />
               </svg>
@@ -189,12 +200,12 @@ export default function Layout() {
         <nav className="flex gap-1 overflow-x-auto px-3 pb-3 [scrollbar-width:none] lg:mt-7 lg:flex-col lg:gap-6 lg:overflow-visible lg:px-3 lg:pb-0" aria-label="Main">
           {GROUPS.map((g) => (
             <div key={g} className="flex shrink-0 gap-1 lg:block">
-              <p className="mb-2 hidden px-3 font-wide text-[9.5px] uppercase tracking-[0.18em] text-white/35 lg:block">{g}</p>
+              <p className="mb-2 hidden px-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate/80 lg:block">{g}</p>
               {NAV.filter((n) => n.group === g).map((n) => (
                 <NavLink key={n.to} to={n.to} end={n.end}
                   className={({ isActive }) =>
                     `flex min-h-10 items-center gap-3 whitespace-nowrap rounded-md px-3 text-[14px] font-medium ${
-                      isActive ? 'tp-rail-active text-night' : 'text-white/65 hover:bg-white/[0.07] hover:text-white'
+                      isActive ? 'tp-rail-active' : 'text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
                     }`}>
                   {ICONS[n.icon]}
                   {n.label}
@@ -203,15 +214,15 @@ export default function Layout() {
             </div>
           ))}
         </nav>
-        <div className="mt-auto hidden space-y-3 border-t border-white/10 px-5 py-5 lg:block">
+        <div className="mt-auto hidden space-y-3 border-t border-sidebar-border px-5 py-5 lg:block">
           <Status />
-          <p className="text-xs leading-relaxed text-white/45">Demo companies are fictional. Not tax advice.</p>
+          <p className="text-xs leading-relaxed text-slate">Demo companies are fictional. Not tax advice.</p>
         </div>
       </aside>
 
       <div className="flex min-h-screen min-w-0 flex-col">
         {demo && <DemoBanner />}
-        <div className="sticky top-0 z-30 border-b border-white/10 bg-paper/70 shadow-[0_1px_0_rgb(0_0_0/0.25)] backdrop-blur-xl">
+        <div className="sticky top-0 z-30 border-b border-rule bg-paper/85 backdrop-blur-md">
           <div className="flex h-14 items-center justify-between gap-4 px-5 md:px-8">
             <p className="flex min-w-0 items-center gap-2 text-sm">
               <span className="text-slate">TaxPulse</span>
@@ -219,9 +230,10 @@ export default function Layout() {
               <span className="truncate font-semibold">{section?.label ?? 'TaxPulse'}</span>
             </p>
             <div className="flex items-center gap-3">
-              <span className="tp-btn-quiet hidden rounded-full px-3 py-1 text-xs font-medium text-slate sm:inline">
+              <span className="hidden rounded-full border border-rule bg-card px-3 py-1 text-xs font-medium text-slate sm:inline">
                 Week {isoWeek(now)} · {now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
+              <ThemeToggle />
               <Notifications />
             </div>
           </div>

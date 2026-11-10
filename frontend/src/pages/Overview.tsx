@@ -32,8 +32,8 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
       aria-label={`Relevance radar with ${clients.length} former ${clients.length === 1 ? 'client' : 'clients'}`}>
       <defs>
         <radialGradient id="tp-core" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#ff9d5c" stopOpacity=".32" />
-          <stop offset="100%" stopColor="#ff9d5c" stopOpacity="0" />
+          <stop offset="0%" stopColor="#fbbf24" stopOpacity=".32" />
+          <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="tp-beam" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
@@ -53,12 +53,12 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
       <text x={c + 6} y={c - R * 0.44 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">80</text>
       {blips.map((b, i) => (
         <g key={b.client_id} onMouseEnter={() => onActive(i)} onMouseLeave={() => onActive(null)}>
-          <circle cx={b.x} cy={b.y} r="0" fill="none" stroke="#ff9d5c" className="tp-blip-ring" style={{ animationDelay: `${i * 0.5}s` }} />
+          <circle cx={b.x} cy={b.y} r="0" fill="none" stroke="#fbbf24" className="tp-blip-ring" style={{ animationDelay: `${i * 0.5}s` }} />
           <g role="link" tabIndex={0} aria-label={`${b.client}, score ${b.score}`} className="cursor-pointer outline-none"
             onFocus={() => onActive(i)} onBlur={() => onActive(null)}
             onClick={() => navigate(`/alerts#alert-${b.alert_id}`)}
             onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/alerts#alert-${b.alert_id}`) }}>
-            <circle cx={b.x} cy={b.y} r={active === i ? 9 : 7} fill="#ff9d5c" stroke="#0e1117" strokeWidth="2.5" />
+            <circle cx={b.x} cy={b.y} r={active === i ? 9 : 7} fill="#fbbf24" stroke="#1c1917" strokeWidth="2.5" />
             <text x={b.x} y={b.y - 14} textAnchor="middle" fill="#fff" fillOpacity={active === null || active === i ? 0.95 : 0.4}
               fontSize="11.5" fontWeight="600" fontFamily="Instrument Sans, sans-serif">
               {b.client.replace(/ (GmbH|AG|SE|KG|MVZ).*$/, '')}
@@ -86,11 +86,11 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
           {focus ? (
             <>
               <p className="mt-6 text-sm text-white/55">{active !== null ? 'On the radar' : 'Call first'}</p>
-              <h2 id="lead" className="tp-chrome-text-light mt-1 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.045em] md:text-[48px]">
+              <h2 id="lead" className="tp-chrome-text-light mt-1 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.015em] md:text-[48px]">
                 {focus.client}
               </h2>
               <div className="mt-5 flex items-end gap-4">
-                <p className="font-serif text-[64px] font-bold leading-[0.8] tracking-[-0.05em] text-relevance">{focus.score}</p>
+                <p className="font-serif text-[64px] font-bold leading-[0.8] tracking-[-0.015em] text-relevance">{focus.score}</p>
                 <p className="pb-1 text-sm leading-snug text-white/60">relevance<br />out of 100</p>
               </div>
               <ul className="mt-6 space-y-2 text-[14.5px] leading-snug text-white/80">
@@ -113,7 +113,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
             </>
           ) : (
             <>
-              <h2 id="lead" className="tp-chrome-text-light mt-6 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.045em] md:text-[44px]">
+              <h2 id="lead" className="tp-chrome-text-light mt-6 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.015em] md:text-[44px]">
                 The radar is quiet this week.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
@@ -149,7 +149,7 @@ function Kpi({ label, value, note, to, icon, highlight = false }: {
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{KPI_ICON[icon]}</svg>
         </span>
       </dt>
-      <dd className={`mt-3 pb-0.5 font-serif text-[40px] font-bold leading-none tracking-[-0.05em] ${highlight ? 'text-heat' : 'tp-chrome-text'}`}>{value}</dd>
+      <dd className={`mt-3 pb-0.5 font-serif text-[40px] font-bold leading-none tracking-[-0.015em] ${highlight ? 'text-heat' : 'tp-chrome-text'}`}>{value}</dd>
       <dd className="mt-2.5 flex items-center justify-between text-[13px] text-slate">
         {note}
         <span aria-hidden className="opacity-0 transition-opacity group-hover:opacity-100">→</span>
@@ -200,7 +200,7 @@ function Ranking({ clients }: { clients: Top }) {
                   </span>
                 </span>
                 <span aria-label={`Highest score ${c.score}`}>
-                  <span className="flex items-baseline justify-end gap-1 font-serif text-[22px] font-bold tracking-[-0.03em] text-heat">{c.score}</span>
+                  <span className="flex items-baseline justify-end gap-1 font-serif text-[22px] font-bold tracking-[-0.015em] text-heat">{c.score}</span>
                   <span className="mt-1 block h-1.5 overflow-hidden rounded-full bg-heat-soft" aria-hidden>
                     <span className="block h-full rounded-full bg-heat" style={{ width: `${c.score}%` }} />
                   </span>

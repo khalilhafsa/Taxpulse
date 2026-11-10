@@ -15,7 +15,7 @@ function Score({ value }: { value: number }) {
   return (
     <div className="tp-metal-dark flex shrink-0 items-center gap-4 px-5 py-4 text-white sm:w-[120px] sm:flex-col sm:items-start sm:gap-0 sm:py-6" aria-label={`Relevance ${value} out of 100`}>
       <p className="tp-eyebrow text-[10px] text-white/60">Relevance</p>
-      <p className="font-serif text-[52px] font-semibold leading-none tracking-[-0.04em] text-relevance sm:mt-2">{value}</p>
+      <p className="font-serif text-[52px] font-semibold leading-none tracking-[-0.015em] text-relevance sm:mt-2">{value}</p>
       <div className="h-1 flex-1 bg-white/10 sm:mt-4 sm:w-full sm:flex-none">
         <div className="h-full bg-relevance" style={{ width: `${value}%` }} />
       </div>
@@ -304,7 +304,7 @@ export default function Alerts() {
           <button key={t.key} role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}
             className={`inline-flex min-h-9 items-center gap-2 whitespace-nowrap rounded-md px-3.5 text-sm font-semibold ${tab === t.key ? 'tp-btn-quiet text-ink' : 'text-slate hover:text-ink'}`}>
             {t.label}
-            <span className={`rounded-full px-2 py-px text-[11.5px] ${tab === t.key ? 'bg-brand text-night' : 'bg-sheet/70 text-slate'}`}>{count(t.key)}</span>
+            <span className={`rounded-full px-2 py-px text-[11.5px] ${tab === t.key ? 'bg-primary text-primary-foreground' : 'bg-sheet/70 text-slate'}`}>{count(t.key)}</span>
           </button>
         ))}
       </div>

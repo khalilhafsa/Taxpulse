@@ -7,10 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400..700&family=Michroma&family=Sora:wght@400..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <title>TaxPulse</title>
+    <script>
+      // Apply the saved light/dark choice before the first paint (no flash).
+      try { if (localStorage.getItem('taxpulse.theme') === 'dark') document.documentElement.classList.add('dark') } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

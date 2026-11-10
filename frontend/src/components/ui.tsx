@@ -4,7 +4,7 @@ export function PageHeader({ title, intro, action }: { title: string; intro?: Re
   return (
     <header className="mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
       <div className="max-w-2xl">
-        <h1 className="tp-chrome-text pb-1 font-serif text-[36px] font-bold leading-[1.05] tracking-[-0.04em] md:text-[46px]">{title}</h1>
+        <h1 className="tp-chrome-text pb-1 font-serif text-[36px] font-bold leading-[1.05] tracking-[-0.015em] md:text-[46px]">{title}</h1>
         {intro && <div className="mt-3 text-[15px] leading-relaxed text-slate">{intro}</div>}
       </div>
       {action}
@@ -20,7 +20,7 @@ export function Card({ children, className = '' }: { children: ReactNode; classN
 export function EmptyState({ title, children }: { title: string; children?: ReactNode }) {
   return (
     <div className="rounded-xl border border-dashed border-slate/35 bg-sheet px-6 py-14 text-center">
-      <p className="font-serif text-xl font-bold tracking-[-0.02em] text-ink">{title}</p>
+      <p className="font-serif text-xl font-bold tracking-[-0.01em] text-ink">{title}</p>
       {children && <div className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate">{children}</div>}
     </div>
   )
@@ -81,7 +81,7 @@ export function DemoTag() {
 
 export function SectionTitle({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="tp-chrome-text mb-4 flex items-baseline gap-3 pb-0.5 font-serif text-[21px] font-bold tracking-[-0.025em]">
+    <h2 id={id} className="tp-chrome-text mb-4 flex items-baseline gap-3 pb-0.5 font-serif text-[21px] font-bold tracking-[-0.01em]">
       {children}
     </h2>
   )

@@ -1,94 +1,199 @@
 @import "tailwindcss";
 
-/* Design tokens: "Chrome, black". A black-steel workspace: brushed near-black page, graphite cards with a machined bevel, a darker gunmetal rail, and polished chrome type
-   on the main titles. Reflections move as you scroll (and follow the pointer on cards).
-   Cobalt stays the brand colour for links and focus; orange "heat" is reserved for relevance
-   and alerts. Reflections are switched off for people who prefer reduced motion. */
-@theme {
-  --color-paper: #0d0e11;        /* page: black steel */
-  --color-paper-deep: #16181c;
-  --color-sheet: #1c1f24;        /* cards, inputs */
-  --color-ink: #f1f3f6;          /* main text */
-  --color-slate: #aab1bb;        /* secondary text, 8:1 on the page */
-  --color-rule: #30343a;
-  --color-brand: #a3b4ff;        /* cobalt, lightened to read on grey */
-  --color-brand-deep: #c4cfff;
-  --color-brand-soft: #262c48;
-  --color-heat: #ffab70;         /* relevance orange, lightened for grey */
-  --color-heat-soft: #3a2a20;
-  --color-danger: #ff9a90;
-  /* Gunmetal surfaces: the rail and the lead card. Signal and relevance are their accents. */
-  --color-night: #0d0e11;
-  --color-night-soft: #1c1f24;
-  --color-signal: #d3dbff;
-  --color-relevance: #ffab70;
+/* Dark mode follows the `.dark` class on <html> (toggle in the top bar, remembered per browser). */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  --font-sans: "Instrument Sans", system-ui, sans-serif;
-  /* The display face. The token keeps its historical name so every heading picks it up. */
-  --font-serif: "Sora", "Instrument Sans", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --font-wide: "Michroma", "Sora", system-ui, sans-serif;
+/* ---------- Theme tokens, as supplied (light in :root, dark in .dark) ---------- */
+:root {
+  --card: #faf7f5;
+  --ring: #9b2c2c;
+  --input: #f5e8d2;
+  --muted: #f0ebe8;
+  --accent: #fef3c7;
+  --border: #f5e8d2;
+  --radius: 0.375rem;
+  --chart-1: #b91c1c;
+  --chart-2: #9b2c2c;
+  --chart-3: #7f1d1d;
+  --chart-4: #b45309;
+  --chart-5: #92400e;
+  --popover: #faf7f5;
+  --primary: #9b2c2c;
+  --sidebar: #f0ebe8;
+  --font-mono: IBM Plex Mono, monospace;
+  --font-sans: Poppins, sans-serif;
+  --secondary: #fdf2d6;
+  --background: #faf7f5;
+  --font-serif: Libre Baskerville, serif;
+  --foreground: #1a1a1a;
+  --destructive: #991b1b;
+  --shadow-blur: 16px;
+  --shadow-color: hsl(0 63% 18%);
+  --sidebar-ring: #9b2c2c;
+  --shadow-spread: -2px;
+  --shadow-opacity: 0.12;
+  --sidebar-accent: #fef3c7;
+  --sidebar-border: #f5e8d2;
+  --card-foreground: #1a1a1a;
+  --shadow-offset-x: 1px;
+  --shadow-offset-y: 1px;
+  --sidebar-primary: #9b2c2c;
+  --muted-foreground: #57534e;
+  --accent-foreground: #7f1d1d;
+  --popover-foreground: #1a1a1a;
+  --primary-foreground: #ffffff;
+  --sidebar-foreground: #1a1a1a;
+  --secondary-foreground: #805500;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #7f1d1d;
+  --sidebar-primary-foreground: #ffffff;
 
-  --radius-xs: 3px;
-  --radius-sm: 5px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 22px;
+  /* App roles derived from the tokens above. */
+  --tp-brand: var(--primary);                   /* links, active states, primary fills */
+  --tp-brand-deep: var(--accent-foreground);
+  --tp-brand-soft: color-mix(in srgb, var(--primary) 8%, var(--card));
+  --tp-heat: var(--chart-4);                    /* relevance and alerts */
+  --tp-heat-soft: var(--accent);
+  --tp-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread)
+    color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+}
 
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25);
-  --shadow: 0 2px 8px -2px rgb(0 0 0 / 0.35);
-  --shadow-md: 0 12px 26px -12px rgb(0 0 0 / 0.5);
-  --shadow-lg: 0 26px 54px -24px rgb(0 0 0 / 0.65);
-  --shadow-xl: 0 36px 80px -30px rgb(0 0 0 / 0.75), 0 0 0 1px rgb(255 255 255 / 0.06);
+.dark {
+  --card: #292524;
+  --ring: #b91c1c;
+  --input: #44403c;
+  --muted: #1f1c1a;
+  --accent: #b45309;
+  --border: #44403c;
+  --radius: 0.375rem;
+  --chart-1: #f87171;
+  --chart-2: #ef4444;
+  --chart-3: #dc2626;
+  --chart-4: #fbbf24;
+  --chart-5: #f59e0b;
+  --popover: #292524;
+  --primary: #b91c1c;
+  --sidebar: #1c1917;
+  --secondary: #92400e;
+  --background: #1c1917;
+  --foreground: #f5f5f4;
+  --destructive: #ef4444;
+  --sidebar-ring: #b91c1c;
+  --sidebar-accent: #b45309;
+  --sidebar-border: #44403c;
+  --card-foreground: #f5f5f4;
+  --sidebar-primary: #b91c1c;
+  --muted-foreground: #d6d3d1;
+  --accent-foreground: #fef3c7;
+  --popover-foreground: #f5f5f4;
+  --primary-foreground: #faf7f5;
+  --sidebar-foreground: #f5f5f4;
+  --secondary-foreground: #fef3c7;
+  --destructive-foreground: #ffffff;
+  --sidebar-accent-foreground: #fef3c7;
+  --sidebar-primary-foreground: #faf7f5;
+
+  /* Red text needs the lighter chart red to stay readable on the dark background. */
+  --tp-brand: var(--chart-1);
+  --tp-brand-deep: #fecaca;
+  --tp-brand-soft: color-mix(in srgb, var(--primary) 26%, var(--card));
+  --tp-heat: var(--chart-4);
+  --tp-heat-soft: color-mix(in srgb, var(--accent) 32%, var(--card));
+  --tp-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 28px -14px rgb(0 0 0 / 0.7);
+}
+
+@theme inline {
+  --color-card: var(--card);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-radius: var(--radius);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-popover: var(--popover);
+  --color-primary: var(--primary);
+  --color-sidebar: var(--sidebar);
+  --color-font-mono: var(--font-mono);
+  --color-font-sans: var(--font-sans);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-font-serif: var(--font-serif);
+  --color-foreground: var(--foreground);
+  --color-destructive: var(--destructive);
+  --color-shadow-blur: var(--shadow-blur);
+  --color-shadow-color: var(--shadow-color);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-shadow-spread: var(--shadow-spread);
+  --color-shadow-opacity: var(--shadow-opacity);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-card-foreground: var(--card-foreground);
+  --color-shadow-offset-x: var(--shadow-offset-x);
+  --color-shadow-offset-y: var(--shadow-offset-y);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+
+  /* The app's own colour names, mapped onto the theme so both modes work everywhere. */
+  --color-paper: var(--background);
+  --color-paper-deep: var(--muted);
+  --color-sheet: var(--card);
+  --color-ink: var(--foreground);
+  --color-slate: var(--muted-foreground);
+  --color-rule: var(--border);
+  --color-brand: var(--tp-brand);
+  --color-brand-deep: var(--tp-brand-deep);
+  --color-brand-soft: var(--tp-brand-soft);
+  --color-heat: var(--tp-heat);
+  --color-heat-soft: var(--tp-heat-soft);
+  --color-danger: var(--destructive);
+  /* The dark lead card (radar) stays dark in both modes. */
+  --color-night: #1c1917;
+  --color-night-soft: #292524;
+  --color-signal: #fef3c7;
+  --color-relevance: #fbbf24;
+
+  --font-sans: Poppins, sans-serif;
+  --font-serif: "Libre Baskerville", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-wide: "Libre Baskerville", serif;
+
+  --radius-xs: calc(var(--radius) - 3px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --shadow-sm: var(--tp-shadow);
+  --shadow: var(--tp-shadow);
+  --shadow-md: var(--tp-shadow);
+  --shadow-lg: 2px 6px 28px -6px color-mix(in srgb, var(--shadow-color) 22%, transparent);
+  --shadow-xl: 4px 12px 44px -8px color-mix(in srgb, var(--shadow-color) 28%, transparent);
 }
 
 html {
-  color-scheme: dark;
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
-/* The page is a clean, deep black: no texture, just a soft vignette. Light comes from the
-   ambient layer below, which glides with the pointer and the scroll (see useFluidLight). */
-body {
-  background:
-    radial-gradient(120% 90% at 60% -10%, #191b20 0%, #0d0e11 48%, #08090b 100%);
-  background-attachment: fixed;
-}
-
-.tp-ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.tp-orb {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(70px);
-  will-change: transform;
-}
-/* A cool silver glow that follows the pointer, lagging softly behind it. */
-.tp-orb-a {
-  width: 620px; height: 620px; left: -310px; top: -310px;
-  background: radial-gradient(circle, rgb(196 206 224 / 0.16), rgb(196 206 224 / 0) 68%);
-  transform: translate3d(var(--ax, 70vw), var(--ay, 10vh), 0);
-}
-/* Two large, slow glows that drift on their own and slide with the scroll (parallax). */
-.tp-orb-b {
-  width: 900px; height: 700px; right: -260px; top: 8vh;
-  background: radial-gradient(closest-side, rgb(140 158 210 / 0.12), rgb(140 158 210 / 0));
-  transform: translate3d(0, calc(var(--par, 0px) * -0.18), 0);
-  animation: tp-drift-b 26s ease-in-out infinite alternate;
-}
-.tp-orb-c {
-  width: 760px; height: 760px; left: 12vw; top: 70vh;
-  background: radial-gradient(closest-side, rgb(220 226 236 / 0.07), rgb(220 226 236 / 0));
-  transform: translate3d(0, calc(var(--par, 0px) * -0.32), 0);
-  animation: tp-drift-c 32s ease-in-out infinite alternate;
-}
-@keyframes tp-drift-b { from { translate: 0 0; } to { translate: -140px 90px; } }
-@keyframes tp-drift-c { from { translate: 0 0; } to { translate: 160px -110px; } }
+html.dark { color-scheme: dark; }
+body { background: var(--background); }
 
 /* Figures line up in columns everywhere: scores, counts, dates, costs. */
 table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
@@ -96,176 +201,81 @@ table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
 h1, h2, h3 { text-wrap: balance; }
 p { text-wrap: pretty; }
 
-::selection { background: #6b7bd6; color: #fff; }
+::selection { background: var(--accent); color: var(--accent-foreground); }
 
 :focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
 
-input::placeholder, textarea::placeholder { color: rgb(185 192 202 / 0.6); }
+input::placeholder, textarea::placeholder { color: color-mix(in srgb, var(--muted-foreground) 65%, transparent); }
 
 button:not(:disabled), a, summary, select, [role="button"] { cursor: pointer; }
 
-/* One easing for the whole app: quick to respond, slow to settle (an "ease-out-expo" feel). */
 a, button {
-  transition: color 260ms cubic-bezier(.22, 1, .36, 1), background-color 260ms cubic-bezier(.22, 1, .36, 1),
-    border-color 260ms cubic-bezier(.22, 1, .36, 1), box-shadow 360ms cubic-bezier(.22, 1, .36, 1),
-    transform 360ms cubic-bezier(.22, 1, .36, 1), filter 260ms cubic-bezier(.22, 1, .36, 1);
+  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
+    box-shadow 250ms ease, transform 250ms ease;
 }
 
-/* ---------- Chrome surfaces ---------- */
+/* ---------- Surfaces (class names kept from earlier themes, restyled) ---------- */
 
-/* Graphite card: smooth satin body, a machined bevel for a border, and a specular glow that
-   glides after the pointer (--mx/--my are eased by useFluidLight). */
+/* Card: the theme's card colour, border and shadow. */
 .tp-chrome {
-  position: relative;
-  isolation: isolate;
-  border-color: transparent !important;
-  background: linear-gradient(180deg, rgb(36 39 45 / 0.92) 0%, rgb(26 28 33 / 0.92) 60%, rgb(22 24 28 / 0.94) 100%) !important;
-  backdrop-filter: blur(14px) saturate(1.1);
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.08) inset, 0 1px 2px rgb(0 0 0 / 0.35), 0 18px 40px -26px rgb(0 0 0 / 0.9);
-  transition: box-shadow 500ms cubic-bezier(.22, 1, .36, 1), transform 500ms cubic-bezier(.22, 1, .36, 1);
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--tp-shadow);
+  transition: box-shadow 250ms ease, transform 250ms ease, border-color 200ms ease;
 }
-.tp-chrome::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background:
-    radial-gradient(260px circle at var(--mx, 50%) var(--my, -80px), rgb(255 255 255 / 0.6), rgb(255 255 255 / 0) 70%),
-    linear-gradient(155deg, rgb(255 255 255 / 0.3) 0%, rgb(255 255 255 / 0.06) 30%, rgb(255 255 255 / 0.16) 50%, rgb(255 255 255 / 0.03) 75%, rgb(255 255 255 / 0.1) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+a.tp-chrome:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--primary) 30%, var(--border)) !important;
 }
-.tp-chrome::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  /* A soft hot spot under the pointer plus an anisotropic streak, like light on polished metal. */
-  background:
-    radial-gradient(420px circle at var(--mx, 50%) var(--my, 0), rgb(255 255 255 / 0.09), rgb(255 255 255 / 0) 65%),
-    linear-gradient(105deg,
-      transparent calc(var(--mx, 50%) - 280px),
-      rgb(255 255 255 / 0.025) calc(var(--mx, 50%) - 110px),
-      rgb(255 255 255 / 0.07) var(--mx, 50%),
-      rgb(255 255 255 / 0.025) calc(var(--mx, 50%) + 110px),
-      transparent calc(var(--mx, 50%) + 280px));
-  opacity: 0;
-  transition: opacity 700ms cubic-bezier(.22, 1, .36, 1);
-}
-.tp-chrome:hover::after { opacity: 1; }
-.tp-chrome:hover { box-shadow: 0 1px 0 rgb(255 255 255 / 0.12) inset, 0 1px 2px rgb(0 0 0 / 0.35), 0 26px 50px -26px rgb(0 0 0 / 0.95); }
-a.tp-chrome:hover { transform: translateY(-2px); }
 
-/* Dark chrome (gunmetal): the lead card and the score columns. */
+/* The lead card (radar): warm stone, dark in both modes. */
 .tp-chrome-dark {
   position: relative;
-  isolation: isolate;
   background:
-    linear-gradient(160deg, #2b2f36 0%, #191b20 38%, #121417 62%, #22252b 100%);
-  box-shadow: 0 1px 0 rgb(255 255 255 / 0.12) inset, 0 30px 60px -30px rgb(0 0 0 / 0.8);
+    radial-gradient(90% 120% at 100% 0%, rgb(185 28 28 / 0.22), rgb(185 28 28 / 0) 60%),
+    #1c1917;
+  border: 1px solid #44403c;
+  box-shadow: var(--shadow-lg);
 }
-.tp-chrome-dark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  padding: 1px;
-  background:
-    radial-gradient(260px circle at var(--mx, 50%) var(--my, -60px), rgb(255 255 255 / 0.55), rgb(255 255 255 / 0) 70%),
-    linear-gradient(160deg, rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.04) 40%, rgb(255 255 255 / 0.18) 100%);
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-.tp-chrome-dark::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  pointer-events: none;
-  background:
-    radial-gradient(520px circle at var(--mx, 30%) var(--my, 0), rgb(255 255 255 / 0.1), rgb(255 255 255 / 0) 60%),
-    linear-gradient(105deg, transparent calc(var(--mx, 30%) - 260px), rgb(255 255 255 / 0.06) var(--mx, 30%), transparent calc(var(--mx, 30%) + 260px));
-}
-.tp-metal-dark {
-  background: linear-gradient(170deg, #2e3239 0%, #1b1e22 45%, #131518 70%, #24272d 100%);
-  box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.12);
-}
+.tp-metal-dark { background: #1c1917; }
 
-/* Gunmetal navigation rail, a shade darker than the page, with a light following the pointer. */
+/* Sidebar. */
 .tp-rail {
-  background:
-    radial-gradient(320px 300px at 50% var(--ay, 20vh), rgb(255 255 255 / 0.06), rgb(255 255 255 / 0) 70%),
-    linear-gradient(180deg, rgb(28 31 36 / 0.92) 0%, rgb(20 22 26 / 0.92) 50%, rgb(15 16 19 / 0.94) 100%);
-  backdrop-filter: blur(16px);
-  box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.08);
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  box-shadow: inset -1px 0 0 var(--sidebar-border);
 }
 .tp-rail-active {
-  background: linear-gradient(180deg, #ffffff 0%, #e3e6eb 55%, #c3c8d0 100%);
-  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgb(0 0 0 / 0.4), 0 6px 14px -6px rgb(0 0 0 / 0.6);
+  background: var(--sidebar-primary);
+  color: var(--sidebar-primary-foreground) !important;
+  box-shadow: var(--tp-shadow);
 }
 
-/* Chrome type for the main titles and key figures: polished silver with a horizon line, and a
-   bright reflection band that slides across the letters as you scroll (--shine, set by the
-   Layout from the scroll position) or as the pointer moves. */
-.tp-chrome-text, .tp-chrome-text-light {
-  background:
-    linear-gradient(100deg,
-      rgb(255 255 255 / 0) 0%, rgb(255 255 255 / 0) 34%,
-      rgb(255 255 255 / 0.55) 43%, rgb(255 255 255 / 1) 50%, rgb(255 255 255 / 0.55) 57%,
-      rgb(255 255 255 / 0) 66%, rgb(255 255 255 / 0) 100%),
-    linear-gradient(180deg, #e2e6ec 0%, #b8bfca 38%, #737b87 50%, #c0c6cf 66%, #eef1f4 100%);
-  background-size: 260% 100%, 100% 100%;
-  background-position: var(--shine, 120%) 0, 0 0;
-  background-repeat: no-repeat;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* Main titles: the serif face in the foreground colour (on the dark card, light). */
+.tp-chrome-text { color: var(--foreground); }
+.tp-chrome-text-light { color: #faf7f5; }
 
-/* Buttons: polished silver (primary, the brightest thing on the page) and graphite (quiet).
-   A reflection sweeps across on hover. */
-.tp-btn-primary, .tp-btn-quiet { position: relative; overflow: hidden; isolation: isolate; }
+/* Buttons. */
 .tp-btn-primary {
-  color: #15171b;
-  background: linear-gradient(180deg, #ffffff 0%, #e6e9ee 46%, #c2c8d0 54%, #e9ecf0 100%);
-  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgb(0 0 0 / 0.35), 0 8px 18px -10px rgb(0 0 0 / 0.8);
+  color: var(--primary-foreground);
+  background: var(--primary);
+  box-shadow: var(--tp-shadow);
 }
+.tp-btn-primary:not(:disabled):hover { background: color-mix(in srgb, var(--primary) 86%, #000); }
 .tp-btn-quiet {
-  color: var(--color-ink);
-  background: linear-gradient(180deg, #3a3e45 0%, #2b2e34 50%, #24272c 100%);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.16), 0 0 0 1px rgb(0 0 0 / 0.25), 0 1px 2px rgb(0 0 0 / 0.3);
+  color: var(--foreground);
+  background: var(--card);
+  box-shadow: inset 0 0 0 1px var(--border), var(--tp-shadow);
 }
-.tp-btn-primary::after, .tp-btn-quiet::after {
-  content: "";
-  position: absolute;
-  inset: -40% auto -40% -60%;
-  width: 45%;
-  z-index: -1;
-  transform: skewX(-20deg) translateX(0);
-  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.9), transparent);
-  pointer-events: none;
-}
-.tp-btn-quiet::after { background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.22), transparent); }
-.tp-btn-primary:not(:disabled):hover::after, .tp-btn-quiet:not(:disabled):hover::after { animation: tp-shine 1100ms cubic-bezier(.22, 1, .36, 1); }
-@keyframes tp-shine { from { transform: skewX(-20deg) translateX(0) } to { transform: skewX(-20deg) translateX(420%) } }
+.tp-btn-quiet:not(:disabled):hover { background: var(--secondary); color: var(--secondary-foreground); }
 
-/* Demo banner: a warm band with the DEMO badge, so fictional data is never mistaken for real data. */
+/* Demo banner: the amber accent, so fictional data is never mistaken for real data. */
 .tp-hatch {
-  background: linear-gradient(90deg, rgb(255 171 112 / 0.16), rgb(255 171 112 / 0.07) 60%, rgb(255 171 112 / 0.03));
-  backdrop-filter: blur(12px);
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 @layer components {
@@ -273,18 +283,17 @@ a.tp-chrome:hover { transform: translateY(-2px); }
   .tp-eyebrow {
     font-size: 12.5px;
     font-weight: 500;
-    letter-spacing: 0.005em;
-    color: var(--color-slate);
+    color: var(--muted-foreground);
   }
 }
 
 /* Pages settle in: each block rises and fades in, one after the other. */
-@keyframes tp-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-.tp-page > *, .tp-stagger > * { animation: tp-rise 700ms cubic-bezier(.22, 1, .36, 1) both; }
-.tp-page > *:nth-child(2), .tp-stagger > *:nth-child(2) { animation-delay: 70ms; }
-.tp-page > *:nth-child(3), .tp-stagger > *:nth-child(3) { animation-delay: 140ms; }
-.tp-page > *:nth-child(4), .tp-stagger > *:nth-child(4) { animation-delay: 210ms; }
-.tp-page > *:nth-child(n+5), .tp-stagger > *:nth-child(n+5) { animation-delay: 280ms; }
+@keyframes tp-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.tp-page > *, .tp-stagger > * { animation: tp-rise 550ms cubic-bezier(.22, 1, .36, 1) both; }
+.tp-page > *:nth-child(2), .tp-stagger > *:nth-child(2) { animation-delay: 60ms; }
+.tp-page > *:nth-child(3), .tp-stagger > *:nth-child(3) { animation-delay: 120ms; }
+.tp-page > *:nth-child(4), .tp-stagger > *:nth-child(4) { animation-delay: 180ms; }
+.tp-page > *:nth-child(n+5), .tp-stagger > *:nth-child(n+5) { animation-delay: 240ms; }
 
 /* Radar: the sweep turns slowly, blips pulse when they appear. */
 @keyframes tp-sweep { to { transform: rotate(360deg) } }
@@ -298,7 +307,7 @@ a.tp-chrome:hover { transform: translateY(-2px); }
 
 /* Agent chain: a new line in the activity log glows briefly. */
 @keyframes tp-row-in {
-  from { background: var(--color-brand-soft); transform: translateY(-4px); opacity: 0; }
+  from { background: var(--accent); transform: translateY(-4px); opacity: 0; }
   to { background: transparent; transform: none; opacity: 1; }
 }
 .tp-row-new { animation: tp-row-in 1.2s ease-out; }
@@ -313,9 +322,7 @@ a.tp-chrome:hover { transform: translateY(-2px); }
 
 @media (prefers-reduced-motion: reduce) {
   .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal,
-  .tp-btn-primary::after, .tp-btn-quiet::after, .tp-page > *, .tp-stagger > * { animation: none !important; }
-  .tp-chrome::after { display: none; }
-  .tp-orb-b, .tp-orb-c { animation: none; }
+  .tp-page > *, .tp-stagger > * { animation: none !important; }
   a.tp-chrome:hover { transform: none; }
   a, button { transition: none; }
 }

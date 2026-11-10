@@ -79,7 +79,7 @@ export default function Notifications() {
           <path d="M6 9a6 6 0 1 1 12 0c0 4.5 1.5 6.5 2 7H4c.5-.5 2-2.5 2-7Z" /><path d="M10 20a2 2 0 0 0 4 0" />
         </svg>
         {unread > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-heat px-1 text-[10px] font-bold text-night ring-2 ring-paper">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-heat px-1 text-[10px] font-bold text-white dark:text-night ring-2 ring-paper">
             {unread > 9 ? '9+' : unread}
           </span>
         )}
