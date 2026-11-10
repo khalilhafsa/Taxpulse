@@ -240,7 +240,15 @@ a.tp-chrome:hover {
   border: 1px solid #44403c;
   box-shadow: var(--shadow-lg);
 }
+/* In light mode the lead card is a softer, warmer stone so it does not weigh on the cream page. */
+html:not(.dark) .tp-chrome-dark {
+  background:
+    radial-gradient(90% 120% at 100% 0%, rgb(185 28 28 / 0.14), rgb(185 28 28 / 0) 60%),
+    linear-gradient(160deg, #4a3d39 0%, #3d322f 100%);
+  border-color: #5a4a45;
+}
 .tp-metal-dark { background: #1c1917; }
+html:not(.dark) .tp-metal-dark { background: linear-gradient(160deg, #4a3d39 0%, #3d322f 100%); }
 
 /* Sidebar. */
 .tp-rail {

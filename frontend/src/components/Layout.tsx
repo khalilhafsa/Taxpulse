@@ -205,7 +205,7 @@ export default function Layout() {
                 <NavLink key={n.to} to={n.to} end={n.end}
                   className={({ isActive }) =>
                     `flex min-h-10 items-center gap-3 whitespace-nowrap rounded-md px-3 text-[14px] font-medium ${
-                      isActive ? 'tp-rail-active' : 'text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                      isActive ? 'tp-rail-active' : 'text-sidebar-foreground/80 hover:bg-brand-soft hover:text-brand-deep'
                     }`}>
                   {ICONS[n.icon]}
                   {n.label}
