@@ -103,7 +103,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
               </ul>
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link to={`/alerts#alert-${focus.alert_id}`}
-                  className="tp-btn-quiet inline-flex min-h-11 items-center gap-2 rounded-md px-5 text-sm font-semibold">
+                  className="tp-btn-primary inline-flex min-h-11 items-center gap-2 rounded-md px-5 text-sm font-semibold">
                   Open the alert <span aria-hidden>→</span>
                 </Link>
                 <Link to="/alerts" className="inline-flex min-h-11 items-center rounded-md px-4 text-sm font-semibold text-white/80 ring-1 ring-white/15 hover:bg-white/[0.07] hover:text-white">

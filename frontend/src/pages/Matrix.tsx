@@ -5,7 +5,7 @@ import { EmptyState, ErrorNote, PageHeader } from '../components/ui'
 import { useAsync } from '../useAsync'
 
 // Heat is the relevance colour; its strength follows the Matcher's score.
-const fill = (score: number) => `rgba(194, 65, 12, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
+const fill = (score: number) => `rgba(255, 150, 85, ${(0.08 + (score / 100) * 0.85).toFixed(2)})`
 
 function cellInfo(cell: MatrixCell, threshold: number) {
   if (!cell) return { text: '·', title: 'Not matched yet', style: {}, cls: 'text-slate/50' }
@@ -18,7 +18,7 @@ function cellInfo(cell: MatrixCell, threshold: number) {
     text: String(cell.score),
     title: `Score ${cell.score} (${cell.verdict?.replace('_', ' ')})${cell.alert_id ? `, alert${status}` : ''}`,
     style: { backgroundColor: fill(cell.score) },
-    cls: `${cell.score >= threshold ? 'text-white font-semibold' : 'text-ink'} ${cell.alert_status === 'dismissed' ? 'line-through opacity-60' : ''}`,
+    cls: `${cell.score >= threshold ? 'text-night font-semibold' : 'text-ink'} ${cell.alert_status === 'dismissed' ? 'line-through opacity-60' : ''}`,
   }
 }
 
@@ -31,7 +31,7 @@ function Legend({ threshold }: { threshold: number }) {
     <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate">
       {item(<span className={box} style={{ backgroundColor: fill(15) }}>15</span>, 'Not affected')}
       {item(<span className={box} style={{ backgroundColor: fill(45) }}>45</span>, 'Worth a look')}
-      {item(<span className={`${box} font-semibold text-white`} style={{ backgroundColor: fill(88) }}>88</span>, `Alert (${threshold}+)`)}
+      {item(<span className={`${box} font-semibold text-night`} style={{ backgroundColor: fill(88) }}>88</span>, `Alert (${threshold}+)`)}
       {item(<span className={`${box} bg-paper`}>–</span>, 'Dropped by the pre-filter, free')}
       {item(<span className={`${box} text-[13px]`}>✓</span>, 'Alert accepted')}
     </div>
@@ -50,7 +50,7 @@ export default function Matrix() {
     <>
       <PageHeader
         title="Relevance matrix"
-        intro="Every former client against every relevant tax update. The darker the cell, the more the update affects that client. Click a highlighted cell to open its alert."
+        intro="Every former client against every relevant tax update. The brighter the cell, the more the update affects that client. Click a highlighted cell to open its alert."
       />
       {error && <ErrorNote message={error} />}
       {data && (data.rows.length === 0 || data.updates.length === 0) && (
@@ -103,7 +103,7 @@ export default function Matrix() {
                           className={`relative flex h-11 items-center justify-center rounded-md tabular-nums ${info.cls}`}>
                           {info.text}
                           {cell?.alert_status === 'accepted' && (
-                            <span className="absolute right-1 top-0.5 text-[11px] text-white" aria-label="accepted">✓</span>
+                            <span className="absolute right-1 top-0.5 text-[11px] text-night" aria-label="accepted">✓</span>
                           )}
                         </span>
                       )

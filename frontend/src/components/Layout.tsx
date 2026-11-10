@@ -108,7 +108,7 @@ function DemoBanner() {
     <div className="tp-hatch border-b border-heat/20 px-5 py-2 text-[13px] text-ink md:px-8">
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1.5">
         <p className="flex items-baseline gap-3">
-          <span className="shrink-0 rounded-sm bg-heat px-1.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-white">
+          <span className="shrink-0 rounded-sm bg-heat px-1.5 py-0.5 text-[10.5px] font-bold uppercase tracking-[0.1em] text-night">
             Demo
           </span>
           <span>
@@ -174,9 +174,28 @@ export default function Layout() {
         el.style.setProperty('--my', `${last.clientY - r.top}px`)
       }
     }
-    const onMove = (e: PointerEvent) => { last = e; if (!frame) frame = requestAnimationFrame(apply) }
+    // Scroll drives the big reflections: the page's diagonal light bands (--sy) and the
+    // bright band that slides across chrome titles (--shine); the pointer nudges the band too.
+    let px = 0.5
+    const shine = () => {
+      const t = window.scrollY / 650 + px * 0.7
+      root.style.setProperty('--sy', `${window.scrollY}px`)
+      root.style.setProperty('--shine', `${(1.05 - (t % 1.3)) * 100}%`)
+    }
+    const onMove = (e: PointerEvent) => {
+      last = e
+      px = e.clientX / Math.max(window.innerWidth, 1)
+      if (!frame) frame = requestAnimationFrame(() => { apply(); shine() })
+    }
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; shine() }) }
+    shine()
     window.addEventListener('pointermove', onMove, { passive: true })
-    return () => { window.removeEventListener('pointermove', onMove); cancelAnimationFrame(frame) }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('pointermove', onMove)
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(frame)
+    }
   }, [])
 
   useEffect(() => {
@@ -228,7 +247,7 @@ export default function Layout() {
 
       <div className="flex min-h-screen min-w-0 flex-col">
         {demo && <DemoBanner />}
-        <div className="sticky top-0 z-30 border-b border-white/70 bg-white/45 shadow-[0_1px_0_rgb(15_17_21/0.06)] backdrop-blur-xl">
+        <div className="sticky top-0 z-30 border-b border-white/10 bg-paper/70 shadow-[0_1px_0_rgb(0_0_0/0.25)] backdrop-blur-xl">
           <div className="flex h-14 items-center justify-between gap-4 px-5 md:px-8">
             <p className="flex min-w-0 items-center gap-2 text-sm">
               <span className="text-slate">TaxPulse</span>

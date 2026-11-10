@@ -193,7 +193,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
     <section aria-labelledby="chain">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div className="max-w-2xl">
-          <h2 id="chain" className="font-serif text-[21px] font-bold tracking-[-0.025em]">Agent chain</h2>
+          <h2 id="chain" className="tp-chrome-text inline-block pb-0.5 font-serif text-[21px] font-bold tracking-[-0.025em]">Agent chain</h2>
           <p className="mt-1 text-sm text-slate" aria-live="polite">
             {working ? (
               <>
@@ -219,7 +219,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
 
       <div className="overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
         <div className="overflow-x-auto">
-          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#ffffff,#f3f4f6)] lg:min-w-0">
+          <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#50555d,#43474e)] lg:min-w-0">
             {working && (
               <Bubble index={p.stages.indexOf(working)}
                 text={`${BUBBLE[working.key]} ${working.current ? shorten(working.current) : ''}`} />

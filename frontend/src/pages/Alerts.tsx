@@ -304,7 +304,7 @@ export default function Alerts() {
           <button key={t.key} role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}
             className={`inline-flex min-h-9 items-center gap-2 whitespace-nowrap rounded-md px-3.5 text-sm font-semibold ${tab === t.key ? 'tp-btn-quiet text-ink' : 'text-slate hover:text-ink'}`}>
             {t.label}
-            <span className={`rounded-full px-2 py-px text-[11.5px] ${tab === t.key ? 'bg-brand text-white' : 'bg-sheet/70 text-slate'}`}>{count(t.key)}</span>
+            <span className={`rounded-full px-2 py-px text-[11.5px] ${tab === t.key ? 'bg-brand text-night' : 'bg-sheet/70 text-slate'}`}>{count(t.key)}</span>
           </button>
         ))}
       </div>

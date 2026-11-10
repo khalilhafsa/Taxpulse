@@ -81,7 +81,7 @@ export function DemoTag() {
 
 export function SectionTitle({ children, id }: { children: ReactNode; id?: string }) {
   return (
-    <h2 id={id} className="mb-4 flex items-baseline gap-3 font-serif text-[21px] font-bold tracking-[-0.025em]">
+    <h2 id={id} className="tp-chrome-text mb-4 flex items-baseline gap-3 pb-0.5 font-serif text-[21px] font-bold tracking-[-0.025em]">
       {children}
     </h2>
   )

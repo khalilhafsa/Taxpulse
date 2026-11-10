@@ -180,7 +180,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
     <section className="tp-chrome rounded-2xl border border-rule bg-sheet p-5 shadow-sm md:p-7" aria-labelledby={`c${e.client.id}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 id={`c${e.client.id}`} className="font-serif text-[32px] font-semibold leading-tight tracking-[-0.02em]">
+          <h2 id={`c${e.client.id}`} className="tp-chrome-text inline-block pb-0.5 font-serif text-[32px] font-bold leading-tight tracking-[-0.03em]">
             <Link to={`/clients/${e.client.id}`} className="hover:text-brand hover:underline">{e.client.name}</Link>
           </h2>
           <p className="text-sm text-slate">{e.client.mandate}</p>

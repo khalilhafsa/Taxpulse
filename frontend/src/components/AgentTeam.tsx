@@ -16,8 +16,8 @@ const GATE = 800
 const DESK = 172 // desk top
 
 const C = {
-  brand: '#2443d6', brandDark: '#1a33a8', navy: '#2d3e5c', slate: '#586070', ink: '#0e1117',
-  heat: '#c2410c', heatSoft: '#fdeee4', desk: '#e4e7ec', deskTop: '#cdd2da', shirt: '#ffffff',
+  brand: '#2443d6', brandDark: '#1a33a8', navy: '#2d3e5c', slate: '#6b727d', ink: '#0e1117',
+  heat: '#ffab70', heatSoft: '#5d4b40', desk: '#5b6068', deskTop: '#737982', shirt: '#ffffff',
 }
 
 type Look = {
@@ -169,7 +169,7 @@ function Person({ k, i, mode, reduce, cheer }: {
       ))}
       {/* sleeping: floating z's */}
       {mode === 'sleep' && !reduce && [0, 1].map((n) => (
-        <text key={n} x="20" y="78" fontSize={11 + n * 3} fill={C.slate} fontWeight="600" fontFamily="Public Sans, sans-serif" opacity="0">
+        <text key={n} x="20" y="78" fontSize={11 + n * 3} fill="#c9cfd8" fontWeight="600" fontFamily="Public Sans, sans-serif" opacity="0">
           z
           <animateTransform attributeName="transform" type="translate" values="0 0;10 -24" dur="2.6s" begin={`${n * 1.3}s`} repeatCount="indefinite" />
           <animate attributeName="opacity" values="0;.8;0" dur="2.6s" begin={`${n * 1.3}s`} repeatCount="indefinite" />
@@ -232,7 +232,7 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
       </defs>
 
       {/* floor */}
-      <line x1="0" x2={W} y1="216" y2="216" stroke="#e1e4ea" strokeWidth="2" />
+      <line x1="0" x2={W} y1="216" y2="216" stroke="#646a73" strokeWidth="2" />
 
       {/* your desk: the review gate */}
       <g>
