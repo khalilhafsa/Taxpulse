@@ -16,8 +16,8 @@ const GATE = 800
 const DESK = 172 // desk top
 
 const C = {
-  brand: '#9b2c2c', brandDark: '#7f1d1d', navy: '#44403c', slate: '#78716c', ink: '#1c1917',
-  heat: '#b45309', heatSoft: '#fef3c7', desk: '#e7ded8', deskTop: '#d6cbc3', shirt: '#ffffff',
+  brand: '#5d6e62', brandDark: '#45524a', navy: '#3d4a5c', slate: '#6b7280', ink: '#1a1f2e',
+  heat: '#a8641c', heatSoft: '#f6ead8', desk: '#e4e6df', deskTop: '#cfd4c8', shirt: '#ffffff',
 }
 
 type Look = {
@@ -61,7 +61,7 @@ function DeskItem({ k }: { k: string }) {
       return (
         <g transform="translate(-40 152)">
           <rect y="12" width="26" height="7" rx="1.5" fill="#e3c98f" stroke="#b49a5f" />
-          <rect x="2" y="6" width="26" height="7" rx="1.5" fill="#f5e8d2" stroke="#c9a98a" />
+          <rect x="2" y="6" width="26" height="7" rx="1.5" fill="#dfe6dc" stroke="#8b9d83" />
           <rect x="-1" width="26" height="7" rx="1.5" fill="#e3c98f" stroke="#b49a5f" />
         </g>
       )
@@ -184,11 +184,11 @@ function Sorter({ mode, reduce }: { mode: 'sleep' | 'work' | 'idle' | 'happy'; r
   const on = mode === 'work'
   return (
     <g>
-      <path d="M-26 92 h52 l-14 20 h-24 Z" fill="#f5e8d2" stroke={C.brand} strokeWidth="1.5" strokeLinejoin="round" />
-      <rect x="-26" y="112" width="52" height="58" rx="8" fill="#fdf6ee" stroke={C.brand} strokeWidth="1.5" />
+      <path d="M-26 92 h52 l-14 20 h-24 Z" fill="#dfe6dc" stroke={C.brand} strokeWidth="1.5" strokeLinejoin="round" />
+      <rect x="-26" y="112" width="52" height="58" rx="8" fill="#f2f5f0" stroke={C.brand} strokeWidth="1.5" />
       <rect x="-15" y="124" width="30" height="16" rx="4" fill={C.brandDark} />
       {[-6, 6].map((x) => (
-        <circle key={x} cx={x} cy="132" r="2.6" fill={on ? '#fbbf24' : mode === 'sleep' ? '#78716c' : '#f3d9a4'}>
+        <circle key={x} cx={x} cy="132" r="2.6" fill={on ? '#a0aa88' : mode === 'sleep' ? '#78716c' : '#ced4bf'}>
           {on && !reduce && <animate attributeName="opacity" values="1;.3;1" dur="0.6s" repeatCount="indefinite" />}
         </circle>
       ))}
@@ -232,7 +232,7 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
       </defs>
 
       {/* floor */}
-      <line x1="0" x2={W} y1="216" y2="216" stroke="#e8dcd2" strokeWidth="2" />
+      <line x1="0" x2={W} y1="216" y2="216" stroke="#dfe2da" strokeWidth="2" />
 
       {/* your desk: the review gate */}
       <g>
@@ -266,7 +266,7 @@ export function Team({ p, busyKeys, finished, handoff, reduce }: TeamProps) {
                 <DeskItem k={s.key} />
                 {/* laptop */}
                 <path d={`M8 ${DESK} l4 -22 h30 l-4 22 Z`} fill="#c9d1d3" stroke="#9aa6a9" />
-                <circle cx="25" cy={DESK - 11} r="2.2" fill={at ? '#fbbf24' : '#eef2f2'} />
+                <circle cx="25" cy={DESK - 11} r="2.2" fill={at ? '#a0aa88' : '#eef2f2'} />
               </>
             ) : (
               <Sorter mode={at ? 'work' : mode} reduce={reduce} />

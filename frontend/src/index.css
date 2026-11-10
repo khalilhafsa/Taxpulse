@@ -3,108 +3,110 @@
 /* Dark mode follows the `.dark` class on <html> (toggle in the top bar, remembered per browser). */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ---------- Theme tokens, as supplied (light in :root, dark in .dark) ---------- */
+/* ---------- Theme tokens: "Sage Garden" by @serafimcloud (21st.dev), as published ---------- */
 :root {
-  --card: #faf7f5;
-  --ring: #9b2c2c;
-  --input: #f5e8d2;
-  --muted: #f0ebe8;
-  --accent: #fef3c7;
-  --border: #f5e8d2;
-  --radius: 0.375rem;
-  --chart-1: #b91c1c;
-  --chart-2: #9b2c2c;
-  --chart-3: #7f1d1d;
-  --chart-4: #b45309;
-  --chart-5: #92400e;
-  --popover: #faf7f5;
-  --primary: #9b2c2c;
-  --sidebar: #f0ebe8;
-  --font-mono: IBM Plex Mono, monospace;
-  --font-sans: Poppins, sans-serif;
-  --secondary: #fdf2d6;
-  --background: #faf7f5;
-  --font-serif: Libre Baskerville, serif;
-  --foreground: #1a1a1a;
-  --destructive: #991b1b;
-  --shadow-blur: 16px;
-  --shadow-color: hsl(0 63% 18%);
-  --sidebar-ring: #9b2c2c;
-  --shadow-spread: -2px;
-  --shadow-opacity: 0.12;
-  --sidebar-accent: #fef3c7;
-  --sidebar-border: #f5e8d2;
-  --card-foreground: #1a1a1a;
-  --shadow-offset-x: 1px;
+  --card: #ffffff;
+  --ring: #7c9082;
+  --input: #ffffff;
+  --muted: #e8e6e1;
+  --accent: #bfc9bb;
+  --border: #e8e6e1;
+  --radius: 0.35rem;
+  --chart-1: #7c9082;
+  --chart-2: #a0aa88;
+  --chart-3: #8b9d83;
+  --chart-4: #6b7280;
+  --chart-5: #e8e6e1;
+  --popover: #ffffff;
+  --primary: #7c9082;
+  --sidebar: #fafaf8;
+  --spacing: 0.23rem;
+  --font-mono: JetBrains Mono, Courier New, monospace;
+  --font-sans: Antic, ui-sans-serif, sans-serif, system-ui;
+  --secondary: #ced4bf;
+  --background: #f8f7f4;
+  --font-serif: Signifier, Georgia, serif;
+  --foreground: #1a1f2e;
+  --destructive: #c73e3a;
+  --shadow-blur: 2px;
+  --shadow-color: #1a1f2e;
+  --sidebar-ring: #7c9082;
+  --shadow-spread: 0px;
+  --letter-spacing: 0em;
+  --shadow-opacity: 0.04;
+  --sidebar-accent: #e8e6e1;
+  --sidebar-border: #e8e6e1;
+  --card-foreground: #1a1f2e;
+  --shadow-offset-x: 0px;
   --shadow-offset-y: 1px;
-  --sidebar-primary: #9b2c2c;
-  --muted-foreground: #57534e;
-  --accent-foreground: #7f1d1d;
-  --popover-foreground: #1a1a1a;
+  --sidebar-primary: #7c9082;
+  --muted-foreground: #6b7280;
+  --accent-foreground: #1a1f2e;
+  --popover-foreground: #1a1f2e;
   --primary-foreground: #ffffff;
-  --sidebar-foreground: #1a1a1a;
-  --secondary-foreground: #805500;
+  --sidebar-foreground: #1a1f2e;
+  --secondary-foreground: #1a1f2e;
   --destructive-foreground: #ffffff;
-  --sidebar-accent-foreground: #7f1d1d;
+  --sidebar-accent-foreground: #1a1f2e;
   --sidebar-primary-foreground: #ffffff;
 
   /* App roles derived from the tokens above. */
-  --tp-brand: var(--primary);                   /* links, active states, primary fills */
-  --tp-brand-deep: var(--accent-foreground);
-  --tp-brand-soft: color-mix(in srgb, var(--primary) 8%, var(--card));
-  --tp-heat: var(--chart-4);                    /* relevance and alerts */
-  --tp-heat-soft: var(--accent);
+  --tp-brand: color-mix(in srgb, var(--primary) 72%, #000);  /* sage, deepened so text links read well */
+  --tp-brand-deep: color-mix(in srgb, var(--primary) 55%, #000);
+  --tp-brand-soft: color-mix(in srgb, var(--primary) 14%, var(--card));
+  --tp-heat: #a8641c;              /* relevance and alerts: an earthy ochre that sits well with sage */
+  --tp-heat-soft: #f6ead8;
   --tp-shadow: var(--shadow-offset-x) var(--shadow-offset-y) var(--shadow-blur) var(--shadow-spread)
-    color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent);
+    color-mix(in srgb, var(--shadow-color) calc(var(--shadow-opacity) * 100%), transparent),
+    0 8px 24px -14px color-mix(in srgb, var(--shadow-color) 18%, transparent);
   /* Status colours: red means a real problem only. Work in progress is neutral, success is green. */
-  --tp-ok: #2f6b3a;
-  --tp-ok-soft: #e7f1e5;
+  --tp-ok: #3f6b4c;
+  --tp-ok-soft: #e4ede5;
 }
 
 .dark {
-  --card: #292524;
-  --ring: #b91c1c;
-  --input: #44403c;
-  --muted: #1f1c1a;
-  --accent: #b45309;
-  --border: #44403c;
-  --radius: 0.375rem;
-  --chart-1: #f87171;
-  --chart-2: #ef4444;
-  --chart-3: #dc2626;
-  --chart-4: #fbbf24;
-  --chart-5: #f59e0b;
-  --popover: #292524;
-  --primary: #b91c1c;
-  --sidebar: #1c1917;
-  --secondary: #92400e;
-  --background: #1c1917;
-  --foreground: #f5f5f4;
+  --card: #121212;
+  --ring: #7c9082;
+  --input: #121212;
+  --muted: #1a1a1a;
+  --accent: #36443a;
+  --border: #2a2a2a;
+  --chart-1: #7c9082;
+  --chart-2: #a0aa88;
+  --chart-3: #8b9d83;
+  --chart-4: #6b7280;
+  --chart-5: #5a6b5e;
+  --popover: #121212;
+  --primary: #7c9082;
+  --sidebar: #0f0f0f;
+  --secondary: #1a1a1a;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
   --destructive: #ef4444;
-  --sidebar-ring: #b91c1c;
-  --sidebar-accent: #b45309;
-  --sidebar-border: #44403c;
-  --card-foreground: #f5f5f4;
-  --sidebar-primary: #b91c1c;
-  --muted-foreground: #d6d3d1;
-  --accent-foreground: #fef3c7;
-  --popover-foreground: #f5f5f4;
-  --primary-foreground: #faf7f5;
-  --sidebar-foreground: #f5f5f4;
-  --secondary-foreground: #fef3c7;
+  --shadow-color: #000000;
+  --sidebar-ring: #7c9082;
+  --sidebar-accent: #1a1a1a;
+  --sidebar-border: #2a2a2a;
+  --card-foreground: #f5f5f5;
+  --sidebar-primary: #7c9082;
+  --muted-foreground: #a0a0a0;
+  --accent-foreground: #f5f5f5;
+  --popover-foreground: #f5f5f5;
+  --primary-foreground: #000000;
+  --sidebar-foreground: #f5f5f5;
+  --secondary-foreground: #f5f5f5;
   --destructive-foreground: #ffffff;
-  --sidebar-accent-foreground: #fef3c7;
-  --sidebar-primary-foreground: #faf7f5;
+  --sidebar-accent-foreground: #f5f5f5;
+  --sidebar-primary-foreground: #ffffff;
 
-  /* Red text needs the lighter chart red to stay readable on the dark background. */
-  --tp-brand: var(--chart-1);
-  --tp-brand-deep: #fecaca;
-  --tp-brand-soft: color-mix(in srgb, var(--primary) 26%, var(--card));
-  --tp-heat: var(--chart-4);
-  --tp-heat-soft: color-mix(in srgb, var(--accent) 32%, var(--card));
-  --tp-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 28px -14px rgb(0 0 0 / 0.7);
-  --tp-ok: #86d19a;
-  --tp-ok-soft: color-mix(in srgb, #2f6b3a 35%, var(--card));
+  --tp-brand: color-mix(in srgb, var(--primary) 70%, #fff);  /* lighter sage reads well on black */
+  --tp-brand-deep: #d4ddd5;
+  --tp-brand-soft: color-mix(in srgb, var(--primary) 24%, var(--card));
+  --tp-heat: #e0a85a;
+  --tp-heat-soft: color-mix(in srgb, #a8641c 30%, var(--card));
+  --tp-shadow: 0 1px 2px rgb(0 0 0 / 0.5), 0 12px 28px -14px rgb(0 0 0 / 0.8);
+  --tp-ok: #9cc2a6;
+  --tp-ok-soft: color-mix(in srgb, #3f6b4c 35%, var(--card));
 }
 
 @theme inline {
@@ -123,6 +125,7 @@
   --color-popover: var(--popover);
   --color-primary: var(--primary);
   --color-sidebar: var(--sidebar);
+  --color-spacing: var(--spacing);
   --color-font-mono: var(--font-mono);
   --color-font-sans: var(--font-sans);
   --color-secondary: var(--secondary);
@@ -134,6 +137,7 @@
   --color-shadow-color: var(--shadow-color);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-shadow-spread: var(--shadow-spread);
+  --color-letter-spacing: var(--letter-spacing);
   --color-shadow-opacity: var(--shadow-opacity);
   --color-sidebar-accent: var(--sidebar-accent);
   --color-sidebar-border: var(--sidebar-border);
@@ -166,16 +170,16 @@
   --color-danger: var(--destructive);
   --color-ok: var(--tp-ok);
   --color-ok-soft: var(--tp-ok-soft);
-  /* The dark lead card (radar) stays dark in both modes. */
-  --color-night: #1c1917;
-  --color-night-soft: #292524;
-  --color-signal: #fef3c7;
-  --color-relevance: #fbbf24;
+  /* The dark lead card (radar): deep forest green in both modes. */
+  --color-night: #1f2a23;
+  --color-night-soft: #2a372e;
+  --color-signal: #dfe8d9;
+  --color-relevance: #e8b465;
 
-  --font-sans: Poppins, sans-serif;
-  --font-serif: "Libre Baskerville", serif;
-  --font-mono: "IBM Plex Mono", monospace;
-  --font-wide: "Libre Baskerville", serif;
+  --font-sans: Antic, ui-sans-serif, sans-serif, system-ui;
+  --font-serif: Signifier, Georgia, serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --font-wide: Signifier, Georgia, serif;
 
   --radius-xs: calc(var(--radius) - 3px);
   --radius-sm: calc(var(--radius) - 2px);
@@ -187,8 +191,8 @@
   --shadow-sm: var(--tp-shadow);
   --shadow: var(--tp-shadow);
   --shadow-md: var(--tp-shadow);
-  --shadow-lg: 2px 6px 28px -6px color-mix(in srgb, var(--shadow-color) 22%, transparent);
-  --shadow-xl: 4px 12px 44px -8px color-mix(in srgb, var(--shadow-color) 28%, transparent);
+  --shadow-lg: 0 14px 36px -16px color-mix(in srgb, var(--shadow-color) 30%, transparent);
+  --shadow-xl: 0 24px 60px -24px color-mix(in srgb, var(--shadow-color) 38%, transparent);
 }
 
 html {
@@ -242,21 +246,13 @@ a.tp-chrome:hover {
 .tp-chrome-dark {
   position: relative;
   background:
-    radial-gradient(90% 120% at 100% 0%, rgb(185 28 28 / 0.22), rgb(185 28 28 / 0) 60%),
-    #1c1917;
-  border: 1px solid #44403c;
+    radial-gradient(80% 110% at 100% 0%, rgb(124 144 130 / 0.38), rgb(124 144 130 / 0) 62%),
+    radial-gradient(70% 90% at 0% 100%, rgb(168 100 28 / 0.12), rgb(168 100 28 / 0) 60%),
+    linear-gradient(155deg, #263329 0%, #1d271f 60%, #18201a 100%);
+  border: 1px solid #34443a;
   box-shadow: var(--shadow-lg);
 }
-/* In light mode the lead card is a deep wine red: calmer than black, still rich. */
-html:not(.dark) .tp-chrome-dark {
-  background:
-    radial-gradient(80% 110% at 100% 0%, rgb(220 38 38 / 0.32), rgb(220 38 38 / 0) 62%),
-    radial-gradient(70% 90% at 0% 100%, rgb(180 83 9 / 0.12), rgb(180 83 9 / 0) 60%),
-    linear-gradient(155deg, #3a1c1b 0%, #2b1817 55%, #241615 100%);
-  border-color: #4d2826;
-}
-.tp-metal-dark { background: #1c1917; }
-html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%, #2b1817 100%); }
+.tp-metal-dark { background: linear-gradient(155deg, #263329 0%, #1d271f 100%); }
 
 /* Sidebar. */
 .tp-rail {
@@ -272,7 +268,7 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 
 /* Main titles: the serif face in the foreground colour (on the dark card, light). */
 .tp-chrome-text { color: var(--foreground); }
-.tp-chrome-text-light { color: #faf7f5; }
+.tp-chrome-text-light { color: #f4f7f2; }
 
 /* Buttons. */
 .tp-btn-primary {
@@ -320,12 +316,12 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 
 /* Showcase button (LiquidMetalButton): liquid gold rim around a deep red face. */
 .tp-lm { box-shadow: 0 6px 18px -8px color-mix(in srgb, var(--shadow-color) 55%, transparent); transition: transform 500ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 400ms ease; }
-.tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, #b45309 70%, transparent); }
+.tp-lm:not(:disabled):hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 10px 26px -10px color-mix(in srgb, var(--primary) 80%, transparent); }
 .tp-lm:not(:disabled):active { transform: translateY(1px) scale(0.98); }
-.tp-lm-rim { background: linear-gradient(135deg, #fde68a, #b45309 35%, #fef3c7 55%, #92400e 80%, #fbbf24); }
+.tp-lm-rim { background: linear-gradient(135deg, #eef2ec, #7c9082 35%, #ffffff 55%, #5d6e62 80%, #cfd8cc); }
 .tp-lm-rim canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; }
 .tp-lm-face {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 88%, #fff) 0%, var(--primary) 45%, color-mix(in srgb, var(--primary) 78%, #000) 100%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 80%, #fff) 0%, color-mix(in srgb, var(--primary) 82%, #000) 50%, color-mix(in srgb, var(--primary) 62%, #000) 100%);
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25), inset 0 -1px 0 rgb(0 0 0 / 0.25);
 }
 .tp-lm-ripple {
@@ -340,8 +336,8 @@ html:not(.dark) .tp-metal-dark { background: linear-gradient(155deg, #3a1c1b 0%,
 
 /* Demo banner: the amber accent, so fictional data is never mistaken for real data. */
 .tp-hatch {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--tp-heat-soft);
+  color: var(--foreground);
 }
 
 @layer components {

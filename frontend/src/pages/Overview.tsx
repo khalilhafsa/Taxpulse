@@ -32,8 +32,8 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
       aria-label={`Relevance radar with ${clients.length} former ${clients.length === 1 ? 'client' : 'clients'}`}>
       <defs>
         <radialGradient id="tp-core" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#fbbf24" stopOpacity=".32" />
-          <stop offset="100%" stopColor="#fbbf24" stopOpacity="0" />
+          <stop offset="0%" stopColor="#e8b465" stopOpacity=".32" />
+          <stop offset="100%" stopColor="#e8b465" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="tp-beam" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
@@ -53,12 +53,12 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
       <text x={c + 6} y={c - R * 0.44 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">80</text>
       {blips.map((b, i) => (
         <g key={b.client_id} onMouseEnter={() => onActive(i)} onMouseLeave={() => onActive(null)}>
-          <circle cx={b.x} cy={b.y} r="0" fill="none" stroke="#fbbf24" className="tp-blip-ring" style={{ animationDelay: `${i * 0.5}s` }} />
+          <circle cx={b.x} cy={b.y} r="0" fill="none" stroke="#e8b465" className="tp-blip-ring" style={{ animationDelay: `${i * 0.5}s` }} />
           <g role="link" tabIndex={0} aria-label={`${b.client}, score ${b.score}`} className="cursor-pointer outline-none"
             onFocus={() => onActive(i)} onBlur={() => onActive(null)}
             onClick={() => navigate(`/alerts#alert-${b.alert_id}`)}
             onKeyDown={(e) => { if (e.key === 'Enter') navigate(`/alerts#alert-${b.alert_id}`) }}>
-            <circle cx={b.x} cy={b.y} r={active === i ? 9 : 7} fill="#fbbf24" stroke="#1c1917" strokeWidth="2.5" />
+            <circle cx={b.x} cy={b.y} r={active === i ? 9 : 7} fill="#e8b465" stroke="#1d271f" strokeWidth="2.5" />
             <text x={b.x} y={b.y - 14} textAnchor="middle" fill="#fff" fillOpacity={active === null || active === i ? 0.95 : 0.4}
               fontSize="11.5" fontWeight="600" fontFamily="Instrument Sans, sans-serif">
               {b.client.replace(/ (GmbH|AG|SE|KG|MVZ).*$/, '')}
