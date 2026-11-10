@@ -81,7 +81,7 @@ export default function Settings() {
           </form>
           <aside>
             <p className="text-sm font-medium">Signature preview</p>
-            <pre className="mt-2 whitespace-pre-wrap rounded-xl border border-rule bg-sheet shadow-sm px-4 py-4 font-sans text-sm leading-relaxed">
+            <pre className="mt-2 whitespace-pre-wrap tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-4 py-4 font-sans text-sm leading-relaxed">
               {'Kind regards,\n\n' + (signature || '[Your name]\n[Firm name]')}
             </pre>
             <p className="mt-2 text-xs text-slate">New drafts use these details. Existing drafts keep their text.</p>

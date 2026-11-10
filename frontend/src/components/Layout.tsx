@@ -50,11 +50,17 @@ function Logo() {
   return (
     <NavLink to="/" className="flex shrink-0 items-center gap-2.5" aria-label="TaxPulse, briefing">
       <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden>
-        <rect width="32" height="32" rx="9" fill="#2443d6" />
-        <circle cx="16" cy="16" r="9" fill="none" stroke="#fff" strokeOpacity=".35" strokeWidth="1.5" />
-        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="#fff" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
+        <defs>
+          <linearGradient id="tp-logo" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#ffffff" /><stop offset=".48" stopColor="#c9ced6" />
+            <stop offset=".52" stopColor="#8b929d" /><stop offset="1" stopColor="#eef0f3" />
+          </linearGradient>
+        </defs>
+        <rect width="32" height="32" rx="9" fill="url(#tp-logo)" />
+        <rect x=".5" y=".5" width="31" height="31" rx="8.5" fill="none" stroke="#fff" strokeOpacity=".7" />
+        <path d="M5.5 17h5l2.5-6 4 11 2.5-5h7" fill="none" stroke="#14171b" strokeWidth="2.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <span className="font-serif text-[20px] font-bold tracking-[-0.03em] text-white">TaxPulse</span>
+      <span className="tp-chrome-text-light font-wide text-[15px] tracking-[0.08em]">TAXPULSE</span>
     </NavLink>
   )
 }
@@ -149,6 +155,30 @@ export default function Layout() {
   const first = '/' + (pathname.split('/')[1] ?? '')
   const section = NAV.find((n) => n.to === first)
 
+  // Chrome reflections: a light source follows the pointer across the page (--gx/--gy) and over
+  // whichever chrome surface is under it (--mx/--my, relative to that surface).
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const root = document.documentElement
+    let frame = 0
+    let last: PointerEvent | null = null
+    const apply = () => {
+      frame = 0
+      if (!last) return
+      root.style.setProperty('--gx', `${last.clientX}px`)
+      root.style.setProperty('--gy', `${last.clientY}px`)
+      const el = (last.target as Element | null)?.closest?.('.tp-chrome, .tp-chrome-dark') as HTMLElement | null
+      if (el) {
+        const r = el.getBoundingClientRect()
+        el.style.setProperty('--mx', `${last.clientX - r.left}px`)
+        el.style.setProperty('--my', `${last.clientY - r.top}px`)
+      }
+    }
+    const onMove = (e: PointerEvent) => { last = e; if (!frame) frame = requestAnimationFrame(apply) }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => { window.removeEventListener('pointermove', onMove); cancelAnimationFrame(frame) }
+  }, [])
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); setPalette((p) => !p) }
@@ -160,7 +190,7 @@ export default function Layout() {
   return (
     <DemoContext.Provider value={demo}>
     <div className="min-h-screen lg:grid lg:grid-cols-[256px_minmax(0,1fr)]">
-      <aside className="tp-grid bg-night text-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
+      <aside className="tp-rail text-white lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="flex items-center justify-between gap-3 px-5 py-4 lg:px-5 lg:pb-5 lg:pt-6">
           <Logo />
           <div className="flex items-center gap-1 lg:hidden">
@@ -176,12 +206,12 @@ export default function Layout() {
         <nav className="flex gap-1 overflow-x-auto px-3 pb-3 [scrollbar-width:none] lg:mt-7 lg:flex-col lg:gap-6 lg:overflow-visible lg:px-3 lg:pb-0" aria-label="Main">
           {GROUPS.map((g) => (
             <div key={g} className="flex shrink-0 gap-1 lg:block">
-              <p className="mb-1.5 hidden px-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-white/35 lg:block">{g}</p>
+              <p className="mb-2 hidden px-3 font-wide text-[9.5px] uppercase tracking-[0.18em] text-white/35 lg:block">{g}</p>
               {NAV.filter((n) => n.group === g).map((n) => (
                 <NavLink key={n.to} to={n.to} end={n.end}
                   className={({ isActive }) =>
                     `flex min-h-10 items-center gap-3 whitespace-nowrap rounded-md px-3 text-[14px] font-medium ${
-                      isActive ? 'bg-white text-night shadow-sm' : 'text-white/65 hover:bg-white/[0.07] hover:text-white'
+                      isActive ? 'tp-rail-active text-night' : 'text-white/65 hover:bg-white/[0.07] hover:text-white'
                     }`}>
                   {ICONS[n.icon]}
                   {n.label}
@@ -198,7 +228,7 @@ export default function Layout() {
 
       <div className="flex min-h-screen min-w-0 flex-col">
         {demo && <DemoBanner />}
-        <div className="sticky top-0 z-30 border-b border-rule bg-paper/85 backdrop-blur-md">
+        <div className="sticky top-0 z-30 border-b border-white/70 bg-white/45 shadow-[0_1px_0_rgb(15_17_21/0.06)] backdrop-blur-xl">
           <div className="flex h-14 items-center justify-between gap-4 px-5 md:px-8">
             <p className="flex min-w-0 items-center gap-2 text-sm">
               <span className="text-slate">TaxPulse</span>
@@ -206,7 +236,7 @@ export default function Layout() {
               <span className="truncate font-semibold">{section?.label ?? 'TaxPulse'}</span>
             </p>
             <div className="flex items-center gap-3">
-              <span className="hidden rounded-full border border-rule bg-sheet px-3 py-1 text-xs font-medium text-slate sm:inline">
+              <span className="tp-btn-quiet hidden rounded-full px-3 py-1 text-xs font-medium text-slate sm:inline">
                 Week {isoWeek(now)} · {now.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
               <Notifications />

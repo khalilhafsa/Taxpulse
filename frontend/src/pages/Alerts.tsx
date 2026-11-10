@@ -13,7 +13,7 @@ const TABS: { key: AlertItem['status']; label: string }[] = [
 
 function Score({ value }: { value: number }) {
   return (
-    <div className="flex shrink-0 items-center gap-4 bg-night px-5 py-4 text-white sm:w-[120px] sm:flex-col sm:items-start sm:gap-0 sm:py-6" aria-label={`Relevance ${value} out of 100`}>
+    <div className="tp-metal-dark flex shrink-0 items-center gap-4 px-5 py-4 text-white sm:w-[120px] sm:flex-col sm:items-start sm:gap-0 sm:py-6" aria-label={`Relevance ${value} out of 100`}>
       <p className="tp-eyebrow text-[10px] text-white/60">Relevance</p>
       <p className="font-serif text-[52px] font-semibold leading-none tracking-[-0.04em] text-relevance sm:mt-2">{value}</p>
       <div className="h-1 flex-1 bg-white/10 sm:mt-4 sm:w-full sm:flex-none">
@@ -71,7 +71,7 @@ function AlertCard({ a, onChange, focused = false }: { a: AlertItem; onChange: (
   const against = a.evidence.filter((e) => !e.supports_impact)
 
   return (
-    <li id={`alert-${a.id}`} className={`scroll-mt-28 overflow-hidden rounded-xl border bg-sheet shadow-sm transition-shadow ${focused ? 'border-brand ring-4 ring-brand/15' : 'border-ink/15'}`}>
+    <li id={`alert-${a.id}`} className={`tp-chrome scroll-mt-28 overflow-hidden rounded-xl border bg-sheet shadow-sm transition-shadow ${focused ? 'border-brand ring-4 ring-brand/15' : 'border-ink/15'}`}>
       <div className="flex flex-col sm:flex-row">
         <Score value={a.score} />
         <div className="min-w-0 flex-1 px-5 py-5 md:px-8 md:py-6">
@@ -169,7 +169,7 @@ function EvaluationBox({ e }: { e: Evaluation }) {
   if (!e.evaluated_pairs) return null
   const perfect = e.affected_found === e.affected_total && e.false_alerts === 0
   return (
-    <section aria-labelledby="eval" className="mb-8 rounded-xl border border-rule bg-sheet px-5 py-4 shadow-sm">
+    <section aria-labelledby="eval" className="tp-chrome mb-8 rounded-xl border border-rule bg-sheet px-5 py-4 shadow-sm">
       <h2 id="eval" className="tp-eyebrow text-ink">Accuracy on the labelled demo cases</h2>
       <p className="mt-1 text-sm text-slate">
         Each demo client and demo update pair has a known right answer. Threshold: relevance {e.threshold}.
@@ -299,10 +299,10 @@ export default function Alerts() {
 
       {evaluation && <EvaluationBox e={evaluation} />}
 
-      <div role="tablist" className="mb-5 inline-flex max-w-full gap-1 overflow-x-auto rounded-lg bg-paper-deep p-1 [scrollbar-width:none]">
+      <div role="tablist" className="mb-5 inline-flex max-w-full gap-1 overflow-x-auto rounded-lg bg-paper-deep p-1 shadow-[inset_0_1px_2px_rgb(15_17_21/0.12)] [scrollbar-width:none]">
         {TABS.map((t) => (
           <button key={t.key} role="tab" aria-selected={tab === t.key} onClick={() => setTab(t.key)}
-            className={`inline-flex min-h-9 items-center gap-2 whitespace-nowrap rounded-md px-3.5 text-sm font-semibold ${tab === t.key ? 'bg-sheet text-ink shadow-sm' : 'text-slate hover:text-ink'}`}>
+            className={`inline-flex min-h-9 items-center gap-2 whitespace-nowrap rounded-md px-3.5 text-sm font-semibold ${tab === t.key ? 'tp-btn-quiet text-ink' : 'text-slate hover:text-ink'}`}>
             {t.label}
             <span className={`rounded-full px-2 py-px text-[11.5px] ${tab === t.key ? 'bg-brand text-white' : 'bg-sheet/70 text-slate'}`}>{count(t.key)}</span>
           </button>

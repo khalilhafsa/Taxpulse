@@ -137,7 +137,7 @@ export default function Updates() {
               className="h-4 w-4 accent-brand" />
             Hide publications with no impact on businesses
           </label>
-          <ol className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
+          <ol className="divide-y divide-rule overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
             {shown.map((u) => (
               <li key={u.id}>
                 <Link to={`/updates/${u.id}`}

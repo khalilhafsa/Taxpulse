@@ -44,7 +44,7 @@ export default function Runs() {
           <p className="mb-4 text-sm text-slate">
             {data.totals.runs} {data.totals.runs === 1 ? 'run' : 'runs'}, {data.totals.tokens.toLocaleString('en-GB')} tokens, ${data.totals.cost_usd.toFixed(3)} in total
           </p>
-          <div className="overflow-x-auto rounded-xl border border-rule bg-sheet shadow-sm">
+          <div className="overflow-x-auto tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead className="border-b border-rule text-slate">
                 <tr>

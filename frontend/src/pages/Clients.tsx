@@ -21,7 +21,7 @@ export default function Clients() {
         <EmptyState title="No clients yet">Load the demo data from the overview page to get started.</EmptyState>
       )}
       {data && data.length > 0 && (
-        <ul className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
+        <ul className="divide-y divide-rule overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
           {data.map((c) => (
             <li key={c.id}>
               <Link to={`/clients/${c.id}`} className="flex flex-wrap items-center gap-x-6 gap-y-1 px-5 py-4 hover:bg-paper">

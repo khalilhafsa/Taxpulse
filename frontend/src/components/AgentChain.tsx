@@ -217,7 +217,7 @@ export default function AgentChain({ onFinished }: { onFinished?: () => void }) 
       {error && <div className="mb-4"><ErrorNote message={error} /></div>}
       {p.chain.error && !busy && <div className="mb-4"><ErrorNote message={`The last run stopped: ${p.chain.error}`} /></div>}
 
-      <div className="overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
+      <div className="overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
         <div className="overflow-x-auto">
           <div className="relative min-w-[720px] bg-[linear-gradient(to_bottom,#ffffff,#f3f4f6)] lg:min-w-0">
             {working && (

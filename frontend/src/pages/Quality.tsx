@@ -71,7 +71,7 @@ function StabilitySection({ s, estimate, onStart, starting, error }: {
   const demo = useDemo()
   const running = s?.status === 'running'
   return (
-    <section aria-labelledby="stability" className="rounded-xl border border-rule bg-sheet shadow-sm px-6 py-6">
+    <section aria-labelledby="stability" className="tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-6 py-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-xl">
           <SectionTitle id="stability">Stability test</SectionTitle>
@@ -227,7 +227,7 @@ export default function Quality() {
 
           <section aria-labelledby="agents">
             <SectionTitle id="agents">Cost and speed per agent</SectionTitle>
-            <div className="overflow-x-auto rounded-xl border border-rule bg-sheet shadow-sm">
+            <div className="overflow-x-auto tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
               <table className="w-full text-sm">
                 <thead className="border-b border-rule text-left text-slate">
                   <tr>

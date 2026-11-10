@@ -4,7 +4,7 @@ export function PageHeader({ title, intro, action }: { title: string; intro?: Re
   return (
     <header className="mb-8 flex flex-wrap items-end justify-between gap-x-10 gap-y-5">
       <div className="max-w-2xl">
-        <h1 className="font-serif text-[36px] font-bold leading-[1.02] tracking-[-0.035em] text-ink md:text-[44px]">{title}</h1>
+        <h1 className="tp-chrome-text pb-1 font-serif text-[36px] font-bold leading-[1.05] tracking-[-0.04em] md:text-[46px]">{title}</h1>
         {intro && <div className="mt-3 text-[15px] leading-relaxed text-slate">{intro}</div>}
       </div>
       {action}
@@ -14,7 +14,7 @@ export function PageHeader({ title, intro, action }: { title: string; intro?: Re
 
 /** The standard surface: a white card with a hairline border. */
 export function Card({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return <div className={`rounded-xl border border-rule bg-sheet shadow-sm ${className}`}>{children}</div>
+  return <div className={`tp-chrome rounded-xl border border-rule bg-sheet shadow-sm ${className}`}>{children}</div>
 }
 
 export function EmptyState({ title, children }: { title: string; children?: ReactNode }) {
@@ -43,8 +43,8 @@ export function Button({ children, onClick, disabled, variant = 'primary', type 
   title?: string
 }) {
   const styles = variant === 'primary'
-    ? 'bg-brand text-white shadow-sm hover:bg-brand-deep'
-    : 'border border-rule bg-sheet text-ink shadow-sm hover:border-slate/40 hover:bg-paper'
+    ? 'tp-btn-primary hover:brightness-125'
+    : 'tp-btn-quiet hover:brightness-[1.02]'
   return (
     <button
       type={type}

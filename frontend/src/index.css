@@ -1,44 +1,46 @@
 @import "tailwindcss";
 
-/* Design tokens: "Radar". A precise, modern workspace for German tax advisors: cool neutral
-   surfaces, a graphite navigation rail, cobalt as the brand colour and a warm orange "heat"
-   reserved for relevance and alerts (the hotter a client, the more it needs a call). */
+/* Design tokens: "Chrome". Minimal, metallic and calm: brushed-silver surfaces, a gunmetal
+   navigation rail, chrome type for headings and figures, and soft reflections that follow the
+   pointer. Cobalt stays the brand colour for links and focus; orange "heat" is reserved for
+   relevance and alerts. Reflections are switched off for people who prefer reduced motion. */
 @theme {
-  --color-paper: #f3f4f6;
-  --color-paper-deep: #e8eaef;
-  --color-sheet: #ffffff;
-  --color-ink: #0e1117;
-  --color-slate: #586070;
-  --color-rule: #e1e4ea;
+  --color-paper: #eceef1;
+  --color-paper-deep: #e1e4e9;
+  --color-sheet: #fbfbfc;
+  --color-ink: #0f1115;
+  --color-slate: #555c67;
+  --color-rule: #d5d9df;
   --color-brand: #2443d6;
   --color-brand-deep: #1a33a8;
-  --color-brand-soft: #eaeefd;
+  --color-brand-soft: #e8ecfb;
   --color-heat: #c2410c;
-  --color-heat-soft: #fdeee4;
+  --color-heat-soft: #fbece2;
   --color-danger: #b42318;
-  /* Dark surfaces: the rail and the lead card. Signal and relevance are their accents. */
-  --color-night: #0e1117;
-  --color-night-soft: #1a1f29;
-  --color-signal: #9aabff;
+  /* Gunmetal surfaces: the rail and the lead card. Signal and relevance are their accents. */
+  --color-night: #121418;
+  --color-night-soft: #1d2026;
+  --color-signal: #c9d2ff;
   --color-relevance: #ff9d5c;
 
   --font-sans: "Instrument Sans", system-ui, sans-serif;
   /* The display face. The token keeps its historical name so every heading picks it up. */
-  --font-serif: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif;
+  --font-serif: "Sora", "Instrument Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-wide: "Michroma", "Sora", system-ui, sans-serif;
 
   --radius-xs: 3px;
   --radius-sm: 5px;
-  --radius-md: 7px;
-  --radius-lg: 11px;
-  --radius-xl: 15px;
-  --radius-2xl: 20px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 22px;
 
-  --shadow-sm: 0 1px 2px rgb(14 17 23 / 0.06);
-  --shadow: 0 1px 3px rgb(14 17 23 / 0.07), 0 1px 2px rgb(14 17 23 / 0.04);
-  --shadow-md: 0 4px 12px -4px rgb(14 17 23 / 0.12);
-  --shadow-lg: 0 20px 44px -18px rgb(14 17 23 / 0.35), 0 0 0 1px rgb(14 17 23 / 0.06);
-  --shadow-xl: 0 30px 70px -24px rgb(14 17 23 / 0.45), 0 0 0 1px rgb(14 17 23 / 0.06);
+  --shadow-sm: 0 1px 2px rgb(15 17 21 / 0.06), 0 0 0 1px rgb(15 17 21 / 0.02);
+  --shadow: 0 2px 6px -2px rgb(15 17 21 / 0.1);
+  --shadow-md: 0 10px 24px -12px rgb(15 17 21 / 0.25);
+  --shadow-lg: 0 24px 50px -24px rgb(15 17 21 / 0.45);
+  --shadow-xl: 0 34px 80px -30px rgb(15 17 21 / 0.55), 0 0 0 1px rgb(15 17 21 / 0.06);
 }
 
 html {
@@ -50,7 +52,14 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-body { background: var(--color-paper); }
+/* The page itself is a sheet of brushed aluminium: a faint light source follows the pointer. */
+body {
+  background:
+    radial-gradient(900px 520px at var(--gx, 70vw) var(--gy, -10vh), rgb(255 255 255 / 0.85), rgb(255 255 255 / 0) 62%),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.18) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #f1f2f5 0%, #e7e9ed 55%, #e3e6ea 100%);
+  background-attachment: fixed;
+}
 
 /* Figures line up in columns everywhere: scores, counts, dates, costs. */
 table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
@@ -58,7 +67,7 @@ table, dl, .tabular-nums { font-variant-numeric: tabular-nums; }
 h1, h2, h3 { text-wrap: balance; }
 p { text-wrap: pretty; }
 
-::selection { background: var(--color-brand-soft); color: var(--color-brand-deep); }
+::selection { background: #c9d2ff; color: var(--color-ink); }
 
 :focus-visible {
   outline: 2px solid var(--color-brand);
@@ -68,6 +77,148 @@ p { text-wrap: pretty; }
 button:not(:disabled), a, summary, select, [role="button"] { cursor: pointer; }
 
 a, button { transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+
+/* ---------- Chrome surfaces ---------- */
+
+/* Light chrome card: silver body, a machined bevel for a border, and a specular highlight
+   that sits where the pointer is (--mx/--my are set by the Layout's pointer tracker). */
+.tp-chrome {
+  position: relative;
+  isolation: isolate;
+  border-color: transparent !important;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.35) 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, #fbfbfc 0%, #f0f1f4 60%, #e9ebef 100%) !important;
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset, 0 1px 2px rgb(15 17 21 / 0.06), 0 12px 28px -20px rgb(15 17 21 / 0.35);
+}
+.tp-chrome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    radial-gradient(220px circle at var(--mx, 50%) var(--my, -60px), #ffffff, rgb(255 255 255 / 0) 70%),
+    linear-gradient(155deg, #ffffff 0%, #c4c9d1 28%, #f5f6f8 48%, #a9afb9 72%, #e6e9ed 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.tp-chrome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  /* A soft hot spot under the pointer plus an anisotropic streak, like light on polished metal. */
+  background:
+    radial-gradient(320px circle at var(--mx, 50%) var(--my, 0), rgb(255 255 255 / 1), rgb(255 255 255 / 0) 60%),
+    linear-gradient(105deg,
+      transparent calc(var(--mx, 50%) - 190px),
+      rgb(150 160 176 / 0.18) calc(var(--mx, 50%) - 70px),
+      rgb(255 255 255 / 0.95) var(--mx, 50%),
+      rgb(150 160 176 / 0.18) calc(var(--mx, 50%) + 70px),
+      transparent calc(var(--mx, 50%) + 190px));
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.tp-chrome:hover::after { opacity: 1; }
+.tp-chrome:hover { box-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset, 0 1px 2px rgb(15 17 21 / 0.08), 0 18px 36px -20px rgb(15 17 21 / 0.45); }
+
+/* Dark chrome (gunmetal): the lead card and the score columns. */
+.tp-chrome-dark {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(160deg, #2c3139 0%, #15181d 38%, #0d0f12 62%, #1e2229 100%);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.12) inset, 0 30px 60px -30px rgb(15 17 21 / 0.7);
+}
+.tp-chrome-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    radial-gradient(260px circle at var(--mx, 50%) var(--my, -60px), rgb(255 255 255 / 0.55), rgb(255 255 255 / 0) 70%),
+    linear-gradient(160deg, rgb(255 255 255 / 0.35), rgb(255 255 255 / 0.04) 40%, rgb(255 255 255 / 0.18) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.tp-chrome-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(520px circle at var(--mx, 30%) var(--my, 0), rgb(255 255 255 / 0.13), rgb(255 255 255 / 0) 60%),
+    linear-gradient(105deg, transparent calc(var(--mx, 30%) - 260px), rgb(255 255 255 / 0.07) var(--mx, 30%), transparent calc(var(--mx, 30%) + 260px));
+}
+.tp-metal-dark {
+  background: linear-gradient(170deg, #30353e 0%, #16191e 45%, #0e1013 70%, #22262d 100%);
+  box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.06), inset 0 1px 0 rgb(255 255 255 / 0.12);
+}
+
+/* Gunmetal navigation rail with a light that follows the pointer down the rail. */
+.tp-rail {
+  background:
+    radial-gradient(300px 260px at 50% var(--gy, 20vh), rgb(255 255 255 / 0.08), rgb(255 255 255 / 0) 70%),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.018) 0 1px, transparent 1px 3px),
+    linear-gradient(180deg, #252a31 0%, #14171b 45%, #0c0d10 100%);
+  box-shadow: inset -1px 0 0 rgb(255 255 255 / 0.07);
+}
+.tp-rail-active {
+  background: linear-gradient(180deg, #ffffff 0%, #e3e6eb 55%, #c9ced6 100%);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 0 rgb(0 0 0 / 0.4), 0 6px 14px -6px rgb(0 0 0 / 0.6);
+}
+
+/* Chrome type: a polished horizon line across the letters. The light text version is for dark surfaces. */
+.tp-chrome-text {
+  background: linear-gradient(180deg, #4a505a 0%, #15171b 46%, #3d424b 52%, #8d949f 78%, #2a2e35 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.tp-chrome-text-light {
+  background: linear-gradient(180deg, #ffffff 0%, #e6e9ee 44%, #8e96a2 52%, #dfe3e9 74%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons: polished gunmetal (primary) and brushed silver (quiet). A reflection sweeps across on hover. */
+.tp-btn-primary, .tp-btn-quiet { position: relative; overflow: hidden; isolation: isolate; }
+.tp-btn-primary {
+  color: #fff;
+  background: linear-gradient(180deg, #474d57 0%, #23272e 48%, #121418 52%, #262a31 100%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.28), 0 1px 0 rgb(0 0 0 / 0.25), 0 6px 14px -8px rgb(15 17 21 / 0.7);
+}
+.tp-btn-quiet {
+  color: var(--color-ink);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f2f5 50%, #e4e7ec 100%);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px #c9ced6, 0 1px 2px rgb(15 17 21 / 0.08);
+}
+.tp-btn-primary::after, .tp-btn-quiet::after {
+  content: "";
+  position: absolute;
+  inset: -40% auto -40% -60%;
+  width: 45%;
+  z-index: -1;
+  transform: skewX(-20deg) translateX(0);
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.55), transparent);
+  pointer-events: none;
+}
+.tp-btn-primary::after { background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.3), transparent); }
+.tp-btn-primary:not(:disabled):hover::after, .tp-btn-quiet:not(:disabled):hover::after { animation: tp-shine 900ms ease-out; }
+@keyframes tp-shine { from { transform: skewX(-20deg) translateX(0) } to { transform: skewX(-20deg) translateX(420%) } }
 
 /* Demo banner: hatched like a specimen stamp, so fictional data is never mistaken for real data. */
 .tp-hatch {
@@ -83,14 +234,9 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
     letter-spacing: 0.005em;
     color: var(--color-slate);
   }
-  /* Faint dot grid behind the radar and the lead card. */
-  .tp-grid {
-    background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
-    background-size: 18px 18px;
-  }
 }
 
-/* Radar: the sweep turns slowly, blips pulse once when they appear. */
+/* Radar: the sweep turns slowly, blips pulse when they appear. */
 @keyframes tp-sweep { to { transform: rotate(360deg) } }
 .tp-sweep { transform-origin: center; transform-box: fill-box; animation: tp-sweep 9s linear infinite; }
 @keyframes tp-blip { 0% { r: 0; opacity: .9 } 70% { opacity: .25 } 100% { r: 22px; opacity: 0 } }
@@ -116,6 +262,8 @@ a, button { transition: color 150ms ease, background-color 150ms ease, border-co
 .tp-dots i:nth-child(3) { animation-delay: .4s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal { animation: none; }
+  .tp-row-new, .tp-bubble, .tp-dots i, .tp-sweep, .tp-blip-ring, .tp-pal,
+  .tp-btn-primary::after, .tp-btn-quiet::after { animation: none !important; }
+  .tp-chrome::after { display: none; }
   a, button { transition: none; }
 }

@@ -83,7 +83,7 @@ export default function ProfileView({ profile, onCite }: { profile: Profile; onC
 
       <section aria-labelledby="facts">
         <SectionTitle id="facts">Key facts</SectionTitle>
-        <dl className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm">
+        <dl className="divide-y divide-rule tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
           {d.key_facts.map((f, i) => (
             <div key={i} className="grid gap-1 px-5 py-3 sm:grid-cols-[150px_1fr] sm:gap-6">
               <dt className="text-sm text-slate">{f.label}</dt>
@@ -95,7 +95,7 @@ export default function ProfileView({ profile, onCite }: { profile: Profile; onC
 
       <section aria-labelledby="areas">
         <SectionTitle id="areas">Tax exposure</SectionTitle>
-        <ul className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm px-5">
+        <ul className="divide-y divide-rule tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-5">
           {areas.map((a, i) => <TaxAreaItem key={i} area={a} onCite={onCite} />)}
         </ul>
       </section>

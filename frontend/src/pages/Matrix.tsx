@@ -68,7 +68,7 @@ export default function Matrix() {
             <span className="text-ink">{scored}</span> scored by the Impact Matcher,{' '}
             <span className="font-semibold text-heat">{alerts} {alerts === 1 ? 'alert' : 'alerts'}</span>.
           </p>
-          <div className="overflow-x-auto rounded-xl border border-rule bg-sheet shadow-sm">
+          <div className="overflow-x-auto tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
             <table className="w-full border-collapse text-sm">
               <caption className="sr-only">Matcher scores by client and tax update</caption>
               <thead>

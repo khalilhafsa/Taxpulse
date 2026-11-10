@@ -36,7 +36,7 @@ export default function DataRoom({ clientId, documents, onChange }: {
         {documents.length} {documents.length === 1 ? 'file' : 'files'}, {pages} pages
       </p>
       {documents.length > 0 && (
-        <ul className="divide-y divide-rule overflow-hidden rounded-xl border border-rule bg-sheet shadow-sm">
+        <ul className="divide-y divide-rule overflow-hidden tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
           {documents.map((d) => (
             <li key={d.id}>
               <a href={api.fileUrl(d.id)} target="_blank" rel="noreferrer"

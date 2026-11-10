@@ -62,7 +62,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
   const field = 'w-full rounded-md border border-rule bg-sheet px-3 shadow-sm py-2 text-[15px] focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/15 disabled:bg-paper'
 
   return (
-    <div className="rounded-xl border border-rule bg-sheet shadow-sm">
+    <div className="tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-rule bg-paper px-5 py-2.5 text-sm">
         <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${STATUS[d.status].className}`}>
           {STATUS[d.status].label}
@@ -117,7 +117,7 @@ function DraftEditor({ d, to, onChange, canRevise = false }: {
         {d.status === 'approved' && (
           <>
             <a href={`mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
-              className="inline-flex min-h-10 items-center rounded-sm border border-brand bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-deep">
+              className="tp-btn-primary inline-flex min-h-10 items-center rounded-md px-4 py-2 text-sm font-semibold">
               Open in my email app
             </a>
             <Button variant="quiet" onClick={() => act(() => api.setDraftStatus(d.id, 'sent'))}>Mark as sent</Button>
@@ -177,7 +177,7 @@ function ClientBlock({ e, onChange }: { e: OutreachEntry; onChange: () => void }
   }
 
   return (
-    <section className="rounded-2xl border border-rule bg-sheet p-5 shadow-sm md:p-7" aria-labelledby={`c${e.client.id}`}>
+    <section className="tp-chrome rounded-2xl border border-rule bg-sheet p-5 shadow-sm md:p-7" aria-labelledby={`c${e.client.id}`}>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 id={`c${e.client.id}`} className="font-serif text-[32px] font-semibold leading-tight tracking-[-0.02em]">

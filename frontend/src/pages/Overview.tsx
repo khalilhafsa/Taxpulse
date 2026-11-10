@@ -36,8 +36,8 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
           <stop offset="100%" stopColor="#ff9d5c" stopOpacity="0" />
         </radialGradient>
         <linearGradient id="tp-beam" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#9aabff" stopOpacity="0" />
-          <stop offset="100%" stopColor="#9aabff" stopOpacity=".28" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity=".22" />
         </linearGradient>
       </defs>
       {[1, 0.72, 0.44].map((k, i) => (
@@ -47,7 +47,7 @@ function Radar({ clients, active, onActive }: { clients: Top; active: number | n
       <path d={`M${c} ${c - R}V${c + R}M${c - R} ${c}H${c + R}`} stroke="#fff" strokeOpacity=".07" />
       <g className="tp-sweep">
         <path d={`M${c} ${c} L${c + R} ${c} A${R} ${R} 0 0 0 ${c + R * Math.cos(-0.9)} ${c + R * Math.sin(-0.9)} Z`} fill="url(#tp-beam)" />
-        <line x1={c} y1={c} x2={c + R} y2={c} stroke="#9aabff" strokeOpacity=".55" />
+        <line x1={c} y1={c} x2={c + R} y2={c} stroke="#ffffff" strokeOpacity=".6" />
       </g>
       <text x={c + 6} y={c - R * 0.72 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">60</text>
       <text x={c + 6} y={c - R * 0.44 + 14} fill="#fff" fillOpacity=".35" fontSize="10" fontFamily="IBM Plex Mono, monospace">80</text>
@@ -76,7 +76,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
   const top = clients[0]
   const focus = active !== null ? clients[active] : top
   return (
-    <section aria-labelledby="lead" className="tp-grid relative overflow-hidden rounded-2xl bg-night text-white shadow-lg">
+    <section aria-labelledby="lead" className="tp-chrome-dark relative overflow-hidden rounded-2xl text-white">
       <div className="grid gap-8 p-6 md:p-9 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
         <div>
           <p className="inline-flex items-center gap-2 rounded-full bg-white/[0.07] px-3 py-1 text-xs font-medium text-white/75 ring-1 ring-white/10">
@@ -86,7 +86,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
           {focus ? (
             <>
               <p className="mt-6 text-sm text-white/55">{active !== null ? 'On the radar' : 'Call first'}</p>
-              <h2 id="lead" className="mt-1 font-serif text-[34px] font-bold leading-[1.02] tracking-[-0.04em] md:text-[48px]">
+              <h2 id="lead" className="tp-chrome-text-light mt-1 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.045em] md:text-[48px]">
                 {focus.client}
               </h2>
               <div className="mt-5 flex items-end gap-4">
@@ -103,7 +103,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
               </ul>
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link to={`/alerts#alert-${focus.alert_id}`}
-                  className="inline-flex min-h-11 items-center gap-2 rounded-md bg-white px-5 text-sm font-semibold text-night shadow-sm hover:bg-signal">
+                  className="tp-btn-quiet inline-flex min-h-11 items-center gap-2 rounded-md px-5 text-sm font-semibold">
                   Open the alert <span aria-hidden>→</span>
                 </Link>
                 <Link to="/alerts" className="inline-flex min-h-11 items-center rounded-md px-4 text-sm font-semibold text-white/80 ring-1 ring-white/15 hover:bg-white/[0.07] hover:text-white">
@@ -113,7 +113,7 @@ function Lead({ clients, toReview }: { clients: Top; toReview: number }) {
             </>
           ) : (
             <>
-              <h2 id="lead" className="mt-6 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.04em] md:text-[44px]">
+              <h2 id="lead" className="tp-chrome-text-light mt-6 pb-1 font-serif text-[34px] font-bold leading-[1.05] tracking-[-0.045em] md:text-[44px]">
                 The radar is quiet this week.
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
@@ -142,14 +142,14 @@ function Kpi({ label, value, note, to, icon, highlight = false }: {
   label: string; value: string; note: string; to: string; icon: string; highlight?: boolean
 }) {
   return (
-    <Link to={to} className="group rounded-xl border border-rule bg-sheet p-5 shadow-sm hover:border-slate/35 hover:shadow-md">
+    <Link to={to} className="tp-chrome group rounded-xl border border-rule bg-sheet p-5 shadow-sm">
       <dt className="flex items-center justify-between gap-2 text-[13px] font-medium text-slate">
         {label}
-        <span className={`flex h-8 w-8 items-center justify-center rounded-md ${highlight ? 'bg-heat-soft text-heat' : 'bg-paper text-slate'}`} aria-hidden>
+        <span className={`flex h-8 w-8 items-center justify-center rounded-md ${highlight ? 'bg-heat-soft text-heat' : 'tp-btn-quiet text-slate'}`} aria-hidden>
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{KPI_ICON[icon]}</svg>
         </span>
       </dt>
-      <dd className={`mt-3 font-serif text-[38px] font-bold leading-none tracking-[-0.04em] ${highlight ? 'text-heat' : 'text-ink'}`}>{value}</dd>
+      <dd className={`mt-3 pb-0.5 font-serif text-[40px] font-bold leading-none tracking-[-0.05em] ${highlight ? 'text-heat' : 'tp-chrome-text'}`}>{value}</dd>
       <dd className="mt-2.5 flex items-center justify-between text-[13px] text-slate">
         {note}
         <span aria-hidden className="opacity-0 transition-opacity group-hover:opacity-100">→</span>
@@ -169,7 +169,7 @@ function NextSteps({ todo }: { todo: Dashboard['todo'] }) {
           {todo.map((t, i) => (
             <li key={t.key}>
               <Link to={t.to} className="group flex min-h-12 items-center gap-3.5 rounded-lg border border-rule px-3.5 py-2.5 hover:border-brand/40 hover:bg-brand-soft/50">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand text-xs font-bold text-white">{i + 1}</span>
+                <span className="tp-btn-primary flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">{i + 1}</span>
                 <span className="flex-1 text-[14.5px] font-medium">{t.label}</span>
                 <span aria-hidden className="text-slate transition-transform group-hover:translate-x-0.5 group-hover:text-brand">→</span>
               </Link>
@@ -192,7 +192,7 @@ function Ranking({ clients }: { clients: Top }) {
           {clients.map((c, i) => (
             <li key={c.client_id}>
               <Link to={`/alerts#alert-${c.alert_id}`} className="group grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-3 rounded-lg px-2 py-3 hover:bg-paper">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-paper font-serif text-sm font-bold text-slate group-hover:bg-sheet">{i + 1}</span>
+                <span className="tp-btn-quiet flex h-9 w-9 items-center justify-center rounded-full font-serif text-sm font-bold text-slate">{i + 1}</span>
                 <span className="min-w-0">
                   <span className="block truncate font-semibold group-hover:text-brand">{c.client}</span>
                   <span className="mt-0.5 block truncate text-[13px] text-slate">

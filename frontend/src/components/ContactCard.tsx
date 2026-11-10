@@ -30,7 +30,7 @@ export default function ContactCard({ clientId, contact, onChange }: {
     <section aria-labelledby="contact" className="mb-8">
       <SectionTitle id="contact">Contact</SectionTitle>
       {!editing ? (
-        <div className="rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm">
+        <div className="tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm">
           {contact.contact_name ? (
             <>
               <p className="font-medium">{contact.contact_name}</p>
@@ -46,7 +46,7 @@ export default function ContactCard({ clientId, contact, onChange }: {
           </button>
         </div>
       ) : (
-        <form onSubmit={save} className="space-y-3 rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3">
+        <form onSubmit={save} className="space-y-3 tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3">
           <label className="block text-sm">
             <span className="text-slate">Name</span>
             <input value={form.contact_name} onChange={(e) => setForm({ ...form, contact_name: e.target.value })}
@@ -64,7 +64,7 @@ export default function ContactCard({ clientId, contact, onChange }: {
           </label>
           {error && <ErrorNote message={error} />}
           <div className="flex gap-3 text-sm">
-            <button type="submit" className="rounded-md bg-brand px-3 py-1.5 font-semibold text-white">Save</button>
+            <button type="submit" className="tp-btn-primary rounded-md px-3 py-1.5 font-semibold">Save</button>
             <button type="button" onClick={() => setEditing(false)} className="font-medium text-slate">Cancel</button>
           </div>
         </form>

@@ -83,13 +83,13 @@ export default function UpdateDetail() {
       {a ? (
         <div className="space-y-10">
           {!a.relevant_for_companies && (
-            <p className="rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm text-slate">
+            <p className="tp-chrome rounded-xl border border-rule bg-sheet shadow-sm px-4 py-3 text-sm text-slate">
               The Analyst found no impact on businesses. This publication will not be matched against your clients.
             </p>
           )}
           <p className="text-[18px] leading-relaxed">{a.summary}</p>
 
-          <dl className="divide-y divide-rule rounded-xl border border-rule bg-sheet shadow-sm">
+          <dl className="divide-y divide-rule tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
             {[
               ['Tax areas', a.tax_categories.join(', ')],
               ['Who is affected', a.who_is_affected],
@@ -125,7 +125,7 @@ export default function UpdateDetail() {
         </EmptyState>
       )}
 
-      <details className="mt-10 rounded-xl border border-rule bg-sheet shadow-sm">
+      <details className="mt-10 tp-chrome rounded-xl border border-rule bg-sheet shadow-sm">
         <summary className="cursor-pointer px-5 py-3 text-sm font-medium">Original text</summary>
         <div className="border-t border-rule px-5 py-4">
           {u.url && (
